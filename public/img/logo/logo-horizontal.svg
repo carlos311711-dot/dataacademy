@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 100" fill="none" class="da-logo-full">
+  <!-- Isotype on the left -->
+  <g transform="translate(5, 5)">
+    <!-- Main 'A' Structure in Navy/White (currentColor) -->
+    <path d="M 28 80 L 53 15 L 78 80" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Right 'D' Loop branching from the right leg -->
+    <path d="M 64 45 C 76 45, 84 53, 84 65 C 84 77, 74 80, 62 80" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Network node lines branching from the right leg to the top-right -->
+    <path d="M 58 30 Q 70 27, 78 15" stroke="var(--accent-color, #00BCD4)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="78" cy="15" r="4.5" fill="var(--accent-color, #00BCD4)"/>
+    
+    <path d="M 62 40 Q 75 37, 83 25" stroke="var(--accent-color, #00BCD4)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="83" cy="25" r="4.5" fill="var(--accent-color, #00BCD4)"/>
+
+    <path d="M 66 50 Q 80 47, 88 35" stroke="var(--accent-color, #00BCD4)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="88" cy="35" r="4.5" fill="var(--accent-color, #00BCD4)"/>
+
+    <!-- Inner Cyan Arch inside the bottom right 'D' loop -->
+    <path d="M 52 70 C 62 70, 74 70, 74 63 C 74 57, 62 57, 52 57" stroke="var(--accent-color, #00BCD4)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Text on the right -->
+  <text x="110" y="48" fill="currentColor" font-family="'Inter', 'Sora', sans-serif" font-weight="800" font-size="20" letter-spacing="1">DATA ACADEMY</text>
+  <text x="110" y="73" fill="var(--accent-color, #00BCD4)" font-family="'Inter', 'Sora', sans-serif" font-weight="700" font-size="14" letter-spacing="4">L A T A M</text>
+</svg>

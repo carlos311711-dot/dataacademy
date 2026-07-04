@@ -1,0 +1,300 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Inscripciones Abiertas | Data Academy" description="Venta de cursos en vivo y especializaciones en Power BI, SQL, n8n y Make en Data Academy. Precios de preventa disponibles.">
+
+  <!-- Landing Hero -->
+  <header class="detail-hero" style="padding: 140px 0 80px; text-align: center; background: radial-gradient(circle at top, rgba(0, 82, 204, 0.1) 0%, transparent 60%), var(--bg-light);">
+    <div class="container detail-container" style="max-width: 800px;">
+      <span class="course-tag" style="background-color: var(--secondary-color); color: white; margin-bottom: 16px; display: inline-block;">¡Preventa Exclusiva Abierta!</span>
+      <h1 style="font-size: clamp(2.5rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: var(--text-main);">
+        Acelera tu carrera profesional dominando la <span class="highlight">Analítica de Datos</span>
+      </h1>
+      <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 32px; line-height: 1.5;">
+        Aprende en vivo desde cero. Crea pipelines ETL, automatiza flujos operativos y diseña dashboards profesionales de nivel gerencial.
+      </p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="#ofertas" class="btn btn-primary">Ver Cursos y Tarifas <i class="fas fa-chevron-down"></i></a>
+        <a href="https://api.whatsapp.com/send/?phone=51904882577&text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Data%20Academy.&type=phone_number&app_absent=0"
+           class="btn btn-secondary" target="_blank"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Pricing & Offers Section -->
+  <section class="section" id="ofertas" style="background: var(--bg-main);">
+    <div class="container">
+      <div class="section-header text-center" style="max-width: 700px; margin: 0 auto 56px;">
+        <span class="course-tag" style="margin-bottom: 12px; display: inline-block;">Nuestros Programas</span>
+        <h2>Invierte en tus Habilidades</h2>
+        <p>Clases interactivas en vivo vía Zoom, mentoría semanal, acceso a grabaciones de por vida y certificados de finalización válidos.</p>
+      </div>
+
+      <!-- Course Tabs -->
+      <div class="catalog-tabs-container">
+        <div class="catalog-tabs-nav">
+          <button class="catalog-tab-btn active" data-tab="tab-sql-analyst">SQL Data Analyst</button>
+          <button class="catalog-tab-btn" data-tab="tab-sql-engineer">SQL Data Engineer</button>
+          <button class="catalog-tab-btn" data-tab="tab-powerbi">Power BI En Vivo</button>
+          <button class="catalog-tab-btn" data-tab="tab-excel">Excel En Vivo</button>
+          <button class="catalog-tab-btn" data-tab="tab-python">Python + PySpark</button>
+        </div>
+
+        <!-- Tab 1: SQL Data Analyst -->
+        <div class="catalog-tab-panel active" id="tab-sql-analyst">
+          <div class="course-card" style="border-top: 4px solid var(--primary-color); padding: 40px; border-radius: 20px;">
+            <div class="course-grid-catalog">
+              <div>
+                <div style="margin-bottom: 15px;">
+                  <span class="sale-badge-pill sale-badge-red">¡SOLD OUT inminente!</span>
+                  <span class="sale-badge-pill sale-badge-blue">Primeros 5 inscritos</span>
+                  <span class="sale-badge-pill sale-badge-green">Certificación Gratis</span>
+                </div>
+                <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">SQL para Data Analyst (Básico - Intermedio)</h3>
+                <p class="course-desc" style="font-size: 1.05rem; margin-bottom: 20px;">
+                  <strong>Inicio:</strong> 04 de agosto (Martes y Jueves, 8:00 PM - 11:00 PM)<br>
+                  <strong>Duración:</strong> 5 semanas (+30 Hrs de contenido práctico)
+                </p>
+                <p class="course-desc" style="font-size: 1rem; margin-bottom: 20px; color: var(--text-muted);">
+                  <strong>Temario Resumido:</strong> Introducción a BD (Modelos, Entidades, Normalización), Funciones (Transact SQL, Agregación, Fecha, Texto), Operadores y Estructuras de Control, Uso de CASE WHEN, Joins (Inner, Outer, Cross, Left), CTEs vs Window Functions.
+                </p>
+              </div>
+              <div style="text-align: center; background: var(--card-bg); padding: 28px; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: center;">
+                <span style="font-size: 0.95rem; text-decoration: line-through; color: var(--text-muted); display: block;">Precio Regular: S/ 250</span>
+                <span style="font-size: 2.2rem; font-weight: 900; color: var(--primary-color); display: block; margin: 8px 0;">S/ 199</span>
+                <span style="font-size: 0.85rem; color: var(--secondary-color); display: block; margin-bottom: 20px; font-weight: 700; text-transform: uppercase;">Preventa Especial</span>
+                <a href="https://api.whatsapp.com/send/?phone=51904882577&text=Hola%2C%20quiero%20inscribirme%20en%20el%20curso%20de%20SQL%20para%20Data%20Analyst%20con%20tarifa%20preventa%20de%20S%2F199&type=phone_number&app_absent=0"
+                   class="btn btn-primary btn-whatsapp" target="_blank" style="width: 100%; margin-bottom: 12px;">Quiero este curso <i class="fab fa-whatsapp"></i></a>
+                <a href="/cursos/sql" class="btn btn-secondary" style="width: 100%;">Ver Temario Completo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: SQL Data Engineer -->
+        <div class="catalog-tab-panel" id="tab-sql-engineer">
+          <div class="course-card" style="border-top: 4px solid var(--primary-color); padding: 40px; border-radius: 20px;">
+            <div class="course-grid-catalog">
+              <div>
+                <div style="margin-bottom: 15px;">
+                  <span class="sale-badge-pill sale-badge-red">¡Solo 8 Vacantes!</span>
+                  <span class="sale-badge-pill sale-badge-blue">Primeros 5 inscritos</span>
+                </div>
+                <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">SQL para Data Engineer (Intermedio - Avanzado)</h3>
+                <p class="course-desc" style="font-size: 1.05rem; margin-bottom: 20px;">
+                  <strong>Inicio:</strong> 04 de agosto (Martes y Jueves, 8:00 PM - 11:00 PM)<br>
+                  <strong>Duración:</strong> 5 semanas (+30 Hrs de contenido práctico)
+                </p>
+                <p class="course-desc" style="font-size: 1rem; margin-bottom: 20px; color: var(--text-muted);">
+                  <strong>Temario Resumido:</strong> Fundamentos y Consultas Clave, CTEs vs Window Functions, Arquitectura de BigQuery (Datasets, Tablas Externas, Particionamiento), Funciones SQL Avanzadas en BigQuery (Arrays, Structs, RegEx, JSON), Subconsultas Avanzadas, Proyecto Integrador (Pipeline ELT con capas de datos).
+                </p>
+              </div>
+              <div style="text-align: center; background: var(--card-bg); padding: 28px; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: center;">
+                <span style="font-size: 0.95rem; text-decoration: line-through; color: var(--text-muted); display: block;">Precio Regular: S/ 250</span>
+                <span style="font-size: 2.2rem; font-weight: 900; color: var(--primary-color); display: block; margin: 8px 0;">S/ 149</span>
+                <span style="font-size: 0.85rem; color: var(--secondary-color); display: block; margin-bottom: 20px; font-weight: 700; text-transform: uppercase;">Preventa Especial</span>
+                <a href="https://api.whatsapp.com/send/?phone=51904882577&text=Hola%2C%20quiero%20inscribirme%20en%20el%20curso%20de%20SQL%20para%20Data%20Engineer%20con%20tarifa%20preventa%20de%20S%2F149&type=phone_number&app_absent=0"
+                   class="btn btn-primary btn-whatsapp" target="_blank" style="width: 100%; margin-bottom: 12px;">Quiero este curso <i class="fab fa-whatsapp"></i></a>
+                <a href="/cursos/sql-engineer" class="btn btn-secondary" style="width: 100%;">Ver Temario Completo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Power BI -->
+        <div class="catalog-tab-panel" id="tab-powerbi">
+          <div class="course-card" style="border-top: 4px solid var(--primary-color); padding: 40px; border-radius: 20px;">
+            <div class="course-grid-catalog">
+              <div>
+                <div style="margin-bottom: 15px;">
+                  <span class="sale-badge-pill sale-badge-red">¡Últimas 4 vacantes!</span>
+                  <span class="sale-badge-pill sale-badge-green">Certificación Gratis</span>
+                </div>
+                <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">Power BI En Vivo (De Cero a Experto)</h3>
+                <p class="course-desc" style="font-size: 1.05rem; margin-bottom: 20px;">
+                  <strong>Inicio:</strong> 03 de agosto (Lunes y Miércoles, 8:00 PM - 11:00 PM)<br>
+                  <strong>Duración:</strong> 6 semanas (+30 Hrs de contenido práctico)
+                </p>
+                <p class="course-desc" style="font-size: 1rem; margin-bottom: 20px; color: var(--text-muted);">
+                  <strong>Temario Resumido:</strong> Introducción a Power BI, Mi primer Dashboard (Storytelling), Procesamiento de datos (Limpieza, Pivoteo), Lenguaje M, DAX Primeros Pasos (Calculate, SUM, COUNT), DAX Avanzado (Time Intelligence, SUMX), Dashboard Automático (Publicación, Seguridad).
+                </p>
+              </div>
+              <div style="text-align: center; background: var(--card-bg); padding: 28px; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: center;">
+                <span style="font-size: 0.95rem; text-decoration: line-through; color: var(--text-muted); display: block;">Precio Regular: S/ 250</span>
+                <span style="font-size: 2.2rem; font-weight: 900; color: var(--primary-color); display: block; margin: 8px 0;">S/ 199</span>
+                <span style="font-size: 0.85rem; color: var(--secondary-color); display: block; margin-bottom: 20px; font-weight: 700; text-transform: uppercase;">Preventa Especial</span>
+                <a href="https://api.whatsapp.com/send/?phone=51904882577&text=Hola%2C%20quiero%20inscribirme%20en%20el%20curso%20de%20Power%20BI%20con%20tarifa%20preventa%20de%20S%2F199&type=phone_number&app_absent=0"
+                   class="btn btn-primary btn-whatsapp" target="_blank" style="width: 100%; margin-bottom: 12px;">Quiero este curso <i class="fab fa-whatsapp"></i></a>
+                <a href="/cursos/powerbi" class="btn btn-secondary" style="width: 100%;">Ver Temario Completo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Excel -->
+        <div class="catalog-tab-panel" id="tab-excel">
+          <div class="course-card" style="border-top: 4px solid var(--primary-color); padding: 40px; border-radius: 20px;">
+            <div class="course-grid-catalog">
+              <div>
+                <div style="margin-bottom: 15px;">
+                  <span class="sale-badge-pill sale-badge-red">¡Solo 2 Vacantes!</span>
+                  <span class="sale-badge-pill sale-badge-green">Certificación Gratis</span>
+                </div>
+                <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">Excel En Vivo (De Cero a Experto)</h3>
+                <p class="course-desc" style="font-size: 1.05rem; margin-bottom: 20px;">
+                  <strong>Inicio:</strong> 03 de agosto (Lunes y Miércoles, 8:00 PM - 11:00 PM)<br>
+                  <strong>Duración:</strong> 6 semanas (+30 Hrs de contenido práctico)
+                </p>
+                <p class="course-desc" style="font-size: 1rem; margin-bottom: 20px; color: var(--text-muted);">
+                  <strong>Temario Resumido:</strong> Calidad y Limpieza de Datos, Transformación ETL con Power Query, Búsquedas y Cruces (BUSCARX avanzado), Lógica Condicional, Análisis Multidimensional con Tablas Dinámicas, Visualización Avanzada.<br>
+                  <strong>Proyecto Integrador:</strong> Dashboard de finanzas personales.
+                </p>
+              </div>
+              <div style="text-align: center; background: var(--card-bg); padding: 28px; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: center;">
+                <span style="font-size: 0.95rem; text-decoration: line-through; color: var(--text-muted); display: block;">Precio Regular: S/ 250</span>
+                <span style="font-size: 2.2rem; font-weight: 900; color: var(--primary-color); display: block; margin: 8px 0;">S/ 199</span>
+                <span style="font-size: 0.85rem; color: var(--secondary-color); display: block; margin-bottom: 20px; font-weight: 700; text-transform: uppercase;">Preventa Especial</span>
+                <a href="https://api.whatsapp.com/send/?phone=51904882577&text=Hola%2C%20quiero%20inscribirme%20en%20el%20curso%20de%20Excel%20con%20tarifa%20preventa%20de%20S%2F199&type=phone_number&app_absent=0"
+                   class="btn btn-primary btn-whatsapp" target="_blank" style="width: 100%; margin-bottom: 12px;">Quiero este curso <i class="fab fa-whatsapp"></i></a>
+                <a href="/cursos/excel" class="btn btn-secondary" style="width: 100%;">Ver Temario Completo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 5: Python -->
+        <div class="catalog-tab-panel" id="tab-python">
+          <div class="course-card" style="border-top: 4px solid var(--primary-color); padding: 40px; border-radius: 20px;">
+            <div class="course-grid-catalog">
+              <div>
+                <div style="margin-bottom: 15px;">
+                  <span class="sale-badge-pill sale-badge-red">¡Últimas 4 vacantes!</span>
+                  <span class="sale-badge-pill sale-badge-green">Certificación Gratis</span>
+                </div>
+                <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">Python + PySpark En Vivo (De Cero a Experto)</h3>
+                <p class="course-desc" style="font-size: 1.05rem; margin-bottom: 20px;">
+                  <strong>Inicio:</strong> 07 de agosto (Viernes y Sábado, 8:00 PM - 11:00 PM)<br>
+                  <strong>Duración:</strong> 5 semanas (+30 Hrs de contenido práctico)
+                </p>
+                <p class="course-desc" style="font-size: 1rem; margin-bottom: 20px; color: var(--text-muted);">
+                  <strong>Temario Resumido:</strong> Python I y II (Variables, Listas, Tuplas, Diccionarios, Bucles), Funciones y Errores, Pandas I y II (Lectura, Limpieza, Exportación), Entornos Profesionales (Git y Github), Base de Datos-Path, Visualizaciones (Matplotlib, Seaborn).
+                </p>
+              </div>
+              <div style="text-align: center; background: var(--card-bg); padding: 28px; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: center;">
+                <span style="font-size: 0.95rem; text-decoration: line-through; color: var(--text-muted); display: block;">Precio Regular: S/ 250</span>
+                <span style="font-size: 2.2rem; font-weight: 900; color: var(--primary-color); display: block; margin: 8px 0;">S/ 159</span>
+                <span style="font-size: 0.85rem; color: var(--secondary-color); display: block; margin-bottom: 20px; font-weight: 700; text-transform: uppercase;">Preventa Especial</span>
+                <a href="https://api.whatsapp.com/send/?phone=51904882577&text=Hola%2C%20quiero%20inscribirme%20en%20el%20curso%20de%20Python%20con%20tarifa%20preventa%20de%20S%2F159&type=phone_number&app_absent=0"
+                   class="btn btn-primary btn-whatsapp" target="_blank" style="width: 100%; margin-bottom: 12px;">Quiero este curso <i class="fab fa-whatsapp"></i></a>
+                <a href="/cursos/python" class="btn btn-secondary" style="width: 100%;">Ver Temario Completo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Combos Table -->
+      <div class="combos-section fade-in">
+        <div class="text-center" style="max-width: 600px; margin: 0 auto 30px;">
+          <span class="course-tag" style="background-color: var(--secondary-color); color: white; display: inline-block; margin-bottom: 12px;">Descuentos Especiales</span>
+          <h3>Maximiza tu perfil profesional dominando todo el stack de datos</h3>
+          <p style="color: var(--text-muted); margin-top: 10px;">Aprovecha nuestros combos cruzados y ahorra hasta un 40% en tu formación profesional.</p>
+        </div>
+        <div class="combos-table-wrapper">
+          <table class="combos-table">
+            <thead>
+              <tr>
+                <th>Programa / Combinación de Cursos</th>
+                <th>Inversión Promocional</th>
+                <th style="text-align: center;">Inscribirme</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Combo Bipartito:</strong> SQL + Power BI</td>
+                <td><span class="combo-highlight">S/ 319</span> <span style="font-size: 0.85rem; color: var(--secondary-color); font-weight: 700;">¡Ahorro garantizado!</span></td>
+                <td style="text-align: center;"><a href="https://api.whatsapp.com/send/?phone=51904882577&text=Hola%2C%20quiero%20llevar%20el%20Combo%20SQL%20%20%20Power%20BI&type=phone_number&app_absent=0" class="btn btn-primary btn-whatsapp" style="padding: 10px 20px; font-size: 0.9rem;" target="_blank">Llevar Combo <i class="fab fa-whatsapp"></i></a></td>
+              </tr>
+              <tr>
+                <td><strong>Combo Bipartito:</strong> SQL + Python</td>
+                <td><span class="combo-highlight">S/ 319</span> <span style="font-size: 0.85rem; color: var(--secondary-color); font-weight: 700;">¡Ahorro garantizado!</span></td>
+                <td style="text-align: center;"><a href="https://api.whatsapp.com/send/?phone=51904882577&text=Hola%2C%20quiero%20llevar%20el%20Combo%20SQL%20%20%20Python&type=phone_number&app_absent=0" class="btn btn-primary btn-whatsapp" style="padding: 10px 20px; font-size: 0.9rem;" target="_blank">Llevar Combo <i class="fab fa-whatsapp"></i></a></td>
+              </tr>
+              <tr>
+                <td>⭐ <strong>COMBO FULL STACK:</strong> SQL + Python + Power BI</td>
+                <td><span class="combo-highlight" style="font-size: 1.25rem;">S/ 457</span> <span style="font-size: 0.85rem; color: var(--secondary-color); font-weight: 700;">¡Mejor valor!</span></td>
+                <td style="text-align: center;"><a href="https://api.whatsapp.com/send/?phone=51904882577&text=Hola%2C%20quiero%20inscribirme%20en%20el%20Combo%20Full%20Stack%20de%20Datos&type=phone_number&app_absent=0" class="btn btn-primary btn-whatsapp" style="padding: 12px 24px; font-size: 0.95rem; font-weight: 700;" target="_blank">¡Quiero ser Full Stack! <i class="fab fa-whatsapp"></i></a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header text-center" style="max-width: 600px; margin: 0 auto 56px;">
+        <span class="course-tag" style="margin-bottom: 12px; display: inline-block;">Testimoniales</span>
+        <h2>Casos de Éxito de Alumnos</h2>
+        <p>Nuestros graduados transforman su día a día aplicando estas herramientas en empresas reales.</p>
+      </div>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+        <div class="course-card" style="padding: 30px;">
+          <div style="display: flex; gap: 4px; color: #ffab00; margin-bottom: 16px;">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p style="font-style: italic; font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px;">"El curso de Power BI me permitió automatizar los reportes semanales de mi área en el banco. Lo que antes me tomaba 2 días enteros de trabajo manual en Excel, ahora se actualiza con un solo clic y tiene un diseño espectacular."</p>
+          <h4 style="margin-bottom: 2px; color: var(--text-main);">Carlos Mendoza</h4>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Analista de Finanzas</span>
+        </div>
+        <div class="course-card" style="padding: 30px;">
+          <div style="display: flex; gap: 4px; color: #ffab00; margin-bottom: 16px;">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p style="font-style: italic; font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px;">"Entré a la Especialización sin saber nada de SQL. Los profesores explican muy bien paso a paso. Terminé diseñando una base de datos de prueba y gracias a las mentorías de CV logré cambiarme de área como Analista de Datos BI."</p>
+          <h4 style="margin-bottom: 2px; color: var(--text-main);">Mariana Rojas</h4>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Data Analyst Junior</span>
+        </div>
+        <div class="course-card" style="padding: 30px;">
+          <div style="display: flex; gap: 4px; color: #ffab00; margin-bottom: 16px;">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p style="font-style: italic; font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px;">"El módulo de n8n valió cada centavo. Logré integrar el CRM de mi empresa con notificaciones de WhatsApp. Eliminamos el error de digitación y la velocidad de atención comercial aumentó exponencialmente."</p>
+          <h4 style="margin-bottom: 2px; color: var(--text-main);">Jean Paul V.</h4>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Fundador E-commerce</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="section">
+    <div class="container" style="max-width: 800px;">
+      <div class="section-header text-center" style="margin-bottom: 40px;">
+        <span class="course-tag" style="margin-bottom: 12px; display: inline-block;">Resolviendo Dudas</span>
+        <h2>Preguntas Frecuentes</h2>
+      </div>
+      <div class="faq-container">
+        <details class="faq-item" style="border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 16px; padding: 16px 20px; background: var(--card-bg);" open>
+          <summary style="font-weight: 700; color: var(--text-main); font-size: 1.05rem; cursor: pointer; list-style: none;">¿Cuándo inician las clases y en qué horario se dictan?</summary>
+          <p style="margin-top: 12px; margin-bottom: 0; font-size: 0.95rem; color: var(--text-muted);">Nuestros cursos inician en agosto 2026. El horario habitual es los días de semana (Martes y Jueves) en las noches, de 8:00 PM a 11:00 PM (Hora Perú/Colombia). Para n8n/Make se ofrecen también sesiones complementarias y soporte de fines de semana.</p>
+        </details>
+        <details class="faq-item" style="border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 16px; padding: 16px 20px; background: var(--card-bg);">
+          <summary style="font-weight: 700; color: var(--text-main); font-size: 1.05rem; cursor: pointer; list-style: none;">¿Qué pasa si no puedo asistir a una sesión en vivo?</summary>
+          <p style="margin-top: 12px; margin-bottom: 0; font-size: 0.95rem; color: var(--text-muted);">No te preocupes. Todas las sesiones se graban en alta definición y se suben a nuestra plataforma estudiantil en un plazo máximo de 12 horas. Tendrás acceso de por vida a la plataforma de grabaciones y al repositorio de proyectos.</p>
+        </details>
+        <details class="faq-item" style="border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 16px; padding: 16px 20px; background: var(--card-bg);">
+          <summary style="font-weight: 700; color: var(--text-main); font-size: 1.05rem; cursor: pointer; list-style: none;">¿Necesito conocimientos previos para inscribirme?</summary>
+          <p style="margin-top: 12px; margin-bottom: 0; font-size: 0.95rem; color: var(--text-muted);">No. Nuestros temarios están diseñados bajo una ruta incremental de aprendizaje. Empezamos desde las bases conceptuales y subimos gradualmente el nivel a través de talleres aplicados y proyectos dirigidos de negocio.</p>
+        </details>
+        <details class="faq-item" style="border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 16px; padding: 16px 20px; background: var(--card-bg);">
+          <summary style="font-weight: 700; color: var(--text-main); font-size: 1.05rem; cursor: pointer; list-style: none;">¿Qué métodos de pago aceptan?</summary>
+          <p style="margin-top: 12px; margin-bottom: 0; font-size: 0.95rem; color: var(--text-muted);">Aceptamos transferencias bancarias locales directas (BCP, Interbank, BBVA), pagos con tarjeta de crédito/débito vía pasarela segura de Niubiz/Pay-Me, Yape/Plin, y pagos internacionales en dólares mediante PayPal. Ofrecemos financiamiento directo de hasta 2 cuotas sin intereses para la Especialización.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

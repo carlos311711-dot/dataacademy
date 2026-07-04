@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Curso SQL para Data Engineer | Data Academy" description="BigQuery, Window Functions avanzadas, particionamiento y pipeline ELT. Curso en vivo nivel intermedio-avanzado.">
+
+  <header class="detail-hero">
+    <div class="container detail-container">
+      <a href="/#formacion" class="btn-back"><i class="fas fa-arrow-left"></i> Volver a Formación</a>
+      <div class="detail-header" style="display: flex; align-items: center; gap: 24px;">
+        <div class="course-logo" style="margin-bottom: 0; width: 80px; height: 80px;">
+          <img loading="lazy" src="/img/formation/2sqlserver.png" alt="SQL Engineer" class="course-tool-logo">
+        </div>
+        <div>
+          <span class="course-tag" style="margin-bottom: 8px; display: inline-block;">Curso en Vivo</span>
+          <h1>SQL para Data Engineer (Intermedio - Avanzado)</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="detail-content">
+    <div class="container detail-container">
+      <div class="detail-grid">
+        <div class="info-side">
+          <h3 class="detail-section-title"><i class="fas fa-book-open"></i> Temario del Curso</h3>
+          <div class="syllabus-list">
+            <div class="syllabus-module">
+              <h4>Módulo 1: Fundamentos Relacionales y Consultas Clave</h4>
+              <p>Consultas esenciales, operadores y control condicional preparatorio para entornos de alta exigencia.</p>
+            </div>
+            <div class="syllabus-module">
+              <h4>Módulo 2: Dominio de Subconsultas, CTEs y Window Functions</h4>
+              <p>Subconsultas correlacionadas vs. no correlacionadas y Window Functions avanzadas.</p>
+            </div>
+            <div class="syllabus-module">
+              <h4>Módulo 3: Arquitectura y Gestión en Google BigQuery</h4>
+              <p>Crear y gestionar datasets, tablas externas, y consultas federadas en la nube.</p>
+            </div>
+            <div class="syllabus-module">
+              <h4>Módulo 4: Optimización de Consultas y Reducción de Costos</h4>
+              <p>Particionamiento y clustering estratégico en BigQuery para reducir tiempos y costos.</p>
+            </div>
+            <div class="syllabus-module">
+              <h4>Módulo 5: Funciones SQL Avanzadas y Datos Semiestructurados</h4>
+              <p>Arrays, structs, expresiones regulares y JSON desde SQL.</p>
+            </div>
+            <div class="syllabus-module">
+              <h4>Módulo 6: Funciones Estadísticas y UDFs Personalizadas</h4>
+              <p>Funciones estadísticas y aproximadas en BigQuery y creación de UDFs propias.</p>
+            </div>
+            <div class="syllabus-module">
+              <h4>Módulo 7: Subconsultas Avanzadas y Vistas Materializadas</h4>
+              <p>Vistas materializadas para reutilizar lógica de negocio de manera eficiente.</p>
+            </div>
+            <div class="syllabus-module">
+              <h4>Módulo 8: Proyecto Integrador — Pipeline ELT</h4>
+              <p>Pipeline ELT desde cero: ingesta de datos crudos, limpieza con CTEs y vista materializada de métricas. (Bonus: prueba técnica)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="visual-side">
+          <h3 class="detail-section-title"><i class="fas fa-download"></i> Descargar Brochure</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">Haz clic en la imagen para abrir el brochure en PDF desde Google Drive.</p>
+          <a href="https://drive.google.com/file/d/2_SQL_Brochure_Placeholder/view?usp=sharing" target="_blank" class="detail-image-wrapper">
+            <picture>
+              <source srcset="/img/projects/sql_project.webp" type="image/webp">
+              <img loading="lazy" src="/img/projects/sql_project.png" alt="Brochure SQL Engineer">
+            </picture>
+            <div class="image-overlay-msg"><i class="fab fa-google-drive"></i> Ver en Google Drive</div>
+          </a>
+          <a href="https://drive.google.com/file/d/2_SQL_Brochure_Placeholder/view?usp=sharing" target="_blank"
+             class="btn btn-secondary" style="width: 100%; margin-top: 16px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+            Descargar Brochure PDF <i class="fab fa-google-drive"></i>
+          </a>
+          <div style="margin-top: 30px;">
+            <h4 style="font-size: 1rem; margin-bottom: 12px; color: var(--text-main);"><i class="fas fa-clock"></i> Detalles del Curso:</h4>
+            <ul style="list-style: none; padding: 0; color: var(--text-muted); font-size: 0.95rem;">
+              <li style="margin-bottom: 8px;"><i class="fas fa-calendar-alt" style="color: var(--primary-color); width: 20px;"></i> Martes - Jueves, 8:00 PM - 11:00 PM</li>
+              <li style="margin-bottom: 8px;"><i class="fas fa-play" style="color: var(--primary-color); width: 20px;"></i> Inicio: 04 de agosto de 2026</li>
+              <li style="margin-bottom: 8px;"><i class="fas fa-laptop" style="color: var(--primary-color); width: 20px;"></i> Modalidad: Online En Vivo</li>
+              <li style="margin-bottom: 8px;"><i class="fas fa-award" style="color: var(--primary-color); width: 20px;"></i> Certificado de Aprobación</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="syllabus-module" style="text-align: center; padding: 40px; background: linear-gradient(135deg, rgba(37, 211, 102, 0.05) 0%, rgba(32, 184, 88, 0.05) 100%); border: 1px dashed var(--secondary-color);">
+        <i class="fab fa-whatsapp" style="font-size: 3rem; color: var(--secondary-color); margin-bottom: 16px;"></i>
+        <h3 style="margin-bottom: 8px;">¿Listo para dominar SQL Avanzado?</h3>
+        <p style="margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto;">Accede hoy y reserva tu lugar para participar interactivamente de los casos de negocio en vivo.</p>
+        <a href="https://api.whatsapp.com/send/?phone=51904882577&text=Hola%2C%20quiero%20inscribirme%20en%20el%20Curso%20de%20SQL%20para%20Data%20Engineer&type=phone_number&app_absent=0"
+           class="btn btn-primary" style="background-color: var(--secondary-color); border: none;" target="_blank">
+          Conversar con un asesor <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="sticky-cta-bar">
+    <div class="sticky-price">S/ 149 <span>Preventa especial</span></div>
+    <a href="https://api.whatsapp.com/send/?phone=51904882577&text=Hola%2C%20quiero%20inscribirme%20en%20el%20Curso%20de%20SQL%20para%20Data%20Engineer&type=phone_number&app_absent=0"
+       class="btn btn-primary btn-whatsapp" target="_blank">Inscribirme <i class="fab fa-whatsapp"></i></a>
+  </div>
+
+</BaseLayout>

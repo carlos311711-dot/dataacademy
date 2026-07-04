@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Curso SQL para Data Analyst | Data Academy" description="Aprende SQL desde cero: modelado, Transact SQL, joins, CTEs y window functions. Curso en vivo con certificación.">
+
+  <header class="detail-hero">
+    <div class="container detail-container">
+      <a href="/#formacion" class="btn-back"><i class="fas fa-arrow-left"></i> Volver a Formación</a>
+      <div class="detail-header" style="display: flex; align-items: center; gap: 24px;">
+        <div class="course-logo" style="margin-bottom: 0; width: 80px; height: 80px;">
+          <img loading="lazy" src="/img/formation/sql.png" alt="SQL" class="course-tool-logo">
+        </div>
+        <div>
+          <span class="course-tag" style="margin-bottom: 8px; display: inline-block;">Curso en Vivo</span>
+          <h1>SQL para Data Analyst (Básico - Intermedio)</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="detail-content">
+    <div class="container detail-container">
+      <div class="detail-grid">
+        <div class="info-side">
+          <h3 class="detail-section-title"><i class="fas fa-book-open"></i> Temario del Curso</h3>
+          <div class="syllabus-list">
+            <div class="syllabus-module">
+              <h4>Módulo 1: Introducción a Bases de Datos y Modelamiento</h4>
+              <p>Fundamentos desde cero: modelos conceptual, lógico y físico, entidades, atributos, diagramas ER y normalización de tablas.</p>
+            </div>
+            <div class="syllabus-module">
+              <h4>Módulo 2: Lenguaje Transact SQL y Funciones Nativas</h4>
+              <p>Funciones de agregación (Count, max, min, sum, avg) y funciones de fecha, texto y matemáticas.</p>
+            </div>
+            <div class="syllabus-module">
+              <h4>Módulo 3: Manipulación de Datos y Estructuras de Control</h4>
+              <p>Select, insert, update, delete, from, where, group by y order by.</p>
+            </div>
+            <div class="syllabus-module">
+              <h4>Módulo 4: Operadores Lógicos y Sentencias Avanzadas</h4>
+              <p>Operadores lógicos (and, or, not, in, like, between) y uso avanzado de CAST, CASE WHEN y Group By.</p>
+            </div>
+            <div class="syllabus-module">
+              <h4>Módulo 5: Relaciones y Consulta de Múltiples Tablas (JOINS)</h4>
+              <p>Inner Join, Outer Join, Cross Join y Left Join.</p>
+            </div>
+            <div class="syllabus-module">
+              <h4>Módulo 6: Subconsultas y Funciones de Ventana</h4>
+              <p>Common Table Expressions (CTEs) vs Window Functions, funciones de Ranking y agregativas.</p>
+            </div>
+            <div class="syllabus-module">
+              <h4>Módulo 7: Resolución de Casos Prácticos y Prueba Técnica</h4>
+              <p>Sesión de repaso intensiva y prueba técnica real diseñada para evaluar habilidades analíticas.</p>
+            </div>
+            <div class="syllabus-module">
+              <h4>Módulo 8: Automatización de Reportes (Bonus Track)</h4>
+              <p>Mejores prácticas para automatizar la ejecución de reportes en SQL, integrando Python.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="visual-side">
+          <h3 class="detail-section-title"><i class="fas fa-download"></i> Descargar Brochure</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">Haz clic en la imagen para abrir el brochure en PDF desde Google Drive.</p>
+          <a href="https://drive.google.com/file/d/2_SQL_Brochure_Placeholder/view?usp=sharing" target="_blank" class="detail-image-wrapper">
+            <picture>
+              <source srcset="/img/projects/sql_project.webp" type="image/webp">
+              <img loading="lazy" src="/img/projects/sql_project.png" alt="Brochure SQL">
+            </picture>
+            <div class="image-overlay-msg"><i class="fab fa-google-drive"></i> Ver en Google Drive</div>
+          </a>
+          <a href="https://drive.google.com/file/d/2_SQL_Brochure_Placeholder/view?usp=sharing" target="_blank"
+             class="btn btn-secondary" style="width: 100%; margin-top: 16px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+            Descargar Brochure PDF <i class="fab fa-google-drive"></i>
+          </a>
+          <div style="margin-top: 30px;">
+            <h4 style="font-size: 1rem; margin-bottom: 12px; color: var(--text-main);"><i class="fas fa-clock"></i> Detalles del Curso:</h4>
+            <ul style="list-style: none; padding: 0; color: var(--text-muted); font-size: 0.95rem;">
+              <li style="margin-bottom: 8px;"><i class="fas fa-calendar-alt" style="color: var(--primary-color); width: 20px;"></i> Martes - Jueves, 8:00 PM - 11:00 PM</li>
+              <li style="margin-bottom: 8px;"><i class="fas fa-play" style="color: var(--primary-color); width: 20px;"></i> Inicio: 04 de agosto de 2026</li>
+              <li style="margin-bottom: 8px;"><i class="fas fa-laptop" style="color: var(--primary-color); width: 20px;"></i> Modalidad: Online En Vivo</li>
+              <li style="margin-bottom: 8px;"><i class="fas fa-award" style="color: var(--primary-color); width: 20px;"></i> Certificado de Aprobación</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="syllabus-module" style="text-align: center; padding: 40px; background: linear-gradient(135deg, rgba(37, 211, 102, 0.05) 0%, rgba(32, 184, 88, 0.05) 100%); border: 1px dashed var(--secondary-color);">
+        <i class="fab fa-whatsapp" style="font-size: 3rem; color: var(--secondary-color); margin-bottom: 16px;"></i>
+        <h3 style="margin-bottom: 8px;">¿Listo para dominar bases de datos con SQL?</h3>
+        <p style="margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto;">Accede hoy y reserva tu lugar para participar interactivamente de los casos de negocio en vivo.</p>
+        <a href="https://api.whatsapp.com/send/?phone=51904882577&text=Hola%2C%20quiero%20inscribirme%20en%20el%20Curso%20de%20SQL&type=phone_number&app_absent=0"
+           class="btn btn-primary" style="background-color: var(--secondary-color); border: none;" target="_blank">
+          Conversar con un asesor <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky CTA for mobile -->
+  <div class="sticky-cta-bar">
+    <div class="sticky-price">
+      S/ 199 <span>Preventa especial</span>
+    </div>
+    <a href="https://api.whatsapp.com/send/?phone=51904882577&text=Hola%2C%20quiero%20inscribirme%20en%20el%20Curso%20de%20SQL&type=phone_number&app_absent=0"
+       class="btn btn-primary btn-whatsapp" target="_blank">
+      Inscribirme <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+</BaseLayout>

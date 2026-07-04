@@ -1,0 +1,112 @@
+Catálogo de Cursos (Pestañas Individuales)
+Curso 1: SQL para Data Analyst (Básico - Intermedio)
+Etiquetas de Venta: ¡SOLD OUT inminente! | Primeros 5 inscritos | Certificación Gratis
+Precio: S/ 199 en Preventa (Precio Regular: S/ 250)
+Inicio: 02 de Junio (Martes y Jueves, 7:30 PM - 10:00 PM)
+Duración: 5 semanas (+30 Hrs)
+Temario Resumido: Introducción a BD (Modelos, Entidades, Normalización), Funciones (Transact SQL, Agregación, Fecha, Texto), Operadores y Estructuras de Control, Uso de CASE WHEN, Joins (Inner, Outer, Cross, Left), CTEs vs Window Functions.
+
+Temario : 
+Módulo 1: Introducción a Bases de Datos y Modelamiento Aprende los fundamentos desde cero, incluyendo la definición de modelos (conceptual, lógico y físico), componentes como entidades y atributos, creación de diagramas ER y la normalización de tablas.
+Módulo 2: Lenguaje Transact SQL y Funciones Nativas Domina el uso de funciones de agregación clave (Count, max, min, sum, avg), además de implementar funciones específicas para el manejo de tipos de datos de fecha, texto y matemáticas.
+Módulo 3: Manipulación de Datos y Estructuras de Control Conoce cómo operar sobre tu base de datos ejecutando consultas condicionales mediante el uso de comandos fundamentales como select, insert, update, delete, from, where, group by y order by.
+Módulo 4: Operadores Lógicos y Sentencias Avanzadas Profundiza en la lógica de las consultas aplicando operadores lógicos (and, or, not, in, like, between) y domina el uso avanzado de sentencias como CAST, CASE WHEN y Group By.
+Módulo 5: Relaciones y Consulta de Múltiples Tablas (JOINS) Aprende a conectar y cruzar información entre diferentes tablas dominando todos los tipos de uniones: Inner Join, Outer Join, Cross Join y Left Join.
+Módulo 6: Subconsultas y Funciones de Ventana Da el salto al análisis avanzado implementando Common Table Expressions (CTEs) y comparando su uso frente a las Window Functions, incluyendo funciones de Ranking y agregativas.
+Módulo 7: Resolución de Casos Prácticos y Prueba Técnica Pon a prueba lo aprendido a través de una sesión de repaso intensiva y el desarrollo de una prueba técnica real diseñada para evaluar tus habilidades analíticas.
+Módulo 8: Automatización de Reportes (Bonus Track) Aprende las mejores prácticas para automatizar la ejecución y entrega de tus reportes en SQL, integrando soluciones de forma nativa o mediante Python.
+
+Bonus Track: Automatización de reportes en SQL (Nativa - Python) y Desarrollo de prueba técnica.
+Curso 2: SQL para Data Engineer (Intermedio - Avanzado)
+Etiquetas de Venta: ¡Solo 8 Vacantes! | Primeros 5 inscritos
+Precio: S/ 149 en Preventa (Precio Regular: S/ 250)
+Inicio: 02 de Junio (Martes y Jueves, 7:30 PM - 10:00 PM)
+Duración: 5 semanas (+30 Hrs)
+Temario Resumido: Fundamentos y Consultas Clave, CTEs vs Window Functions, Arquitectura de BigQuery (Datasets, Tablas Externas, Particionamiento), Funciones SQL Avanzadas en BigQuery (Arrays, Structs, RegEx, JSON), Subconsultas Avanzadas, Proyecto Integrador (Pipeline ELT con capas de datos).
+Bonus: Desarrollo de prueba técnica.
+Temario : 
+Módulo 1: Fundamentos Relacionales y Consultas Clave Refuerza tus bases en bases de datos relacionales, dominando consultas esenciales, operadores y control condicional preparatorio para entornos de alta exigencia.
+Módulo 2: Dominio de Subconsultas, CTEs y Window Functions Analiza en profundidad el uso de subconsultas correlacionadas vs. no correlacionadas, y domina la implementación avanzada de CTEs y Window Functions.
+Módulo 3: Arquitectura y Gestión en Google BigQuery Aprende a crear y gestionar datasets, configurar tablas externas, y conectar fuentes de datos externas para ejecutar potentes consultas federadas en la nube.
+Módulo 4: Optimización de Consultas y Reducción de Costos Comprende el motor de BigQuery a fondo para aplicar particionamiento y clustering estratégico, optimizando el rendimiento y reduciendo los tiempos y costos de ejecución.
+Módulo 5: Funciones SQL Avanzadas y Datos Semiestructurados Aprende a manipular arrays y structs, limpiando texto con expresiones regulares y trabajando directamente con datos en formato JSON desde SQL.
+Módulo 6: Funciones Estadísticas y UDFs Personalizadas Amplía tu capacidad analítica en BigQuery utilizando funciones estadísticas y aproximadas, y aprende a crear y desplegar tus propias funciones personalizadas (UDFs).
+Módulo 7: Subconsultas Avanzadas y Vistas Materializadas Combina técnicas complejas de SQL con las optimizaciones de BigQuery, creando vistas materializadas que te permitirán reutilizar lógica de negocio de manera eficiente.
+Módulo 8: Proyecto Integrador: Construcción de Pipeline ELT Construye un mini pipeline ELT desde cero: ingesta datos crudos, límpialos utilizando CTEs y genera una vista materializada de métricas de negocio para tu prueba técnica final.
+Curso 3: Power BI En Vivo (De Cero a Experto)
+Etiquetas de Venta: ¡Últimas 4 vacantes! | Certificación Gratis
+Precio: S/ 199 en Preventa (Precio Regular: S/ 250)
+Inicio: 06 de Junio (Sábados, 10:00 AM - 01:30 PM) *Nota: Corregido de AM a PM para coherencia horaria.
+Duración: 6 semanas (+30 Hrs)
+Temario Resumido: Introducción a Power BI, Mi primer Dashboard (Storytelling), Procesamiento de datos (Limpieza, Pivoteo), Lenguaje M, DAX Primeros Pasos (Calculate, SUM, COUNT), DAX Avanzado (Time Intelligence, SUMX), Dashboard Automático (Publicación, Seguridad).
+Bonus: Automatizar reportes (Automate-Python) y Desarrollo de prueba técnica.
+Temario : 
+Módulo 1: Introducción a Power BI y Modelamiento Conoce el aplicativo desde su instalación, aprende sobre la correcta importación de datos y establece las bases fundamentales para el modelamiento de datos.
+Módulo 2: Procesamiento, Limpieza y Pivoteo de Datos Aprende a establecer conexiones a distintas fuentes de datos, realiza una limpieza exhaustiva de tu información y domina las técnicas de pivoteo de tablas.
+Módulo 3: Transformación Avanzada con Lenguaje M Adéntrate en el Editor Avanzado de consultas de Power Query y aprende a utilizar y personalizar funciones específicas escritas en el Lenguaje M.
+Módulo 4: Primeros Pasos y Contextos en DAX Comprende los contextos de evaluación y domina las funciones fundamentales del lenguaje DAX, incluyendo Calculate, Calculate table, SUM, COUNT y AVERAGE.
+Módulo 5: DAX Avanzado e Inteligencia de Tiempo Lleva tus métricas al siguiente nivel creando Dax queries, funciones iteradoras (Sumx, countx, Averagex) y utilizando potentes funciones de Inteligencia de Tiempo.
+Módulo 6: Diseño de Dashboards y Storytelling Visual Aprende a organizar tu área de trabajo, selecciona los gráficos adecuados y aplica técnicas de Storytelling para crear tu primer panel interactivo de alto impacto.
+Módulo 7: Publicación, Seguridad y Buenas Prácticas Sube tus reportes a la nube, configura parámetros de seguridad y aplica las mejores prácticas para asegurar la integridad y accesibilidad de tu información.
+Módulo 8: Automatización y Prueba Técnica Integrada Desarrolla una prueba técnica completa y descubre cómo automatizar el envío y actualización de tus reportes en Power BI utilizando Power Automate y Python.
+
+
+Curso 4: Excel En Vivo (De Cero a Experto)
+Etiquetas de Venta: ¡Solo 2 Vacantes! | Certificación Gratis
+Precio: S/ 199 en Preventa (Precio Regular: S/ 250)
+Inicio: 01 de Junio (Lunes y Miércoles, 9:30 AM - 12:30 PM)
+Duración: 6 semanas (+30 Hrs)
+Temario Resumido: Calidad y Limpieza de Datos, Transformación ETL con Power Query, Búsquedas y Cruces (BUSCARX avanzado), Lógica Condicional, Análisis Multidimensional con Tablas Dinámicas, Visualización Avanzada.
+Proyecto Integrador: Dashboard de finanzas personales.
+Temario: 
+Módulo 1: Fundamentos de Calidad y Limpieza de Datos Inicia con la auditoría de información, detectando y limpiando anomalías mediante el uso avanzado de funciones de texto y fecha en la importación de datos.
+Módulo 2: Transformación ETL con Power Query Conéctate a múltiples orígenes externos y utiliza el motor ETL nativo de Excel para realizar transformaciones masivas y consolidación tabular automática.
+Módulo 3: Búsquedas y Cruces de Información Avanzados Evoluciona desde el clásico BUSCARV hasta el dominio absoluto de la nueva función BUSCARX, logrando realizar cruces complejos con múltiples criterios simultáneos.
+Módulo 4: Lógica Condicional y Control de Errores Simplifica lógicas complejas utilizando SI.CONJUNTO, anida operadores lógicos y condicionales, y aplica técnicas de segmentación e inteligencia de tiempo.
+Módulo 5: Análisis Multidimensional con Tablas Dinámicas Estructura tu Modelo de Datos creando relaciones robustas, e implementa campos y elementos calculados avanzados para un análisis profundo de la información.
+Módulo 6: Visualización Dinámica y Formato Condicional Aplica las mejores prácticas de visualización, utilizando formato condicional basado en fórmulas avanzadas para preparar el inicio del proyecto final.
+Módulo 7: Proyecto Integrador: Finanzas Personales Aplica todo lo aprendido en un caso de uso real desarrollando un proyecto integral en formato Sheet enfocado en la gestión visual de finanzas personales.
+Módulo 8: Presentación de Dashboards y Cierre Consolida tu Dashboard interactivo final, aprende a presentar tus hallazgos de forma ejecutiva y da el kick-off definitivo a tu carrera analítica.
+
+Curso 5: Python + PySpark En Vivo (De Cero a Experto)
+Etiquetas de Venta: ¡Últimas 4 vacantes! | Certificación Gratis
+Precio: S/ 159 en Preventa (Precio Regular: S/ 250)
+Inicio: 01 de Abril (Viernes y Sábado, 7:30 PM - 10:00 PM) *Sugerencia: Revisar y actualizar esta fecha de inicio para la nueva campaña.
+Duración: 5 semanas (+30 Hrs)
+Temario Resumido: Python I y II (Variables, Listas, Tuplas, Diccionarios, Bucles), Funciones y Errores, Pandas I y II (Lectura, Limpieza, Exportación), Entornos Profesionales (Git y Github), Base de Datos-Path, Visualizaciones (Matplotlib, Seaborn).
+Temario :
+Módulo 1: Fundamentos y Tipos de Datos en Python I Domina los conceptos básicos declarando variables, ejecutando operaciones matemáticas y manipulando estructuras de datos primordiales como Strings, Listas y Tuplas.
+Módulo 2: Control de Flujo y Estructuras en Python II Aprende a controlar la ejecución de tu código utilizando Diccionarios, variables Booleanas, ciclos repetitivos (Bucles) y sentencias condicionales If, Elif y Else.
+Módulo 3: Creación de Funciones y Manejo de Errores Modulariza tu código creando funciones reutilizables, aplicando buenas prácticas de desarrollo y aprendiendo a gestionar correctamente diccionarios y booleanos.
+Módulo 4: Introducción a Pandas para el Análisis de Datos Inicia el trabajo analítico comprendiendo los conceptos básicos de la librería Pandas, ejecutando la lectura de datos y aplicando sus métodos estadísticos básicos.
+Módulo 5: Limpieza y Combinación Avanzada en Pandas Aplica funciones de limpieza profunda, realiza combinaciones complejas de DataFrames (Joins), exporta tus resultados y establece buenas prácticas de procesamiento.
+Módulo 6: Interacción con el Sistema y Bases de Datos Aprende a interactuar con las carpetas de tu equipo conociendo OS y Pathlib para el manejo de archivos en lotes, y establece conexiones a bases de datos mediante casos de uso.
+Módulo 7: Control de Versiones en Entornos Profesionales Aprende a trabajar de forma colaborativa y segura en la industria tecnológica dominando los sistemas de control de versiones con Git y tu repositorio en GitHub.
+Módulo 8: Visualización de Datos con Matplotlib y Seaborn Transforma tus hallazgos en insights gráficos impactantes aprendiendo a crear y personalizar visualizaciones interactivas utilizando las librerías Matplotlib y Seaborn.
+
+Sección 4: Promociones y Combos (Cross-Selling)
+[SUGERENCIA DE VENTA] Copywriting: "Maximiza tu perfil profesional dominando todo el stack de datos. Aprovecha nuestros combos y ahorra hasta un 40% en tu formación."
+Paquete / Curso
+Inversión Promocional
+Botón de Acción
+ 
+Solo SQL
+S/ 159
+[Quiero este curso]
+Solo Power BI
+S/ 159
+[Quiero este curso]
+Solo Python
+S/ 159
+[Quiero este curso]
+Combo Bipartito: SQL + Power BI
+S/ 279 (Ahorro garantizado)
+[Llevar Combo]
+Combo Bipartito: SQL + Python
+S/ 279 (Ahorro garantizado)
+[Llevar Combo]
+⭐ COMBO FULL STACK: SQL + Python + Power BI
+S/ 409 (Mejor valor)
+[¡Quiero ser Full Stack!]
+
+

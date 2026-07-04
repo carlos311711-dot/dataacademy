@@ -1,17 +1,371 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
+<BaseLayout title="Data Academy | Power BI, SQL, Python y más" description="Portafolio de proyectos y cursos en vivo de Data Academy. Aprende Power BI, SQL, Python, n8n y más.">
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+  <!-- Hero -->
+  <header class="hero" id="inicio">
+    <div class="container hero-content">
+      <div class="hero-text fade-in">
+        <h1>Domina tus datos con <span class="highlight">Data Academy</span></h1>
+        <p>Clases en vivo, proyectos reales y certificación oficial. Dashboards, pipelines y automatización para llevar tu carrera al siguiente nivel.</p>
+        <div class="hero-buttons">
+          <a href="#proyectos" class="btn btn-primary">Ver Proyectos <i class="fas fa-arrow-right"></i></a>
+          <a href="https://api.whatsapp.com/send/?phone=51904882577&text=Hola%2C%20estoy%20interesado%20en%20capacitarme&type=phone_number&app_absent=0"
+             target="_blank" class="btn btn-secondary btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Consultar
+          </a>
+        </div>
+        <!-- Trust strip: social proof visible without scrolling -->
+        <div class="trust-strip">
+          <span class="trust-item"><i class="fas fa-users"></i> +500 alumnos</span>
+          <span class="trust-item"><i class="fas fa-video"></i> Clases en vivo</span>
+          <span class="trust-item"><i class="fas fa-certificate"></i> Certificación oficial</span>
+          <span class="trust-item"><i class="fas fa-star"></i> 4.9 / 5</span>
+        </div>
+      </div>
+      <div class="hero-carousel fade-in-up">
+        <div class="carousel-track-container">
+          <ul class="carousel-track">
+            <li class="carousel-slide active">
+              <picture>
+                <source srcset="/img/projects/sql_project.webp" type="image/webp">
+                <img src="/img/projects/sql_project.png" alt="SQL Database Analysis" fetchpriority="high">
+              </picture>
+              <div class="carousel-caption">Proyectos SQL Server &amp; Modelado</div>
+            </li>
+            <li class="carousel-slide">
+              <picture>
+                <img src="/img/projects/proyecto_powerbi_dashboard.png" alt="Dashboard Básico Power BI" loading="lazy">
+              </picture>
+              <div class="carousel-caption">Dashboard Básico Power BI</div>
+            </li>
+            <li class="carousel-slide">
+              <picture>
+                <img src="/img/projects/proyecto_powerbi_bi.png" alt="Proyecto Business Intelligence" loading="lazy">
+              </picture>
+              <div class="carousel-caption">Proyecto BI</div>
+            </li>
+            <li class="carousel-slide">
+              <picture>
+                <img src="/img/projects/proyecto_medallon.png" alt="Proyecto Medallón" loading="lazy">
+              </picture>
+              <div class="carousel-caption">Proyecto Medallón</div>
+            </li>
+            <li class="carousel-slide">
+              <picture>
+                <img src="/img/projects/proyecto_n8n_flow.webp" alt="Automatizaciones n8n" loading="lazy">
+              </picture>
+              <div class="carousel-caption">Proyecto n8n</div>
+            </li>
+            <li class="carousel-slide">
+              <picture>
+                <img src="/img/projects/proyecto_powerbi_hero.png" alt="Dashboard Power BI Avanzado" loading="lazy">
+              </picture>
+              <div class="carousel-caption">Power BI Avanzado</div>
+            </li>
+          </ul>
+        </div>
+        <button class="carousel-btn btn-prev" aria-label="Anterior slide"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-btn btn-next" aria-label="Siguiente slide"><i class="fas fa-chevron-right"></i></button>
+        <div class="carousel-nav">
+          <button class="carousel-indicator active" aria-label="Ir a slide 1"></button>
+          <button class="carousel-indicator" aria-label="Ir a slide 2"></button>
+          <button class="carousel-indicator" aria-label="Ir a slide 3"></button>
+          <button class="carousel-indicator" aria-label="Ir a slide 4"></button>
+          <button class="carousel-indicator" aria-label="Ir a slide 5"></button>
+          <button class="carousel-indicator" aria-label="Ir a slide 6"></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Projects -->
+  <section class="projects section" id="proyectos">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Proyectos Destacados</h2>
+        <p>Dashboards interactivos, automatización de procesos y analítica de bases de datos.</p>
+      </div>
+      <div class="project-filters text-center fade-in">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="powerbi">Power BI</button>
+        <button class="filter-btn" data-filter="n8n">n8n / Automate</button>
+        <button class="filter-btn" data-filter="sql">SQL</button>
+        <button class="filter-btn" data-filter="integral">Integrales</button>
+      </div>
+      <div class="grid" id="projects-grid">
+        <article class="card fade-in-up" data-category="powerbi">
+          <div class="card-img-wrapper">
+            <picture><img src="/img/projects/proyecto_powerbi_dashboard.png" alt="Dashboard Básico Power BI" loading="lazy"></picture>
+            <div class="badge">Power BI</div>
+          </div>
+          <div class="card-content">
+            <h3>Dashboard Básico Power BI</h3>
+            <p>Dashboard introductorio para control y visualización de indicadores comerciales y de ventas.</p>
+            <a href="javascript:void(0)" class="btn-link view-detail-btn" data-project-id="p1">Ver Detalle <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </article>
+        <article class="card fade-in-up" data-category="sql" style="transition-delay: 0.1s;">
+          <div class="card-img-wrapper">
+            <picture>
+              <source srcset="/img/projects/sql_project.webp" type="image/webp">
+              <img src="/img/projects/sql_project.png" alt="Optimización SQL" loading="lazy">
+            </picture>
+            <div class="badge">SQL</div>
+          </div>
+          <div class="card-content">
+            <h3>Optimización & Modelado SQL</h3>
+            <p>Base de datos relacional para retail. Querys complejas, window functions y optimización de indexación.</p>
+            <a href="javascript:void(0)" class="btn-link view-detail-btn" data-project-id="p2">Ver Detalle <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </article>
+        <article class="card fade-in-up" data-category="n8n" style="transition-delay: 0.2s;">
+          <div class="card-img-wrapper">
+            <picture><img src="/img/projects/proyecto_n8n_flow.webp" alt="Automatización n8n" loading="lazy"></picture>
+            <div class="badge">n8n</div>
+          </div>
+          <div class="card-content">
+            <h3>Automatización CRM & WhatsApp</h3>
+            <p>Flujo n8n que conecta formularios web con HubSpot, WhatsApp e emails personalizados.</p>
+            <a href="javascript:void(0)" class="btn-link view-detail-btn" data-project-id="p3">Ver Detalle <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </article>
+        <article class="card fade-in-up" data-category="integral" style="transition-delay: 0.3s;">
+          <div class="card-img-wrapper">
+            <picture><img src="/img/projects/proyecto_medallon.png" alt="Arquitectura de Medallón" loading="lazy"></picture>
+            <div class="badge">Integral</div>
+          </div>
+          <div class="card-content">
+            <h3>Arquitectura de Medallón Lakehouse</h3>
+            <p>Capas Bronze, Silver y Oro para calidad y consistencia del pipeline de datos.</p>
+            <a href="javascript:void(0)" class="btn-link view-detail-btn" data-project-id="p4">Ver Detalle <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </article>
+        <article class="card fade-in-up" data-category="powerbi" style="transition-delay: 0.4s;">
+          <div class="card-img-wrapper">
+            <picture><img src="/img/projects/proyecto_powerbi_bi.png" alt="Proyecto BI" loading="lazy"></picture>
+            <div class="badge">Power BI</div>
+          </div>
+          <div class="card-content">
+            <h3>Proyecto Business Intelligence</h3>
+            <p>Tablero de control para análisis estratégico de ventas, control financiero y proyección de KPIs.</p>
+            <a href="javascript:void(0)" class="btn-link view-detail-btn" data-project-id="p5">Ver Detalle <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </article>
+        <article class="card fade-in-up" data-category="integral" style="transition-delay: 0.5s;">
+          <div class="card-img-wrapper">
+            <picture><img src="/img/projects/proyecto_powerbi_hero.png" alt="Dashboard Gerencial Power BI" loading="lazy"></picture>
+            <div class="badge">Integral</div>
+          </div>
+          <div class="card-content">
+            <h3>Dashboard Gerencial Power BI</h3>
+            <p>Panel ejecutivo con storytelling avanzado y análisis de rendimiento integral.</p>
+            <a href="javascript:void(0)" class="btn-link view-detail-btn" data-project-id="p6">Ver Detalle <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats — standalone section (was incorrectly nested in formation) -->
+  <section class="stats-section bg-light">
+    <div class="container">
+      <div class="grid stats-grid">
+        <div class="stat-item fade-in">
+          <i class="fas fa-users"></i>
+          <h3>+500</h3>
+          <p>Alumnos Formados</p>
+        </div>
+        <div class="stat-item fade-in" style="transition-delay: 0.1s;">
+          <i class="fas fa-project-diagram"></i>
+          <h3>+15</h3>
+          <p>Proyectos Desarrollados</p>
+        </div>
+        <div class="stat-item fade-in" style="transition-delay: 0.2s;">
+          <i class="fas fa-database"></i>
+          <h3>+50M</h3>
+          <p>Filas Procesadas</p>
+        </div>
+        <div class="stat-item fade-in" style="transition-delay: 0.3s;">
+          <i class="fas fa-star"></i>
+          <h3>4.9/5</h3>
+          <p>Satisfacción</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formation -->
+  <section class="formation section" id="formacion">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Cursos y Especializaciones</h2>
+        <p>Programas en vivo diseñados para acelerar tu carrera en datos.</p>
+      </div>
+      <div class="grid formation-grid">
+        <div class="course-card">
+          <div class="course-logo">
+            <picture><img src="/img/formation/sql.png" alt="SQL" class="course-tool-logo" loading="lazy"></picture>
+          </div>
+          <div class="course-tag">Curso en Vivo</div>
+          <h3>SQL para Data Analyst</h3>
+          <p class="course-desc">Bases de datos relacionales, Transact SQL, joins y CTEs. Repaso y prueba técnica real.</p>
+          <ul class="course-features">
+            <li><i class="fas fa-check"></i> +30 horas de clases en vivo</li>
+            <li><i class="fas fa-check"></i> Repaso y prueba técnica real</li>
+            <li><i class="fas fa-check"></i> Certificación Oficial Gratis</li>
+          </ul>
+          <div class="course-price-teaser">
+            <span class="price-from">Desde</span>
+            <span class="price-amount">S/ 299</span>
+            <span class="price-currency">PEN</span>
+          </div>
+          <a href="/cursos/sql" class="btn btn-primary course-cta">Ver Detalles <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="course-card">
+          <div class="course-logo">
+            <picture><img src="/img/formation/2sqlserver.png" alt="SQL Engineer" class="course-tool-logo" loading="lazy"></picture>
+          </div>
+          <div class="course-tag">Curso en Vivo</div>
+          <h3>SQL para Data Engineer</h3>
+          <p class="course-desc">Window Functions avanzadas, BigQuery y optimización de costos en nube. Pipeline ELT real.</p>
+          <ul class="course-features">
+            <li><i class="fas fa-check"></i> +30 horas de clases en vivo</li>
+            <li><i class="fas fa-check"></i> Ingesta en BigQuery & Cloud</li>
+            <li><i class="fas fa-check"></i> Desarrollo de prueba técnica</li>
+          </ul>
+          <div class="course-price-teaser">
+            <span class="price-from">Desde</span>
+            <span class="price-amount">S/ 299</span>
+            <span class="price-currency">PEN</span>
+          </div>
+          <a href="/cursos/sql-engineer" class="btn btn-primary course-cta">Ver Detalles <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="course-card">
+          <div class="course-logo">
+            <picture><img src="/img/formation/4Powerbi.png" alt="Power BI" class="course-tool-logo" loading="lazy"></picture>
+          </div>
+          <div class="course-tag">Curso en Vivo</div>
+          <h3>Power BI En Vivo</h3>
+          <p class="course-desc">Power Query, modelado en estrella, DAX y storytelling. Acceso de por vida a grabaciones.</p>
+          <ul class="course-features">
+            <li><i class="fas fa-check"></i> +30 horas de clases en vivo</li>
+            <li><i class="fas fa-check"></i> Storytelling y UX en tableros</li>
+            <li><i class="fas fa-check"></i> Acceso de por vida a grabaciones</li>
+          </ul>
+          <div class="course-price-teaser">
+            <span class="price-from">Desde</span>
+            <span class="price-amount">S/ 299</span>
+            <span class="price-currency">PEN</span>
+          </div>
+          <a href="/cursos/powerbi" class="btn btn-primary course-cta">Ver Detalles <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="course-card">
+          <div class="course-logo">
+            <picture><img src="/img/formation/3Excel.png" alt="Excel" class="course-tool-logo" loading="lazy"></picture>
+          </div>
+          <div class="course-tag">Curso en Vivo</div>
+          <h3>Excel En Vivo</h3>
+          <p class="course-desc">Power Query ETL, BUSCARX, tablas dinámicas con modelos de datos y dashboards financieros.</p>
+          <ul class="course-features">
+            <li><i class="fas fa-check"></i> +30 horas de clases en vivo</li>
+            <li><i class="fas fa-check"></i> Dashboard de finanzas personales</li>
+            <li><i class="fas fa-check"></i> Certificación Oficial Gratis</li>
+          </ul>
+          <div class="course-price-teaser">
+            <span class="price-from">Desde</span>
+            <span class="price-amount">S/ 249</span>
+            <span class="price-currency">PEN</span>
+          </div>
+          <a href="/cursos/excel" class="btn btn-primary course-cta">Ver Detalles <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="course-card">
+          <div class="course-logo">
+            <picture><img src="/img/formation/5Python.png" alt="Python" class="course-tool-logo" loading="lazy"></picture>
+          </div>
+          <div class="course-tag">Curso en Vivo</div>
+          <h3>Python + PySpark En Vivo</h3>
+          <p class="course-desc">Pandas, Matplotlib, Seaborn y PySpark. Entornos profesionales con Git/GitHub.</p>
+          <ul class="course-features">
+            <li><i class="fas fa-check"></i> +30 horas de clases en vivo</li>
+            <li><i class="fas fa-check"></i> Entornos profesionales Git/GitHub</li>
+            <li><i class="fas fa-check"></i> Certificación Oficial Gratis</li>
+          </ul>
+          <div class="course-price-teaser">
+            <span class="price-from">Desde</span>
+            <span class="price-amount">S/ 299</span>
+            <span class="price-currency">PEN</span>
+          </div>
+          <a href="/cursos/python" class="btn btn-primary course-cta">Ver Detalles <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="course-card featured">
+          <span class="featured-badge">Más Completo</span>
+          <div class="featured-grid-inner">
+            <div class="featured-text-col">
+              <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 24px; flex-wrap: wrap;">
+                <img src="/img/formation/7Antigravity.png" alt="" loading="lazy" style="height: 35px; width: auto; border-radius: 8px;">
+                <img src="/img/formation/4Powerbi.png" alt="" loading="lazy" style="height: 35px; width: auto;">
+                <img src="/img/formation/5Python.png" alt="" loading="lazy" style="height: 35px; width: auto;">
+                <img src="/img/formation/sql.png" alt="" loading="lazy" style="height: 35px; width: auto;">
+                <img src="/img/formation/3Excel.png" alt="" loading="lazy" style="height: 35px; width: auto;">
+                <img src="/img/formation/6n8n.png" alt="" loading="lazy" style="height: 35px; width: auto;">
+              </div>
+              <div class="course-tag">Especialización</div>
+              <h3>Ingeniería & Analítica de Datos</h3>
+              <p class="course-desc">Ruta completa de 0 a Senior. n8n → SQL → Power BI. Bolsa de trabajo y CV incluido.</p>
+              <ul class="course-features">
+                <li><i class="fas fa-check"></i> Ruta de 0 a Senior</li>
+                <li><i class="fas fa-check"></i> Certificación Oficial</li>
+                <li><i class="fas fa-check"></i> Bolsa de trabajo y CV</li>
+              </ul>
+            </div>
+            <div class="featured-visual-col">
+              <div class="course-price-teaser" style="width: 100%;">
+                <span class="price-from">Desde</span>
+                <span class="price-amount">S/ 899</span>
+                <span class="price-currency">PEN</span>
+              </div>
+              <a href="/especializacion-datos" class="btn btn-secondary course-cta">Ver Detalles <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Modal -->
+  <div id="project-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <div class="modal-grid">
+        <div class="modal-image-side">
+          <picture>
+            <source id="modal-project-img-webp" srcset="" type="image/webp">
+            <img id="modal-project-img" src="" alt="Vista previa del proyecto">
+          </picture>
+        </div>
+        <div class="modal-info-side">
+          <span id="modal-project-badge" class="badge-modal"></span>
+          <h2 id="modal-project-title"></h2>
+          <p id="modal-project-desc"></p>
+          <div class="modal-meta">
+            <h4>Herramientas utilizadas:</h4>
+            <div id="modal-project-tools" class="tools-tags"></div>
+          </div>
+          <div class="modal-cta-container">
+            <button id="modal-course-link-btn" class="btn btn-primary">
+              Ver Curso Relacionado <i class="fas fa-graduation-cap"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</BaseLayout>

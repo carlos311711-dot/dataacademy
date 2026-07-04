@@ -1,0 +1,114 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'Data Academy — Aprende Power BI, SQL, Python y más con clases en vivo.' } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="icon" type="image/png" href="/img/logo/logo_pestana.png">
+  <script is:inline>
+    (function () {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/styles/global.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="/" class="logo">
+        <img src="/img/logo/logo_claro.png" class="logo-light" alt="Data Academy">
+        <img src="/img/logo/logo_oscuro.png" class="logo-dark" alt="Data Academy">
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/#proyectos">Proyectos</a></li>
+        <!-- Cursos dropdown — consolidates 6 separate nav links into one -->
+        <li class="nav-dropdown">
+          <button aria-haspopup="true" aria-expanded="false" id="cursos-btn">
+            Cursos <i class="fas fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/cursos/sql"><i class="fas fa-database"></i> SQL Analyst</a></li>
+            <li><a href="/cursos/sql-engineer"><i class="fas fa-server"></i> SQL Engineer</a></li>
+            <li><a href="/cursos/powerbi"><i class="fas fa-chart-bar"></i> Power BI</a></li>
+            <li><a href="/cursos/excel"><i class="fas fa-table"></i> Excel</a></li>
+            <li><a href="/cursos/python"><i class="fab fa-python"></i> Python + PySpark</a></li>
+            <li><a href="/cursos/n8n"><i class="fas fa-robot"></i> n8n Automatización</a></li>
+            <li><a href="/especializacion-datos"><i class="fas fa-graduation-cap"></i> Especialización</a></li>
+          </ul>
+        </li>
+        <li><a href="/precios">Precios</a></li>
+        <li><a href="/calendario">Calendario</a></li>
+        <li><a href="/profesores">Profesores</a></li>
+        <li><a href="/#contacto" class="btn-primary-outline">Contacto</a></li>
+      </ul>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema">
+        <i class="fas fa-moon"></i>
+      </button>
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <slot />
+
+  <!-- Footer -->
+  <footer id="contacto">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <img src="/img/logo/logo_claro.png" class="logo-light" alt="Data Academy">
+          <img src="/img/logo/logo_oscuro.png" class="logo-dark" alt="Data Academy">
+        </a>
+        <p>Transformando datos complejos en decisiones estratégicas claras a través de Power BI, SQL y automatización.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Cursos</h4>
+        <ul>
+          <li><a href="/cursos/sql">SQL Analyst</a></li>
+          <li><a href="/cursos/powerbi">Power BI</a></li>
+          <li><a href="/cursos/python">Python + PySpark</a></li>
+          <li><a href="/especializacion-datos">Especialización</a></li>
+          <li><a href="/precios">Ver todos los precios</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>Conéctate</h4>
+        <div class="social-icons">
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Data Academy. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://api.whatsapp.com/send/?phone=51904882577&text=Hola%2C%20estoy%20interesado%20en%20capacitarme&type=phone_number&app_absent=0"
+     class="whatsapp-float" target="_blank" aria-label="Chat en WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script is:inline src="/js/script.js"></script>
+</body>
+</html>
