@@ -28,6 +28,15 @@ const { title, description = 'Data Academy — Aprende Power BI, SQL, Python y m
   <link rel="stylesheet" href="/styles/global.css">
 </head>
 <body>
+  <!-- Promo announcement bar -->
+  <a class="promo-bar" href="/#formacion">
+    <span>🔥 <strong>PREVENTA</strong></span>
+    <span class="promo-hide">· Cursos en vivo</span>
+    <span>· Desde <strong>S/ 179</strong></span>
+    <span>· Solo primeros 10 cupos</span>
+    <span class="promo-cta promo-hide">Ver cursos →</span>
+  </a>
+
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
@@ -57,10 +66,12 @@ const { title, description = 'Data Academy — Aprende Power BI, SQL, Python y m
         <li><a href="/calendario">Calendario</a></li>
         <li><a href="/profesores">Profesores</a></li>
         <li><a href="/#contacto" class="btn-primary-outline">Contacto</a></li>
+        <li class="nav-theme-li">
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema">
+            <i class="fas fa-moon"></i>
+          </button>
+        </li>
       </ul>
-      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema">
-        <i class="fas fa-moon"></i>
-      </button>
       <div class="hamburger" id="hamburger">
         <i class="fas fa-bars"></i>
       </div>

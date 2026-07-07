@@ -696,6 +696,48 @@ footer h4 { font-size: 1.125rem; margin-bottom: 20px; color: white; }
 html.dark-theme .roadmap-path-dot { border-color: var(--bg-main); }
 
 /* =========================================
+   Promo bar (announcement above navbar)
+   ========================================= */
+:root { --promo-h: 40px; }
+.promo-bar { position: fixed; top: 0; left: 0; width: 100%; height: var(--promo-h); z-index: 1001; display: flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(90deg, #ff4a4a 0%, #ff7a00 100%); color: #fff; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.01em; padding: 0 16px; white-space: nowrap; overflow: hidden; transition: filter 0.2s; }
+.promo-bar:hover { filter: brightness(1.06); color: #fff; }
+.promo-bar strong { font-weight: 800; }
+.promo-bar .promo-cta { text-decoration: underline; text-underline-offset: 3px; }
+body { padding-top: var(--promo-h); }
+.navbar { top: var(--promo-h); }
+@media (max-width: 560px) { .promo-bar { font-size: 0.7rem; gap: 7px; } .promo-hide { display: none; } }
+
+/* =========================================
+   Preventa (presale banner + urgency)
+   ========================================= */
+.preventa-teaser { flex-direction: column; align-items: stretch; gap: 8px; }
+.preventa-teaser-badge { align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; background: #ff4a4a; color: #fff; font-weight: 800; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; padding: 5px 12px; border-radius: 20px; animation: preventaPulse 1.8s ease-in-out infinite; }
+.teaser-price-row { display: flex; align-items: baseline; gap: 10px; }
+.teaser-price-row .price-old { font-size: 1.05rem; color: var(--text-muted); text-decoration: line-through; font-weight: 600; }
+html.dark-theme .preventa-teaser .price-amount { color: var(--secondary-color); }
+.preventa-teaser .price-amount { color: var(--secondary-color); }
+
+.preventa-banner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 28px; margin-top: 28px; padding: 18px 24px; border-radius: 16px; background: linear-gradient(135deg, rgba(37, 211, 102, 0.12) 0%, rgba(0, 188, 212, 0.10) 100%); border: 1px solid var(--secondary-color); }
+.preventa-left { display: flex; flex-direction: column; gap: 8px; }
+.preventa-badge { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: #ff4a4a; color: #fff; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 7px 15px; border-radius: 30px; animation: preventaPulse 1.8s ease-in-out infinite; }
+@keyframes preventaPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(255, 74, 74, 0.5); } 50% { box-shadow: 0 0 0 9px rgba(255, 74, 74, 0); } }
+.preventa-note { font-size: 0.92rem; color: var(--text-main); font-weight: 600; }
+.preventa-note strong { color: var(--secondary-color); }
+.preventa-price { display: flex; align-items: baseline; gap: 12px; white-space: nowrap; }
+.preventa-price .old { font-size: 1.25rem; color: var(--text-muted); text-decoration: line-through; font-weight: 600; }
+.preventa-price .new { font-size: 2.5rem; font-weight: 800; color: var(--secondary-color); line-height: 1; }
+.preventa-price .cur { font-size: 0.9rem; font-weight: 700; color: var(--text-muted); }
+.sticky-price .old { text-decoration: line-through; color: var(--text-muted); font-size: 0.85rem; font-weight: 600; margin-right: 6px; }
+.sticky-price .new { color: var(--secondary-color); }
+@media (max-width: 600px) {
+  .preventa-banner { justify-content: center; text-align: center; }
+  .preventa-left { align-items: center; }
+  .preventa-badge { align-self: center; }
+  .preventa-price .new { font-size: 2.1rem; }
+}
+html.dark-theme .preventa-banner { background: linear-gradient(135deg, rgba(37, 211, 102, 0.15) 0%, rgba(0, 188, 212, 0.12) 100%); }
+
+/* =========================================
    FAQ
    ========================================= */
 .faq-container { margin-top: 32px; }
@@ -831,6 +873,7 @@ html.dark-theme .sticky-cta-bar .sticky-price { color: var(--accent-color); }
     .dropdown-menu { position: static; transform: none; opacity: 1; visibility: visible; display: none; box-shadow: none; border: none; background: transparent; margin-top: 12px; padding: 0; min-width: 0; }
     .nav-dropdown.open .dropdown-menu { display: flex; flex-direction: column; align-items: center; gap: 4px; }
     .nav-dropdown.open > button i { transform: rotate(180deg); }
+    .theme-toggle-btn { margin-left: 0; border: 1px solid var(--border-color); }
     .footer-content { grid-template-columns: 1fr; gap: 32px; text-align: center; }
     .footer-brand .logo { justify-content: center; }
     .social-icons { justify-content: center; }
