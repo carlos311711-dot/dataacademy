@@ -147,6 +147,75 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     .btn-sm { padding: 8px 16px; font-size: 0.85rem; border-radius: 20px; }
     .btn-whatsapp { background-color: var(--secondary-color) !important; color: white !important; }
     .btn-whatsapp:hover { background-color: #20b858 !important; }
+    
+    .combo-btn-container {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+    .combo-btn {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        color: var(--text-main);
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s ease-in-out;
+        box-shadow: var(--shadow-sm);
+        outline: none !important;
+    }
+    .combo-btn:hover {
+        border-color: var(--accent-color);
+        color: var(--accent-color);
+        background: rgba(0, 188, 212, 0.05);
+        transform: translateY(-2px);
+    }
+    .combo-btn:focus-visible {
+        box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.4);
+    }
+    .combo-btn.active {
+        background: linear-gradient(135deg, var(--accent-color) 0%, #0097a7 100%) !important;
+        color: var(--primary-dark) !important;
+        border-color: var(--accent-color) !important;
+        font-weight: 700;
+        box-shadow: 0 4px 12px rgba(0, 188, 212, 0.25) !important;
+        transform: translateY(0) !important;
+    }
+    .action-btn-container {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 16px;
+    }
+    .action-btn {
+        background: transparent;
+        border: 1px solid var(--border-color);
+        color: var(--text-muted);
+        padding: 6px 14px;
+        border-radius: 30px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        outline: none !important;
+    }
+    .action-btn:hover {
+        border-color: var(--accent-color);
+        color: var(--text-main);
+        background: rgba(255, 255, 255, 0.02);
+    }
+    .action-btn:focus-visible {
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+    }
+
     @media (max-width: 768px) {
       .calendar-card { padding: 10px !important; }
       .calendar-day { padding: 2px 4px !important; min-height: 52px !important; }
@@ -171,13 +240,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 12px;">
         <i class="fas fa-info-circle text-accent"></i> Haz clic en uno o más cursos en los botones de abajo para activar/desactivar sus calendarios. El sistema detectará cruces de horarios.
       </p>
-      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 12px;">
-        <button class="btn btn-sm btn-secondary" id="btn-select-all" style="padding: 6px 12px; font-size: 0.8rem;">Seleccionar Todos</button>
-        <button class="btn btn-sm btn-secondary" id="btn-clear-selection" style="padding: 6px 12px; font-size: 0.8rem;">Limpiar Selección</button>
+      <div class="action-btn-container">
+        <button class="action-btn" id="btn-select-all">Seleccionar Todos</button>
+        <button class="action-btn" id="btn-clear-selection">Limpiar Selección</button>
       </div>
-      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-        <button class="btn btn-sm btn-accent" id="btn-combo-analista" style="padding: 8px 14px; font-size: 0.8rem; font-weight: 700; background-color: var(--accent-color); color: var(--primary-dark) !important;"><i class="fas fa-graduation-cap"></i> Recién estoy empezando (Excel + SQL Básico + Python)</button>
-        <button class="btn btn-sm btn-accent" id="btn-combo-engineer" style="padding: 8px 14px; font-size: 0.8rem; font-weight: 700; background-color: var(--accent-color); color: var(--primary-dark) !important;"><i class="fas fa-briefcase"></i> Tengo experiencia (Power BI + SQL Avanzado + Python)</button>
+      <div class="combo-btn-container">
+        <button class="combo-btn" id="btn-combo-analista"><i class="fas fa-graduation-cap"></i> Data Analyst</button>
+        <button class="combo-btn" id="btn-combo-engineer"><i class="fas fa-user-shield"></i> Data Analyst Avanzado</button>
       </div>
     </div>
 

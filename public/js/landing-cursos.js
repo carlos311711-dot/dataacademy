@@ -1,4 +1,4 @@
-﻿// landing-cursos.js - Lógica del calendario y temario dinámico de cursos (Con multi-selección y cruces)
+// landing-cursos.js - Lógica del calendario y temario dinámico de cursos (Con multi-selección y cruces)
 
 document.addEventListener('DOMContentLoaded', () => {
     // Configuración de Colores de Cursos
@@ -274,6 +274,28 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             selectorContainer.appendChild(btn);
         });
+        updateComboActiveStates();
+    }
+
+    function updateComboActiveStates() {
+        const btnComboAnalista = document.getElementById('btn-combo-analista');
+        const btnComboEngineer = document.getElementById('btn-combo-engineer');
+        if (!btnComboAnalista || !btnComboEngineer) return;
+        
+        const isAnalistaActive = activeCourseIds.includes('5') && activeCourseIds.includes('1') && activeCourseIds.includes('6') && activeCourseIds.length === 3;
+        const isEngineerActive = activeCourseIds.includes('3') && activeCourseIds.includes('2') && activeCourseIds.includes('6') && activeCourseIds.length === 3;
+        
+        if (isAnalistaActive) {
+            btnComboAnalista.classList.add('active');
+        } else {
+            btnComboAnalista.classList.remove('active');
+        }
+        
+        if (isEngineerActive) {
+            btnComboEngineer.classList.add('active');
+        } else {
+            btnComboEngineer.classList.remove('active');
+        }
     }
 
     function toggleCourse(courseId) {
