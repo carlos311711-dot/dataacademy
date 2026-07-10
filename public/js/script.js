@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
             img: "/img/projects/proyecto_medallon.png",
             desc: "Implementación moderna de arquitectura Medallón (Bronze, Silver y Gold) en un entorno de lago de datos. Garantiza la calidad de los datos a través de pipelines de limpieza y estructuración secuencial, preparando la información para analítica avanzada y reportería ejecutiva confiable.",
             tools: ["n8n", "PostgreSQL", "SQL Server", "ETL", "Data Lake"],
-            courseUrl: "/especializacion-datos",
+            courseUrl: "/ruta-analista",
             courseName: "Especialización: Ingeniería & Analítica de Datos"
         },
         p5: {
@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
             img: "/img/projects/proyecto_powerbi_hero.png",
             desc: "El proyecto insignia de visualización. Un desarrollo de dashboard gerencial interactivo de alto nivel que consume datos transaccionales previamente procesados y cargados. Diseñado bajo las mejores prácticas de Storytelling y UI/UX, permite a directivos evaluar la salud comercial e ingresos a golpe de vista.",
             tools: ["Power BI", "DAX", "SQL Server", "ETL", "Storytelling"],
-            courseUrl: "/especializacion-datos",
+            courseUrl: "/ruta-analista",
             courseName: "Especialización: Ingeniería & Analítica de Datos"
         }
     };
