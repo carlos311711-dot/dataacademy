@@ -188,32 +188,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         box-shadow: 0 4px 12px rgba(0, 188, 212, 0.25) !important;
         transform: translateY(0) !important;
     }
-    .action-btn-container {
-        display: flex;
-        gap: 10px;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-bottom: 16px;
-    }
-    .action-btn {
-        background: transparent;
-        border: 1px solid var(--border-color);
-        color: var(--text-muted);
-        padding: 6px 14px;
-        border-radius: 30px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        outline: none !important;
-    }
-    .action-btn:hover {
-        border-color: var(--accent-color);
-        color: var(--text-main);
-        background: rgba(255, 255, 255, 0.02);
-    }
-    .action-btn:focus-visible {
-        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+    #btn-clear-selection:hover {
+        color: var(--accent-color) !important;
     }
 
     @media (max-width: 768px) {
@@ -225,12 +201,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   </style>
 
-  <!-- Hero -->
   <header class="calendar-hero">
     <div class="container">
       <span class="highlight" style="font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 10px; margin-bottom: 12px; border-radius: 4px;">4TA EDICIÓN 2026</span>
-      <h1 style="margin-top: 10px;">Calendario Académico y Temarios</h1>
-      <p>Visualiza el cronograma dinámico de clases en vivo y explora el contenido temático completo sesión por sesión de nuestros cursos de especialización en datos.</p>
+      <h1 style="margin-top: 10px; margin-bottom: 0;">Calendario Académico y Temarios</h1>
     </div>
   </header>
 
@@ -240,9 +214,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 12px;">
         <i class="fas fa-info-circle text-accent"></i> Haz clic en uno o más cursos en los botones de abajo para activar/desactivar sus calendarios. El sistema detectará cruces de horarios.
       </p>
-      <div class="action-btn-container">
-        <button class="action-btn" id="btn-select-all">Seleccionar Todos</button>
-        <button class="action-btn" id="btn-clear-selection">Limpiar Selección</button>
+      <div style="margin-bottom: 16px; display: flex; justify-content: center;">
+        <button id="btn-clear-selection" style="background: none; border: none; color: var(--text-muted); font-size: 0.8rem; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 10px; transition: color 0.2s;"><i class="fas fa-trash-alt" style="font-size: 0.75rem;"></i> Limpiar Selección</button>
       </div>
       <div class="combo-btn-container">
         <button class="combo-btn" id="btn-combo-analista"><i class="fas fa-graduation-cap"></i> Data Analyst</button>

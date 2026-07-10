@@ -236,21 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         selectorContainer.innerHTML = '';
 
-        // Botón: Calendario Master (Activa todos)
-        const allBtn = document.createElement('button');
-        const allActive = activeCourseIds.length === computedCourses.length && computedCourses.length > 0;
-        allBtn.className = `tab-btn ${allActive ? 'active' : ''}`;
-        allBtn.innerHTML = `<i class="fas fa-calendar-alt"></i> Calendario Master`;
-        allBtn.addEventListener('click', () => {
-            if (allActive) {
-                activeCourseIds = [];
-            } else {
-                activeCourseIds = computedCourses.map(cc => cc.course['N°']);
-            }
-            renderSelectors();
-            updateDashboard();
-        });
-        selectorContainer.appendChild(allBtn);
+
 
         // Botones individuales por curso (con toggles independientes)
         computedCourses.forEach(cc => {
