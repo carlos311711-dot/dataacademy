@@ -1,33 +1,52 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Ruta del Analista de Datos | Data Academy" description="Descubre el camino definitivo para convertirte en analista de datos. Explora las habilidades técnicas y blandas indispensables, y navega por nuestra ruta estructurada interactiva de dos etapas (Junior y Avanzado).">
-
+<BaseLayout
+  title="Ruta del Analista de Datos | Data Academy"
+  description="Descubre el camino definitivo para convertirte en analista de datos. Explora las habilidades técnicas y blandas indispensables, y navega por nuestra ruta estructurada interactiva de dos etapas (Junior y Avanzado)."
+>
   <!-- Hero Section -->
   <header class="detail-hero">
     <div class="container detail-container">
-      <a href="/#formacion" class="btn-back"><i class="fas fa-arrow-left"></i> Volver a Formación</a>
+      <a href="/#formacion" class="btn-back"
+        ><i class="fas fa-arrow-left"></i> Volver a Formación</a
+      >
       <div class="detail-header text-center-mobile">
         <span class="course-tag">Preventa Exclusiva 2026</span>
-        <h1>Ruta del <span class="highlight text-gradient">Analista de Datos</span></h1>
-        <p class="subtitle-text">El mapa de ruta definitivo y dinámico para dominar los datos. Elige tu nivel y sigue el camino estructurado hacia el éxito.</p>
-        <div class="hero-actions text-center-mobile" style="margin-top: 24px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-          <a href="/brochure-junior" class="btn btn-outline-brochure"><i class="far fa-file-pdf"></i> Brochure Junior (PDF)</a>
-          <a href="/brochure-senior" class="btn btn-outline-brochure"><i class="far fa-file-pdf"></i> Brochure Avanzado (PDF)</a>
+        <h1>
+          Ruta del <span class="highlight text-gradient"
+            >Analista de Datos</span>
+        </h1>
+        <p class="subtitle-text">
+          El mapa de ruta definitivo y dinámico para dominar los datos. Elige tu
+          nivel y sigue el camino estructurado hacia el éxito.
+        </p>
+        <div
+          class="hero-actions text-center-mobile"
+          style="margin-top: 24px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;"
+        >
+          <a href="/brochure-junior" class="btn btn-outline-brochure"
+            ><i class="far fa-file-pdf"></i> Brochure Junior (PDF)</a
+          >
+          <a href="/brochure-senior" class="btn btn-outline-brochure"
+            ><i class="far fa-file-pdf"></i> Brochure Avanzado (PDF)</a
+          >
         </div>
       </div>
     </div>
   </header>
-
-  
 
   <!-- ==================== TIMELINE TOGGLE CONTROLLER ==================== -->
   <section class="selector-section">
     <div class="container">
       <div class="selector-wrapper text-center">
         <div class="toggle-pill-container">
-          <button class="toggle-btn active" id="btn-junior" data-target="junior">
+          <button
+            class="toggle-btn active"
+            id="btn-junior"
+            data-target="junior"
+          >
             <i class="fas fa-user-graduation"></i>
             <span>Ruta 1: Especialización en Data Analyst</span>
           </button>
@@ -43,29 +62,47 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- ==================== HORIZONTAL TIMELINE SECTION ==================== -->
   <section class="section timeline-section">
     <div class="container">
-      
       <!-- ==================== ROUTE 1: JUNIOR ROADMAP ==================== -->
       <div id="wrapper-junior" class="roadmap-horizontal-wrapper active">
         <div class="roadmap-meta-header text-center">
           <h3>Especialización en Data Analyst</h3>
-          <p>Compuesta por 4 cursos intensivos y un proyecto integrador de cierre. Diseñada para dar el salto profesional de 0 a 100.</p>
+          <p>
+            Compuesta por 4 cursos intensivos y un proyecto integrador de
+            cierre. Diseñada para dar el salto profesional de 0 a 100.
+          </p>
         </div>
 
         <div class="timeline-container">
           <!-- Background SVG Sine Curve for desktop -->
-          <svg class="timeline-svg-curve" viewBox="0 0 1000 150" preserveAspectRatio="none">
-            <path d="M 50,75 C 150,15 250,135 350,75 C 450,15 550,135 650,75 C 750,15 850,135 950,75" />
+          <svg
+            class="timeline-svg-curve"
+            viewBox="0 0 1000 150"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M 50,75 C 150,15 250,135 350,75 C 450,15 550,135 650,75 C 750,15 850,135 950,75"
+            ></path>
           </svg>
 
           <!-- Timeline Nodes -->
           <div class="timeline-horizontal-scroll">
             <div class="timeline-nodes-row">
               <!-- Background SVG Sine Curve for mobile -->
-              <svg class="timeline-svg-curve-vertical" viewBox="0 0 100 600" preserveAspectRatio="none">
-                <path d="M 50,0 C 10,50 90,150 50,200 C 10,250 90,350 50,400 C 10,450 90,550 50,600" />
+              <svg
+                class="timeline-svg-curve-vertical"
+                viewBox="0 0 100 600"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M 50,0 C 10,50 90,150 50,200 C 10,250 90,350 50,400 C 10,450 90,550 50,600"
+                ></path>
               </svg>
               <!-- Node 1 -->
-              <button class="timeline-node active peak" data-step="jr1" data-route="junior">
+              <button
+                class="timeline-node active peak"
+                data-step="jr1"
+                data-route="junior"
+              >
                 <div class="node-dot">1</div>
                 <div class="node-icon-bg">
                   <img src="/img/formation/3Excel.png" alt="Excel Logo" />
@@ -74,7 +111,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </button>
 
               <!-- Node 2 -->
-              <button class="timeline-node valley" data-step="jr2" data-route="junior">
+              <button
+                class="timeline-node valley"
+                data-step="jr2"
+                data-route="junior"
+              >
                 <div class="node-dot">2</div>
                 <div class="node-icon-bg">
                   <img src="/img/formation/sql.png" alt="SQL Server Logo" />
@@ -83,7 +124,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </button>
 
               <!-- Node 3 -->
-              <button class="timeline-node peak" data-step="jr3" data-route="junior">
+              <button
+                class="timeline-node peak"
+                data-step="jr3"
+                data-route="junior"
+              >
                 <div class="node-dot">3</div>
                 <div class="node-icon-bg">
                   <img src="/img/formation/4Powerbi.png" alt="Power BI Logo" />
@@ -92,7 +137,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </button>
 
               <!-- Node 4 -->
-              <button class="timeline-node valley" data-step="jr4" data-route="junior">
+              <button
+                class="timeline-node valley"
+                data-step="jr4"
+                data-route="junior"
+              >
                 <div class="node-dot">4</div>
                 <div class="node-icon-bg">
                   <img src="/img/formation/5Python.png" alt="Python Logo" />
@@ -101,19 +150,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </button>
 
               <!-- Node 5 -->
-              <button class="timeline-node peak highlight-node" data-step="jr5" data-route="junior">
+              <button
+                class="timeline-node peak highlight-node"
+                data-step="jr5"
+                data-route="junior"
+              >
                 <div class="node-dot">5</div>
                 <div class="node-icon-bg">
-                  <img src="/img/formation/7Antigravity.png" alt="Proyecto Integrador Logo" />
+                  <img
+                    src="/img/formation/7Antigravity.png"
+                    alt="Proyecto Integrador Logo"
+                  />
                 </div>
                 <span class="node-label">Proyecto Final</span>
               </button>
 
               <!-- Node 6 -->
-              <button class="timeline-node valley" data-step="jr6" data-route="junior">
+              <button
+                class="timeline-node valley"
+                data-step="jr6"
+                data-route="junior"
+              >
                 <div class="node-dot">6</div>
                 <div class="node-icon-bg">
-                  <img src="/img/formation/8Autiamte.png" alt="Workshop Automate Logo" />
+                  <img
+                    src="/img/formation/8Autiamte.png"
+                    alt="Workshop Automate Logo"
+                  />
                 </div>
                 <span class="node-label">Automatización</span>
               </button>
@@ -129,31 +192,73 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <span class="sidebar-tag">Especialización Completa</span>
               <h3>Data Analyst</h3>
             </div>
-            
+
             <div class="sidebar-logos-row">
-              <img src="/img/formation/3Excel.png" alt="Excel" title="Excel" style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;" />
+              <img
+                src="/img/formation/3Excel.png"
+                alt="Excel"
+                title="Excel"
+                style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;"
+              />
               <i class="fas fa-chevron-right separator"></i>
-              <img src="/img/formation/2sqlserver.png" alt="SQL Server" title="SQL Server" style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;" />
+              <img
+                src="/img/formation/2sqlserver.png"
+                alt="SQL Server"
+                title="SQL Server"
+                style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;"
+              />
               <i class="fas fa-chevron-right separator"></i>
-              <img src="/img/formation/4Powerbi.png" alt="Power BI" title="Power BI" style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;" />
+              <img
+                src="/img/formation/4Powerbi.png"
+                alt="Power BI"
+                title="Power BI"
+                style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;"
+              />
               <i class="fas fa-chevron-right separator"></i>
-              <img src="/img/formation/5Python.png" alt="Python" title="Python" style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;" />
+              <img
+                src="/img/formation/5Python.png"
+                alt="Python"
+                title="Python"
+                style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;"
+              />
             </div>
 
             <ul class="sidebar-metrics">
-              <li><i class="fas fa-clock"></i> <span><strong>150 Horas Académicas</strong></span></li>
-              <li><i class="fas fa-project-diagram"></i> <span><strong>4 Proyectos + 1 Integrador</strong></span></li>
-              <li><i class="fas fa-certificate"></i> <span><strong>Certificado Oficial</strong> (A4)</span></li>
-              <li><i class="fas fa-gift"></i> <span><strong>Bonos</strong>: CV Analista + Plan Financiero</span></li>
+              <li>
+                <i class="fas fa-clock"></i>
+                <span><strong>150 Horas Académicas</strong></span>
+              </li>
+              <li>
+                <i class="fas fa-project-diagram"></i>
+                <span><strong>4 Proyectos + 1 Integrador</strong></span>
+              </li>
+              <li>
+                <i class="fas fa-certificate"></i>
+                <span><strong>Certificado Oficial</strong> (A4)</span>
+              </li>
+              <li>
+                <i class="fas fa-gift"></i>
+                <span
+                  ><strong>Bonos</strong>: CV Analista + Plan Financiero</span>
+              </li>
             </ul>
 
             <div class="sidebar-promo-box">
               <span class="promo-label">PREVENTA ESPECIAL</span>
-              <p class="promo-price">S/ 697 <span class="promo-old">Antes: S/ 1299</span></p>
-              <span class="promo-note">Separa con S/ 50 y cancela el saldo hasta una semana antes de iniciar.</span>
+              <p class="promo-price">
+                S/ 697 <span class="promo-old">Antes: S/ 1299</span>
+              </p>
+              <span class="promo-note"
+                >Separa con S/ 50 y cancela el saldo hasta una semana antes de
+                iniciar.</span
+              >
             </div>
 
-            <a href="/brochure-junior" class="btn btn-outline-brochure full-width-btn"><i class="far fa-file-pdf"></i> Brochure (PDF)</a>
+            <a
+              href="/brochure-junior"
+              class="btn btn-outline-brochure full-width-btn"
+              ><i class="far fa-file-pdf"></i> Brochure (PDF)</a
+            >
           </div>
 
           <!-- Right Column: Dynamic Content -->
@@ -162,56 +267,123 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <span class="badge-step">Paso 1 · Bloque 1 (2.5 Meses)</span>
               <h3>Excel para Análisis de Datos</h3>
             </div>
-            <p class="detail-card-desc">Aprende a analizar, visualizar y presentar datos de forma profesional con Excel, una de las habilidades más solicitadas en el mercado actual.</p>
-            
+            <p class="detail-card-desc">
+              Aprende a analizar, visualizar y presentar datos de forma
+              profesional con Excel, una de las habilidades más solicitadas en
+              el mercado actual.
+            </p>
+
             <div class="detail-card-meta">
-              <span><i class="fas fa-clock"></i> +30h Académicas + En Vivo</span>
-              <span><i class="fas fa-project-diagram"></i> Proyecto: Dashboard de Ventas & Finanzas</span>
+              <span><i class="fas fa-clock"></i> +30h Académicas + En Vivo</span
+              >
+              <span
+                ><i class="fas fa-project-diagram"></i> Proyecto: Dashboard de Ventas
+                & Finanzas</span
+              >
             </div>
 
             <!-- Pre-sale Information Box -->
             <div class="pre-sale-badge-box">
               <div class="pre-sale-header">
-                <span class="badge-accent"><i class="fas fa-tag"></i> PREVENTA: S/ 179 / Módulo</span>
+                <span class="badge-accent"
+                  ><i class="fas fa-tag"></i> PREVENTA: S/ 179 / Módulo</span
+                >
                 <span class="regular-price">Antes: S/ 250</span>
               </div>
               <p class="pre-sale-text">
-                <i class="fas fa-lock text-accent"></i> <strong>Separa tu vacante con solo S/ 50</strong> y cancela el saldo restante hasta una semana antes de iniciar. 
-                <span style="display: block; margin-top: 6px; font-weight: 700; color: var(--accent-color);">✨ Oferta Especialización Completa (4 Cursos): S/ 697 (Antes S/ 1299)</span>
+                <i class="fas fa-lock text-accent"></i>
+                <strong>Separa tu vacante con solo S/ 50</strong> y cancela el saldo
+                restante hasta una semana antes de iniciar.
+                <span
+                  style="display: block; margin-top: 6px; font-weight: 700; color: var(--accent-color);"
+                  >✨ Oferta Especialización Completa (4 Cursos): S/ 697 (Antes
+                  S/ 1299)</span
+                >
               </p>
             </div>
 
             <div class="bonus-box">
               <h4>Regalos y Material Adicional Incluido:</h4>
               <ul>
-                <li><i class="fas fa-gift text-secondary-color"></i> <strong>Plantilla automática de Finanzas Personales GRATIS</strong> (Manejo de tarjetas de crédito 💳, formulario de consumos y tutorial explicativo paso a paso).</li>
-                <li class="template-links">
-                  <span>Enlaces de la Plantilla:</span> 
-                  <a href="https://www.youtube.com/watch?v=x2KsvmjT0DQ&t=1s" target="_blank"><i class="fab fa-youtube"></i> Ver en YouTube</a>
-                  <a href="https://www.tiktok.com/@medicenjhon0/video/7589111308054711570?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fab fa-tiktok"></i> Ver en TikTok</a>
+                <li>
+                  <i class="fas fa-gift text-secondary-color"></i>
+                  <strong
+                    >Plantilla automática de Finanzas Personales GRATIS</strong
+                  > (Manejo de tarjetas de crédito 💳, formulario de consumos y tutorial
+                  explicativo paso a paso).
                 </li>
-                <li><i class="fas fa-book text-accent"></i> <strong>Libros de Data Analytics</strong> y cursos pregrabados de regalo.</li>
-                <li><i class="fas fa-file-pdf text-accent"></i> <strong>CV del profesor de Analista de Datos</strong> para inspirarte y mejorar tu perfil.</li>
+                <li class="template-links">
+                  <span>Enlaces de la Plantilla:</span>
+                  <a
+                    href="https://www.youtube.com/watch?v=x2KsvmjT0DQ&t=1s"
+                    target="_blank"
+                    ><i class="fab fa-youtube"></i> Ver en YouTube</a
+                  >
+                  <a
+                    href="https://www.tiktok.com/@medicenjhon0/video/7589111308054711570?is_from_webapp=1&sender_device=pc"
+                    target="_blank"
+                    ><i class="fab fa-tiktok"></i> Ver en TikTok</a
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-book text-accent"></i>
+                  <strong>Libros de Data Analytics</strong> y cursos pregrabados de
+                  regalo.
+                </li>
+                <li>
+                  <i class="fas fa-file-pdf text-accent"></i>
+                  <strong>CV del profesor de Analista de Datos</strong> para inspirarte
+                  y mejorar tu perfil.
+                </li>
               </ul>
             </div>
 
             <details class="detail-accordion" open>
-              <summary>Temario Clave del Módulo <i class="fas fa-chevron-down"></i></summary>
+              <summary
+                >Temario Clave del Módulo <i class="fas fa-chevron-down"
+                ></i></summary
+              >
               <ul>
-                <li>Fórmulas lógicas intermedias y de búsqueda avanzada (BUSCARX, INDICE, COINCIDIR)</li>
-                <li>Higiene de datos y ETL estructurado mediante Power Query básico</li>
-                <li>Modelado y normalización simple con Tablas Dinámicas y Segmentadores</li>
+                <li>
+                  Fórmulas lógicas intermedias y de búsqueda avanzada (BUSCARX,
+                  INDICE, COINCIDIR)
+                </li>
+                <li>
+                  Higiene de datos y ETL estructurado mediante Power Query
+                  básico
+                </li>
+                <li>
+                  Modelado y normalización simple con Tablas Dinámicas y
+                  Segmentadores
+                </li>
                 <li>Diseño estético UX de Dashboards analíticos de negocio</li>
               </ul>
             </details>
 
             <div class="pre-sale-footer">
-              <span><i class="fab fa-whatsapp"></i> Más Info y Métodos de Pago: <strong>Coordinar por WhatsApp</strong></span>
-              <span><i class="fas fa-link"></i> <a href="https://bit.ly/curso_sql_powerbi" target="_blank">Temarios y Promos</a></span>
+              <span
+                ><i class="fab fa-whatsapp"></i> Más Info y Métodos de Pago: <strong
+                  >Coordinar por WhatsApp</strong
+                ></span
+              >
+              <span
+                ><i class="fas fa-link"></i>
+                <a href="https://bit.ly/curso_sql_powerbi" target="_blank"
+                  >Temarios y Promos</a
+                ></span
+              >
             </div>
 
-            <div class="detail-actions" style="display: flex; gap: 12px; flex-wrap: wrap;">
-              <a href="https://api.whatsapp.com/send/?phone=51927534737&text=Hola%2C%20quiero%20separar%20mi%20vacante%20para%20el%20curso%20de%20Excel%20con%20precio%20preventa" target="_blank" class="btn btn-secondary btn-whatsapp">Reservar Vacante con S/ 50 <i class="fab fa-whatsapp"></i></a>
+            <div
+              class="detail-actions"
+              style="display: flex; gap: 12px; flex-wrap: wrap;"
+            >
+              <a
+                href="https://api.whatsapp.com/send/?phone=51927534737&text=Hola%2C%20quiero%20separar%20mi%20vacante%20para%20el%20curso%20de%20Excel%20con%20precio%20preventa"
+                target="_blank"
+                class="btn btn-secondary btn-whatsapp"
+                >Reservar Vacante con S/ 50 <i class="fab fa-whatsapp"></i></a
+              >
             </div>
           </div>
         </div>
@@ -221,51 +393,91 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div id="wrapper-advanced" class="roadmap-horizontal-wrapper">
         <div class="roadmap-meta-header text-center">
           <h3>Especialización en Data Analyst Avanzado</h3>
-          <p>Potencia tus habilidades hacia la ingeniería de datos en la nube y el procesamiento masivo a gran escala.</p>
+          <p>
+            Potencia tus habilidades hacia la ingeniería de datos en la nube y
+            el procesamiento masivo a gran escala.
+          </p>
         </div>
 
         <div class="timeline-container">
           <!-- Background SVG Sine Curve for desktop -->
-          <svg class="timeline-svg-curve" viewBox="0 0 1000 150" preserveAspectRatio="none">
-            <path d="M 50,75 C 150,15 250,135 350,75 C 450,15 550,135 650,75 C 750,15 850,135 950,75" />
+          <svg
+            class="timeline-svg-curve"
+            viewBox="0 0 1000 150"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M 50,75 C 150,15 250,135 350,75 C 450,15 550,135 650,75 C 750,15 850,135 950,75"
+            ></path>
           </svg>
 
           <!-- Timeline Nodes -->
           <div class="timeline-horizontal-scroll">
             <div class="timeline-nodes-row">
               <!-- Background SVG Sine Curve for mobile -->
-              <svg class="timeline-svg-curve-vertical" viewBox="0 0 100 600" preserveAspectRatio="none">
-                <path d="M 50,0 C 10,50 90,150 50,200 C 10,250 90,350 50,400 C 10,450 90,550 50,600" />
+              <svg
+                class="timeline-svg-curve-vertical"
+                viewBox="0 0 100 600"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M 50,0 C 10,50 90,150 50,200 C 10,250 90,350 50,400 C 10,450 90,550 50,600"
+                ></path>
               </svg>
               <!-- Node 1 -->
-              <button class="timeline-node active peak" data-step="adv1" data-route="advanced">
+              <button
+                class="timeline-node active peak"
+                data-step="adv1"
+                data-route="advanced"
+              >
                 <div class="node-dot">1</div>
                 <div class="node-icon-bg">
-                  <img src="/img/formation/2sqlserver.png" alt="SQL Server Avanzado Logo" />
+                  <img
+                    src="/img/formation/2sqlserver.png"
+                    alt="SQL Server Avanzado Logo"
+                  />
                 </div>
                 <span class="node-label">SQL Avanzado</span>
               </button>
 
               <!-- Node 2 -->
-              <button class="timeline-node valley" data-step="adv2" data-route="advanced">
+              <button
+                class="timeline-node valley"
+                data-step="adv2"
+                data-route="advanced"
+              >
                 <div class="node-dot">2</div>
                 <div class="node-icon-bg">
-                  <img src="/img/formation/5Python.png" alt="Python & ML Logo" />
+                  <img
+                    src="/img/formation/5Python.png"
+                    alt="Python & ML Logo"
+                  />
                 </div>
                 <span class="node-label">Python & ML</span>
               </button>
 
               <!-- Node 3 -->
-              <button class="timeline-node peak" data-step="adv3" data-route="advanced">
+              <button
+                class="timeline-node peak"
+                data-step="adv3"
+                data-route="advanced"
+              >
                 <div class="node-dot">3</div>
                 <div class="node-icon-bg">
-                  <img src="/img/formation/4Powerbi.png" alt="Power BI Avanzado Logo" />
+                  <img
+                    src="/img/formation/4Powerbi.png"
+                    alt="Power BI Avanzado Logo"
+                  />
                 </div>
                 <span class="node-label">Power BI Avanzado</span>
               </button>
 
               <!-- Node 4 -->
-              <button class="timeline-node valley" data-step="adv4" data-route="advanced">
+              <button
+                class="timeline-node valley"
+                data-step="adv4"
+                data-route="advanced"
+              >
                 <div class="node-dot">4</div>
                 <div class="node-icon-bg">
                   <img src="/img/formation/9GCP.png" alt="GCP BigQuery Logo" />
@@ -274,19 +486,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </button>
 
               <!-- Node 5 -->
-              <button class="timeline-node peak highlight-node" data-step="adv5" data-route="advanced">
+              <button
+                class="timeline-node peak highlight-node"
+                data-step="adv5"
+                data-route="advanced"
+              >
                 <div class="node-dot">5</div>
                 <div class="node-icon-bg">
-                  <img src="/img/formation/10AZURE.png" alt="Azure Databricks Logo" />
+                  <img
+                    src="/img/formation/10AZURE.png"
+                    alt="Azure Databricks Logo"
+                  />
                 </div>
                 <span class="node-label">Azure Databricks</span>
               </button>
 
               <!-- Node 6 -->
-              <button class="timeline-node valley" data-step="adv6" data-route="advanced">
+              <button
+                class="timeline-node valley"
+                data-step="adv6"
+                data-route="advanced"
+              >
                 <div class="node-dot">6</div>
                 <div class="node-icon-bg">
-                  <img src="/img/formation/7Antigravity.png" alt="Proyecto Cloud Logo" />
+                  <img
+                    src="/img/formation/7Antigravity.png"
+                    alt="Proyecto Cloud Logo"
+                  />
                 </div>
                 <span class="node-label">Proyecto Cloud</span>
               </button>
@@ -302,33 +528,79 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <span class="sidebar-tag">Especialización Completa</span>
               <h3>Data Analyst Avanzado</h3>
             </div>
-            
+
             <div class="sidebar-logos-row">
-              <img src="/img/formation/2sqlserver.png" alt="SQL Server Avanzado" title="SQL Server Avanzado" style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;" />
+              <img
+                src="/img/formation/2sqlserver.png"
+                alt="SQL Server Avanzado"
+                title="SQL Server Avanzado"
+                style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;"
+              />
               <i class="fas fa-chevron-right separator"></i>
-              <img src="/img/formation/5Python.png" alt="Python Pro" title="Python Pro" style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;" />
+              <img
+                src="/img/formation/5Python.png"
+                alt="Python Pro"
+                title="Python Pro"
+                style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;"
+              />
               <i class="fas fa-chevron-right separator"></i>
-              <img src="/img/formation/9GCP.png" alt="Cloud BigQuery" title="Cloud BigQuery" style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;" />
+              <img
+                src="/img/formation/9GCP.png"
+                alt="Cloud BigQuery"
+                title="Cloud BigQuery"
+                style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;"
+              />
               <i class="fas fa-chevron-right separator"></i>
-              <img src="/img/formation/10AZURE.png" alt="Azure Synapse" title="Azure Synapse" style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;" />
+              <img
+                src="/img/formation/10AZURE.png"
+                alt="Azure Synapse"
+                title="Azure Synapse"
+                style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;"
+              />
               <i class="fas fa-chevron-right separator"></i>
-              <img src="/img/formation/6n8n.png" alt="n8n ETL" title="n8n ETL" style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;" />
+              <img
+                src="/img/formation/6n8n.png"
+                alt="n8n ETL"
+                title="n8n ETL"
+                style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;"
+              />
             </div>
 
             <ul class="sidebar-metrics">
-              <li><i class="fas fa-clock"></i> <span><strong>150 Horas Académicas</strong></span></li>
-              <li><i class="fas fa-project-diagram"></i> <span><strong>4 Proyectos + 1 Integrador</strong></span></li>
-              <li><i class="fas fa-certificate"></i> <span><strong>Certificado Oficial</strong> (A4)</span></li>
-              <li><i class="fas fa-gift"></i> <span><strong>Bonos</strong>: CV Senior + Guía Cloud</span></li>
+              <li>
+                <i class="fas fa-clock"></i>
+                <span><strong>150 Horas Académicas</strong></span>
+              </li>
+              <li>
+                <i class="fas fa-project-diagram"></i>
+                <span><strong>4 Proyectos + 1 Integrador</strong></span>
+              </li>
+              <li>
+                <i class="fas fa-certificate"></i>
+                <span><strong>Certificado Oficial</strong> (A4)</span>
+              </li>
+              <li>
+                <i class="fas fa-gift"></i>
+                <span><strong>Bonos</strong>: CV Senior + Guía Cloud</span>
+              </li>
             </ul>
 
             <div class="sidebar-promo-box">
               <span class="promo-label">PREVENTA ESPECIAL</span>
-              <p class="promo-price">S/ 579 <span class="promo-old">Antes: S/ 729</span></p>
-              <span class="promo-note">Separa con S/ 50 y cancela el saldo hasta una semana antes de iniciar.</span>
+              <p class="promo-price">
+                S/ 757 <span class="promo-old">Antes: S/ 1999</span>
+              </p>
+              <span class="promo-note"
+                >Separa con S/ 50 y cancela el saldo hasta una semana antes de
+                iniciar.</span
+              >
             </div>
 
-            <a href="/brochure-senior" class="btn btn-outline-brochure full-width-btn"><i class="far fa-file-pdf"></i> Brochure (PDF)</a>
+            <a
+              href="/brochure-senior"
+              class="btn btn-outline-brochure full-width-btn"
+              ><i class="far fa-file-pdf"></i> Brochure (PDF)</a
+            >
           </div>
 
           <!-- Right Column: Dynamic Content -->
@@ -337,58 +609,111 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <span class="badge-step">Paso 1 · Bloque 1 (2.5 Meses)</span>
               <h3>SQL Server Avanzado</h3>
             </div>
-            <p class="detail-card-desc">Lleva tus consultas al máximo nivel. Aprenderás a escribir Window Functions complejas, optimizar índices, desarrollar procedimientos almacenados y modelar esquemas multidimensionales corporativos.</p>
+            <p class="detail-card-desc">
+              Lleva tus consultas al máximo nivel. Aprenderás a escribir Window
+              Functions complejas, optimizar índices, desarrollar procedimientos
+              almacenados y modelar esquemas multidimensionales corporativos.
+            </p>
             <div class="detail-card-meta">
-              <span><i class="fas fa-clock"></i> +30 horas de clase + En Vivo</span>
-              <span><i class="fas fa-project-diagram"></i> Proyecto: Optimización de consultas de millones de filas</span>
+              <span
+                ><i class="fas fa-clock"></i> +30 horas de clase + En Vivo</span
+              >
+              <span
+                ><i class="fas fa-project-diagram"></i> Proyecto: Optimización de
+                consultas de millones de filas</span
+              >
             </div>
 
             <!-- Pre-sale Information Box -->
             <div class="pre-sale-badge-box">
               <div class="pre-sale-header">
-                <span class="badge-accent"><i class="fas fa-tag"></i> PREVENTA: S/ 179 / Módulo</span>
+                <span class="badge-accent"
+                  ><i class="fas fa-tag"></i> PREVENTA: S/ 179 / Módulo</span
+                >
                 <span class="regular-price">Antes: S/ 250</span>
               </div>
               <p class="pre-sale-text">
-                <i class="fas fa-lock text-accent"></i> <strong>Separa tu vacante con solo S/ 50</strong> y cancela el saldo restante hasta una semana antes de iniciar. 
-                <span style="display: block; margin-top: 6px; font-weight: 700; color: var(--accent-color);">✨ Oferta Especialización Completa (4 Cursos): S/ 579 (Antes S/ 729)</span>
+                <i class="fas fa-lock text-accent"></i>
+                <strong>Separa tu vacante con solo S/ 50</strong> y cancela el saldo
+                restante hasta una semana antes de iniciar.
+                <span
+                  style="display: block; margin-top: 6px; font-weight: 700; color: var(--accent-color);"
+                  >✨ Oferta Especialización Completa (4 Cursos): S/ 757 (Antes
+                  S/ 1299)</span
+                >
               </p>
             </div>
 
             <div class="bonus-box">
               <h4>Regalos y Material Adicional Incluido:</h4>
               <ul>
-                <li><i class="fas fa-book text-accent"></i> <strong>Libros de Data Analytics</strong> y cursos pregrabados de regalo.</li>
-                <li><i class="fas fa-file-pdf text-accent"></i> <strong>CV de Analista de Datos del profesor</strong> para inspirarte y mejorar tu perfil.</li>
+                <li>
+                  <i class="fas fa-book text-accent"></i>
+                  <strong>Libros de Data Analytics</strong> y cursos pregrabados de
+                  regalo.
+                </li>
+                <li>
+                  <i class="fas fa-file-pdf text-accent"></i>
+                  <strong>CV de Analista de Datos del profesor</strong> para inspirarte
+                  y mejorar tu perfil.
+                </li>
               </ul>
             </div>
 
             <details class="detail-accordion" open>
-              <summary>Temario Clave del Módulo <i class="fas fa-chevron-down"></i></summary>
+              <summary
+                >Temario Clave del Módulo <i class="fas fa-chevron-down"
+                ></i></summary
+              >
               <ul>
-                <li>Funciones de Ventana Avanzadas (ROW_NUMBER, LEAD, LAG, DENSE_RANK)</li>
-                <li>Uso estructurado de CTEs (Common Table Expressions) y Queries Recursivas</li>
-                <li>Programación en T-SQL: Procedimientos almacenados, triggers y funciones</li>
-                <li>Afinamiento y optimización de índices agrupados y no agrupados</li>
+                <li>
+                  Funciones de Ventana Avanzadas (ROW_NUMBER, LEAD, LAG,
+                  DENSE_RANK)
+                </li>
+                <li>
+                  Uso estructurado de CTEs (Common Table Expressions) y Queries
+                  Recursivas
+                </li>
+                <li>
+                  Programación en T-SQL: Procedimientos almacenados, triggers y
+                  funciones
+                </li>
+                <li>
+                  Afinamiento y optimización de índices agrupados y no agrupados
+                </li>
               </ul>
             </details>
 
             <div class="pre-sale-footer">
-              <span><i class="fab fa-whatsapp"></i> Más Info y Métodos de Pago: <strong>Coordinar por WhatsApp</strong></span>
-              <span><i class="fas fa-link"></i> <a href="https://bit.ly/curso_sql_powerbi" target="_blank">Temarios y Promos</a></span>
+              <span
+                ><i class="fab fa-whatsapp"></i> Más Info y Métodos de Pago: <strong
+                  >Coordinar por WhatsApp</strong
+                ></span
+              >
+              <span
+                ><i class="fas fa-link"></i>
+                <a href="https://bit.ly/curso_sql_powerbi" target="_blank"
+                  >Temarios y Promos</a
+                ></span
+              >
             </div>
 
-            <div class="detail-actions" style="display: flex; gap: 12px; flex-wrap: wrap;">
-              <a href="https://api.whatsapp.com/send/?phone=51927534737&text=Hola%2C%20quiero%20separar%20mi%20vacante%20para%20el%20curso%20de%20SQL%20Server%20con%20precio%20preventa" target="_blank" class="btn btn-secondary btn-whatsapp">Reservar Vacante con S/ 50 <i class="fab fa-whatsapp"></i></a>
+            <div
+              class="detail-actions"
+              style="display: flex; gap: 12px; flex-wrap: wrap;"
+            >
+              <a
+                href="https://api.whatsapp.com/send/?phone=51927534737&text=Hola%2C%20quiero%20separar%20mi%20vacante%20para%20el%20curso%20de%20SQL%20Server%20con%20precio%20preventa"
+                target="_blank"
+                class="btn btn-secondary btn-whatsapp"
+                >Reservar Vacante con S/ 50 <i class="fab fa-whatsapp"></i></a
+              >
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
-
-  
 
   <!-- CTA Block -->
   <section class="section cta-section">
@@ -397,10 +722,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="cta-content text-center">
           <i class="fab fa-whatsapp cta-whatsapp-icon"></i>
           <h2>¿Listo para dar el siguiente gran paso en tu carrera?</h2>
-          <p>Conéctate con uno de nuestros asesores académicos y recibe una guía personalizada sobre qué ruta se adapta mejor a tu perfil e historia laboral.</p>
+          <p>
+            Conéctate con uno de nuestros asesores académicos y recibe una guía
+            personalizada sobre qué ruta se adapta mejor a tu perfil e historia
+            laboral.
+          </p>
           <div class="cta-buttons">
-            <a href="https://api.whatsapp.com/send/?phone=51927534737&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Ruta%20de%20Analista%20de%20Datos" 
-               target="_blank" class="btn btn-secondary btn-whatsapp">
+            <a
+              href="https://api.whatsapp.com/send/?phone=51927534737&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Ruta%20de%20Analista%20de%20Datos"
+              target="_blank"
+              class="btn btn-secondary btn-whatsapp"
+            >
               Conversar en WhatsApp <i class="fab fa-whatsapp"></i>
             </a>
           </div>
@@ -408,7 +740,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
   </section>
-
 </BaseLayout>
 
 <style>
@@ -417,7 +748,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
      ========================================================================== */
 
   .text-gradient {
-    background: linear-gradient(135deg, var(--accent-color) 0%, #0097A7 100%);
+    background: linear-gradient(135deg, var(--accent-color) 0%, #0097a7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
@@ -537,8 +868,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   /* Custom Colors for Icons in Pills */
-  .text-accent-icon { color: var(--accent-color); }
-  .text-secondary-icon { color: var(--secondary-color); }
+  .text-accent-icon {
+    color: var(--accent-color);
+  }
+  .text-secondary-icon {
+    color: var(--secondary-color);
+  }
 
   /* Active states for hemispheric tabs */
   .hard-skills-side .skill-pill.active {
@@ -573,8 +908,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   @keyframes slideUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .brain-detail-card.soft {
@@ -718,8 +1059,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .roadmap-meta-header {
@@ -1021,14 +1368,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* Pre Sale Box styling */
   .pre-sale-badge-box {
-    background: linear-gradient(135deg, rgba(0, 188, 212, 0.06) 0%, rgba(0, 151, 167, 0.02) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(0, 188, 212, 0.06) 0%,
+      rgba(0, 151, 167, 0.02) 100%
+    );
     border: 1px solid rgba(0, 188, 212, 0.2);
     border-radius: 12px;
     padding: 16px 20px;
   }
-  
+
   html.dark-theme .pre-sale-badge-box {
-    background: linear-gradient(135deg, rgba(0, 188, 212, 0.08) 0%, rgba(5, 16, 31, 0.2) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(0, 188, 212, 0.08) 0%,
+      rgba(5, 16, 31, 0.2) 100%
+    );
     border-color: rgba(0, 188, 212, 0.25);
   }
 
@@ -1288,7 +1643,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* CTA */
   .cta-card {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--primary-color) 0%,
+      var(--primary-light) 100%
+    );
     color: white;
     border-radius: 20px;
     padding: 50px 30px;
@@ -1303,7 +1662,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .cta-card::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 250px;
     height: 250px;
@@ -1329,9 +1688,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   @keyframes pulse {
-    0% { transform: scale(1); opacity: 0.95; }
-    50% { transform: scale(1.06); opacity: 1; }
-    100% { transform: scale(1); opacity: 0.95; }
+    0% {
+      transform: scale(1);
+      opacity: 0.95;
+    }
+    50% {
+      transform: scale(1.06);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.95;
+    }
   }
 
   .cta-card h2 {
@@ -1414,7 +1782,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       position: absolute;
       top: 29px; /* Center of Node 1 on mobile (58px height / 2) */
       bottom: 29px; /* Center of Node 6 on mobile */
-      height: calc(100% - 58px) !important; /* Spans exactly from Node 1 center to Node 6 center */
+      height: calc(
+        100% - 58px
+      ) !important; /* Spans exactly from Node 1 center to Node 6 center */
       left: 50%;
       width: 70px;
       transform: translateX(-50%);
@@ -1429,7 +1799,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       stroke-dasharray: 8 6;
       transition: var(--transition);
     }
-    
+
     html.dark-theme .timeline-svg-curve-vertical path {
       stroke: #1e3c63;
     }
@@ -1465,12 +1835,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
 
     /* Wavy stagger in mobile */
-    .timeline-node:nth-child(1) { transform: translateX(-28px) !important; }
-    .timeline-node:nth-child(2) { transform: translateX(28px) !important; }
-    .timeline-node:nth-child(3) { transform: translateX(-28px) !important; }
-    .timeline-node:nth-child(4) { transform: translateX(28px) !important; }
-    .timeline-node:nth-child(5) { transform: translateX(-28px) !important; }
-    .timeline-node:nth-child(6) { transform: translateX(28px) !important; }
+    .timeline-node:nth-child(1) {
+      transform: translateX(-28px) !important;
+    }
+    .timeline-node:nth-child(2) {
+      transform: translateX(28px) !important;
+    }
+    .timeline-node:nth-child(3) {
+      transform: translateX(-28px) !important;
+    }
+    .timeline-node:nth-child(4) {
+      transform: translateX(28px) !important;
+    }
+    .timeline-node:nth-child(5) {
+      transform: translateX(-28px) !important;
+    }
+    .timeline-node:nth-child(6) {
+      transform: translateX(28px) !important;
+    }
 
     .node-dot {
       left: 50% !important;
@@ -1510,7 +1892,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     .skills-pill-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .toggle-pill-container {
       flex-direction: column;
       border-radius: 16px;
@@ -1625,7 +2007,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .sidebar-promo-box {
-    background: linear-gradient(135deg, rgba(0, 188, 212, 0.04) 0%, rgba(37, 211, 102, 0.04) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(0, 188, 212, 0.04) 0%,
+      rgba(37, 211, 102, 0.04) 100%
+    );
     border: 1px solid rgba(0, 188, 212, 0.15);
     border-radius: 8px;
     padding: 12px;
@@ -1673,38 +2059,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <!-- Page Script logic -->
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    
-
+  document.addEventListener("DOMContentLoaded", () => {
     // ==========================================
     // 2. TIMELINE TOGGLE (JUNIOR VS ADVANCED)
     // ==========================================
-    const btnJunior = document.getElementById('btn-junior');
-    const btnAdvanced = document.getElementById('btn-advanced');
-    const wrapperJunior = document.getElementById('wrapper-junior');
-    const wrapperAdvanced = document.getElementById('wrapper-advanced');
+    const btnJunior = document.getElementById("btn-junior");
+    const btnAdvanced = document.getElementById("btn-advanced");
+    const wrapperJunior = document.getElementById("wrapper-junior");
+    const wrapperAdvanced = document.getElementById("wrapper-advanced");
 
     if (btnJunior && btnAdvanced && wrapperJunior && wrapperAdvanced) {
-      btnJunior.addEventListener('click', () => {
-        btnAdvanced.classList.remove('active');
-        btnJunior.classList.add('active');
-        wrapperAdvanced.classList.remove('active');
-        wrapperJunior.classList.add('active');
+      btnJunior.addEventListener("click", () => {
+        btnAdvanced.classList.remove("active");
+        btnJunior.classList.add("active");
+        wrapperAdvanced.classList.remove("active");
+        wrapperJunior.classList.add("active");
       });
 
-      btnAdvanced.addEventListener('click', () => {
-        btnJunior.classList.remove('active');
-        btnAdvanced.classList.add('active');
-        wrapperJunior.classList.remove('active');
-        wrapperAdvanced.classList.add('active');
+      btnAdvanced.addEventListener("click", () => {
+        btnJunior.classList.remove("active");
+        btnAdvanced.classList.add("active");
+        wrapperJunior.classList.remove("active");
+        wrapperAdvanced.classList.add("active");
       });
 
       // Handle URL Tab parameter (?tab=junior or ?tab=advanced)
       const urlParams = new URLSearchParams(window.location.search);
-      const tabParam = urlParams.get('tab');
-      if (tabParam === 'advanced') {
+      const tabParam = urlParams.get("tab");
+      if (tabParam === "advanced") {
         btnAdvanced.click();
-      } else if (tabParam === 'junior') {
+      } else if (tabParam === "junior") {
         btnJunior.click();
       }
     }
@@ -1726,9 +2110,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           "Fórmulas lógicas intermedias y de búsqueda avanzada (BUSCARX, INDICE, COINCIDIR)",
           "Higiene de datos y ETL estructurado mediante Power Query básico",
           "Modelado y normalización simple con Tablas Dinámicas y Segmentadores",
-          "Diseño estético UX de Dashboards analíticos de negocio"
+          "Diseño estético UX de Dashboards analíticos de negocio",
         ],
-        url: "/cursos/excel"
+        url: "/cursos/excel",
       },
       jr2: {
         badge: "Paso 2 · Bloque 1 (2.5 Meses)",
@@ -1742,9 +2126,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           "Conceptos de bases de datos, tablas, claves primarias y foráneas",
           "Consultar, filtrar, ordenar y organizar información (SELECT, WHERE, ORDER BY)",
           "Agrupación y cálculo de indicadores agrupados (GROUP BY, HAVING)",
-          "Integración de múltiples tablas relacionales (INNER, LEFT, RIGHT JOIN)"
+          "Integración de múltiples tablas relacionales (INNER, LEFT, RIGHT JOIN)",
         ],
-        url: "/cursos/sql"
+        url: "/cursos/sql",
       },
       jr3: {
         badge: "Paso 3 · Bloque 2",
@@ -1758,9 +2142,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           "Transformación avanzada en Power Query (Procesos ETL complejos)",
           "Esquemas multidimensionales (Modelo en Estrella y Snowflake)",
           "Fórmulas analíticas intermedias y medidas en lenguaje DAX",
-          "Storytelling y UX en tableros ejecutivos interactivos"
+          "Storytelling y UX en tableros ejecutivos interactivos",
         ],
-        url: "/cursos/powerbi"
+        url: "/cursos/powerbi",
       },
       jr4: {
         badge: "Paso 4 · Bloque 2",
@@ -1774,9 +2158,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           "Bases lógicas de programación en Python (Variables, Bucles, Funciones)",
           "Manipulación de datasets en dataframes con la librería Pandas",
           "Operaciones numéricas matriciales veloces con NumPy",
-          "Graficación y visualización de datos de negocio con Seaborn y Matplotlib"
+          "Graficación y visualización de datos de negocio con Seaborn y Matplotlib",
         ],
-        url: "/cursos/python"
+        url: "/cursos/python",
       },
       jr5: {
         badge: "Paso 5 · Proyecto Final (2 Semanas)",
@@ -1790,9 +2174,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           "Definición y recolección del problema de negocio e indicadores",
           "Construcción y carga de scripts de bases de datos SQL Server",
           "Modelado dimensional e inteligencia del negocio en Power BI",
-          "Entrega final y simulación de presentación comercial ante Directivos"
+          "Entrega final y simulación de presentación comercial ante Directivos",
         ],
-        url: "/especializacion-datos"
+        url: "/especializacion-datos",
       },
       jr6: {
         badge: "Paso 6 · Workshop Especial",
@@ -1808,9 +2192,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           "Consolidación de APIs e ingesta automática hacia almacenes de datos",
           "Configuración de notificaciones automáticas y alertas de negocio",
           "Generación y envío automático de reportes PDF dinámicos",
-          "Integración de alertas directas hacia WhatsApp, Slack y CRMs"
+          "Integración de alertas directas hacia WhatsApp, Slack y CRMs",
         ],
-        url: "/cursos/n8n"
+        url: "/cursos/n8n",
       },
       adv1: {
         badge: "Paso 1 · Bloque 1 (2.5 Meses)",
@@ -1824,25 +2208,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           "Window Functions complejas (ROW_NUMBER, DENSE_RANK, LEAD, LAG)",
           "CTEs (Common Table Expressions) y consultas jerárquicas recursivas",
           "Desarrollo de stored procedures, vistas optimizadas y triggers lógicos",
-          "Afinación de índices y análisis detallado de planes de ejecución"
+          "Afinación de índices y análisis detallado de planes de ejecución",
         ],
-        url: "/cursos/sql-engineer"
+        url: "/cursos/sql-engineer",
       },
       adv2: {
         badge: "Paso 2 · Bloque 1 (2.5 Meses)",
         title: "Python Profesional & Machine Learning",
         desc: "Escribe scripts avanzados y robustos integrando metodologías de desarrollo. Domina Git y GitHub para control de versiones y aprende los fundamentos de modelado predictivo y Machine Learning aplicado.",
         hours: "+30 Horas de clase + En Vivo",
-        project: "Pipeline modular de Ingesta & Modelo de Regresión/Clasificación",
+        project:
+          "Pipeline modular de Ingesta & Modelo de Regresión/Clasificación",
         price: "S/ 179",
         regularPrice: "S/ 250",
         syllabus: [
           "Programación orientada a objetos (POO) aplicada a datos y control de versiones con Git/GitHub",
           "Manejo avanzado de errores, excepciones y registro de logs de ingesta",
           "Fundamentos de Machine Learning: Regresión, clasificación y entrenamiento con Scikit-Learn",
-          "Preparación, limpieza y normalización de variables para modelos predictivos"
+          "Preparación, limpieza y normalización de variables para modelos predictivos",
         ],
-        url: "/cursos/python"
+        url: "/cursos/python",
       },
       adv3: {
         badge: "Paso 3 · Bloque 2",
@@ -1856,41 +2241,43 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           "DAX Avanzado: Variables, funciones iteradoras (SUMX, AVERAGEX) y contextos",
           "Arquitectura de datos: Modelado dimensional complejo y relaciones de muchos a muchos",
           "Power Query Avanzado: Consultas en lenguaje M, funciones personalizadas y parámetros",
-          "Diseño UX/UI Premium: Storytelling de negocio y publicación segura en Power BI Service"
+          "Diseño UX/UI Premium: Storytelling de negocio y publicación segura en Power BI Service",
         ],
-        url: "/cursos/powerbi"
+        url: "/cursos/powerbi",
       },
       adv4: {
         badge: "Paso 4 · Bloque 2",
         title: "Cloud Analytics (GCP & BigQuery)",
         desc: "Transiciona tu analítica hacia la nube a escala empresarial. Aprende a crear almacenes de datos (Data Warehouses) modernos, escalables y serverless en la plataforma Google Cloud Platform utilizando BigQuery.",
         hours: "+30 horas de clase + En Vivo",
-        project: "Ingesta, Modelado Columnar e Ingesta Serverless en Google Cloud",
+        project:
+          "Ingesta, Modelado Columnar e Ingesta Serverless en Google Cloud",
         price: "S/ 179",
         regularPrice: "S/ 250",
         syllabus: [
           "Fundamentos de Cloud Computing y ecosistema de datos en Google Cloud (GCP)",
           "Ingesta de datos planos y JSON hacia almacenamiento en la nube (Cloud Storage Buckets)",
           "Modelado analítico e ingesta masiva en Google BigQuery",
-          "Calendarización automática de consultas (Scheduled Queries) y optimización de costos"
+          "Calendarización automática de consultas (Scheduled Queries) y optimización de costos",
         ],
-        url: "/cursos/sql-engineer"
+        url: "/cursos/sql-engineer",
       },
       adv5: {
         badge: "Paso 5 · Bloque 3",
         title: "Big Data & Spark (Azure Databricks)",
         desc: "Domina el procesamiento masivo de datos distribuidos mediante Spark en la plataforma de nube Microsoft Azure. Construye arquitecturas de Medallón a escala industrial en entornos de desarrollo Databricks.",
         hours: "+30 horas de clase + En Vivo",
-        project: "Procesamiento de datos distribuidos y arquitectura de Medallón",
+        project:
+          "Procesamiento de datos distribuidos y arquitectura de Medallón",
         price: "S/ 179",
         regularPrice: "S/ 250",
         syllabus: [
           "Introducción al procesamiento distribuido y arquitectura de Apache Spark",
           "Programación en PySpark y manipulación a gran escala de Spark DataFrames",
           "Arquitectura de Medallón (Capas Bronze, Silver y Oro para saneamiento)",
-          "Configuración, seguridad y montaje de storages en Azure Databricks"
+          "Configuración, seguridad y montaje de storages en Azure Databricks",
         ],
-        url: "/especializacion-datos"
+        url: "/especializacion-datos",
       },
       adv6: {
         badge: "Paso 6 · Proyecto Final (2 Semanas)",
@@ -1904,47 +2291,52 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           "Diseño de la topología de datos en la nube (Ingesta con n8n, ETL con Databricks)",
           "Automatización de alertas y mensajería en tiempo real integrando APIs",
           "Desarrollo de la capa Gold modelada para reportería y métricas de negocio",
-          "Construcción y publicación del dashboard corporativo final en Power BI"
+          "Construcción y publicación del dashboard corporativo final en Power BI",
         ],
-        url: "/especializacion-datos"
-      }
+        url: "/especializacion-datos",
+      },
     };
 
-    const timelineNodes = document.querySelectorAll('.timeline-node');
-    
-    timelineNodes.forEach(node => {
-      node.addEventListener('click', () => {
-        const stepKey = node.getAttribute('data-step');
-        const routeKey = node.getAttribute('data-route');
+    const timelineNodes = document.querySelectorAll(".timeline-node");
+
+    timelineNodes.forEach((node) => {
+      node.addEventListener("click", () => {
+        const stepKey = node.getAttribute("data-step");
+        const routeKey = node.getAttribute("data-route");
         const data = stepsData[stepKey];
         if (!data) return;
 
         // Remove active class from sibling nodes in the same wrapper
-        const siblingNodes = document.querySelectorAll(`.timeline-node[data-route="${routeKey}"]`);
-        siblingNodes.forEach(n => n.classList.remove('active'));
-        node.classList.add('active');
+        const siblingNodes = document.querySelectorAll(
+          `.timeline-node[data-route="${routeKey}"]`,
+        );
+        siblingNodes.forEach((n) => n.classList.remove("active"));
+        node.classList.add("active");
 
         // Select the correct detail panel
-        const detailCardInner = document.getElementById(`detail-card-inner-${routeKey}`);
+        const detailCardInner = document.getElementById(
+          `detail-card-inner-${routeKey}`,
+        );
         if (!detailCardInner) return;
-        
+
         // Transition fade out
-        detailCardInner.style.opacity = '0';
-        detailCardInner.style.transform = 'translateY(10px)';
+        detailCardInner.style.opacity = "0";
+        detailCardInner.style.transform = "translateY(10px)";
 
         setTimeout(() => {
           // Re-render contents of the detail card
-          let syllabusHTML = '';
-          data.syllabus.forEach(item => {
+          let syllabusHTML = "";
+          data.syllabus.forEach((item) => {
             syllabusHTML += `<li>${item}</li>`;
           });
 
           // Generate Pre-sale box html if pricing applies
-          let preSaleBoxHTML = '';
+          let preSaleBoxHTML = "";
           if (data.regularPrice) {
-            const offerText = routeKey === 'advanced' 
-              ? '✨ Oferta Especialización Completa (6 Cursos): S/ 579 (Antes S/ 729)' 
-              : '✨ Oferta Especialización Completa (4 Cursos): S/ 697 (Antes S/ 1299)';
+            const offerText =
+              routeKey === "advanced"
+                ? "✨ Oferta Especialización Completa (6 Cursos): S/ 757 (Antes S/ 1299)"
+                : "✨ Oferta Especialización Completa (4 Cursos): S/ 697 (Antes S/ 1299)";
             preSaleBoxHTML = `
               <div class="pre-sale-badge-box">
                 <div class="pre-sale-header">
@@ -1960,9 +2352,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           }
 
           // Generate bonus box html
-          let bonusBoxHTML = '';
+          let bonusBoxHTML = "";
           if (data.regularPrice) {
-            let financeGiftHTML = '';
+            let financeGiftHTML = "";
             if (data.showFinanceGift) {
               financeGiftHTML = `
                 <li><i class="fas fa-gift text-secondary-color"></i> <strong>Plantilla automática de Finanzas Personales GRATIS</strong> (Manejo de tarjetas de crédito 💳, formulario de consumos y tutorial explicativo paso a paso).</li>
@@ -1987,7 +2379,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           }
 
           // Generate CTA actions
-          let actionHTML = '';
+          let actionHTML = "";
           if (data.regularPrice) {
             actionHTML = `
               <div class="detail-actions" style="display: flex; gap: 12px; flex-wrap: wrap;">
@@ -2034,8 +2426,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           `;
 
           // Transition back in
-          detailCardInner.style.opacity = '1';
-          detailCardInner.style.transform = 'translateY(0)';
+          detailCardInner.style.opacity = "1";
+          detailCardInner.style.transform = "translateY(0)";
         }, 150);
       });
     });

@@ -1,26 +1,45 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
-<BaseLayout title="Data Academy | Power BI, SQL, Python y más" description="Portafolio de proyectos y cursos en vivo de Data Academy. Aprende Power BI, SQL, Python, n8n y más.">
 
+<BaseLayout
+  title="Data Academy | Power BI, SQL, Python y más"
+  description="Portafolio de proyectos y cursos en vivo de Data Academy. Aprende Power BI, SQL, Python, n8n y más."
+>
   <!-- Hero -->
   <header class="hero" id="inicio">
     <div class="container hero-content">
       <div class="hero-text fade-in">
-        <h1>Domina tus datos con <span class="highlight">Data Academy</span></h1>
-        <p>Clases en vivo, proyectos reales y certificación oficial. Dashboards, pipelines y automatización para llevar tu carrera al siguiente nivel.</p>
+        <h1>
+          Domina tus datos con <span class="highlight">Data Academy</span>
+        </h1>
+        <p>
+          Clases en vivo, proyectos reales y certificación oficial. Dashboards,
+          pipelines y automatización para llevar tu carrera al siguiente nivel.
+        </p>
         <div class="hero-buttons">
-          <a href="#proyectos" class="btn btn-primary">Ver Proyectos <i class="fas fa-arrow-right"></i></a>
-          <a href="https://api.whatsapp.com/send/?phone=51904882577&text=Hola%2C%20estoy%20interesado%20en%20capacitarme&type=phone_number&app_absent=0"
-             target="_blank" class="btn btn-secondary btn-whatsapp">
+          <a href="#proyectos" class="btn btn-primary"
+            >Ver Proyectos <i class="fas fa-arrow-right"></i></a
+          >
+          <a
+            href="https://api.whatsapp.com/send/?phone=51904882577&text=Hola%2C%20estoy%20interesado%20en%20capacitarme&type=phone_number&app_absent=0"
+            target="_blank"
+            class="btn btn-secondary btn-whatsapp"
+          >
             <i class="fab fa-whatsapp"></i> Consultar
           </a>
         </div>
         <!-- Trust strip: social proof visible without scrolling -->
         <div class="trust-strip">
-          <span class="trust-item"><i class="fas fa-users"></i> +500 alumnos</span>
-          <span class="trust-item"><i class="fas fa-video"></i> Clases en vivo</span>
-          <span class="trust-item"><i class="fas fa-certificate"></i> Certificación oficial</span>
+          <span class="trust-item"
+            ><i class="fas fa-users"></i> +500 alumnos</span
+          >
+          <span class="trust-item"
+            ><i class="fas fa-video"></i> Clases en vivo</span
+          >
+          <span class="trust-item"
+            ><i class="fas fa-certificate"></i> Certificación oficial</span
+          >
           <span class="trust-item"><i class="fas fa-star"></i> 4.9 / 5</span>
         </div>
       </div>
@@ -29,47 +48,81 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <ul class="carousel-track">
             <li class="carousel-slide active">
               <picture>
-                <source srcset="/img/projects/sql_project.webp" type="image/webp">
-                <img src="/img/projects/sql_project.png" alt="SQL Database Analysis" fetchpriority="high">
+                <source
+                  srcset="/img/projects/sql_project.webp"
+                  type="image/webp"
+                />
+                <img
+                  src="/img/projects/sql_project.png"
+                  alt="SQL Database Analysis"
+                  fetchpriority="high"
+                />
               </picture>
-              <div class="carousel-caption">Proyectos SQL Server &amp; Modelado</div>
+              <div class="carousel-caption">
+                Proyectos SQL Server &amp; Modelado
+              </div>
             </li>
             <li class="carousel-slide">
               <picture>
-                <img src="/img/projects/proyecto_powerbi_dashboard.png" alt="Dashboard Básico Power BI" loading="lazy">
+                <img
+                  src="/img/projects/proyecto_powerbi_dashboard.png"
+                  alt="Dashboard Básico Power BI"
+                  loading="lazy"
+                />
               </picture>
               <div class="carousel-caption">Dashboard Básico Power BI</div>
             </li>
             <li class="carousel-slide">
               <picture>
-                <img src="/img/projects/proyecto_powerbi_bi.png" alt="Proyecto Business Intelligence" loading="lazy">
+                <img
+                  src="/img/projects/proyecto_powerbi_bi.png"
+                  alt="Proyecto Business Intelligence"
+                  loading="lazy"
+                />
               </picture>
               <div class="carousel-caption">Proyecto BI</div>
             </li>
             <li class="carousel-slide">
               <picture>
-                <img src="/img/projects/proyecto_medallon.png" alt="Proyecto Medallón" loading="lazy">
+                <img
+                  src="/img/projects/proyecto_medallon.png"
+                  alt="Proyecto Medallón"
+                  loading="lazy"
+                />
               </picture>
               <div class="carousel-caption">Proyecto Medallón</div>
             </li>
             <li class="carousel-slide">
               <picture>
-                <img src="/img/projects/proyecto_n8n_flow.webp" alt="Automatizaciones n8n" loading="lazy">
+                <img
+                  src="/img/projects/proyecto_n8n_flow.webp"
+                  alt="Automatizaciones n8n"
+                  loading="lazy"
+                />
               </picture>
               <div class="carousel-caption">Proyecto n8n</div>
             </li>
             <li class="carousel-slide">
               <picture>
-                <img src="/img/projects/proyecto_powerbi_hero.png" alt="Dashboard Power BI Avanzado" loading="lazy">
+                <img
+                  src="/img/projects/proyecto_powerbi_hero.png"
+                  alt="Dashboard Power BI Avanzado"
+                  loading="lazy"
+                />
               </picture>
               <div class="carousel-caption">Power BI Avanzado</div>
             </li>
           </ul>
         </div>
-        <button class="carousel-btn btn-prev" aria-label="Anterior slide"><i class="fas fa-chevron-left"></i></button>
-        <button class="carousel-btn btn-next" aria-label="Siguiente slide"><i class="fas fa-chevron-right"></i></button>
+        <button class="carousel-btn btn-prev" aria-label="Anterior slide"
+          ><i class="fas fa-chevron-left"></i></button
+        >
+        <button class="carousel-btn btn-next" aria-label="Siguiente slide"
+          ><i class="fas fa-chevron-right"></i></button
+        >
         <div class="carousel-nav">
-          <button class="carousel-indicator active" aria-label="Ir a slide 1"></button>
+          <button class="carousel-indicator active" aria-label="Ir a slide 1"
+          ></button>
           <button class="carousel-indicator" aria-label="Ir a slide 2"></button>
           <button class="carousel-indicator" aria-label="Ir a slide 3"></button>
           <button class="carousel-indicator" aria-label="Ir a slide 4"></button>
@@ -85,7 +138,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container">
       <div class="section-header text-center">
         <h2>Proyectos Destacados</h2>
-        <p>Dashboards interactivos, automatización de procesos y analítica de bases de datos.</p>
+        <p>
+          Dashboards interactivos, automatización de procesos y analítica de
+          bases de datos.
+        </p>
       </div>
       <div class="project-filters text-center fade-in">
         <button class="filter-btn active" data-filter="all">Todos</button>
@@ -97,77 +153,181 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="grid" id="projects-grid">
         <article class="card fade-in-up" data-category="powerbi">
           <div class="card-img-wrapper">
-            <picture><img src="/img/projects/proyecto_powerbi_dashboard.png" alt="Dashboard Básico Power BI" loading="lazy"></picture>
+            <picture
+              ><img
+                src="/img/projects/proyecto_powerbi_dashboard.png"
+                alt="Dashboard Básico Power BI"
+                loading="lazy"
+              /></picture
+            >
             <div class="badge">Power BI</div>
           </div>
           <div class="card-content">
             <h3>Dashboard Básico Power BI</h3>
-            <p>Dashboard introductorio para control y visualización de indicadores comerciales y de ventas.</p>
-            <a href="javascript:void(0)" class="btn-link view-detail-btn" data-project-id="p1">Ver Detalle <i class="fas fa-chevron-right"></i></a>
+            <p>
+              Dashboard introductorio para control y visualización de
+              indicadores comerciales y de ventas.
+            </p>
+            <a
+              href="javascript:void(0)"
+              class="btn-link view-detail-btn"
+              data-project-id="p1"
+              >Ver Detalle <i class="fas fa-chevron-right"></i></a
+            >
           </div>
         </article>
-        <article class="card fade-in-up" data-category="sql" style="transition-delay: 0.1s;">
+        <article
+          class="card fade-in-up"
+          data-category="sql"
+          style="transition-delay: 0.1s;"
+        >
           <div class="card-img-wrapper">
             <picture>
-              <source srcset="/img/projects/sql_project.webp" type="image/webp">
-              <img src="/img/projects/sql_project.png" alt="Optimización SQL" loading="lazy">
+              <source
+                srcset="/img/projects/sql_project.webp"
+                type="image/webp"
+              />
+              <img
+                src="/img/projects/sql_project.png"
+                alt="Optimización SQL"
+                loading="lazy"
+              />
             </picture>
             <div class="badge">SQL</div>
           </div>
           <div class="card-content">
             <h3>Optimización & Modelado SQL</h3>
-            <p>Base de datos relacional para retail. Querys complejas, window functions y optimización de indexación.</p>
-            <a href="javascript:void(0)" class="btn-link view-detail-btn" data-project-id="p2">Ver Detalle <i class="fas fa-chevron-right"></i></a>
+            <p>
+              Base de datos relacional para retail. Querys complejas, window
+              functions y optimización de indexación.
+            </p>
+            <a
+              href="javascript:void(0)"
+              class="btn-link view-detail-btn"
+              data-project-id="p2"
+              >Ver Detalle <i class="fas fa-chevron-right"></i></a
+            >
           </div>
         </article>
-        <article class="card fade-in-up" data-category="n8n" style="transition-delay: 0.2s;">
+        <article
+          class="card fade-in-up"
+          data-category="n8n"
+          style="transition-delay: 0.2s;"
+        >
           <div class="card-img-wrapper">
-            <picture><img src="/img/projects/proyecto_n8n_flow.webp" alt="Automatización n8n" loading="lazy"></picture>
+            <picture
+              ><img
+                src="/img/projects/proyecto_n8n_flow.webp"
+                alt="Automatización n8n"
+                loading="lazy"
+              /></picture
+            >
             <div class="badge">n8n</div>
           </div>
           <div class="card-content">
             <h3>Automatización CRM & WhatsApp</h3>
-            <p>Flujo n8n que conecta formularios web con HubSpot, WhatsApp e emails personalizados.</p>
-            <a href="javascript:void(0)" class="btn-link view-detail-btn" data-project-id="p3">Ver Detalle <i class="fas fa-chevron-right"></i></a>
+            <p>
+              Flujo n8n que conecta formularios web con HubSpot, WhatsApp e
+              emails personalizados.
+            </p>
+            <a
+              href="javascript:void(0)"
+              class="btn-link view-detail-btn"
+              data-project-id="p3"
+              >Ver Detalle <i class="fas fa-chevron-right"></i></a
+            >
           </div>
         </article>
-        <article class="card fade-in-up" data-category="integral" style="transition-delay: 0.3s;">
+        <article
+          class="card fade-in-up"
+          data-category="integral"
+          style="transition-delay: 0.3s;"
+        >
           <div class="card-img-wrapper">
-            <picture><img src="/img/projects/proyecto_medallon.png" alt="Arquitectura de Medallón" loading="lazy"></picture>
+            <picture
+              ><img
+                src="/img/projects/proyecto_medallon.png"
+                alt="Arquitectura de Medallón"
+                loading="lazy"
+              /></picture
+            >
             <div class="badge">Integral</div>
           </div>
           <div class="card-content">
             <h3>Arquitectura de Medallón Lakehouse</h3>
-            <p>Capas Bronze, Silver y Oro para calidad y consistencia del pipeline de datos.</p>
-            <a href="javascript:void(0)" class="btn-link view-detail-btn" data-project-id="p4">Ver Detalle <i class="fas fa-chevron-right"></i></a>
+            <p>
+              Capas Bronze, Silver y Oro para calidad y consistencia del
+              pipeline de datos.
+            </p>
+            <a
+              href="javascript:void(0)"
+              class="btn-link view-detail-btn"
+              data-project-id="p4"
+              >Ver Detalle <i class="fas fa-chevron-right"></i></a
+            >
           </div>
         </article>
-        <article class="card fade-in-up" data-category="powerbi" style="transition-delay: 0.4s;">
+        <article
+          class="card fade-in-up"
+          data-category="powerbi"
+          style="transition-delay: 0.4s;"
+        >
           <div class="card-img-wrapper">
-            <picture><img src="/img/projects/proyecto_powerbi_bi.png" alt="Proyecto BI" loading="lazy"></picture>
+            <picture
+              ><img
+                src="/img/projects/proyecto_powerbi_bi.png"
+                alt="Proyecto BI"
+                loading="lazy"
+              /></picture
+            >
             <div class="badge">Power BI</div>
           </div>
           <div class="card-content">
             <h3>Proyecto Business Intelligence</h3>
-            <p>Tablero de control para análisis estratégico de ventas, control financiero y proyección de KPIs.</p>
-            <a href="javascript:void(0)" class="btn-link view-detail-btn" data-project-id="p5">Ver Detalle <i class="fas fa-chevron-right"></i></a>
+            <p>
+              Tablero de control para análisis estratégico de ventas, control
+              financiero y proyección de KPIs.
+            </p>
+            <a
+              href="javascript:void(0)"
+              class="btn-link view-detail-btn"
+              data-project-id="p5"
+              >Ver Detalle <i class="fas fa-chevron-right"></i></a
+            >
           </div>
         </article>
-        <article class="card fade-in-up" data-category="integral" style="transition-delay: 0.5s;">
+        <article
+          class="card fade-in-up"
+          data-category="integral"
+          style="transition-delay: 0.5s;"
+        >
           <div class="card-img-wrapper">
-            <picture><img src="/img/projects/proyecto_powerbi_hero.png" alt="Dashboard Gerencial Power BI" loading="lazy"></picture>
+            <picture
+              ><img
+                src="/img/projects/proyecto_powerbi_hero.png"
+                alt="Dashboard Gerencial Power BI"
+                loading="lazy"
+              /></picture
+            >
             <div class="badge">Integral</div>
           </div>
           <div class="card-content">
             <h3>Dashboard Gerencial Power BI</h3>
-            <p>Panel ejecutivo con storytelling avanzado y análisis de rendimiento integral.</p>
-            <a href="javascript:void(0)" class="btn-link view-detail-btn" data-project-id="p6">Ver Detalle <i class="fas fa-chevron-right"></i></a>
+            <p>
+              Panel ejecutivo con storytelling avanzado y análisis de
+              rendimiento integral.
+            </p>
+            <a
+              href="javascript:void(0)"
+              class="btn-link view-detail-btn"
+              data-project-id="p6"
+              >Ver Detalle <i class="fas fa-chevron-right"></i></a
+            >
           </div>
         </article>
       </div>
     </div>
   </section>
-
 
   <!-- Formation -->
   <section class="formation section" id="formacion">
@@ -178,194 +338,470 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
       <div class="grid formation-grid">
         <!-- Especialización 1: Data Analyst Junior -->
-        <div class="course-card" style="border: 1px solid var(--border-color); background: var(--card-bg); padding: 28px 24px;">
-          <div class="course-tag" style="background: rgba(0, 188, 212, 0.1); color: var(--accent-color); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; align-self: flex-start; border-radius: 20px; padding: 4px 12px;">ESPECIALIZACIÓN COMPLETA</div>
-          <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-main); margin: 0 0 16px 0; text-align: left;">Data Analyst</h3>
-          
+        <div
+          class="course-card"
+          style="border: 1px solid var(--border-color); background: var(--card-bg); padding: 28px 24px;"
+        >
+          <div
+            class="course-tag"
+            style="background: rgba(0, 188, 212, 0.1); color: var(--accent-color); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; align-self: flex-start; border-radius: 20px; padding: 4px 12px;"
+          >
+            ESPECIALIZACIÓN COMPLETA
+          </div>
+          <h3
+            style="font-size: 1.4rem; font-weight: 800; color: var(--text-main); margin: 0 0 16px 0; text-align: left;"
+          >
+            Data Analyst
+          </h3>
+
           <!-- Logos Row with white background pill -->
-          <div class="sidebar-logos-row" style="margin-bottom: 20px; display: flex; align-items: center; gap: 8px; background: var(--bg-light); padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border-color); justify-content: center;">
-            <img src="/img/formation/3Excel.png" alt="Excel" style="width: 22px; height: 22px; object-fit: contain;" />
-            <i class="fas fa-chevron-right" style="font-size: 0.6rem; color: var(--text-muted);"></i>
-            <img src="/img/formation/2sqlserver.png" alt="SQL Server" style="width: 22px; height: 22px; object-fit: contain;" />
-            <i class="fas fa-chevron-right" style="font-size: 0.6rem; color: var(--text-muted);"></i>
-            <img src="/img/formation/4Powerbi.png" alt="Power BI" style="width: 22px; height: 22px; object-fit: contain;" />
-            <i class="fas fa-chevron-right" style="font-size: 0.6rem; color: var(--text-muted);"></i>
-            <img src="/img/formation/5Python.png" alt="Python" style="width: 22px; height: 22px; object-fit: contain;" />
+          <div
+            class="sidebar-logos-row"
+            style="margin-bottom: 20px; display: flex; align-items: center; gap: 8px; background: var(--bg-light); padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border-color); justify-content: center;"
+          >
+            <img
+              src="/img/formation/3Excel.png"
+              alt="Excel"
+              style="width: 22px; height: 22px; object-fit: contain;"
+            />
+            <i
+              class="fas fa-chevron-right"
+              style="font-size: 0.6rem; color: var(--text-muted);"></i>
+            <img
+              src="/img/formation/2sqlserver.png"
+              alt="SQL Server"
+              style="width: 22px; height: 22px; object-fit: contain;"
+            />
+            <i
+              class="fas fa-chevron-right"
+              style="font-size: 0.6rem; color: var(--text-muted);"></i>
+            <img
+              src="/img/formation/4Powerbi.png"
+              alt="Power BI"
+              style="width: 22px; height: 22px; object-fit: contain;"
+            />
+            <i
+              class="fas fa-chevron-right"
+              style="font-size: 0.6rem; color: var(--text-muted);"></i>
+            <img
+              src="/img/formation/5Python.png"
+              alt="Python"
+              style="width: 22px; height: 22px; object-fit: contain;"
+            />
           </div>
 
           <!-- Metrics list -->
-          <ul class="sidebar-metrics" style="list-style: none !important; padding: 0 !important; margin: 0 0 20px 0 !important; display: flex; flex-direction: column; gap: 10px; text-align: left;">
-            <li style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"><i class="fas fa-clock" style="color: var(--accent-color); width: 14px; text-align: center;"></i> <span><strong>150 Horas Académicas</strong></span></li>
-            <li style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"><i class="fas fa-project-diagram" style="color: var(--accent-color); width: 14px; text-align: center;"></i> <span><strong>4 Proyectos + 1 Integrador</strong></span></li>
-            <li style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"><i class="fas fa-certificate" style="color: var(--accent-color); width: 14px; text-align: center;"></i> <span><strong>Certificado Oficial</strong> (A4)</span></li>
-            <li style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"><i class="fas fa-gift" style="color: var(--accent-color); width: 14px; text-align: center;"></i> <span><strong>Bonos</strong>: CV Analista + Plan Financiero</span></li>
+          <ul
+            class="sidebar-metrics"
+            style="list-style: none !important; padding: 0 !important; margin: 0 0 20px 0 !important; display: flex; flex-direction: column; gap: 10px; text-align: left;"
+          >
+            <li
+              style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"
+            >
+              <i
+                class="fas fa-clock"
+                style="color: var(--accent-color); width: 14px; text-align: center;"
+              ></i>
+              <span><strong>150 Horas Académicas</strong></span>
+            </li>
+            <li
+              style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"
+            >
+              <i
+                class="fas fa-project-diagram"
+                style="color: var(--accent-color); width: 14px; text-align: center;"
+              ></i>
+              <span><strong>4 Proyectos + 1 Integrador</strong></span>
+            </li>
+            <li
+              style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"
+            >
+              <i
+                class="fas fa-certificate"
+                style="color: var(--accent-color); width: 14px; text-align: center;"
+              ></i>
+              <span><strong>Certificado Oficial</strong> (A4)</span>
+            </li>
+            <li
+              style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"
+            >
+              <i
+                class="fas fa-gift"
+                style="color: var(--accent-color); width: 14px; text-align: center;"
+              ></i>
+              <span><strong>Bonos</strong>: CV Analista + Plan Financiero</span>
+            </li>
           </ul>
 
           <!-- Promo Box -->
-          <div class="sidebar-promo-box" style="background: linear-gradient(135deg, rgba(0, 188, 212, 0.04) 0%, rgba(37, 211, 102, 0.04) 100%); border: 1px solid rgba(0, 188, 212, 0.15); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 4px; margin-bottom: 20px; text-align: left; margin-top: auto;">
-            <span class="promo-label" style="font-size: 0.6rem; font-weight: 800; color: var(--accent-color); letter-spacing: 0.05em; text-transform: uppercase;">PREVENTA ESPECIAL</span>
-            <p class="promo-price" style="font-size: 1.4rem; font-weight: 900; color: var(--text-main); margin: 0; display: flex; align-items: baseline; gap: 8px;">
-              S/ 697 <span class="promo-old" style="font-size: 0.85rem; font-weight: 500; color: var(--text-muted); text-decoration: line-through;">Antes: S/ 1299</span>
+          <div
+            class="sidebar-promo-box"
+            style="background: linear-gradient(135deg, rgba(0, 188, 212, 0.04) 0%, rgba(37, 211, 102, 0.04) 100%); border: 1px solid rgba(0, 188, 212, 0.15); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 4px; margin-bottom: 20px; text-align: left; margin-top: auto;"
+          >
+            <span
+              class="promo-label"
+              style="font-size: 0.6rem; font-weight: 800; color: var(--accent-color); letter-spacing: 0.05em; text-transform: uppercase;"
+              >PREVENTA ESPECIAL</span
+            >
+            <p
+              class="promo-price"
+              style="font-size: 1.4rem; font-weight: 900; color: var(--text-main); margin: 0; display: flex; align-items: baseline; gap: 8px;"
+            >
+              S/ 697 <span
+                class="promo-old"
+                style="font-size: 0.85rem; font-weight: 500; color: var(--text-muted); text-decoration: line-through;"
+                >Antes: S/ 1299</span
+              >
             </p>
-            <span class="promo-note" style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.3;">Separa con S/ 50 y cancela el saldo hasta una semana antes de iniciar.</span>
+            <span
+              class="promo-note"
+              style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.3;"
+              >Separa con S/ 50 y cancela el saldo hasta una semana antes de
+              iniciar.</span
+            >
           </div>
 
-          <a href="/ruta-analista?tab=junior" class="btn btn-primary course-cta">Ver Ruta Completa <i class="fas fa-arrow-right"></i></a>
+          <a href="/ruta-analista?tab=junior" class="btn btn-primary course-cta"
+            >Ver Ruta Completa <i class="fas fa-arrow-right"></i></a
+          >
         </div>
 
         <!-- Especialización 2: Data Analyst Avanzado -->
-        <div class="course-card" style="border: 1px solid var(--border-color); background: var(--card-bg); padding: 28px 24px;">
-          <div class="course-tag" style="background: rgba(0, 188, 212, 0.1); color: var(--accent-color); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; align-self: flex-start; border-radius: 20px; padding: 4px 12px;">ESPECIALIZACIÓN COMPLETA</div>
-          <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-main); margin: 0 0 16px 0; text-align: left;">Data Analyst Avanzado</h3>
-          
+        <div
+          class="course-card"
+          style="border: 1px solid var(--border-color); background: var(--card-bg); padding: 28px 24px;"
+        >
+          <div
+            class="course-tag"
+            style="background: rgba(0, 188, 212, 0.1); color: var(--accent-color); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; align-self: flex-start; border-radius: 20px; padding: 4px 12px;"
+          >
+            ESPECIALIZACIÓN COMPLETA
+          </div>
+          <h3
+            style="font-size: 1.4rem; font-weight: 800; color: var(--text-main); margin: 0 0 16px 0; text-align: left;"
+          >
+            Data Analyst Avanzado
+          </h3>
+
           <!-- Logos Row with white background pill -->
-          <div class="sidebar-logos-row" style="margin-bottom: 20px; display: flex; align-items: center; gap: 6px; background: var(--bg-light); padding: 8px 6px; border-radius: 8px; border: 1px solid var(--border-color); justify-content: center; flex-wrap: wrap;">
-            <img src="/img/formation/2sqlserver.png" alt="SQL Server" style="width: 18px; height: 18px; object-fit: contain;" />
-            <i class="fas fa-chevron-right" style="font-size: 0.5rem; color: var(--text-muted);"></i>
-            <img src="/img/formation/5Python.png" alt="Python" style="width: 18px; height: 18px; object-fit: contain;" />
-            <i class="fas fa-chevron-right" style="font-size: 0.5rem; color: var(--text-muted);"></i>
-            <img src="/img/formation/4Powerbi.png" alt="Power BI" style="width: 18px; height: 18px; object-fit: contain;" />
-            <i class="fas fa-chevron-right" style="font-size: 0.5rem; color: var(--text-muted);"></i>
-            <img src="/img/formation/9GCP.png" alt="GCP" style="width: 18px; height: 18px; object-fit: contain;" />
-            <i class="fas fa-chevron-right" style="font-size: 0.5rem; color: var(--text-muted);"></i>
-            <img src="/img/formation/10AZURE.png" alt="Azure" style="width: 18px; height: 18px; object-fit: contain;" />
-            <i class="fas fa-chevron-right" style="font-size: 0.5rem; color: var(--text-muted);"></i>
-            <img src="/img/formation/6n8n.png" alt="n8n" style="width: 18px; height: 18px; object-fit: contain;" />
+          <div
+            class="sidebar-logos-row"
+            style="margin-bottom: 20px; display: flex; align-items: center; gap: 6px; background: var(--bg-light); padding: 8px 6px; border-radius: 8px; border: 1px solid var(--border-color); justify-content: center; flex-wrap: wrap;"
+          >
+            <img
+              src="/img/formation/2sqlserver.png"
+              alt="SQL Server"
+              style="width: 18px; height: 18px; object-fit: contain;"
+            />
+            <i
+              class="fas fa-chevron-right"
+              style="font-size: 0.5rem; color: var(--text-muted);"></i>
+            <img
+              src="/img/formation/5Python.png"
+              alt="Python"
+              style="width: 18px; height: 18px; object-fit: contain;"
+            />
+            <i
+              class="fas fa-chevron-right"
+              style="font-size: 0.5rem; color: var(--text-muted);"></i>
+            <img
+              src="/img/formation/4Powerbi.png"
+              alt="Power BI"
+              style="width: 18px; height: 18px; object-fit: contain;"
+            />
+            <i
+              class="fas fa-chevron-right"
+              style="font-size: 0.5rem; color: var(--text-muted);"></i>
+            <img
+              src="/img/formation/9GCP.png"
+              alt="GCP"
+              style="width: 18px; height: 18px; object-fit: contain;"
+            />
+            <i
+              class="fas fa-chevron-right"
+              style="font-size: 0.5rem; color: var(--text-muted);"></i>
+            <img
+              src="/img/formation/10AZURE.png"
+              alt="Azure"
+              style="width: 18px; height: 18px; object-fit: contain;"
+            />
+            <i
+              class="fas fa-chevron-right"
+              style="font-size: 0.5rem; color: var(--text-muted);"></i>
+            <img
+              src="/img/formation/6n8n.png"
+              alt="n8n"
+              style="width: 18px; height: 18px; object-fit: contain;"
+            />
           </div>
 
           <!-- Metrics list -->
-          <ul class="sidebar-metrics" style="list-style: none !important; padding: 0 !important; margin: 0 0 20px 0 !important; display: flex; flex-direction: column; gap: 10px; text-align: left;">
-            <li style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"><i class="fas fa-clock" style="color: var(--accent-color); width: 14px; text-align: center;"></i> <span><strong>150 Horas Académicas</strong></span></li>
-            <li style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"><i class="fas fa-project-diagram" style="color: var(--accent-color); width: 14px; text-align: center;"></i> <span><strong>4 Proyectos + 1 Integrador</strong></span></li>
-            <li style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"><i class="fas fa-certificate" style="color: var(--accent-color); width: 14px; text-align: center;"></i> <span><strong>Certificado Oficial</strong> (A4)</span></li>
-            <li style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"><i class="fas fa-gift" style="color: var(--accent-color); width: 14px; text-align: center;"></i> <span><strong>Bonos</strong>: CV Senior + Guía Cloud</span></li>
+          <ul
+            class="sidebar-metrics"
+            style="list-style: none !important; padding: 0 !important; margin: 0 0 20px 0 !important; display: flex; flex-direction: column; gap: 10px; text-align: left;"
+          >
+            <li
+              style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"
+            >
+              <i
+                class="fas fa-clock"
+                style="color: var(--accent-color); width: 14px; text-align: center;"
+              ></i>
+              <span><strong>150 Horas Académicas</strong></span>
+            </li>
+            <li
+              style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"
+            >
+              <i
+                class="fas fa-project-diagram"
+                style="color: var(--accent-color); width: 14px; text-align: center;"
+              ></i>
+              <span><strong>4 Proyectos + 1 Integrador</strong></span>
+            </li>
+            <li
+              style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"
+            >
+              <i
+                class="fas fa-certificate"
+                style="color: var(--accent-color); width: 14px; text-align: center;"
+              ></i>
+              <span><strong>Certificado Oficial</strong> (A4)</span>
+            </li>
+            <li
+              style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"
+            >
+              <i
+                class="fas fa-gift"
+                style="color: var(--accent-color); width: 14px; text-align: center;"
+              ></i>
+              <span><strong>Bonos</strong>: CV Senior + Guía Cloud</span>
+            </li>
           </ul>
 
           <!-- Promo Box -->
-          <div class="sidebar-promo-box" style="background: linear-gradient(135deg, rgba(0, 188, 212, 0.04) 0%, rgba(37, 211, 102, 0.04) 100%); border: 1px solid rgba(0, 188, 212, 0.15); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 4px; margin-bottom: 20px; text-align: left; margin-top: auto;">
-            <span class="promo-label" style="font-size: 0.6rem; font-weight: 800; color: var(--accent-color); letter-spacing: 0.05em; text-transform: uppercase;">PREVENTA ESPECIAL</span>
-            <p class="promo-price" style="font-size: 1.4rem; font-weight: 900; color: var(--text-main); margin: 0; display: flex; align-items: baseline; gap: 8px;">
-              S/ 579 <span class="promo-old" style="font-size: 0.85rem; font-weight: 500; color: var(--text-muted); text-decoration: line-through;">Antes: S/ 729</span>
+          <div
+            class="sidebar-promo-box"
+            style="background: linear-gradient(135deg, rgba(0, 188, 212, 0.04) 0%, rgba(37, 211, 102, 0.04) 100%); border: 1px solid rgba(0, 188, 212, 0.15); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 4px; margin-bottom: 20px; text-align: left; margin-top: auto;"
+          >
+            <span
+              class="promo-label"
+              style="font-size: 0.6rem; font-weight: 800; color: var(--accent-color); letter-spacing: 0.05em; text-transform: uppercase;"
+              >PREVENTA ESPECIAL</span
+            >
+            <p
+              class="promo-price"
+              style="font-size: 1.4rem; font-weight: 900; color: var(--text-main); margin: 0; display: flex; align-items: baseline; gap: 8px;"
+            >
+              S/ 757 <span
+                class="promo-old"
+                style="font-size: 0.85rem; font-weight: 500; color: var(--text-muted); text-decoration: line-through;"
+                >Antes: S/ 1999</span
+              >
             </p>
-            <span class="promo-note" style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.3;">Separa con S/ 50 y cancela el saldo hasta una semana antes de iniciar.</span>
+            <span
+              class="promo-note"
+              style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.3;"
+              >Separa con S/ 50 y cancela el saldo hasta una semana antes de
+              iniciar.</span
+            >
           </div>
 
-          <a href="/ruta-analista?tab=advanced" class="btn btn-primary course-cta">Ver Ruta Completa <i class="fas fa-arrow-right"></i></a>
+          <a
+            href="/ruta-analista?tab=advanced"
+            class="btn btn-primary course-cta"
+            >Ver Ruta Completa <i class="fas fa-arrow-right"></i></a
+          >
         </div>
 
         <div class="course-card">
           <div class="course-logo">
-            <picture><img src="/img/formation/sql.png" alt="SQL" class="course-tool-logo" loading="lazy"></picture>
+            <picture
+              ><img
+                src="/img/formation/sql.png"
+                alt="SQL"
+                class="course-tool-logo"
+                loading="lazy"
+              /></picture
+            >
           </div>
           <div class="course-tag">Curso en Vivo</div>
           <h3>SQL para Data Analyst</h3>
-          <p class="course-desc">Bases de datos relacionales, Transact SQL, joins y CTEs. Repaso y prueba técnica real.</p>
+          <p class="course-desc">
+            Bases de datos relacionales, Transact SQL, joins y CTEs. Repaso y
+            prueba técnica real.
+          </p>
           <ul class="course-features">
             <li><i class="fas fa-check"></i> +30 horas de clases en vivo</li>
             <li><i class="fas fa-check"></i> Repaso y prueba técnica real</li>
             <li><i class="fas fa-check"></i> Certificación Oficial Gratis</li>
           </ul>
           <div class="course-price-teaser preventa-teaser">
-            <span class="preventa-teaser-badge"><i class="fas fa-fire"></i> Primeros 10 cupos</span>
+            <span class="preventa-teaser-badge"
+              ><i class="fas fa-fire"></i> Primeros 10 cupos</span
+            >
             <span class="teaser-price-row">
               <span class="price-old">S/ 299</span>
               <span class="price-amount">S/ 179</span>
               <span class="price-currency">PEN</span>
             </span>
           </div>
-          <a href="/cursos/sql" class="btn btn-primary course-cta">Ver Detalles <i class="fas fa-arrow-right"></i></a>
+          <a href="/cursos/sql" class="btn btn-primary course-cta"
+            >Ver Detalles <i class="fas fa-arrow-right"></i></a
+          >
         </div>
 
         <div class="course-card">
           <div class="course-logo">
-            <picture><img src="/img/formation/2sqlserver.png" alt="SQL Engineer" class="course-tool-logo" loading="lazy"></picture>
+            <picture
+              ><img
+                src="/img/formation/2sqlserver.png"
+                alt="SQL Engineer"
+                class="course-tool-logo"
+                loading="lazy"
+              /></picture
+            >
           </div>
           <div class="course-tag">Curso en Vivo</div>
           <h3>SQL para Data Engineer</h3>
-          <p class="course-desc">Window Functions avanzadas, BigQuery y optimización de costos en nube. Pipeline ELT real.</p>
+          <p class="course-desc">
+            Window Functions avanzadas, BigQuery y optimización de costos en
+            nube. Pipeline ELT real.
+          </p>
           <ul class="course-features">
             <li><i class="fas fa-check"></i> +30 horas de clases en vivo</li>
             <li><i class="fas fa-check"></i> Ingesta en BigQuery & Cloud</li>
             <li><i class="fas fa-check"></i> Desarrollo de prueba técnica</li>
           </ul>
           <div class="course-price-teaser preventa-teaser">
-            <span class="preventa-teaser-badge"><i class="fas fa-fire"></i> Primeros 10 cupos</span>
+            <span class="preventa-teaser-badge"
+              ><i class="fas fa-fire"></i> Primeros 10 cupos</span
+            >
             <span class="teaser-price-row">
               <span class="price-old">S/ 299</span>
               <span class="price-amount">S/ 179</span>
               <span class="price-currency">PEN</span>
             </span>
           </div>
-          <a href="/cursos/sql-engineer" class="btn btn-primary course-cta">Ver Detalles <i class="fas fa-arrow-right"></i></a>
+          <a href="/cursos/sql-engineer" class="btn btn-primary course-cta"
+            >Ver Detalles <i class="fas fa-arrow-right"></i></a
+          >
         </div>
 
         <div class="course-card">
           <div class="course-logo">
-            <picture><img src="/img/formation/4Powerbi.png" alt="Power BI" class="course-tool-logo" loading="lazy"></picture>
+            <picture
+              ><img
+                src="/img/formation/4Powerbi.png"
+                alt="Power BI"
+                class="course-tool-logo"
+                loading="lazy"
+              /></picture
+            >
           </div>
           <div class="course-tag">Curso en Vivo</div>
           <h3>Power BI En Vivo</h3>
-          <p class="course-desc">Power Query, modelado en estrella, DAX y storytelling. Acceso de por vida a grabaciones.</p>
+          <p class="course-desc">
+            Power Query, modelado en estrella, DAX y storytelling. Acceso de por
+            vida a grabaciones.
+          </p>
           <ul class="course-features">
             <li><i class="fas fa-check"></i> +30 horas de clases en vivo</li>
             <li><i class="fas fa-check"></i> Storytelling y UX en tableros</li>
-            <li><i class="fas fa-check"></i> Acceso de por vida a grabaciones</li>
+            <li>
+              <i class="fas fa-check"></i> Acceso de por vida a grabaciones
+            </li>
           </ul>
           <div class="course-price-teaser preventa-teaser">
-            <span class="preventa-teaser-badge"><i class="fas fa-fire"></i> Primeros 10 cupos</span>
+            <span class="preventa-teaser-badge"
+              ><i class="fas fa-fire"></i> Primeros 10 cupos</span
+            >
             <span class="teaser-price-row">
               <span class="price-old">S/ 299</span>
               <span class="price-amount">S/ 179</span>
               <span class="price-currency">PEN</span>
             </span>
           </div>
-          <a href="/cursos/powerbi" class="btn btn-primary course-cta">Ver Detalles <i class="fas fa-arrow-right"></i></a>
+          <a href="/cursos/powerbi" class="btn btn-primary course-cta"
+            >Ver Detalles <i class="fas fa-arrow-right"></i></a
+          >
         </div>
 
         <div class="course-card">
           <div class="course-logo">
-            <picture><img src="/img/formation/3Excel.png" alt="Excel" class="course-tool-logo" loading="lazy"></picture>
+            <picture
+              ><img
+                src="/img/formation/3Excel.png"
+                alt="Excel"
+                class="course-tool-logo"
+                loading="lazy"
+              /></picture
+            >
           </div>
           <div class="course-tag">Curso en Vivo</div>
           <h3>Excel En Vivo</h3>
-          <p class="course-desc">Power Query ETL, BUSCARX, tablas dinámicas con modelos de datos y dashboards financieros.</p>
+          <p class="course-desc">
+            Power Query ETL, BUSCARX, tablas dinámicas con modelos de datos y
+            dashboards financieros.
+          </p>
           <ul class="course-features">
             <li><i class="fas fa-check"></i> +30 horas de clases en vivo</li>
-            <li><i class="fas fa-check"></i> Dashboard de finanzas personales</li>
+            <li>
+              <i class="fas fa-check"></i> Dashboard de finanzas personales
+            </li>
             <li><i class="fas fa-check"></i> Certificación Oficial Gratis</li>
           </ul>
           <div class="course-price-teaser preventa-teaser">
-            <span class="preventa-teaser-badge"><i class="fas fa-fire"></i> Primeros 10 cupos</span>
+            <span class="preventa-teaser-badge"
+              ><i class="fas fa-fire"></i> Primeros 10 cupos</span
+            >
             <span class="teaser-price-row">
               <span class="price-old">S/ 299</span>
               <span class="price-amount">S/ 179</span>
               <span class="price-currency">PEN</span>
             </span>
           </div>
-          <a href="/cursos/excel" class="btn btn-primary course-cta">Ver Detalles <i class="fas fa-arrow-right"></i></a>
+          <a href="/cursos/excel" class="btn btn-primary course-cta"
+            >Ver Detalles <i class="fas fa-arrow-right"></i></a
+          >
         </div>
 
         <div class="course-card">
           <div class="course-logo">
-            <picture><img src="/img/formation/5Python.png" alt="Python" class="course-tool-logo" loading="lazy"></picture>
+            <picture
+              ><img
+                src="/img/formation/5Python.png"
+                alt="Python"
+                class="course-tool-logo"
+                loading="lazy"
+              /></picture
+            >
           </div>
           <div class="course-tag">Curso en Vivo</div>
           <h3>Python + PySpark En Vivo</h3>
-          <p class="course-desc">Pandas, Matplotlib, Seaborn y PySpark. Entornos profesionales con Git/GitHub.</p>
+          <p class="course-desc">
+            Pandas, Matplotlib, Seaborn y PySpark. Entornos profesionales con
+            Git/GitHub.
+          </p>
           <ul class="course-features">
             <li><i class="fas fa-check"></i> +30 horas de clases en vivo</li>
-            <li><i class="fas fa-check"></i> Entornos profesionales Git/GitHub</li>
+            <li>
+              <i class="fas fa-check"></i> Entornos profesionales Git/GitHub
+            </li>
             <li><i class="fas fa-check"></i> Certificación Oficial Gratis</li>
           </ul>
           <div class="course-price-teaser preventa-teaser">
-            <span class="preventa-teaser-badge"><i class="fas fa-fire"></i> Primeros 10 cupos</span>
+            <span class="preventa-teaser-badge"
+              ><i class="fas fa-fire"></i> Primeros 10 cupos</span
+            >
             <span class="teaser-price-row">
               <span class="price-old">S/ 299</span>
               <span class="price-amount">S/ 179</span>
               <span class="price-currency">PEN</span>
             </span>
           </div>
-          <a href="/cursos/python" class="btn btn-primary course-cta">Ver Detalles <i class="fas fa-arrow-right"></i></a>
+          <a href="/cursos/python" class="btn btn-primary course-cta"
+            >Ver Detalles <i class="fas fa-arrow-right"></i></a
+          >
         </div>
       </div>
     </div>
@@ -406,8 +842,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="modal-grid">
         <div class="modal-image-side">
           <picture>
-            <source id="modal-project-img-webp" srcset="" type="image/webp">
-            <img id="modal-project-img" src="" alt="Vista previa del proyecto">
+            <source id="modal-project-img-webp" srcset="" type="image/webp" />
+            <img
+              id="modal-project-img"
+              src=""
+              alt="Vista previa del proyecto"
+            />
           </picture>
         </div>
         <div class="modal-info-side">
@@ -427,5 +867,4 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
   </div>
-
 </BaseLayout>
