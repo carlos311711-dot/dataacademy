@@ -1,0 +1,2040 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Ruta del Analista de Datos | Data Academy" description="Descubre el camino definitivo para convertirte en analista de datos. Explora las habilidades técnicas y blandas indispensables, y navega por nuestra ruta estructurada interactiva de dos etapas (Junior y Avanzado).">
+
+  <!-- Hero Section -->
+  <header class="detail-hero">
+    <div class="container detail-container">
+      <a href="/#formacion" class="btn-back"><i class="fas fa-arrow-left"></i> Volver a Formación</a>
+      <div class="detail-header text-center-mobile">
+        <span class="course-tag">Preventa Exclusiva 2026</span>
+        <h1>Ruta del <span class="highlight text-gradient">Analista de Datos</span></h1>
+        <p class="subtitle-text">El mapa de ruta definitivo y dinámico para dominar los datos. Elige tu nivel y sigue el camino estructurado hacia el éxito.</p>
+        <div class="hero-actions text-center-mobile" style="margin-top: 24px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="/brochure-junior" class="btn btn-outline-brochure"><i class="far fa-file-pdf"></i> Brochure Junior (PDF)</a>
+          <a href="/brochure-senior" class="btn btn-outline-brochure"><i class="far fa-file-pdf"></i> Brochure Avanzado (PDF)</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  
+
+  <!-- ==================== TIMELINE TOGGLE CONTROLLER ==================== -->
+  <section class="selector-section">
+    <div class="container">
+      <div class="selector-wrapper text-center">
+        <div class="toggle-pill-container">
+          <button class="toggle-btn active" id="btn-junior" data-target="junior">
+            <i class="fas fa-user-graduation"></i>
+            <span>Ruta 1: Especialización en Data Analyst Junior</span>
+          </button>
+          <button class="toggle-btn" id="btn-advanced" data-target="advanced">
+            <i class="fas fa-user-shield"></i>
+            <span>Ruta 2: Especialización en Data Analyst</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HORIZONTAL TIMELINE SECTION ==================== -->
+  <section class="section timeline-section">
+    <div class="container">
+      
+      <!-- ==================== ROUTE 1: JUNIOR ROADMAP ==================== -->
+      <div id="wrapper-junior" class="roadmap-horizontal-wrapper active">
+        <div class="roadmap-meta-header text-center">
+          <h3>Especialización en Data Analyst Junior</h3>
+          <p>Compuesta por 4 cursos intensivos y un proyecto integrador de cierre. Diseñada para dar el salto profesional de 0 a 100.</p>
+        </div>
+
+        <div class="timeline-container">
+          <!-- Background SVG Sine Curve for desktop -->
+          <svg class="timeline-svg-curve" viewBox="0 0 1000 150" preserveAspectRatio="none">
+            <path d="M 50,75 C 150,15 250,135 350,75 C 450,15 550,135 650,75 C 750,15 850,135 950,75" />
+          </svg>
+
+          <!-- Timeline Nodes -->
+          <div class="timeline-horizontal-scroll">
+            <div class="timeline-nodes-row">
+              <!-- Background SVG Sine Curve for mobile -->
+              <svg class="timeline-svg-curve-vertical" viewBox="0 0 100 600" preserveAspectRatio="none">
+                <path d="M 50,0 C 10,50 90,150 50,200 C 10,250 90,350 50,400 C 10,450 90,550 50,600" />
+              </svg>
+              <!-- Node 1 -->
+              <button class="timeline-node active peak" data-step="jr1" data-route="junior">
+                <div class="node-dot">1</div>
+                <div class="node-icon-bg">
+                  <img src="/img/formation/3Excel.png" alt="Excel Logo" />
+                </div>
+                <span class="node-label">Excel</span>
+              </button>
+
+              <!-- Node 2 -->
+              <button class="timeline-node valley" data-step="jr2" data-route="junior">
+                <div class="node-dot">2</div>
+                <div class="node-icon-bg">
+                  <img src="/img/formation/sql.png" alt="SQL Server Logo" />
+                </div>
+                <span class="node-label">SQL Server</span>
+              </button>
+
+              <!-- Node 3 -->
+              <button class="timeline-node peak" data-step="jr3" data-route="junior">
+                <div class="node-dot">3</div>
+                <div class="node-icon-bg">
+                  <img src="/img/formation/4Powerbi.png" alt="Power BI Logo" />
+                </div>
+                <span class="node-label">Power BI</span>
+              </button>
+
+              <!-- Node 4 -->
+              <button class="timeline-node valley" data-step="jr4" data-route="junior">
+                <div class="node-dot">4</div>
+                <div class="node-icon-bg">
+                  <img src="/img/formation/5Python.png" alt="Python Logo" />
+                </div>
+                <span class="node-label">Python</span>
+              </button>
+
+              <!-- Node 5 -->
+              <button class="timeline-node peak highlight-node" data-step="jr5" data-route="junior">
+                <div class="node-dot">5</div>
+                <div class="node-icon-bg">
+                  <img src="/img/formation/7Antigravity.png" alt="Proyecto Integrador Logo" />
+                </div>
+                <span class="node-label">Proyecto Final</span>
+              </button>
+
+              <!-- Node 6 -->
+              <button class="timeline-node valley" data-step="jr6" data-route="junior">
+                <div class="node-dot">6</div>
+                <div class="node-icon-bg">
+                  <img src="/img/formation/8Autiamte.png" alt="Workshop Automate Logo" />
+                </div>
+                <span class="node-label">Automatización</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic detail block for Junior -->
+        <div class="node-detail-panel" id="detail-panel-junior">
+          <!-- Left Column: Fixed Specialization Sidebar -->
+          <div class="detail-sidebar">
+            <div class="sidebar-header">
+              <span class="sidebar-tag">Especialización Completa</span>
+              <h3>Data Analyst Junior</h3>
+            </div>
+            
+            <div class="sidebar-logos-row">
+              <img src="/img/formation/3Excel.png" alt="Excel" title="Excel" style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;" />
+              <i class="fas fa-chevron-right separator"></i>
+              <img src="/img/formation/2sqlserver.png" alt="SQL Server" title="SQL Server" style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;" />
+              <i class="fas fa-chevron-right separator"></i>
+              <img src="/img/formation/4Powerbi.png" alt="Power BI" title="Power BI" style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;" />
+              <i class="fas fa-chevron-right separator"></i>
+              <img src="/img/formation/5Python.png" alt="Python" title="Python" style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;" />
+            </div>
+
+            <ul class="sidebar-metrics">
+              <li><i class="fas fa-clock"></i> <span><strong>150 Horas Académicas</strong></span></li>
+              <li><i class="fas fa-project-diagram"></i> <span><strong>4 Proyectos + 1 Integrador</strong></span></li>
+              <li><i class="fas fa-certificate"></i> <span><strong>Certificado Oficial DMC</strong> (A4)</span></li>
+              <li><i class="fas fa-gift"></i> <span><strong>Bonos</strong>: CV Analista + Plan Financiero</span></li>
+            </ul>
+
+            <div class="sidebar-promo-box">
+              <span class="promo-label">PREVENTA ESPECIAL</span>
+              <p class="promo-price">S/ 579 <span class="promo-old">Antes: S/ 729</span></p>
+              <span class="promo-note">Separa con S/ 50 y cancela el saldo hasta una semana antes de iniciar.</span>
+            </div>
+
+            <a href="/brochure-junior" class="btn btn-outline-brochure full-width-btn"><i class="far fa-file-pdf"></i> Brochure (PDF)</a>
+          </div>
+
+          <!-- Right Column: Dynamic Content -->
+          <div class="detail-card-inner" id="detail-card-inner-junior">
+            <div class="detail-card-header">
+              <span class="badge-step">Paso 1 · Bloque 1 (2.5 Meses)</span>
+              <h3>Excel para Análisis de Datos</h3>
+            </div>
+            <p class="detail-card-desc">Aprende a analizar, visualizar y presentar datos de forma profesional con Excel, una de las habilidades más solicitadas en el mercado actual.</p>
+            
+            <div class="detail-card-meta">
+              <span><i class="fas fa-clock"></i> +30h Académicas + En Vivo</span>
+              <span><i class="fas fa-project-diagram"></i> Proyecto: Dashboard de Ventas & Finanzas</span>
+            </div>
+
+            <!-- Pre-sale Information Box -->
+            <div class="pre-sale-badge-box">
+              <div class="pre-sale-header">
+                <span class="badge-accent"><i class="fas fa-tag"></i> PREVENTA: S/ 179 / Módulo</span>
+                <span class="regular-price">Antes: S/ 250</span>
+              </div>
+              <p class="pre-sale-text">
+                <i class="fas fa-lock text-accent"></i> <strong>Separa tu vacante con solo S/ 50</strong> y cancela el saldo restante hasta una semana antes de iniciar. 
+                <span style="display: block; margin-top: 6px; font-weight: 700; color: var(--accent-color);">✨ Oferta Especialización Completa (4 Cursos): S/ 579 (Antes S/ 729)</span>
+              </p>
+            </div>
+
+            <div class="bonus-box">
+              <h4>Regalos y Material Adicional Incluido:</h4>
+              <ul>
+                <li><i class="fas fa-gift text-secondary-color"></i> <strong>Plantilla automática de Finanzas Personales GRATIS</strong> (Manejo de tarjetas de crédito 💳, formulario de consumos y tutorial explicativo paso a paso).</li>
+                <li class="template-links">
+                  <span>Enlaces de la Plantilla:</span> 
+                  <a href="https://www.youtube.com/watch?v=x2KsvmjT0DQ&t=1s" target="_blank"><i class="fab fa-youtube"></i> Ver en YouTube</a>
+                  <a href="https://www.tiktok.com/@medicenjhon0/video/7589111308054711570?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fab fa-tiktok"></i> Ver en TikTok</a>
+                </li>
+                <li><i class="fas fa-book text-accent"></i> <strong>Libros de Data Analytics</strong> y cursos pregrabados de regalo.</li>
+                <li><i class="fas fa-file-pdf text-accent"></i> <strong>CV del profesor de Analista de Datos</strong> para inspirarte y mejorar tu perfil.</li>
+              </ul>
+            </div>
+
+            <details class="detail-accordion" open>
+              <summary>Temario Clave del Módulo <i class="fas fa-chevron-down"></i></summary>
+              <ul>
+                <li>Fórmulas lógicas intermedias y de búsqueda avanzada (BUSCARX, INDICE, COINCIDIR)</li>
+                <li>Higiene de datos y ETL estructurado mediante Power Query básico</li>
+                <li>Modelado y normalización simple con Tablas Dinámicas y Segmentadores</li>
+                <li>Diseño estético UX de Dashboards analíticos de negocio</li>
+              </ul>
+            </details>
+
+            <div class="pre-sale-footer">
+              <span><i class="fab fa-whatsapp"></i> Más Info y Métodos de Pago: <strong>Coordinar por WhatsApp</strong></span>
+              <span><i class="fas fa-link"></i> <a href="https://bit.ly/curso_sql_powerbi" target="_blank">Temarios y Promos</a></span>
+            </div>
+
+            <div class="detail-actions" style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="https://api.whatsapp.com/send/?phone=51927534737&text=Hola%2C%20quiero%20separar%20mi%20vacante%20para%20el%20curso%20de%20Excel%20con%20precio%20preventa" target="_blank" class="btn btn-secondary btn-whatsapp">Reservar Vacante con S/ 50 <i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== ROUTE 2: ADVANCED ROADMAP ==================== -->
+      <div id="wrapper-advanced" class="roadmap-horizontal-wrapper">
+        <div class="roadmap-meta-header text-center">
+          <h3>Especialización en Data Analyst</h3>
+          <p>Potencia tus habilidades hacia la ingeniería de datos en la nube y el procesamiento masivo a gran escala.</p>
+        </div>
+
+        <div class="timeline-container">
+          <!-- Background SVG Sine Curve for desktop -->
+          <svg class="timeline-svg-curve" viewBox="0 0 1000 150" preserveAspectRatio="none">
+            <path d="M 50,75 C 150,15 250,135 350,75 C 450,15 550,135 650,75 C 750,15 850,135 950,75" />
+          </svg>
+
+          <!-- Timeline Nodes -->
+          <div class="timeline-horizontal-scroll">
+            <div class="timeline-nodes-row">
+              <!-- Background SVG Sine Curve for mobile -->
+              <svg class="timeline-svg-curve-vertical" viewBox="0 0 100 600" preserveAspectRatio="none">
+                <path d="M 50,0 C 10,50 90,150 50,200 C 10,250 90,350 50,400 C 10,450 90,550 50,600" />
+              </svg>
+              <!-- Node 1 -->
+              <button class="timeline-node active peak" data-step="adv1" data-route="advanced">
+                <div class="node-dot">1</div>
+                <div class="node-icon-bg">
+                  <img src="/img/formation/2sqlserver.png" alt="SQL Server Avanzado Logo" />
+                </div>
+                <span class="node-label">SQL Avanzado</span>
+              </button>
+
+              <!-- Node 2 -->
+              <button class="timeline-node valley" data-step="adv2" data-route="advanced">
+                <div class="node-dot">2</div>
+                <div class="node-icon-bg">
+                  <img src="/img/formation/5Python.png" alt="Python & ML Logo" />
+                </div>
+                <span class="node-label">Python & ML</span>
+              </button>
+
+              <!-- Node 3 -->
+              <button class="timeline-node peak" data-step="adv3" data-route="advanced">
+                <div class="node-dot">3</div>
+                <div class="node-icon-bg">
+                  <img src="/img/formation/4Powerbi.png" alt="Power BI Avanzado Logo" />
+                </div>
+                <span class="node-label">Power BI Avanzado</span>
+              </button>
+
+              <!-- Node 4 -->
+              <button class="timeline-node valley" data-step="adv4" data-route="advanced">
+                <div class="node-dot">4</div>
+                <div class="node-icon-bg">
+                  <img src="/img/formation/9GCP.png" alt="GCP BigQuery Logo" />
+                </div>
+                <span class="node-label">GCP BigQuery</span>
+              </button>
+
+              <!-- Node 5 -->
+              <button class="timeline-node peak highlight-node" data-step="adv5" data-route="advanced">
+                <div class="node-dot">5</div>
+                <div class="node-icon-bg">
+                  <img src="/img/formation/10AZURE.png" alt="Azure Databricks Logo" />
+                </div>
+                <span class="node-label">Azure Databricks</span>
+              </button>
+
+              <!-- Node 6 -->
+              <button class="timeline-node valley" data-step="adv6" data-route="advanced">
+                <div class="node-dot">6</div>
+                <div class="node-icon-bg">
+                  <img src="/img/formation/7Antigravity.png" alt="Proyecto Cloud Logo" />
+                </div>
+                <span class="node-label">Proyecto Cloud</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic detail block for Advanced -->
+        <div class="node-detail-panel" id="detail-panel-advanced">
+          <!-- Left Column: Fixed Specialization Sidebar -->
+          <div class="detail-sidebar">
+            <div class="sidebar-header">
+              <span class="sidebar-tag">Especialización Completa</span>
+              <h3>Data Analyst</h3>
+            </div>
+            
+            <div class="sidebar-logos-row">
+              <img src="/img/formation/2sqlserver.png" alt="SQL Server Avanzado" title="SQL Server Avanzado" style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;" />
+              <i class="fas fa-chevron-right separator"></i>
+              <img src="/img/formation/5Python.png" alt="Python Pro" title="Python Pro" style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;" />
+              <i class="fas fa-chevron-right separator"></i>
+              <img src="/img/formation/9GCP.png" alt="Cloud BigQuery" title="Cloud BigQuery" style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;" />
+              <i class="fas fa-chevron-right separator"></i>
+              <img src="/img/formation/10AZURE.png" alt="Azure Synapse" title="Azure Synapse" style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;" />
+              <i class="fas fa-chevron-right separator"></i>
+              <img src="/img/formation/6n8n.png" alt="n8n ETL" title="n8n ETL" style="width: 22px; height: 22px; object-fit: contain; display: inline-block; vertical-align: middle;" />
+            </div>
+
+            <ul class="sidebar-metrics">
+              <li><i class="fas fa-clock"></i> <span><strong>150 Horas Académicas</strong></span></li>
+              <li><i class="fas fa-project-diagram"></i> <span><strong>4 Proyectos + 1 Integrador</strong></span></li>
+              <li><i class="fas fa-certificate"></i> <span><strong>Certificado Oficial DMC</strong> (A4)</span></li>
+              <li><i class="fas fa-gift"></i> <span><strong>Bonos</strong>: CV Senior + Guía Cloud</span></li>
+            </ul>
+
+            <div class="sidebar-promo-box">
+              <span class="promo-label">PREVENTA ESPECIAL</span>
+              <p class="promo-price">S/ 579 <span class="promo-old">Antes: S/ 729</span></p>
+              <span class="promo-note">Separa con S/ 50 y cancela el saldo hasta una semana antes de iniciar.</span>
+            </div>
+
+            <a href="/brochure-senior" class="btn btn-outline-brochure full-width-btn"><i class="far fa-file-pdf"></i> Brochure (PDF)</a>
+          </div>
+
+          <!-- Right Column: Dynamic Content -->
+          <div class="detail-card-inner" id="detail-card-inner-advanced">
+            <div class="detail-card-header">
+              <span class="badge-step">Paso 1 · Bloque 1 (2.5 Meses)</span>
+              <h3>SQL Server Avanzado</h3>
+            </div>
+            <p class="detail-card-desc">Lleva tus consultas al máximo nivel. Aprenderás a escribir Window Functions complejas, optimizar índices, desarrollar procedimientos almacenados y modelar esquemas multidimensionales corporativos.</p>
+            <div class="detail-card-meta">
+              <span><i class="fas fa-clock"></i> +30 horas de clase + En Vivo</span>
+              <span><i class="fas fa-project-diagram"></i> Proyecto: Optimización de consultas de millones de filas</span>
+            </div>
+
+            <!-- Pre-sale Information Box -->
+            <div class="pre-sale-badge-box">
+              <div class="pre-sale-header">
+                <span class="badge-accent"><i class="fas fa-tag"></i> PREVENTA: S/ 179 / Módulo</span>
+                <span class="regular-price">Antes: S/ 250</span>
+              </div>
+              <p class="pre-sale-text">
+                <i class="fas fa-lock text-accent"></i> <strong>Separa tu vacante con solo S/ 50</strong> y cancela el saldo restante hasta una semana antes de iniciar. 
+                <span style="display: block; margin-top: 6px; font-weight: 700; color: var(--accent-color);">✨ Oferta Especialización Completa (4 Cursos): S/ 579 (Antes S/ 729)</span>
+              </p>
+            </div>
+
+            <div class="bonus-box">
+              <h4>Regalos y Material Adicional Incluido:</h4>
+              <ul>
+                <li><i class="fas fa-book text-accent"></i> <strong>Libros de Data Analytics</strong> y cursos pregrabados de regalo.</li>
+                <li><i class="fas fa-file-pdf text-accent"></i> <strong>CV de Analista de Datos del profesor</strong> para inspirarte y mejorar tu perfil.</li>
+              </ul>
+            </div>
+
+            <details class="detail-accordion" open>
+              <summary>Temario Clave del Módulo <i class="fas fa-chevron-down"></i></summary>
+              <ul>
+                <li>Funciones de Ventana Avanzadas (ROW_NUMBER, LEAD, LAG, DENSE_RANK)</li>
+                <li>Uso estructurado de CTEs (Common Table Expressions) y Queries Recursivas</li>
+                <li>Programación en T-SQL: Procedimientos almacenados, triggers y funciones</li>
+                <li>Afinamiento y optimización de índices agrupados y no agrupados</li>
+              </ul>
+            </details>
+
+            <div class="pre-sale-footer">
+              <span><i class="fab fa-whatsapp"></i> Más Info y Métodos de Pago: <strong>Coordinar por WhatsApp</strong></span>
+              <span><i class="fas fa-link"></i> <a href="https://bit.ly/curso_sql_powerbi" target="_blank">Temarios y Promos</a></span>
+            </div>
+
+            <div class="detail-actions" style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="https://api.whatsapp.com/send/?phone=51927534737&text=Hola%2C%20quiero%20separar%20mi%20vacante%20para%20el%20curso%20de%20SQL%20Server%20con%20precio%20preventa" target="_blank" class="btn btn-secondary btn-whatsapp">Reservar Vacante con S/ 50 <i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  
+
+  <!-- CTA Block -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-content text-center">
+          <i class="fab fa-whatsapp cta-whatsapp-icon"></i>
+          <h2>¿Listo para dar el siguiente gran paso en tu carrera?</h2>
+          <p>Conéctate con uno de nuestros asesores académicos y recibe una guía personalizada sobre qué ruta se adapta mejor a tu perfil e historia laboral.</p>
+          <div class="cta-buttons">
+            <a href="https://api.whatsapp.com/send/?phone=51927534737&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Ruta%20de%20Analista%20de%20Datos" 
+               target="_blank" class="btn btn-secondary btn-whatsapp">
+              Conversar en WhatsApp <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ==========================================================================
+     ROADMAP PAGE CUSTOM STYLES (Supports Light/Dark Mode Native CSS variables)
+     ========================================================================== */
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #0097A7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+
+  .subtitle-text {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 16px auto 0;
+  }
+
+  .text-center-mobile {
+    text-align: center;
+  }
+
+  /* Brain Section Layout */
+  .brain-wrapper {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .brain-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .brain-hemisphere {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+
+  .brain-hemisphere:hover {
+    box-shadow: var(--shadow-md);
+    border-color: rgba(0, 188, 212, 0.2);
+  }
+
+  .hemisphere-header {
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .hemisphere-header i {
+    font-size: 3rem;
+    margin-bottom: 12px;
+  }
+
+  .hemisphere-header h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 8px;
+  }
+
+  .hemisphere-header p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+  }
+
+  .skills-pill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  /* Skill Pills */
+  .skill-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 50px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-main);
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+    user-select: none;
+  }
+
+  .skill-pill-logo {
+    width: 18px !important;
+    height: 18px !important;
+    object-fit: contain !important;
+    flex-shrink: 0 !important;
+    display: inline-block !important;
+  }
+
+  .detail-skill-logo {
+    width: 24px !important;
+    height: 24px !important;
+    object-fit: contain !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+  }
+
+  .skill-pill i {
+    font-size: 0.95rem;
+  }
+
+  .skill-pill:hover {
+    color: var(--text-main);
+    border-color: var(--text-muted);
+    transform: translateY(-2px);
+  }
+
+  /* Custom Colors for Icons in Pills */
+  .text-accent-icon { color: var(--accent-color); }
+  .text-secondary-icon { color: var(--secondary-color); }
+
+  /* Active states for hemispheric tabs */
+  .hard-skills-side .skill-pill.active {
+    background-color: rgba(0, 188, 212, 0.08);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 10px rgba(0, 188, 212, 0.15);
+  }
+
+  .soft-skills-side .skill-pill.active {
+    background-color: rgba(37, 211, 102, 0.08);
+    color: #20b858;
+    border-color: var(--secondary-color);
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.15);
+  }
+
+  /* Center details card */
+  .brain-detail-container {
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .brain-detail-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--accent-color);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    animation: slideUp 0.3s ease forwards;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .brain-detail-card.soft {
+    border-left-color: var(--secondary-color);
+  }
+
+  .detail-header-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .detail-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(0, 188, 212, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-color);
+  }
+
+  .detail-icon-wrapper.soft {
+    background-color: rgba(37, 211, 102, 0.08);
+    color: #20b858;
+  }
+
+  .detail-icon-wrapper i,
+  .detail-icon-wrapper img {
+    font-size: 1.25rem;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .detail-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 2px;
+  }
+
+  .detail-badge.hard {
+    background-color: rgba(0, 188, 212, 0.12);
+    color: var(--accent-color);
+  }
+
+  .detail-badge.soft {
+    background-color: rgba(37, 211, 102, 0.12);
+    color: #20b858;
+  }
+
+  .brain-detail-card h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0;
+  }
+
+  .brain-detail-card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  /* Selector section */
+  .selector-section {
+    padding: 40px 0 20px;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .selector-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .selector-intro {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .toggle-pill-container {
+    display: flex;
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    padding: 6px;
+    border-radius: 50px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .toggle-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 20px;
+    border-radius: 50px;
+    border: none;
+    background: none;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .toggle-btn:hover {
+    color: var(--text-main);
+  }
+
+  .toggle-btn.active {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(11, 37, 69, 0.2);
+  }
+
+  html.dark-theme .toggle-btn.active {
+    background-color: var(--accent-color);
+    color: var(--primary-dark);
+    box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3);
+  }
+
+  /* Horitzontal Timeline wrappers */
+  .roadmap-horizontal-wrapper {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+  }
+
+  .roadmap-horizontal-wrapper.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .roadmap-meta-header {
+    margin-bottom: 40px;
+  }
+
+  .roadmap-meta-header h3 {
+    font-size: 1.8rem;
+    color: var(--text-main);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .roadmap-meta-header p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* The timeline line wrapper */
+  .timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto 50px;
+    padding: 40px 0;
+  }
+
+  /* Background SVG Wavy Curve (Desktop) */
+  .timeline-svg-curve {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    transform: translateY(-50%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .timeline-svg-curve path {
+    fill: none;
+    stroke: var(--border-color);
+    stroke-width: 4px;
+    stroke-dasharray: 8 6;
+    transition: var(--transition);
+  }
+
+  html.dark-theme .timeline-svg-curve path {
+    stroke: #1e3c63;
+  }
+
+  .timeline-container:hover .timeline-svg-curve path {
+    stroke: var(--accent-color);
+    opacity: 0.4;
+  }
+
+  /* Background SVG Wavy Curve (Mobile - Vertical) */
+  .timeline-svg-curve-vertical {
+    display: none;
+  }
+
+  .timeline-horizontal-scroll {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+
+  .timeline-nodes-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+  }
+
+  /* Node styling */
+  .timeline-node {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    background: none;
+    font-family: inherit;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 110px;
+    user-select: none;
+  }
+
+  /* Peaks and Valleys offsets */
+  .timeline-node.peak {
+    transform: translateY(-24px);
+  }
+
+  .timeline-node.valley {
+    transform: translateY(24px);
+  }
+
+  /* Floating dot */
+  .node-dot {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    border: 3px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    z-index: 5;
+  }
+
+  /* Icon wrapper */
+  .node-icon-bg {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    border: 3px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    position: relative;
+    z-index: 4;
+  }
+
+  .node-icon-bg img {
+    width: 32px !important;
+    height: 32px !important;
+    object-fit: contain !important;
+    flex-shrink: 0 !important;
+    transition: var(--transition);
+  }
+
+  .node-label {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-align: center;
+    white-space: nowrap;
+    transition: var(--transition);
+    position: absolute;
+    bottom: -22px;
+  }
+
+  /* Peak node label shifts below */
+  .timeline-node.peak .node-label {
+    bottom: -24px;
+  }
+
+  /* Valley node label shifts above the dot */
+  .timeline-node.valley .node-label {
+    top: -38px;
+    bottom: auto;
+  }
+
+  /* Node Hover */
+  .timeline-node:hover .node-icon-bg {
+    border-color: var(--accent-color);
+    transform: scale(1.1);
+  }
+
+  .timeline-node:hover .node-icon-bg img {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .timeline-node:hover .node-dot {
+    border-color: var(--accent-color);
+    background-color: var(--accent-color);
+    color: white;
+  }
+
+  .timeline-node:hover .node-label {
+    color: var(--text-main);
+  }
+
+  /* Active Node State */
+  .timeline-node.active .node-icon-bg {
+    border-color: var(--accent-color);
+    background-color: var(--bg-main);
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.25);
+    transform: scale(1.15);
+  }
+
+  .timeline-node.active .node-icon-bg img {
+    transform: scale(1.05);
+  }
+
+  .timeline-node.active .node-dot {
+    border-color: var(--accent-color);
+    background-color: var(--accent-color);
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.4);
+  }
+
+  .timeline-node.active .node-label {
+    color: var(--accent-color);
+    font-weight: 800;
+  }
+
+  /* Specific Highlight Style for the Integration Project Node */
+  .highlight-node .node-icon-bg {
+    border-color: var(--secondary-color);
+  }
+  .highlight-node.active .node-icon-bg {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.25);
+  }
+  .highlight-node.active .node-dot {
+    border-color: var(--secondary-color);
+    background-color: var(--secondary-color);
+  }
+  .highlight-node.active .node-label {
+    color: var(--secondary-color);
+  }
+
+  /* Step Detail Panel */
+  .node-detail-panel {
+    max-width: 800px;
+    margin: 40px auto 0;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    animation: slideUp 0.4s ease forwards;
+  }
+
+  .detail-card-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .detail-card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .badge-step {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-color);
+  }
+
+  .detail-card-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0;
+  }
+
+  .detail-card-desc {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  .detail-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 14px 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-main);
+  }
+
+  .detail-card-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .detail-card-meta i {
+    color: var(--accent-color);
+  }
+
+  /* Pre Sale Box styling */
+  .pre-sale-badge-box {
+    background: linear-gradient(135deg, rgba(0, 188, 212, 0.06) 0%, rgba(0, 151, 167, 0.02) 100%);
+    border: 1px solid rgba(0, 188, 212, 0.2);
+    border-radius: 12px;
+    padding: 16px 20px;
+  }
+  
+  html.dark-theme .pre-sale-badge-box {
+    background: linear-gradient(135deg, rgba(0, 188, 212, 0.08) 0%, rgba(5, 16, 31, 0.2) 100%);
+    border-color: rgba(0, 188, 212, 0.25);
+  }
+
+  .pre-sale-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .badge-accent {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    background-color: rgba(0, 188, 212, 0.12);
+    padding: 4px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .regular-price {
+    font-size: 0.85rem;
+    text-decoration: line-through;
+    color: var(--text-muted);
+  }
+
+  .pre-sale-text {
+    font-size: 0.9rem;
+    color: var(--text-main);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .pre-sale-text span {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  /* Bonus box */
+  .bonus-box {
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+
+  .bonus-box h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 12px;
+  }
+
+  .bonus-box ul {
+    list-style-type: none !important;
+    padding-left: 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bonus-box li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.4;
+  }
+
+  .bonus-box li i {
+    margin-top: 3px;
+    font-size: 1rem;
+  }
+
+  .template-links {
+    padding-left: 28px;
+    margin-top: -6px;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+  }
+
+  .template-links span {
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .template-links a {
+    color: var(--accent-color);
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .template-links a:hover {
+    text-decoration: underline;
+  }
+
+  /* Pre Sale Footer */
+  .pre-sale-footer {
+    border-top: 1px dashed var(--border-color);
+    padding-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .pre-sale-footer a {
+    color: var(--accent-color);
+    font-weight: 700;
+  }
+
+  /* Details accordion */
+  .detail-accordion {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 16px;
+  }
+
+  .detail-accordion summary {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-main);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    user-select: none;
+  }
+
+  .detail-accordion summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .detail-accordion summary i {
+    font-size: 0.8rem;
+    transition: transform 0.2s ease;
+  }
+
+  .detail-accordion[open] summary i {
+    transform: rotate(180deg);
+  }
+
+  .detail-accordion ul {
+    margin-top: 12px;
+    padding-left: 20px;
+    list-style-type: disc;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .detail-accordion li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  .detail-actions {
+    margin-top: 10px;
+  }
+
+  .btn-primary-outline {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .btn-primary-outline:hover {
+    background-color: var(--primary-color);
+    color: white;
+  }
+
+  html.dark-theme .btn-primary-outline {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+  }
+
+  html.dark-theme .btn-primary-outline:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-dark);
+  }
+
+  /* Benefits */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+  }
+
+  .benefit-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 30px 20px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-color);
+    box-shadow: var(--shadow-md);
+  }
+
+  .benefit-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(0, 188, 212, 0.08);
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin: 0 auto 16px;
+    transition: var(--transition);
+  }
+
+  .benefit-card:hover .benefit-icon {
+    background-color: var(--accent-color);
+    color: var(--bg-main);
+  }
+
+  .benefit-card h3 {
+    font-size: 1.15rem;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .benefit-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  /* CTA */
+  .cta-card {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    color: white;
+    border-radius: 20px;
+    padding: 50px 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+  html.dark-theme .cta-card {
+    background: linear-gradient(135deg, #0a1f3a 0%, #05101f 100%);
+    border: 1px solid var(--border-color);
+  }
+
+  .cta-card::before {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background-color: rgba(0, 188, 212, 0.08);
+    border-radius: 50%;
+    top: -80px;
+    right: -80px;
+    z-index: 1;
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta-whatsapp-icon {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 16px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.95; }
+    50% { transform: scale(1.06); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.95; }
+  }
+
+  .cta-card h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: white;
+  }
+
+  .cta-card p {
+    color: #cbd5e1;
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn-whatsapp {
+    background-color: var(--secondary-color);
+    color: white !important;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-whatsapp:hover {
+    background-color: #20b858 !important;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4) !important;
+  }
+
+  /* Minimalist Outline Brochure Button styles */
+  .btn-outline-brochure {
+    background: transparent !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+    font-weight: 500;
+    padding: 10px 24px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: none !important;
+  }
+
+  .btn-outline-brochure:hover {
+    border-color: var(--accent-color) !important;
+    color: var(--accent-color) !important;
+    background-color: rgba(0, 188, 212, 0.05) !important;
+    transform: translateY(-1px);
+  }
+
+  /* ==========================================================================
+     RESPONSIVE BREAKPOINTS
+     ========================================================================== */
+
+  @media (max-width: 992px) {
+    .brain-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    /* Horizontal Timeline shifts to vertical wavy timeline */
+    .timeline-svg-curve {
+      display: none;
+    }
+
+    /* Show vertical curve */
+    .timeline-svg-curve-vertical {
+      display: block;
+      position: absolute;
+      top: 29px; /* Center of Node 1 on mobile (58px height / 2) */
+      bottom: 29px; /* Center of Node 6 on mobile */
+      height: calc(100% - 58px) !important; /* Spans exactly from Node 1 center to Node 6 center */
+      left: 50%;
+      width: 70px;
+      transform: translateX(-50%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .timeline-svg-curve-vertical path {
+      fill: none;
+      stroke: var(--border-color);
+      stroke-width: 4px;
+      stroke-dasharray: 8 6;
+      transition: var(--transition);
+    }
+    
+    html.dark-theme .timeline-svg-curve-vertical path {
+      stroke: #1e3c63;
+    }
+
+    .timeline-container:hover .timeline-svg-curve-vertical path {
+      stroke: var(--accent-color);
+      opacity: 0.4;
+    }
+
+    /* Staggered container setup */
+    .timeline-nodes-row {
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 75px !important; /* Larger gap to allow staggered spacing and labels */
+      padding: 20px 0 !important;
+      position: relative;
+    }
+
+    /* Remove straight line */
+    .timeline-nodes-row::before {
+      display: none !important;
+    }
+
+    .timeline-node {
+      display: flex;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: auto !important;
+      text-align: center !important;
+      position: relative;
+    }
+
+    /* Wavy stagger in mobile */
+    .timeline-node:nth-child(1) { transform: translateX(-28px) !important; }
+    .timeline-node:nth-child(2) { transform: translateX(28px) !important; }
+    .timeline-node:nth-child(3) { transform: translateX(-28px) !important; }
+    .timeline-node:nth-child(4) { transform: translateX(28px) !important; }
+    .timeline-node:nth-child(5) { transform: translateX(-28px) !important; }
+    .timeline-node:nth-child(6) { transform: translateX(28px) !important; }
+
+    .node-dot {
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      top: -12px !important;
+    }
+
+    .node-icon-bg {
+      width: 58px;
+      height: 58px;
+      border-width: 2px;
+    }
+
+    .node-icon-bg img {
+      width: 28px;
+      height: 28px;
+    }
+
+    /* All labels at the bottom on mobile for consistent pattern and no overlaps */
+    .node-label {
+      position: absolute;
+      bottom: -24px !important;
+      top: auto !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      font-size: 0.85rem;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .detail-accordion ul {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .skills-pill-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .toggle-pill-container {
+      flex-direction: column;
+      border-radius: 16px;
+    }
+    .toggle-btn {
+      border-radius: 12px;
+    }
+
+    .node-detail-panel {
+      grid-template-columns: 1fr !important;
+      gap: 24px;
+      padding: 20px;
+    }
+
+    .detail-sidebar {
+      order: 2 !important; /* Sidebar at the bottom on mobile */
+    }
+
+    .cta-card h2 {
+      font-size: 1.5rem;
+    }
+  }
+
+  /* Two-column Details Panel Layout */
+  .node-detail-panel {
+    display: grid;
+    grid-template-columns: 290px 1fr;
+    gap: 30px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: var(--shadow-sm);
+    align-items: start;
+    text-align: left !important;
+  }
+
+  .detail-sidebar {
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    border: 1px solid var(--border-color);
+  }
+
+  .sidebar-header .sidebar-tag {
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    letter-spacing: 0.05em;
+  }
+
+  .sidebar-header h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin: 4px 0 0;
+    text-align: left !important;
+  }
+
+  .sidebar-logos-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    background: var(--card-bg);
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+  }
+
+  .sidebar-logos-row img {
+    width: 22px !important;
+    height: 22px !important;
+    object-fit: contain !important;
+    flex-shrink: 0;
+  }
+
+  .sidebar-logos-row .separator {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+  }
+
+  .sidebar-metrics {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left !important;
+  }
+
+  .sidebar-metrics li {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: left !important;
+  }
+
+  .sidebar-metrics li i {
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    width: 14px;
+    text-align: center;
+  }
+
+  .sidebar-promo-box {
+    background: linear-gradient(135deg, rgba(0, 188, 212, 0.04) 0%, rgba(37, 211, 102, 0.04) 100%);
+    border: 1px solid rgba(0, 188, 212, 0.15);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    text-align: left !important;
+  }
+
+  .sidebar-promo-box .promo-label {
+    font-size: 0.6rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    letter-spacing: 0.05em;
+  }
+
+  .sidebar-promo-box .promo-price {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--text-main);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .sidebar-promo-box .promo-old {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: line-through;
+  }
+
+  .sidebar-promo-box .promo-note {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    line-height: 1.3;
+  }
+
+  .full-width-btn {
+    width: 100%;
+    justify-content: center;
+  }
+</style>
+
+<!-- Page Script logic -->
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    
+
+    // ==========================================
+    // 2. TIMELINE TOGGLE (JUNIOR VS ADVANCED)
+    // ==========================================
+    const btnJunior = document.getElementById('btn-junior');
+    const btnAdvanced = document.getElementById('btn-advanced');
+    const wrapperJunior = document.getElementById('wrapper-junior');
+    const wrapperAdvanced = document.getElementById('wrapper-advanced');
+
+    if (btnJunior && btnAdvanced && wrapperJunior && wrapperAdvanced) {
+      btnJunior.addEventListener('click', () => {
+        btnAdvanced.classList.remove('active');
+        btnJunior.classList.add('active');
+        wrapperAdvanced.classList.remove('active');
+        wrapperJunior.classList.add('active');
+      });
+
+      btnAdvanced.addEventListener('click', () => {
+        btnJunior.classList.remove('active');
+        btnAdvanced.classList.add('active');
+        wrapperJunior.classList.remove('active');
+        wrapperAdvanced.classList.add('active');
+      });
+
+      // Handle URL Tab parameter (?tab=junior or ?tab=advanced)
+      const urlParams = new URLSearchParams(window.location.search);
+      const tabParam = urlParams.get('tab');
+      if (tabParam === 'advanced') {
+        btnAdvanced.click();
+      } else if (tabParam === 'junior') {
+        btnJunior.click();
+      }
+    }
+
+    // ==========================================
+    // 3. HORIZONTAL TIMELINE STEP DETAILS (DYNAMIC WITH COPIES)
+    // ==========================================
+    const stepsData = {
+      jr1: {
+        badge: "Paso 1 · Bloque 1 (2.5 Meses)",
+        title: "Excel para Análisis de Datos",
+        desc: "Aprende a analizar, visualizar y presentar datos de forma profesional con Excel, una de las habilidades más solicitadas en el mundo laboral actual.",
+        hours: "+30h de clases académicas + sesiones en VIVO",
+        project: "Dashboard de Ventas & Finanzas Comerciales",
+        price: "S/ 179",
+        regularPrice: "S/ 250",
+        showFinanceGift: true,
+        syllabus: [
+          "Fórmulas lógicas intermedias y de búsqueda avanzada (BUSCARX, INDICE, COINCIDIR)",
+          "Higiene de datos y ETL estructurado mediante Power Query básico",
+          "Modelado y normalización simple con Tablas Dinámicas y Segmentadores",
+          "Diseño estético UX de Dashboards analíticos de negocio"
+        ],
+        url: "/cursos/excel"
+      },
+      jr2: {
+        badge: "Paso 2 · Bloque 1 (2.5 Meses)",
+        title: "SQL Server de 0 a Avanzado",
+        desc: "Domina el lenguaje de los datos. Aprende SQL desde cero hasta un nivel avanzado y adquiere una de las habilidades más solicitadas en el mundo de Data. Un curso práctico, directo y enfocado en lo que realmente pide el mercado laboral.",
+        hours: "+30 horas de clases + sesiones en VIVO para resolver dudas",
+        project: "Modelado Relacional e Ingesta de Datos de Retail",
+        price: "S/ 179",
+        regularPrice: "S/ 250",
+        syllabus: [
+          "Conceptos de bases de datos, tablas, claves primarias y foráneas",
+          "Consultar, filtrar, ordenar y organizar información (SELECT, WHERE, ORDER BY)",
+          "Agrupación y cálculo de indicadores agrupados (GROUP BY, HAVING)",
+          "Integración de múltiples tablas relacionales (INNER, LEFT, RIGHT JOIN)"
+        ],
+        url: "/cursos/sql"
+      },
+      jr3: {
+        badge: "Paso 3 · Bloque 2",
+        title: "Power BI de 0 a Avanzado",
+        desc: "Convierte datos en decisiones inteligentes. Aprende a analizar, visualizar y presentar datos de forma profesional. Aprenderás a modelar estrellas corporativas y publicar dashboards interactivos ejecutivos.",
+        hours: "+30h de clases académicas + sesiones en VIVO",
+        project: "Dashboard de Inteligencia de Negocios Corporativo",
+        price: "S/ 179",
+        regularPrice: "S/ 250",
+        syllabus: [
+          "Transformación avanzada en Power Query (Procesos ETL complejos)",
+          "Esquemas multidimensionales (Modelo en Estrella y Snowflake)",
+          "Fórmulas analíticas intermedias y medidas en lenguaje DAX",
+          "Storytelling y UX en tableros ejecutivos interactivos"
+        ],
+        url: "/cursos/powerbi"
+      },
+      jr4: {
+        badge: "Paso 4 · Bloque 2",
+        title: "Python para Data",
+        desc: "Aprende a programar y analizar datos desde cero. Domina uno de los lenguajes más usados en Data, tecnología y análisis, incluso si nunca has programado antes.",
+        hours: "+30h de clases académicas + sesiones en VIVO",
+        project: "Análisis Exploratorio de Negocios (EDA) en Jupyter",
+        price: "S/ 179",
+        regularPrice: "S/ 250",
+        syllabus: [
+          "Bases lógicas de programación en Python (Variables, Bucles, Funciones)",
+          "Manipulación de datasets en dataframes con la librería Pandas",
+          "Operaciones numéricas matriciales veloces con NumPy",
+          "Graficación y visualización de datos de negocio con Seaborn y Matplotlib"
+        ],
+        url: "/cursos/python"
+      },
+      jr5: {
+        badge: "Paso 5 · Proyecto Final (2 Semanas)",
+        title: "Proyecto Integrador Final",
+        desc: "Aplica de extremo a extremo todo lo aprendido en la especialización junior. Tomarás datos dispersos, los estructurarás y cargarás en SQL Server, para luego modelar el negocio y exponer insights gerenciales en Power BI.",
+        hours: "2 Semanas de desarrollo guiado",
+        project: "Proyecto de Portafolio Extremo a Extremo (SQL -> Power BI)",
+        price: "Incluido en Especialización",
+        regularPrice: "",
+        syllabus: [
+          "Definición y recolección del problema de negocio e indicadores",
+          "Construcción y carga de scripts de bases de datos SQL Server",
+          "Modelado dimensional e inteligencia del negocio en Power BI",
+          "Entrega final y simulación de presentación comercial ante Directivos"
+        ],
+        url: "/especializacion-datos"
+      },
+      jr6: {
+        badge: "Paso 6 · Workshop Especial",
+        title: "Workshop de Automatización",
+        desc: "Consolida tu perfil aprendiendo a conectar herramientas del ecosistema en vivo. Aprenderás a integrar flujos de entrada de datos a tus modelos de analítica de forma 100% automática.",
+        hours: "Taller En Vivo",
+        project: "Automatización de pipelines ETL básicos",
+        price: "Incluido Gratis",
+        regularPrice: "",
+        syllabus: [
+          "Introducción a herramientas de automatización (Power Automate o n8n)",
+          "Disparadores y acciones en flujos de datos en tiempo real",
+          "Consolidación de APIs e ingesta automática hacia almacenes de datos",
+          "Configuración de notificaciones automáticas y alertas de negocio",
+          "Generación y envío automático de reportes PDF dinámicos",
+          "Integración de alertas directas hacia WhatsApp, Slack y CRMs"
+        ],
+        url: "/cursos/n8n"
+      },
+      adv1: {
+        badge: "Paso 1 · Bloque 1 (2.5 Meses)",
+        title: "SQL Server Avanzado",
+        desc: "Lleva tus consultas relacionales al límite de velocidad y complejidad. Resuelve problemas difíciles de analítica empleando consultas estructuradas de alto rendimiento. Para un Data Engineer, necesitas un SQL muy avanzado para construir y optimizar las bases de datos corporativas.",
+        hours: "+30 horas de clase + En Vivo",
+        project: "Optimización de consultas complejas de millones de filas",
+        price: "S/ 179",
+        regularPrice: "S/ 250",
+        syllabus: [
+          "Window Functions complejas (ROW_NUMBER, DENSE_RANK, LEAD, LAG)",
+          "CTEs (Common Table Expressions) y consultas jerárquicas recursivas",
+          "Desarrollo de stored procedures, vistas optimizadas y triggers lógicos",
+          "Afinación de índices y análisis detallado de planes de ejecución"
+        ],
+        url: "/cursos/sql-engineer"
+      },
+      adv2: {
+        badge: "Paso 2 · Bloque 1 (2.5 Meses)",
+        title: "Python Profesional & Machine Learning",
+        desc: "Escribe scripts avanzados y robustos integrando metodologías de desarrollo. Domina Git y GitHub para control de versiones y aprende los fundamentos de modelado predictivo y Machine Learning aplicado.",
+        hours: "+30 Horas de clase + En Vivo",
+        project: "Pipeline modular de Ingesta & Modelo de Regresión/Clasificación",
+        price: "S/ 179",
+        regularPrice: "S/ 250",
+        syllabus: [
+          "Programación orientada a objetos (POO) aplicada a datos y control de versiones con Git/GitHub",
+          "Manejo avanzado de errores, excepciones y registro de logs de ingesta",
+          "Fundamentos de Machine Learning: Regresión, clasificación y entrenamiento con Scikit-Learn",
+          "Preparación, limpieza y normalización de variables para modelos predictivos"
+        ],
+        url: "/cursos/python"
+      },
+      adv3: {
+        badge: "Paso 3 · Bloque 2",
+        title: "Power BI Avanzado",
+        desc: "Lleva tus dashboards corporativos a un nivel senior de analítica. Aprende arquitectura de datos en Power BI, cálculos complejos en lenguaje DAX, optimización de modelos estelares y diseño de interfaz ejecutiva (UX/UI).",
+        hours: "+30 horas de clase + En Vivo",
+        project: "Dashboard Financiero & Comercial con DAX Avanzado",
+        price: "S/ 179",
+        regularPrice: "S/ 250",
+        syllabus: [
+          "DAX Avanzado: Variables, funciones iteradoras (SUMX, AVERAGEX) y contextos",
+          "Arquitectura de datos: Modelado dimensional complejo y relaciones de muchos a muchos",
+          "Power Query Avanzado: Consultas en lenguaje M, funciones personalizadas y parámetros",
+          "Diseño UX/UI Premium: Storytelling de negocio y publicación segura en Power BI Service"
+        ],
+        url: "/cursos/powerbi"
+      },
+      adv4: {
+        badge: "Paso 4 · Bloque 2",
+        title: "Cloud Analytics (GCP & BigQuery)",
+        desc: "Transiciona tu analítica hacia la nube a escala empresarial. Aprende a crear almacenes de datos (Data Warehouses) modernos, escalables y serverless en la plataforma Google Cloud Platform utilizando BigQuery.",
+        hours: "+30 horas de clase + En Vivo",
+        project: "Ingesta, Modelado Columnar e Ingesta Serverless en Google Cloud",
+        price: "S/ 179",
+        regularPrice: "S/ 250",
+        syllabus: [
+          "Fundamentos de Cloud Computing y ecosistema de datos en Google Cloud (GCP)",
+          "Ingesta de datos planos y JSON hacia almacenamiento en la nube (Cloud Storage Buckets)",
+          "Modelado analítico e ingesta masiva en Google BigQuery",
+          "Calendarización automática de consultas (Scheduled Queries) y optimización de costos"
+        ],
+        url: "/cursos/sql-engineer"
+      },
+      adv5: {
+        badge: "Paso 5 · Bloque 3",
+        title: "Big Data & Spark (Azure Databricks)",
+        desc: "Domina el procesamiento masivo de datos distribuidos mediante Spark en la plataforma de nube Microsoft Azure. Construye arquitecturas de Medallón a escala industrial en entornos de desarrollo Databricks.",
+        hours: "+30 horas de clase + En Vivo",
+        project: "Procesamiento de datos distribuidos y arquitectura de Medallón",
+        price: "S/ 179",
+        regularPrice: "S/ 250",
+        syllabus: [
+          "Introducción al procesamiento distribuido y arquitectura de Apache Spark",
+          "Programación en PySpark y manipulación a gran escala de Spark DataFrames",
+          "Arquitectura de Medallón (Capas Bronze, Silver y Oro para saneamiento)",
+          "Configuración, seguridad y montaje de storages en Azure Databricks"
+        ],
+        url: "/especializacion-datos"
+      },
+      adv6: {
+        badge: "Paso 6 · Proyecto Final (2 Semanas)",
+        title: "Proyecto Integrador Cloud & Automatización",
+        desc: "Desarrolla de extremo a extremo un pipeline de datos serverless a escala industrial. Diseña flujos automáticos de ingesta en la nube con n8n, procesamiento de datos en capas con Spark y consumo de reportes en Power BI.",
+        hours: "2 Semanas de desarrollo guiado",
+        project: "Proyecto de Portafolio Extremo a Extremo en la Nube",
+        price: "Incluido en Especialización",
+        regularPrice: "",
+        syllabus: [
+          "Diseño de la topología de datos en la nube (Ingesta con n8n, ETL con Databricks)",
+          "Automatización de alertas y mensajería en tiempo real integrando APIs",
+          "Desarrollo de la capa Gold modelada para reportería y métricas de negocio",
+          "Construcción y publicación del dashboard corporativo final en Power BI"
+        ],
+        url: "/especializacion-datos"
+      }
+    };
+
+    const timelineNodes = document.querySelectorAll('.timeline-node');
+    
+    timelineNodes.forEach(node => {
+      node.addEventListener('click', () => {
+        const stepKey = node.getAttribute('data-step');
+        const routeKey = node.getAttribute('data-route');
+        const data = stepsData[stepKey];
+        if (!data) return;
+
+        // Remove active class from sibling nodes in the same wrapper
+        const siblingNodes = document.querySelectorAll(`.timeline-node[data-route="${routeKey}"]`);
+        siblingNodes.forEach(n => n.classList.remove('active'));
+        node.classList.add('active');
+
+        // Select the correct detail panel
+        const detailCardInner = document.getElementById(`detail-card-inner-${routeKey}`);
+        if (!detailCardInner) return;
+        
+        // Transition fade out
+        detailCardInner.style.opacity = '0';
+        detailCardInner.style.transform = 'translateY(10px)';
+
+        setTimeout(() => {
+          // Re-render contents of the detail card
+          let syllabusHTML = '';
+          data.syllabus.forEach(item => {
+            syllabusHTML += `<li>${item}</li>`;
+          });
+
+          // Generate Pre-sale box html if pricing applies
+          let preSaleBoxHTML = '';
+          if (data.regularPrice) {
+            preSaleBoxHTML = `
+              <div class="pre-sale-badge-box">
+                <div class="pre-sale-header">
+                  <span class="badge-accent"><i class="fas fa-tag"></i> PREVENTA: ${data.price} / Módulo</span>
+                  <span class="regular-price">Antes: ${data.regularPrice}</span>
+                </div>
+                <p class="pre-sale-text">
+                  <i class="fas fa-lock text-accent"></i> <strong>Separa tu vacante con solo S/ 50</strong> y cancela el saldo restante hasta una semana antes de iniciar. 
+                  <span style="display: block; margin-top: 6px; font-weight: 700; color: var(--accent-color);">✨ Oferta Especialización Completa (4 Cursos): S/ 579 (Antes S/ 729)</span>
+                </p>
+              </div>
+            `;
+          }
+
+          // Generate bonus box html
+          let bonusBoxHTML = '';
+          if (data.regularPrice) {
+            let financeGiftHTML = '';
+            if (data.showFinanceGift) {
+              financeGiftHTML = `
+                <li><i class="fas fa-gift text-secondary-color"></i> <strong>Plantilla automática de Finanzas Personales GRATIS</strong> (Manejo de tarjetas de crédito 💳, formulario de consumos y tutorial explicativo paso a paso).</li>
+                <li class="template-links">
+                  <span>Enlaces de la Plantilla:</span> 
+                  <a href="https://www.youtube.com/watch?v=x2KsvmjT0DQ&t=1s" target="_blank"><i class="fab fa-youtube"></i> Ver en YouTube</a>
+                  <a href="https://www.tiktok.com/@medicenjhon0/video/7589111308054711570?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fab fa-tiktok"></i> Ver en TikTok</a>
+                </li>
+              `;
+            }
+
+            bonusBoxHTML = `
+              <div class="bonus-box">
+                <h4>Regalos y Material Adicional Incluido:</h4>
+                <ul>
+                  ${financeGiftHTML}
+                  <li><i class="fas fa-book text-accent"></i> <strong>Libros de Data Analytics</strong> y cursos pregrabados de regalo.</li>
+                  <li><i class="fas fa-file-pdf text-accent"></i> <strong>CV del profesor de Analista de Datos</strong> para inspirarte y mejorar tu perfil.</li>
+                </ul>
+              </div>
+            `;
+          }
+
+          // Generate CTA actions
+          let actionHTML = '';
+          if (data.regularPrice) {
+            actionHTML = `
+              <div class="detail-actions" style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="https://api.whatsapp.com/send/?phone=51927534737&text=Hola%2C%20quiero%20separar%20mi%20vacante%20para%20el%20curso%20de%20${encodeURIComponent(data.title)}%20con%20precio%20preventa" target="_blank" class="btn btn-secondary btn-whatsapp">Reservar Vacante con S/ 50 <i class="fab fa-whatsapp"></i></a>
+              </div>
+            `;
+          } else {
+            actionHTML = `
+              <div class="detail-actions" style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="${data.url}" class="btn btn-primary-outline">Ver Detalles del Módulo <i class="fas fa-arrow-right"></i></a>
+              </div>
+            `;
+          }
+
+          detailCardInner.innerHTML = `
+            <div class="detail-card-header">
+              <span class="badge-step">${data.badge}</span>
+              <h3>${data.title}</h3>
+            </div>
+            <p class="detail-card-desc">${data.desc}</p>
+            
+            <div class="detail-card-meta">
+              <span><i class="fas fa-clock"></i> ${data.hours}</span>
+              <span><i class="fas fa-project-diagram"></i> Proyecto: ${data.project}</span>
+            </div>
+
+            ${preSaleBoxHTML}
+
+            ${bonusBoxHTML}
+
+            <details class="detail-accordion" open>
+              <summary>Temario Clave del Módulo <i class="fas fa-chevron-down"></i></summary>
+              <ul>
+                ${syllabusHTML}
+              </ul>
+            </details>
+
+            <div class="pre-sale-footer">
+              <span><i class="fab fa-whatsapp"></i> Más Info y Métodos de Pago: <strong>Coordinar por WhatsApp</strong></span>
+              <span><i class="fas fa-link"></i> <a href="https://bit.ly/curso_sql_powerbi" target="_blank">Temarios y Promos</a></span>
+            </div>
+
+            ${actionHTML}
+          `;
+
+          // Transition back in
+          detailCardInner.style.opacity = '1';
+          detailCardInner.style.transform = 'translateY(0)';
+        }, 150);
+      });
+    });
+  });
+</script>

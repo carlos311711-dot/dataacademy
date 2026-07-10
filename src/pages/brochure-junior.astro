@@ -1,0 +1,574 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Brochure Especialización Data Analyst Junior | Data Academy" description="Syllabus oficial e información de la Especialización en Data Analyst Junior. Descarga en formato A4 PDF.">
+
+  <!-- Print Controller -->
+  <div class="no-print brochure-bar-wrapper">
+    <div class="container bar-container">
+      <a href="/ruta-analista?tab=junior" class="btn btn-outline-light"><i class="fas fa-arrow-left"></i> Volver a la Ruta</a>
+      <div class="bar-actions">
+        <button onclick="window.print()" class="btn btn-secondary pulse-btn"><i class="fas fa-file-pdf"></i> Imprimir / Guardar A4 PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- A4 Document Wrapper -->
+  <main class="a4-document-container">
+    <article class="a4-sheet">
+      
+      <!-- Minimal Header -->
+      <header class="document-header">
+        <div class="header-top">
+          <div class="brand-logo">
+            <span class="logo-bold">DATA</span><span class="logo-light">ACADEMY</span>
+          </div>
+          <span class="doc-code">REF: DA-JR-2026</span>
+        </div>
+        <div class="header-main">
+          <h1>Especialización en Data Analyst Junior</h1>
+          <p class="subtitle">Estructura Curricular Oficial · Certificación Profesional A4</p>
+        </div>
+      </header>
+
+      <!-- Key Pillars Section (Highlighted Advantages, Projects, Live Classes) -->
+      <section class="document-section split-pillars-grid">
+        <div class="pillar-card">
+          <h4><i class="fas fa-star"></i> Ventajas del Programa</h4>
+          <ul>
+            <li>Material didáctico estructurado de 0 a 100.</li>
+            <li>Acceso ilimitado y de por vida a grabaciones y actualizaciones.</li>
+            <li>Bono de Plantilla de Finanzas Personales y Libros de Analítica.</li>
+          </ul>
+        </div>
+        <div class="pillar-card">
+          <h4><i class="fas fa-project-diagram"></i> Proyectos de Portafolio</h4>
+          <ul>
+            <li>Desarrollo de un Proyecto Integrador completo simulando negocio.</li>
+            <li>Subida y control en GitHub para visibilidad técnica.</li>
+            <li>Defensa práctica del portafolio ante feedback del profesor.</li>
+          </ul>
+        </div>
+        <div class="pillar-card">
+          <h4><i class="fas fa-video"></i> Clases en Vivo</h4>
+          <ul>
+            <li>Sesiones semanales en vivo para resolver dudas del código.</li>
+            <li>Revisión directa en videollamada de tus consultas SQL y DAX.</li>
+            <li>Mentoría interactiva directa con el profesor.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Modules List (Minimalist Clean Table / List) -->
+      <section class="document-section">
+        <h3>Contenido Académico y Módulos</h3>
+        <div class="syllabus-list">
+          
+          <div class="syllabus-row">
+            <div class="row-num">01</div>
+            <div class="row-content">
+              <h4>Excel para Análisis de Datos</h4>
+              <p>Higiene y uniones de datos en Power Query, lógica analítica intermedia (BUSCARX, INDICE, COINCIDIR) y diseño estético UX de reportes ejecutivos dinámicos.</p>
+            </div>
+          </div>
+
+          <div class="syllabus-row">
+            <div class="row-num">02</div>
+            <div class="row-content">
+              <h4>SQL Server Fundamentos</h4>
+              <p>Introducción a bases de datos relacionales, sintaxis SELECT, WHERE, agrupaciones complejas GROUP BY y consultas de unión relacional con INNER y LEFT JOIN.</p>
+            </div>
+          </div>
+
+          <div class="syllabus-row">
+            <div class="row-num">03</div>
+            <div class="row-content">
+              <h4>Power BI de 0 a Avanzado</h4>
+              <p>Modelado multidimensional en estrella, desarrollo analítico y medidas dinámicas avanzadas en lenguaje DAX, y diseño de reportes ejecutivos de alto impacto.</p>
+            </div>
+          </div>
+
+          <div class="syllabus-row">
+            <div class="row-num">04</div>
+            <div class="row-content">
+              <h4>Python para Analistas</h4>
+              <p>Sintaxis y estructuras de control lógicas, carga e higiene de sets de datos volumétricos con Pandas/NumPy, y graficación de indicadores con Matplotlib/Seaborn.</p>
+            </div>
+          </div>
+
+          <div class="syllabus-row highlight-row">
+            <div class="row-num">05</div>
+            <div class="row-content">
+              <h4>Proyecto Integrador & Automatización Cloud (Power Automate)</h4>
+              <p>Construcción del portafolio final integrando la extracción SQL Server, modelado en Power BI y automatización lógica de alertas de KPI directas vía email.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Minimal Registration Footer (Pricing Removed) -->
+      <footer class="document-footer" style="justify-content: center; text-align: center; flex-direction: column; align-items: center; gap: 10px;">
+        <div class="footer-right no-print" style="align-items: center;">
+          <a href="https://api.whatsapp.com/send/?phone=51927534737&text=Hola%2C%20quiero%20separar%20mi%20vacante%20para%20la%20Especializacion%20Junior%20con%20precio%20preventa" target="_blank" class="btn btn-secondary btn-whatsapp">Inscribirse por WhatsApp <i class="fab fa-whatsapp"></i></a>
+          <span class="cta-link-doc" style="margin-top: 6px;">Temarios y Promociones: <a href="https://bit.ly/curso_sql_powerbi" target="_blank">https://bit.ly/curso_sql_powerbi</a></span>
+        </div>
+        <div class="print-only footer-print-note" style="text-align: center; border-top: none; padding-top: 0; margin-top: 0;">
+          <p><strong>Matrículas e Inscripciones Académicas:</strong> Contáctanos directamente a nuestro chat oficial: <strong>https://bit.ly/curso_sql_powerbi</strong></p>
+        </div>
+      </footer>
+
+    </article>
+  </main>
+
+</BaseLayout>
+
+<style>
+  /* Menu header bar */
+  .brochure-bar-wrapper {
+    background-color: var(--primary-dark);
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .bar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .btn-outline-light {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white !important;
+    background: transparent;
+  }
+
+  .btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+  }
+
+  /* A4 Layout Canvas */
+  .a4-document-container {
+    background-color: #f8fafc;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  /* Minimal A4 Sheet (DMC style) */
+  .a4-sheet {
+    background-color: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    width: 210mm;
+    min-height: 297mm;
+    padding: 18mm;
+    color: #0f172a;
+    font-family: 'Inter', system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+  }
+
+  /* Header styles */
+  .document-header {
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .brand-logo {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: #0f172a;
+  }
+
+  .logo-bold {
+    color: #0f172a;
+  }
+
+  .logo-light {
+    color: var(--accent-color);
+    font-weight: 400;
+  }
+
+  .doc-code {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .header-main h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 2px;
+    line-height: 1.15;
+  }
+
+  .subtitle {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #64748b;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  /* Key Pillars Section */
+  .split-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .pillar-card {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 14px;
+  }
+
+  .pillar-card h4 {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .pillar-card h4 i {
+    color: var(--accent-color);
+  }
+
+  .pillar-card ul {
+    padding-left: 14px !important;
+    margin: 0;
+    list-style-type: disc !important;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .pillar-card li {
+    font-size: 0.76rem;
+    color: #475569;
+    line-height: 1.35;
+  }
+
+  /* Section headers */
+  .document-section h3 {
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #0f172a;
+    border-left: 3px solid #0f172a;
+    padding-left: 8px;
+    margin-bottom: 14px;
+  }
+
+  /* Syllabus rows */
+  .syllabus-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .syllabus-row {
+    display: flex;
+    gap: 14px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 8px;
+  }
+
+  .syllabus-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .syllabus-row.highlight-row {
+    background-color: rgba(37, 211, 102, 0.02);
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px dashed rgba(37, 211, 102, 0.25);
+  }
+
+  .row-num {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #64748b;
+    background-color: #f1f5f9;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .row-content h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 2px;
+  }
+
+  .row-content p {
+    font-size: 0.76rem;
+    color: #475569;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  /* Document footer layout */
+  .document-footer {
+    margin-top: auto;
+    border-top: 2px solid #0f172a;
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+  }
+
+  .footer-left {
+    flex: 1.4;
+  }
+
+  .footer-left h4 {
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #0f172a;
+    margin: 0 0 10px;
+  }
+
+  /* Price options box */
+  .price-box-wrapper {
+    display: flex;
+    gap: 16px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+  }
+
+  .price-option-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .border-left-divider {
+    border-left: 1px solid #cbd5e1;
+    padding-left: 16px;
+  }
+
+  .price-opt-title {
+    font-size: 0.62rem;
+    font-weight: 800;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 2px;
+  }
+
+  .price-val {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #0f172a;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .price-old {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #94a3b8;
+    text-decoration: line-through;
+  }
+
+  .price-note {
+    font-size: 0.65rem;
+    color: #64748b;
+    margin-top: 1px;
+  }
+
+  .reserve-note-text {
+    font-size: 0.7rem;
+    color: #475569;
+    margin: 0;
+  }
+
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+
+  .btn-whatsapp {
+    background-color: #25d366;
+    color: white !important;
+    border: none;
+    padding: 9px 18px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 8px rgba(37, 211, 102, 0.15);
+  }
+
+  .btn-whatsapp:hover {
+    background-color: #20b858 !important;
+  }
+
+  .cta-link-doc {
+    font-size: 0.68rem;
+    color: #64748b;
+  }
+
+  .cta-link-doc a {
+    color: var(--accent-color);
+    font-weight: 700;
+  }
+
+  .print-only {
+    display: none;
+  }
+
+  /* ==========================================================================
+     PRINT INTERFACE STYLES (A4 Tipo DMC)
+     ========================================================================== */
+  @media print {
+    @page {
+      size: A4;
+      margin: 15mm 20mm;
+    }
+
+    .no-print {
+      display: none !important;
+    }
+
+    body {
+      background-color: white !important;
+      color: black !important;
+    }
+
+    .a4-document-container {
+      background: none !important;
+      padding: 0 !important;
+      min-height: auto !important;
+    }
+
+    .a4-sheet {
+      box-shadow: none !important;
+      padding: 0 !important;
+      width: 100% !important;
+      min-height: auto !important;
+      border: none !important;
+    }
+
+    .pillar-card {
+      border: 1px solid #cbd5e1 !important;
+      background-color: #f8fafc !important;
+    }
+
+    .price-box-wrapper {
+      border: 1px solid #cbd5e1 !important;
+      background-color: #f8fafc !important;
+    }
+
+    .syllabus-row.highlight-row {
+      background-color: #f8fafc !important;
+      border: 1px solid #cbd5e1 !important;
+    }
+
+    .print-only {
+      display: block !important;
+    }
+
+    .footer-print-note {
+      font-size: 7.5pt;
+      color: #475569;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 6px;
+      margin-top: 8px;
+    }
+
+    .document-footer {
+      page-break-inside: avoid;
+    }
+  }
+
+  /* Responsive styling */
+  @media (max-width: 768px) {
+    .a4-document-container {
+      padding: 10px;
+    }
+
+    .a4-sheet {
+      width: 100%;
+      padding: 20px 14px;
+    }
+
+    .split-pillars-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .price-box-wrapper {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .border-left-divider {
+      border-left: none;
+      border-top: 1px solid #cbd5e1;
+      padding-left: 0;
+      padding-top: 12px;
+    }
+
+    .document-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-right {
+      align-items: flex-start;
+      width: 100%;
+    }
+  }
+</style>
