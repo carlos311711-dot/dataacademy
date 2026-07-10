@@ -149,7 +149,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
             <div class="sidebar-promo-box">
               <span class="promo-label">PREVENTA ESPECIAL</span>
-              <p class="promo-price">S/ 579 <span class="promo-old">Antes: S/ 729</span></p>
+              <p class="promo-price">S/ 697 <span class="promo-old">Antes: S/ 1299</span></p>
               <span class="promo-note">Separa con S/ 50 y cancela el saldo hasta una semana antes de iniciar.</span>
             </div>
 
@@ -177,7 +177,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </div>
               <p class="pre-sale-text">
                 <i class="fas fa-lock text-accent"></i> <strong>Separa tu vacante con solo S/ 50</strong> y cancela el saldo restante hasta una semana antes de iniciar. 
-                <span style="display: block; margin-top: 6px; font-weight: 700; color: var(--accent-color);">✨ Oferta Especialización Completa (4 Cursos): S/ 579 (Antes S/ 729)</span>
+                <span style="display: block; margin-top: 6px; font-weight: 700; color: var(--accent-color);">✨ Oferta Especialización Completa (4 Cursos): S/ 697 (Antes S/ 1299)</span>
               </p>
             </div>
 
@@ -1942,6 +1942,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           // Generate Pre-sale box html if pricing applies
           let preSaleBoxHTML = '';
           if (data.regularPrice) {
+            const offerText = routeKey === 'advanced' 
+              ? '✨ Oferta Especialización Completa (6 Cursos): S/ 579 (Antes S/ 729)' 
+              : '✨ Oferta Especialización Completa (4 Cursos): S/ 697 (Antes S/ 1299)';
             preSaleBoxHTML = `
               <div class="pre-sale-badge-box">
                 <div class="pre-sale-header">
@@ -1950,7 +1953,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 </div>
                 <p class="pre-sale-text">
                   <i class="fas fa-lock text-accent"></i> <strong>Separa tu vacante con solo S/ 50</strong> y cancela el saldo restante hasta una semana antes de iniciar. 
-                  <span style="display: block; margin-top: 6px; font-weight: 700; color: var(--accent-color);">✨ Oferta Especialización Completa (4 Cursos): S/ 579 (Antes S/ 729)</span>
+                  <span style="display: block; margin-top: 6px; font-weight: 700; color: var(--accent-color);">${offerText}</span>
                 </p>
               </div>
             `;

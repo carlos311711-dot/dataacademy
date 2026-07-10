@@ -30,13 +30,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Mobile dropdown toggle (hover doesn't work on touch)
+    // Make Cursos button navigate to /#formacion on desktop, toggle on mobile
     const cursosBtn = document.getElementById('cursos-btn');
     if (cursosBtn) {
-        cursosBtn.addEventListener('click', () => {
-            const dropdown = cursosBtn.closest('.nav-dropdown');
-            const isOpen = dropdown.classList.toggle('open');
-            cursosBtn.setAttribute('aria-expanded', isOpen);
+        cursosBtn.addEventListener('click', (e) => {
+            if (window.innerWidth <= 991) {
+                e.preventDefault();
+                e.stopPropagation();
+                const dropdown = cursosBtn.closest('.nav-dropdown');
+                const isOpen = dropdown.classList.toggle('open');
+                cursosBtn.setAttribute('aria-expanded', isOpen);
+            } else {
+                window.location.href = '/#formacion';
+            }
         });
     }
 
