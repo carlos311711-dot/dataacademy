@@ -392,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const courseNamesList = selectedCourses.map(cc => `* ${cc.course['CURSO']}`).join('\n');
                 
                 const messageText = `Hola, estoy interesado en matricularme en los siguientes cursos de la 4ta edición:\n${courseNamesList}`;
-                masterCtaBtn.href = `https://api.whatsapp.com/send/?phone=51904882577&text=${encodeURIComponent(messageText)}&type=phone_number&app_absent=0`;
+                masterCtaBtn.href = `https://api.whatsapp.com/send/?phone=51986575257&text=${encodeURIComponent(messageText)}&type=phone_number&app_absent=0`;
             } else {
                 masterCtaContainer.style.display = 'none';
             }
@@ -610,7 +610,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const ctaBtn = document.getElementById('info-whatsapp-cta');
         if (ctaBtn) {
             const msg = encodeURIComponent(`Hola, estoy interesado en matricularme en el curso *${cc.course['CURSO']}* de la *${cc.course['EDICION']}ta edición*.`);
-            ctaBtn.href = `https://api.whatsapp.com/send/?phone=51904882577&text=${msg}&type=phone_number&app_absent=0`;
+            ctaBtn.href = `https://api.whatsapp.com/send/?phone=51986575257&text=${msg}&type=phone_number&app_absent=0`;
         }
     }
 
