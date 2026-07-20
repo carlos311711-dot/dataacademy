@@ -215,8 +215,8 @@ document.addEventListener('DOMContentLoaded', () => {
             img: "/img/projects/proyecto_n8n_flow.webp",
             desc: "Flujo de integración y automatización empresarial diseñado en n8n. El proceso intercepta registros de formularios web, valida y enriquece la información con APIs externas, la indexa en el CRM de HubSpot y dispara automáticamente mensajes personalizados a través de WhatsApp Webhook y correos transaccionales, reduciendo el tiempo de respuesta comercial a cero.",
             tools: ["n8n", "APIs", "HubSpot", "WhatsApp API", "Webhooks"],
-            courseUrl: "/cursos/n8n",
-            courseName: "Curso: Automatización de Procesos con n8n & Make"
+            courseUrl: "/ruta-analista",
+            courseName: "Especialización: Analista de Datos"
         },
         p4: {
             title: "Arquitectura de Medallón Lakehouse",
