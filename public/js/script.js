@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Navbar Scroll Effect
     const navbar = document.getElementById('navbar');
-    
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
@@ -13,14 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile Menu Toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
-    
-    if(hamburger) {
+
+    if (hamburger) {
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            
+
             // Toggle Icon
             const icon = hamburger.querySelector('i');
-            if(navLinks.classList.contains('active')) {
+            if (navLinks.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
             } else {
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
             const icon = hamburger.querySelector('i');
-            if(icon) {
+            if (icon) {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             }
@@ -201,11 +201,11 @@ document.addEventListener('DOMContentLoaded', () => {
             courseName: "Curso: Power BI Avanzado & Storytelling"
         },
         p2: {
-            title: "Optimización & Modelado SQL",
+            title: "Análisis de RR.HH. - Rotación y Desempeño de Empleados",
             category: "SQL",
             img: "/img/projects/sql_project.png",
-            desc: "Solución de base de datos relacional para una corporación de venta al por menor. Incluye la creación del diagrama entidad-relación (DER), normalización en tercera forma normal (3FN) y optimización de consultas complejas. Se diseñaron consultas que emplean funciones de ventana y agregaciones avanzadas para proveer a los analistas de negocio de reportes de rentabilidad y segmentación RFM rápidos.",
-            tools: ["PostgreSQL", "DBeaver", "SQL Server", "ETL"],
+            desc: "El personal de recursos humanos de GreatPlaceToWork desea mejorar el desempeño, aumentar la retención y mejorar la satisfacción laboral general. Sin embargo, no cuentan con una visión clara de los datos pertinentes de los empleados. Mi objetivo es utilizar SQL dentro de SQL Server Management Studio, analizando sus datos para proporcionar recomendaciones al departamento de RR.HH. que faciliten mejoras exitosas.<br><br><a href='https://github.com/jhonvelasque/SQL-SEVER-PROJECT-HR-ANALYTICS' target='_blank' style='color: var(--accent-color); text-decoration: underline; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;'>Mira el proyecto <i class='fas fa-external-link-alt' style='font-size: 0.75rem;'></i></a>",
+            tools: ["SQL Server", "SSMS", "HR Analytics", "ETL"],
             courseUrl: "/cursos/sql",
             courseName: "Curso: SQL para Análisis de Datos"
         },
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalImg.alt = project.title;
         modalBadge.textContent = project.category;
         modalTitle.textContent = project.title;
-        modalDesc.textContent = project.desc;
+        modalDesc.innerHTML = project.desc;
 
         // Herramientas
         modalToolsContainer.innerHTML = '';
@@ -378,13 +378,13 @@ document.addEventListener('DOMContentLoaded', () => {
     themeToggleBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const isCurrentlyDark = htmlElement.classList.toggle('dark-theme');
-            
+
             if (isCurrentlyDark) {
                 localStorage.setItem('theme', 'dark');
             } else {
                 localStorage.setItem('theme', 'light');
             }
-            
+
             updateToggleIcons(isCurrentlyDark);
         });
     });
