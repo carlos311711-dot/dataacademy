@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Proyecto Business Intelligence",
             category: "Power BI",
             img: "/img/projects/proyecto_powerbi_bi.png",
-            desc: "Tablero analítico comercial integral que analiza las ventas de una cadena de retail nacional. Proporciona visualización detallada por sucursal, rendimiento de gerentes, análisis de canasta de compra e incorpora modelos en DAX para proyectar y controlar los indicadores estratégicos del negocio.",
+            desc: "Implementó una solución analítica end-to-end para el embudo de ventas de una inmobiliaria de alquileres. Diseñó el pipeline de datos centralizando fuentes de Azure y AppFolio dentro del ecosistema de Microsoft Fabric, culminando en un dashboard automatizado en Power BI para la toma de decisiones comerciales.",
             tools: ["Power BI", "DAX", "Modelado en Estrella", "Data Wrangling"],
             courseUrl: "/cursos/powerbi",
             courseName: "Curso: Power BI Avanzado & Storytelling"
@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Dashboard Gerencial Power BI",
             category: "Integral",
             img: "/img/projects/proyecto_powerbi_hero.png",
-            desc: "El proyecto insignia de visualización. Un desarrollo de dashboard gerencial interactivo de alto nivel que consume datos transaccionales previamente procesados y cargados. Diseñado bajo las mejores prácticas de Storytelling y UI/UX, permite a directivos evaluar la salud comercial e ingresos a golpe de vista.",
+            desc: "Proyecto insignia de visualización comercial: Desarrolló una solución analítica integral a partir de una plataforma SaaS con infraestructura Cloud, logrando una visibilidad total del negocio. A través de un pipeline robusto y bajo las mejores prácticas de UI/UX y Storytelling, implementó un dashboard gerencial interactivo en Power BI que centraliza vistas de marketing, operaciones y finanzas. Un producto 100% orientado al usuario que permite a los directivos evaluar la salud comercial e ingresos a golpe de vista.",
             tools: ["Power BI", "DAX", "SQL Server", "ETL", "Storytelling"],
             courseUrl: "/ruta-analista",
             courseName: "Especialización: Ingeniería & Analítica de Datos"
