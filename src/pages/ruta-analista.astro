@@ -15,8 +15,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <div class="detail-header text-center-mobile">
         <span class="course-tag">Preventa Exclusiva 2026</span>
         <h1>
-          Ruta del <span class="highlight text-gradient"
-            >Analista de Datos</span>
+          Ruta del <span class="highlight text-gradient">Analista de Datos</span
+          >
         </h1>
         <p class="subtitle-text">
           El mapa de ruta definitivo y dinámico para dominar los datos. Elige tu
@@ -217,14 +217,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               <li>
                 <i class="fas fa-gift"></i>
                 <span
-                  ><strong>Bonos</strong>: CV Analista + Plan Financiero</span>
+                  ><strong>Bonos</strong>: CV Analista + Plan Financiero</span
+                >
               </li>
             </ul>
 
             <div class="sidebar-promo-box">
               <span class="promo-label">PREVENTA ESPECIAL</span>
               <p class="promo-price">
-                S/ 697 <span class="promo-old">Antes: S/ 1299</span>
+                S/ 757 <span class="promo-old">Antes: S/ 1299</span>
               </p>
               <span class="promo-note"
                 >Separa con S/ 50 y cancela el saldo hasta una semana antes de
@@ -275,7 +276,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                 restante hasta una semana antes de iniciar.
                 <span
                   style="display: block; margin-top: 6px; font-weight: 700; color: var(--accent-color);"
-                  >✨ Oferta Especialización Completa (4 Cursos): S/ 697 (Antes
+                  >✨ Oferta Especialización Completa (4 Cursos): S/ 757 (Antes
                   S/ 1299)</span
                 >
               </p>
@@ -367,7 +368,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -1817,7 +1817,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           "Generación y envío automático de reportes PDF dinámicos",
           "Integración de alertas directas hacia WhatsApp, Slack y CRMs",
         ],
-        url: "/cursos/n8n",
+        url: "/ruta-analista",
       },
     };
 
@@ -1860,7 +1860,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             const offerText =
               routeKey === "advanced"
                 ? "✨ Oferta Especialización Completa (6 Cursos): S/ 757 (Antes S/ 1299)"
-                : "✨ Oferta Especialización Completa (4 Cursos): S/ 697 (Antes S/ 1299)";
+                : "✨ Oferta Especialización Completa (4 Cursos): S/ 757 (Antes S/ 1299)";
             preSaleBoxHTML = `
               <div class="pre-sale-badge-box">
                 <div class="pre-sale-header">
@@ -1907,7 +1907,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           if (data.regularPrice) {
             actionHTML = `
               <div class="detail-actions" style="display: flex; gap: 12px; flex-wrap: wrap;">
-                <a href="https://api.whatsapp.com/send/?phone=51986575257&text=Hola%2C%20quiero%20separar%20mi%20vacante%20para%20el%20curso%20de%20${encodeURIComponent(data.title)}%20con%20precio%20preventa" target="_blank" class="btn btn-secondary btn-whatsapp">Reservar Vacante con S/ 50 <i class="fab fa-whatsapp"></i></a>
+                <a href="https://api.whatsapp.com/send/?phone=51986575257&text=Hola%2C%20quiero%20separar%20mi%20vacante%20para%20el%20curso%20de%20${encodeURIComponent(data.title)}%20con%20precio%20preventa" target="_blank" class="btn btn-secondary btn-whatsapp">Reservar Vacante con S/ 100 <i class="fab fa-whatsapp"></i></a>
               </div>
             `;
           } else {

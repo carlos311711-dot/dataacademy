@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Navbar Scroll Effect
     const navbar = document.getElementById('navbar');
-    
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
@@ -13,14 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile Menu Toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
-    
-    if(hamburger) {
+
+    if (hamburger) {
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            
+
             // Toggle Icon
             const icon = hamburger.querySelector('i');
-            if(navLinks.classList.contains('active')) {
+            if (navLinks.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
             } else {
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
             const icon = hamburger.querySelector('i');
-            if(icon) {
+            if (icon) {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             }
@@ -198,14 +198,14 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Un tablero introductorio interactivo diseñado en Power BI para el control operativo e institucional. Permite monitorizar métricas comerciales y de ventas en tiempo real, facilitando la toma de decisiones basada en datos para perfiles técnicos y gerenciales.",
             tools: ["Power BI", "Power Query", "Modelado de datos", "Excel"],
             courseUrl: "/cursos/powerbi",
-            courseName: "Curso: Power BI Avanzado & Storytelling"
+            courseName: "Curso: Power BI Analyst"
         },
         p2: {
-            title: "Optimización & Modelado SQL",
+            title: "Análisis de RR.HH. - Rotación y Desempeño de Empleados",
             category: "SQL",
             img: "/img/projects/sql_project.png",
-            desc: "Solución de base de datos relacional para una corporación de venta al por menor. Incluye la creación del diagrama entidad-relación (DER), normalización en tercera forma normal (3FN) y optimización de consultas complejas. Se diseñaron consultas que emplean funciones de ventana y agregaciones avanzadas para proveer a los analistas de negocio de reportes de rentabilidad y segmentación RFM rápidos.",
-            tools: ["PostgreSQL", "DBeaver", "SQL Server", "ETL"],
+            desc: "El personal de recursos humanos de GreatPlaceToWork desea mejorar el desempeño, aumentar la retención y mejorar la satisfacción laboral general. Sin embargo, no cuentan con una visión clara de los datos pertinentes de los empleados. Mi objetivo es utilizar SQL dentro de SQL Server Management Studio, analizando sus datos para proporcionar recomendaciones al departamento de RR.HH. que faciliten mejoras exitosas.<br><br><a href='https://github.com/jhonvelasque/SQL-SEVER-PROJECT-HR-ANALYTICS' target='_blank' style='color: var(--accent-color); text-decoration: underline; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;'>Mira el proyecto <i class='fas fa-external-link-alt' style='font-size: 0.75rem;'></i></a>",
+            tools: ["SQL Server", "SSMS", "HR Analytics", "ETL"],
             courseUrl: "/cursos/sql",
             courseName: "Curso: SQL para Análisis de Datos"
         },
@@ -215,8 +215,8 @@ document.addEventListener('DOMContentLoaded', () => {
             img: "/img/projects/proyecto_n8n_flow.webp",
             desc: "Flujo de integración y automatización empresarial diseñado en n8n. El proceso intercepta registros de formularios web, valida y enriquece la información con APIs externas, la indexa en el CRM de HubSpot y dispara automáticamente mensajes personalizados a través de WhatsApp Webhook y correos transaccionales, reduciendo el tiempo de respuesta comercial a cero.",
             tools: ["n8n", "APIs", "HubSpot", "WhatsApp API", "Webhooks"],
-            courseUrl: "/cursos/n8n",
-            courseName: "Curso: Automatización de Procesos con n8n & Make"
+            courseUrl: "/ruta-analista",
+            courseName: "Especialización: Analista de Datos"
         },
         p4: {
             title: "Arquitectura de Medallón Lakehouse",
@@ -231,16 +231,16 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Proyecto Business Intelligence",
             category: "Power BI",
             img: "/img/projects/proyecto_powerbi_bi.png",
-            desc: "Tablero analítico comercial integral que analiza las ventas de una cadena de retail nacional. Proporciona visualización detallada por sucursal, rendimiento de gerentes, análisis de canasta de compra e incorpora modelos en DAX para proyectar y controlar los indicadores estratégicos del negocio.",
+            desc: "Implementó una solución analítica end-to-end para el embudo de ventas de una inmobiliaria de alquileres. Diseñó el pipeline de datos centralizando fuentes de Azure y AppFolio dentro del ecosistema de Microsoft Fabric, culminando en un dashboard automatizado en Power BI para la toma de decisiones comerciales.",
             tools: ["Power BI", "DAX", "Modelado en Estrella", "Data Wrangling"],
             courseUrl: "/cursos/powerbi",
-            courseName: "Curso: Power BI Avanzado & Storytelling"
+            courseName: "Curso: Power BI Analyst"
         },
         p6: {
             title: "Dashboard Gerencial Power BI",
             category: "Integral",
             img: "/img/projects/proyecto_powerbi_hero.png",
-            desc: "El proyecto insignia de visualización. Un desarrollo de dashboard gerencial interactivo de alto nivel que consume datos transaccionales previamente procesados y cargados. Diseñado bajo las mejores prácticas de Storytelling y UI/UX, permite a directivos evaluar la salud comercial e ingresos a golpe de vista.",
+            desc: "Proyecto insignia de visualización comercial: Desarrolló una solución analítica integral a partir de una plataforma SaaS con infraestructura Cloud, logrando una visibilidad total del negocio. A través de un pipeline robusto y bajo las mejores prácticas de UI/UX y Storytelling, implementó un dashboard gerencial interactivo en Power BI que centraliza vistas de marketing, operaciones y finanzas. Un producto 100% orientado al usuario que permite a los directivos evaluar la salud comercial e ingresos a golpe de vista.",
             tools: ["Power BI", "DAX", "SQL Server", "ETL", "Storytelling"],
             courseUrl: "/ruta-analista",
             courseName: "Especialización: Ingeniería & Analítica de Datos"
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalImg.alt = project.title;
         modalBadge.textContent = project.category;
         modalTitle.textContent = project.title;
-        modalDesc.textContent = project.desc;
+        modalDesc.innerHTML = project.desc;
 
         // Herramientas
         modalToolsContainer.innerHTML = '';
@@ -378,13 +378,13 @@ document.addEventListener('DOMContentLoaded', () => {
     themeToggleBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const isCurrentlyDark = htmlElement.classList.toggle('dark-theme');
-            
+
             if (isCurrentlyDark) {
                 localStorage.setItem('theme', 'dark');
             } else {
                 localStorage.setItem('theme', 'light');
             }
-            
+
             updateToggleIcons(isCurrentlyDark);
         });
     });
