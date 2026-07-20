@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Un tablero introductorio interactivo diseñado en Power BI para el control operativo e institucional. Permite monitorizar métricas comerciales y de ventas en tiempo real, facilitando la toma de decisiones basada en datos para perfiles técnicos y gerenciales.",
             tools: ["Power BI", "Power Query", "Modelado de datos", "Excel"],
             courseUrl: "/cursos/powerbi",
-            courseName: "Curso: Python for data Analyst -I"
+            courseName: "Curso: Power BI Analyst"
         },
         p2: {
             title: "Análisis de RR.HH. - Rotación y Desempeño de Empleados",
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Implementó una solución analítica end-to-end para el embudo de ventas de una inmobiliaria de alquileres. Diseñó el pipeline de datos centralizando fuentes de Azure y AppFolio dentro del ecosistema de Microsoft Fabric, culminando en un dashboard automatizado en Power BI para la toma de decisiones comerciales.",
             tools: ["Power BI", "DAX", "Modelado en Estrella", "Data Wrangling"],
             courseUrl: "/cursos/powerbi",
-            courseName: "Curso: Python for data Analyst -I"
+            courseName: "Curso: Power BI Analyst"
         },
         p6: {
             title: "Dashboard Gerencial Power BI",
