@@ -33,11 +33,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!-- Course Tabs -->
       <div class="catalog-tabs-container">
         <div class="catalog-tabs-nav">
-          <button class="catalog-tab-btn active" data-tab="tab-sql-analyst">SQL Data Analyst</button>
-          <button class="catalog-tab-btn" data-tab="tab-sql-engineer">SQL Data Engineer</button>
-          <button class="catalog-tab-btn" data-tab="tab-powerbi">Power BI Analyst</button>
-          <button class="catalog-tab-btn" data-tab="tab-excel">Excel Analyst</button>
-          <button class="catalog-tab-btn" data-tab="tab-python">Python Analyst</button>
+          <button class="catalog-tab-btn active" data-tab="tab-sql-analyst">SQL for Data Analyst</button>
+          <button class="catalog-tab-btn" data-tab="tab-powerbi">Power BI for Data Analyst</button>
+          <button class="catalog-tab-btn" data-tab="tab-excel">Excel for Data Analyst</button>
+          <button class="catalog-tab-btn" data-tab="tab-python">Python for Data Analyst</button>
         </div>
 
         <!-- Tab 1: SQL Data Analyst -->
@@ -52,7 +51,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 </div>
                 <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">SQL para Data Analyst (Básico - Intermedio)</h3>
                 <p class="course-desc" style="font-size: 1.05rem; margin-bottom: 20px;">
-                  <strong>Inicio:</strong> 06 de agosto (Jueves y Sábado, JUE 8:00 PM - 11:00 PM / SAB 6:00 PM - 9:00 PM)<br>
+                  <strong>Inicio:</strong> 08 de septiembre (Martes y Jueves, 8:00 PM - 11:00 PM)<br>
                   <strong>Duración:</strong> 5 semanas (+30 Hrs de contenido práctico)
                 </p>
                 <p class="course-desc" style="font-size: 1rem; margin-bottom: 20px; color: var(--text-muted);">
@@ -71,37 +70,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
         </div>
 
-        <!-- Tab 2: SQL Data Engineer -->
-        <div class="catalog-tab-panel" id="tab-sql-engineer">
-          <div class="course-card" style="border-top: 4px solid var(--primary-color); padding: 40px; border-radius: 20px;">
-            <div class="course-grid-catalog">
-              <div>
-                <div style="margin-bottom: 15px;">
-                  <span class="sale-badge-pill sale-badge-red">¡Solo 8 Vacantes!</span>
-                  <span class="sale-badge-pill sale-badge-blue">Primeros 5 inscritos</span>
-                </div>
-                <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">SQL para Data Engineer (Intermedio - Avanzado)</h3>
-                <p class="course-desc" style="font-size: 1.05rem; margin-bottom: 20px;">
-                  <strong>Inicio:</strong> 06 de agosto (Jueves y Sábado, JUE 8:00 PM - 11:00 PM / SAB 6:00 PM - 9:00 PM)<br>
-                  <strong>Duración:</strong> 5 semanas (+30 Hrs de contenido práctico)
-                </p>
-                <p class="course-desc" style="font-size: 1rem; margin-bottom: 20px; color: var(--text-muted);">
-                  <strong>Temario Resumido:</strong> Fundamentos y Consultas Clave, CTEs vs Window Functions, Arquitectura de BigQuery (Datasets, Tablas Externas, Particionamiento), Funciones SQL Avanzadas en BigQuery (Arrays, Structs, RegEx, JSON), Subconsultas Avanzadas, Proyecto Integrador (Pipeline ELT con capas de datos).
-                </p>
-              </div>
-              <div style="text-align: center; background: var(--card-bg); padding: 28px; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: center;">
-                <span style="font-size: 0.95rem; text-decoration: line-through; color: var(--text-muted); display: block;">Precio Regular: S/ 250</span>
-                <span style="font-size: 2.2rem; font-weight: 900; color: var(--primary-color); display: block; margin: 8px 0;">S/ 149</span>
-                <span style="font-size: 0.85rem; color: var(--secondary-color); display: block; margin-bottom: 20px; font-weight: 700; text-transform: uppercase;">Preventa Especial</span>
-                <a href="https://api.whatsapp.com/send/?phone=51986575257&text=Hola%2C%20quiero%20inscribirme%20en%20el%20curso%20de%20SQL%20para%20Data%20Engineer%20con%20tarifa%20preventa%20de%20S%2F149&type=phone_number&app_absent=0"
-                   class="btn btn-primary btn-whatsapp" target="_blank" style="width: 100%; margin-bottom: 12px;">Quiero este curso <i class="fab fa-whatsapp"></i></a>
-                <a href="/cursos/sql-engineer" class="btn btn-secondary" style="width: 100%;">Ver Temario Completo</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tab 3: Power BI -->
+        <!-- Tab 2: Power BI -->
         <div class="catalog-tab-panel" id="tab-powerbi">
           <div class="course-card" style="border-top: 4px solid var(--primary-color); padding: 40px; border-radius: 20px;">
             <div class="course-grid-catalog">
@@ -110,9 +79,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <span class="sale-badge-pill sale-badge-red">¡Últimas 4 vacantes!</span>
                   <span class="sale-badge-pill sale-badge-green">Certificación Gratis</span>
                 </div>
-                <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">Power BI Analyst (De Cero a Experto)</h3>
+                <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">Power BI for Data Analyst (De Cero a Experto)</h3>
                 <p class="course-desc" style="font-size: 1.05rem; margin-bottom: 20px;">
-                  <strong>Inicio:</strong> 03 de agosto (Lunes y Miércoles, 8:00 PM - 11:00 PM)<br>
+                  <strong>Inicio:</strong> 07 de septiembre (Lunes y Miércoles, 8:00 PM - 11:00 PM)<br>
                   <strong>Duración:</strong> 6 semanas (+30 Hrs de contenido práctico)
                 </p>
                 <p class="course-desc" style="font-size: 1rem; margin-bottom: 20px; color: var(--text-muted);">
@@ -140,9 +109,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <span class="sale-badge-pill sale-badge-red">¡Solo 2 Vacantes!</span>
                   <span class="sale-badge-pill sale-badge-green">Certificación Gratis</span>
                 </div>
-                <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">Excel Analyst (De Cero a Experto)</h3>
+                <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">Excel for Data Analyst (De Cero a Experto)</h3>
                 <p class="course-desc" style="font-size: 1.05rem; margin-bottom: 20px;">
-                  <strong>Inicio:</strong> 03 de agosto (Lunes y Miércoles, 8:00 PM - 11:00 PM)<br>
+                  <strong>Inicio:</strong> 07 de septiembre (Lunes y Miércoles, 8:00 PM - 11:00 PM)<br>
                   <strong>Duración:</strong> 6 semanas (+30 Hrs de contenido práctico)
                 </p>
                 <p class="course-desc" style="font-size: 1rem; margin-bottom: 20px; color: var(--text-muted);">
@@ -171,9 +140,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <span class="sale-badge-pill sale-badge-red">¡Últimas 4 vacantes!</span>
                   <span class="sale-badge-pill sale-badge-green">Certificación Gratis</span>
                 </div>
-                <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">Python Analyst (De Cero a Experto)</h3>
+                <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">Python for Data Analyst (De Cero a Experto)</h3>
                 <p class="course-desc" style="font-size: 1.05rem; margin-bottom: 20px;">
-                  <strong>Inicio:</strong> 04 de agosto (Martes y Viernes, 7:30 PM - 10:30 PM)<br>
+                  <strong>Inicio:</strong> 10 de septiembre (Jueves y Sábado, JUE 8:00 PM - 11:00 PM / SAB 6:00 PM - 9:00 PM)<br>
                   <strong>Duración:</strong> 5 semanas (+30 Hrs de contenido práctico)
                 </p>
                 <p class="course-desc" style="font-size: 1rem; margin-bottom: 20px; color: var(--text-muted);">
@@ -279,7 +248,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="faq-container">
         <details class="faq-item" style="border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 16px; padding: 16px 20px; background: var(--card-bg);" open>
           <summary style="font-weight: 700; color: var(--text-main); font-size: 1.05rem; cursor: pointer; list-style: none;">¿Cuándo inician las clases y en qué horario se dictan?</summary>
-          <p style="margin-top: 12px; margin-bottom: 0; font-size: 0.95rem; color: var(--text-muted);">Nuestros cursos inician en agosto 2026. El horario varía según el curso (de lunes a sábado, en las noches), entre las 7:30 PM y 11:00 PM (Hora Perú/Colombia). Para n8n/Make se ofrecen también sesiones complementarias y soporte de fines de semana.</p>
+          <p style="margin-top: 12px; margin-bottom: 0; font-size: 0.95rem; color: var(--text-muted);">Nuestros cursos inician entre agosto y octubre 2026. El horario varía según el curso (de lunes a sábado, en las noches), entre las 7:30 PM y 11:00 PM (Hora Perú/Colombia). Para n8n/Make se ofrecen también sesiones complementarias y soporte de fines de semana.</p>
         </details>
         <details class="faq-item" style="border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 16px; padding: 16px 20px; background: var(--card-bg);">
           <summary style="font-weight: 700; color: var(--text-main); font-size: 1.05rem; cursor: pointer; list-style: none;">¿Qué pasa si no puedo asistir a una sesión en vivo?</summary>

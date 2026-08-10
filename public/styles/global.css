@@ -148,20 +148,6 @@ html.dark-theme .logo .logo-dark { display: block; }
 .nav-links a:hover { color: var(--accent-color); }
 .nav-links a.active { color: var(--accent-color) !important; font-weight: 700; }
 
-.nav-badge {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, #ff7300 100%);
-    color: white;
-    font-size: 0.62rem;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 20px;
-    margin-left: 6px;
-    display: inline-block;
-    vertical-align: middle;
-    box-shadow: 0 2px 4px rgba(255, 115, 0, 0.2);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
 
 /* Cursos dropdown */
 .nav-dropdown { position: relative; }

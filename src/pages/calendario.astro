@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Calendario Académico y Cursos | Data Academy" description="Explora el calendario académico de la 4ta edición de cursos en vivo de Data Academy. Excel, SQL, Power BI y Python.">
+<BaseLayout title="Calendario Académico y Cursos | Data Academy" description="Explora el calendario académico de la 5ta edición de cursos en vivo de Data Academy. Excel, SQL, Power BI y Python.">
 
   <style is:global>
     .calendar-hero {
@@ -203,7 +203,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <header class="calendar-hero">
     <div class="container">
-      <span class="highlight" style="font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 10px; margin-bottom: 12px; border-radius: 4px;">4TA EDICIÓN 2026</span>
+      <span class="highlight" style="font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 10px; margin-bottom: 12px; border-radius: 4px;">5TA EDICIÓN 2026</span>
       <h1 style="margin-top: 10px; margin-bottom: 0;">Calendario Académico y Temarios</h1>
     </div>
   </header>
@@ -240,14 +240,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="calendar-card" id="calendar-card-wrapper">
         <div class="calendar-header">
           <div>
-            <h3>Agosto 2026</h3>
+            <h3 id="calendar-month-title">Septiembre 2026</h3>
             <div class="calendar-legend" id="calendar-legend-container">
               <div class="legend-item"><img src="/img/formation/3Excel.png" class="tech-logo-indicator" alt="Excel"> Excel</div>
               <div class="legend-item"><img src="/img/formation/4Powerbi.png" class="tech-logo-indicator" alt="Power BI"> Power BI</div>
-              <div class="legend-item"><img src="/img/formation/sql.png" class="tech-logo-indicator" alt="SQL Básico"> SQL Básico</div>
-              <div class="legend-item"><img src="/img/formation/sql.png" class="tech-logo-indicator" alt="SQL Avanzado"> SQL Avanzado</div>
+              <div class="legend-item"><img src="/img/formation/2sqlserver.png" class="tech-logo-indicator" alt="SQL Básico"> SQL Básico</div>
               <div class="legend-item"><img src="/img/formation/5Python.png" class="tech-logo-indicator" alt="Python"> Python</div>
             </div>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button id="btn-prev-month" class="btn btn-secondary" aria-label="Mes anterior" style="padding: 6px 12px;"><i class="fas fa-chevron-left"></i></button>
+            <button id="btn-next-month" class="btn btn-secondary" aria-label="Mes siguiente" style="padding: 6px 12px;"><i class="fas fa-chevron-right"></i></button>
           </div>
         </div>
         <div class="calendar-scroll">

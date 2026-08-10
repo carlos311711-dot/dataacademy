@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
         '5': 'course-excel',       // EXCEL FOR DATA ANALYST (Purple)
         '3': 'course-pbi',         // POWER BI BASICO-INTERMEDIO (Yellow)
         '1': 'course-sql-basic',   // SQL BASICO-INTERMEDIO (Green)
-        '2': 'course-sql-adv',     // SQL INTERMEDIO-AVANZADO (Teal)
         '6': 'course-python'       // PYTHON FOR DATA ANALYST (Blue)
     };
 
@@ -14,10 +13,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const COURSE_LOGOS = {
         '5': '/img/formation/3Excel.png',
         '3': '/img/formation/4Powerbi.png',
-        '1': '/img/formation/sql.png',
-        '2': '/img/formation/sql.png',
+        '1': '/img/formation/2sqlserver.png',
         '6': '/img/formation/5Python.png'
     };
+
+    // Meses navegables del calendario: solo septiembre (8) y octubre (9) de 2026
+    const VIEW_YEAR = 2026;
+    const MIN_MONTH = 8;
+    const MAX_MONTH = 9;
+    let viewYear = VIEW_YEAR;
+    let viewMonth = MIN_MONTH;
 
     let coursesData = [];
     let syllabusData = [];
@@ -88,10 +93,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (btnSelectAll) {
             btnSelectAll.addEventListener('click', () => {
                 activeCourseIds = computedCourses.map(cc => cc.course['N°']);
+                goToFirstClassMonth();
                 renderSelectors();
                 updateDashboard();
             });
         }
+
+        const btnPrevMonth = document.getElementById('btn-prev-month');
+        const btnNextMonth = document.getElementById('btn-next-month');
+        if (btnPrevMonth) btnPrevMonth.addEventListener('click', () => shiftMonth(-1));
+        if (btnNextMonth) btnNextMonth.addEventListener('click', () => shiftMonth(1));
 
         if (btnClearSelection) {
             btnClearSelection.addEventListener('click', () => {
@@ -108,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (btnComboAnalista) {
             btnComboAnalista.addEventListener('click', () => {
                 activeCourseIds = ['5', '1', '6'];
+                goToFirstClassMonth();
                 renderSelectors();
                 updateDashboard();
             });
@@ -115,7 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (btnComboEngineer) {
             btnComboEngineer.addEventListener('click', () => {
-                activeCourseIds = ['3', '2', '6'];
+                activeCourseIds = ['3', '6'];
+                goToFirstClassMonth();
                 renderSelectors();
                 updateDashboard();
             });
@@ -269,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!btnComboAnalista || !btnComboEngineer) return;
         
         const isAnalistaActive = activeCourseIds.includes('5') && activeCourseIds.includes('1') && activeCourseIds.includes('6') && activeCourseIds.length === 3;
-        const isEngineerActive = activeCourseIds.includes('3') && activeCourseIds.includes('2') && activeCourseIds.includes('6') && activeCourseIds.length === 3;
+        const isEngineerActive = activeCourseIds.includes('3') && activeCourseIds.includes('6') && activeCourseIds.length === 2;
         
         if (isAnalistaActive) {
             btnComboAnalista.classList.add('active');
@@ -291,8 +304,41 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             activeCourseIds.push(courseId); // Añadir si no estaba
         }
-        
+
+        goToFirstClassMonth();
         renderSelectors();
+        updateDashboard();
+    }
+
+    // Salta al mes de la primera clase de la selección (los inicios van de agosto a octubre)
+    function goToFirstClassMonth() {
+        const dates = computedCourses
+            .filter(cc => activeCourseIds.includes(cc.course['N°']))
+            .map(cc => cc.dates[0])
+            .filter(Boolean)
+            .sort((a, b) => a - b);
+        if (dates.length) {
+            viewYear = VIEW_YEAR;
+            viewMonth = Math.min(Math.max(dates[0].getMonth(), MIN_MONTH), MAX_MONTH);
+        }
+    }
+
+    function renderMonthTitle() {
+        const title = document.getElementById('calendar-month-title');
+        if (!title) return;
+        const label = new Date(viewYear, viewMonth, 1).toLocaleDateString('es-ES', { month: 'long', year: 'numeric' });
+        title.textContent = label.charAt(0).toUpperCase() + label.slice(1);
+
+        const btnPrev = document.getElementById('btn-prev-month');
+        const btnNext = document.getElementById('btn-next-month');
+        if (btnPrev) btnPrev.disabled = viewMonth <= MIN_MONTH;
+        if (btnNext) btnNext.disabled = viewMonth >= MAX_MONTH;
+    }
+
+    function shiftMonth(delta) {
+        const next = viewMonth + delta;
+        if (next < MIN_MONTH || next > MAX_MONTH) return;
+        viewMonth = next;
         updateDashboard();
     }
 
@@ -329,7 +375,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const dayName = dateObj.toLocaleDateString('es-ES', { weekday: 'long' });
                 const capitalizedDay = dayName.charAt(0).toUpperCase() + dayName.slice(1);
                 
-                const formattedDate = `${capitalizedDay} ${dayNum} de agosto`;
+                const monthName = dateObj.toLocaleDateString('es-ES', { month: 'long' });
+                const formattedDate = `${capitalizedDay} ${dayNum} de ${monthName}`;
                 const coursesNames = dateConflicts[day].map(c => `<strong>${c.course['CURSO']}</strong> (Clase ${c.classNum})`).join(' y ');
 
                 conflictsList.push({
@@ -347,13 +394,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateDashboard() {
         // Detectar cruces antes de pintar el calendario
-        detectConflicts(2026, 7);
+        detectConflicts(viewYear, viewMonth);
 
         // Pintar alertas de cruces
         renderConflictAlerts();
 
-        // Renderizar Calendario para Agosto 2026 (Mes 7)
-        renderCalendarGrid(2026, 7);
+        // Renderizar el mes visible
+        renderCalendarGrid(viewYear, viewMonth);
+        renderMonthTitle();
 
         // Actualizar vistas informativas
         const infoSection = document.getElementById('course-info-card');
@@ -391,7 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const selectedCourses = computedCourses.filter(cc => activeCourseIds.includes(cc.course['N°']));
                 const courseNamesList = selectedCourses.map(cc => `* ${cc.course['CURSO']}`).join('\n');
                 
-                const messageText = `Hola, estoy interesado en matricularme en los siguientes cursos de la 4ta edición:\n${courseNamesList}`;
+                const messageText = `Hola, estoy interesado en matricularme en los siguientes cursos de la 5ta edición:\n${courseNamesList}`;
                 masterCtaBtn.href = `https://api.whatsapp.com/send/?phone=51986575257&text=${encodeURIComponent(messageText)}&type=phone_number&app_absent=0`;
             } else {
                 masterCtaContainer.style.display = 'none';
