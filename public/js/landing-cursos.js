@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Configuración de Colores de Cursos
     const COURSE_COLORS = {
         '5': 'course-excel',       // EXCEL FOR DATA ANALYST (Purple)
-        '3': 'course-pbi',         // POWER BI BASICO-INTERMEDIO (Yellow)
-        '1': 'course-sql-basic',   // SQL BASICO-INTERMEDIO (Green)
+        '3': 'course-pbi',         // POWER BI FOR DATA ANALYST (Yellow)
+        '1': 'course-sql-basic',   // SQL FOR DATA ANALYST (Green)
         '6': 'course-python'       // PYTHON FOR DATA ANALYST (Blue)
     };
 
