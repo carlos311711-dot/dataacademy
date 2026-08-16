@@ -160,6 +160,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               </button>
             </div>
           </div>
+
+          <!-- Agrupación por meses -->
+          <div class="timeline-months">
+            <div class="month-band">
+              <span class="month-label">Mes 1</span>
+              <span class="month-courses">Excel · SQL Server</span>
+            </div>
+            <div class="month-band">
+              <span class="month-label">Mes 2</span>
+              <span class="month-courses">Power BI · Python</span>
+            </div>
+            <div class="month-band">
+              <span class="month-label">Mes 3</span>
+              <span class="month-courses">Proyecto Final · Automatización</span>
+            </div>
+          </div>
         </div>
 
         <!-- Dynamic detail block for Junior -->
@@ -715,6 +731,58 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     align-items: center;
     position: relative;
     width: 100%;
+  }
+
+  /* Agrupación por meses (banda gris bajo el timeline) */
+  .timeline-months {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 56px;
+  }
+
+  .timeline-months .month-band {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 18px 8px 0;
+  }
+
+  /* Hairline que se desvanece en los extremos: agrupa sin cortar */
+  .timeline-months .month-band::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 6%;
+    right: 6%;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--border-color) 25%,
+      var(--border-color) 75%,
+      transparent
+    );
+  }
+
+  .timeline-months .month-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    opacity: 0.75;
+  }
+
+  .timeline-months .month-courses {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    opacity: 0.5;
+    text-align: center;
   }
 
   /* Node styling */
@@ -1354,6 +1422,19 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     .timeline-container:hover .timeline-svg-curve-vertical path {
       stroke: var(--accent-color);
       opacity: 0.4;
+    }
+
+    /* Meses: en móvil los nodos son verticales, la banda pasa a lista */
+    .timeline-months {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .timeline-months .month-band {
+      flex-direction: row;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 8px;
     }
 
     /* Staggered container setup */
