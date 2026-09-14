@@ -3,8 +3,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  title="Curso SQL para Data Analyst | Data Academy"
-  description="Aprende SQL desde cero: modelado, Transact SQL, joins, CTEs y window functions. Curso en vivo con certificación."
+  title="Workshop: Tu Primer Proyecto como Data Analyst | Data Academy"
+  description="Desarrolla tu primer proyecto end-to-end. Requerimientos, EDA con Python y PySpark, Databricks, Power BI y Power Automate."
 >
   <header class="detail-hero">
     <div class="container detail-container">
@@ -21,18 +21,19 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         >
           <img
             loading="lazy"
-            src="/img/formation/2sqlserver.png"
-            alt="SQL"
+            src="/img/formation/databrick2.png"
+            alt="Databricks"
             class="course-tool-logo"
+            style="width: 100%; height: 100%; object-fit: contain; padding: 10px; background: #ffffff; border-radius: 12px;"
           />
         </div>
         <div>
           <span
             class="course-tag"
             style="margin-bottom: 8px; display: inline-block;"
-            >Curso en Vivo</span
+            >Workshop Práctico</span
           >
-          <h1>SQL para Data Analyst (Básico - Intermedio)</h1>
+          <h1>Tu Primer Proyecto como Data Analyst (End-to-End)</h1>
         </div>
       </div>
       <div class="preventa-banner">
@@ -60,62 +61,37 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       <div class="detail-grid">
         <div class="info-side">
           <h3 class="detail-section-title">
-            <i class="fas fa-book-open"></i> Temario del Curso
+            <i class="fas fa-book-open"></i> Fases del Workshop
           </h3>
           <div class="syllabus-list">
             <div class="syllabus-module">
-              <h4>Módulo 1: Introducción a Bases de Datos y Modelamiento</h4>
+              <h4>Fase 1: Desarrollo de Requerimientos del Cliente</h4>
               <p>
-                Fundamentos desde cero: modelos conceptual, lógico y físico,
-                entidades, atributos, diagramas ER y normalización de tablas.
+                Aprende a levantar información, definir KPIs clave y estructurar la solución analítica desde cero, entendiendo el problema real de negocio.
               </p>
             </div>
             <div class="syllabus-module">
-              <h4>Módulo 2: Lenguaje Transact SQL y Funciones Nativas</h4>
+              <h4>Fase 2: Análisis Exploratorio (EDA) con Python y PySpark</h4>
               <p>
-                Funciones de agregación (Count, max, min, sum, avg) y funciones
-                de fecha, texto y matemáticas.
+                Carga de grandes volúmenes de datos, análisis descriptivo, identificación de valores atípicos y perfilado de datos utilizando entornos Big Data.
               </p>
             </div>
             <div class="syllabus-module">
-              <h4>Módulo 3: Manipulación de Datos y Estructuras de Control</h4>
+              <h4>Fase 3: Spark SQL en Databricks (Limpieza y Transformación)</h4>
               <p>
-                Select, insert, update, delete, from, where, group by y order
-                by.
+                Procesamiento, limpieza, transformación (ETL) y estructuración de la información usando Spark SQL dentro del ecosistema de Databricks.
               </p>
             </div>
             <div class="syllabus-module">
-              <h4>Módulo 4: Operadores Lógicos y Sentencias Avanzadas</h4>
+              <h4>Fase 4: Conexión con Power BI y Dashboard Ejecutivo</h4>
               <p>
-                Operadores lógicos (and, or, not, in, like, between) y uso
-                avanzado de CAST, CASE WHEN y Group By.
+                Ingesta de datos limpios a Power BI, modelado tabular, medidas DAX esenciales y diseño profesional de un panel de control interactivo para la toma de decisiones.
               </p>
             </div>
             <div class="syllabus-module">
-              <h4>
-                Módulo 5: Relaciones y Consulta de Múltiples Tablas (JOINS)
-              </h4>
-              <p>Inner Join, Outer Join, Cross Join y Left Join.</p>
-            </div>
-            <div class="syllabus-module">
-              <h4>Módulo 6: Subconsultas y Funciones de Ventana</h4>
+              <h4>Fase 5: Gestión de Alertas e Incidencias con Power Automate</h4>
               <p>
-                Common Table Expressions (CTEs) vs Window Functions, funciones
-                de Ranking y agregativas.
-              </p>
-            </div>
-            <div class="syllabus-module">
-              <h4>Módulo 7: Resolución de Casos Prácticos y Prueba Técnica</h4>
-              <p>
-                Sesión de repaso intensiva y prueba técnica real diseñada para
-                evaluar habilidades analíticas.
-              </p>
-            </div>
-            <div class="syllabus-module">
-              <h4>Módulo 8: Automatización de Reportes (Bonus Track)</h4>
-              <p>
-                Mejores prácticas para automatizar la ejecución de reportes en
-                SQL, integrando Python.
+                Conecta tu tablero de Power BI con flujos de Power Automate para el envío automático de notificaciones e incidencias, automatizando procesos de negocio (RPA).
               </p>
             </div>
           </div>
@@ -128,34 +104,23 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           <p
             style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;"
           >
-            Haz clic en la imagen para abrir el brochure en PDF desde Google
-            Drive.
+            Haz clic en la imagen para abrir el brochure en PDF desde Google Drive.
           </p>
           <a
-            href="https://drive.google.com/file/d/1gNTFthoxtoKtPMRIiUO7ccQkpJYN4Zlk/view?usp=sharing"
+            href="#"
             target="_blank"
             class="detail-image-wrapper"
+            style="background: #e2e8f0; display: flex; align-items: center; justify-content: center; height: 200px; border-radius: 12px; color: #64748b; font-size: 3rem;"
           >
-            <picture>
-              <source
-                srcset="/img/projects/sql_project.webp"
-                type="image/webp"
-              />
-              <img
-                loading="lazy"
-                src="/img/projects/sql_project.png"
-                alt="Brochure SQL"
-              />
-            </picture>
+            <i class="fas fa-file-pdf"></i>
             <div class="image-overlay-msg">
-              <i class="fab fa-google-drive"></i> Ver en Google Drive
+              <i class="fab fa-google-drive"></i> Próximamente
             </div>
           </a>
           <a
-            href="https://drive.google.com/file/d/1gNTFthoxtoKtPMRIiUO7ccQkpJYN4Zlk/view?usp=sharing"
-            target="_blank"
+            href="#"
             class="btn btn-secondary"
-            style="width: 100%; margin-top: 16px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;"
+            style="width: 100%; margin-top: 16px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; opacity: 0.7; cursor: not-allowed;"
           >
             Descargar Brochure PDF <i class="fab fa-google-drive"></i>
           </a>
@@ -163,34 +128,34 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
             <h4
               style="font-size: 1rem; margin-bottom: 12px; color: var(--text-main);"
             >
-              <i class="fas fa-clock"></i> Detalles del Curso:
+              <i class="fas fa-clock"></i> Detalles del Workshop:
             </h4>
             <ul
               style="list-style: none; padding: 0; color: var(--text-muted); font-size: 0.95rem;"
             >
               <li style="margin-bottom: 8px;">
                 <i
-                  class="fas fa-calendar-alt"
-                  style="color: var(--primary-color); width: 20px;"></i> Martes -
-                Viernes, 8:00 PM - 11:00 PM
+                  class="fas fa-calendar-week"
+                  style="color: var(--primary-color); width: 20px;"></i> Duración: 
+                <strong>4 Semanas</strong>
               </li>
               <li style="margin-bottom: 8px;">
                 <i
-                  class="fas fa-play"
-                  style="color: var(--primary-color); width: 20px;"></i> Inicio: 08
-                de septiembre de 2026
+                  class="fas fa-hourglass-half"
+                  style="color: var(--primary-color); width: 20px;"></i> Carga: 
+                <strong>15 horas académicas</strong>
               </li>
               <li style="margin-bottom: 8px;">
                 <i
                   class="fas fa-laptop"
                   style="color: var(--primary-color); width: 20px;"></i> Modalidad:
-                Online En Vivo
+                Online En Vivo (Casos Reales)
               </li>
               <li style="margin-bottom: 8px;">
                 <i
                   class="fas fa-award"
-                  style="color: var(--primary-color); width: 20px;"></i> Certificado
-                de Aprobación
+                  style="color: var(--primary-color); width: 20px;"></i> Proyecto
+                End-to-End para tu Portafolio
               </li>
             </ul>
           </div>
@@ -206,16 +171,15 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           style="font-size: 3rem; color: var(--secondary-color); margin-bottom: 16px;"
         ></i>
         <h3 style="margin-bottom: 8px;">
-          ¿Listo para dominar bases de datos con SQL?
+          ¿Listo para desarrollar tu primer proyecto analítico integral?
         </h3>
         <p
           style="margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto;"
         >
-          Accede hoy y reserva tu lugar para participar interactivamente de los
-          casos de negocio en vivo.
+          Reserva tu lugar y aprende de la mano de expertos a conectar Python, Spark, Power BI y Automate en un solo proyecto profesional.
         </p>
         <a
-          href="https://api.whatsapp.com/send/?phone=51986575257&text=Hola%2C%20quiero%20inscribirme%20en%20el%20Curso%20de%20SQL&type=phone_number&app_absent=0"
+          href="https://api.whatsapp.com/send/?phone=51986575257&text=Hola%2C%20quiero%20inscribirme%20en%20el%20Workshop%20Tu%20Primer%20Proyecto%20Data%20Analyst&type=phone_number&app_absent=0"
           class="btn btn-primary"
           style="background-color: var(--secondary-color); border: none;"
           target="_blank"
@@ -233,7 +197,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       <span>Ahorra S/ 100 · 10 cupos</span>
     </div>
     <a
-      href="https://api.whatsapp.com/send/?phone=51986575257&text=Hola%2C%20quiero%20inscribirme%20en%20el%20Curso%20de%20SQL&type=phone_number&app_absent=0"
+      href="https://api.whatsapp.com/send/?phone=51986575257&text=Hola%2C%20quiero%20inscribirme%20en%20el%20Workshop%20Tu%20Primer%20Proyecto%20Data%20Analyst&type=phone_number&app_absent=0"
       class="btn btn-primary btn-whatsapp"
       target="_blank"
     >

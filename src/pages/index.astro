@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PromoModal from "../components/PromoModal.astro";
 ---
 
 <BaseLayout
@@ -447,10 +448,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               class="promo-price"
               style="font-size: 1.4rem; font-weight: 900; color: var(--text-main); margin: 0; display: flex; align-items: baseline; gap: 8px;"
             >
-              S/ 757 <span
+              S/ 897 <span
                 class="promo-old"
                 style="font-size: 0.85rem; font-weight: 500; color: var(--text-muted); text-decoration: line-through;"
-                >Antes: S/ 1299</span
+                >Antes: S/ 1499</span
               >
             </p>
             <span
@@ -494,9 +495,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             >
             <span class="teaser-price-row">
               <span class="price-old">S/ 299</span>
-              <span class="price-amount">S/ 179</span>
+              <span class="price-amount">S/ 199</span>
               <span class="price-currency">PEN</span>
             </span>
+            <div style="font-size: 0.8rem; color: #10b981; font-weight: bold; margin-top: 4px;">¡Ahorra S/ 100!</div>
           </div>
           <a href="/cursos/sql" class="btn btn-primary course-cta"
             >Ver Detalles <i class="fas fa-arrow-right"></i></a
@@ -533,9 +535,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             >
             <span class="teaser-price-row">
               <span class="price-old">S/ 299</span>
-              <span class="price-amount">S/ 179</span>
+              <span class="price-amount">S/ 199</span>
               <span class="price-currency">PEN</span>
             </span>
+            <div style="font-size: 0.8rem; color: #10b981; font-weight: bold; margin-top: 4px;">¡Ahorra S/ 100!</div>
           </div>
           <a href="/cursos/powerbi" class="btn btn-primary course-cta"
             >Ver Detalles <i class="fas fa-arrow-right"></i></a
@@ -572,9 +575,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             >
             <span class="teaser-price-row">
               <span class="price-old">S/ 299</span>
-              <span class="price-amount">S/ 179</span>
+              <span class="price-amount">S/ 199</span>
               <span class="price-currency">PEN</span>
             </span>
+            <div style="font-size: 0.8rem; color: #10b981; font-weight: bold; margin-top: 4px;">¡Ahorra S/ 100!</div>
           </div>
           <a href="/cursos/excel" class="btn btn-primary course-cta"
             >Ver Detalles <i class="fas fa-arrow-right"></i></a
@@ -611,14 +615,54 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             >
             <span class="teaser-price-row">
               <span class="price-old">S/ 299</span>
-              <span class="price-amount">S/ 179</span>
+              <span class="price-amount">S/ 199</span>
               <span class="price-currency">PEN</span>
             </span>
+            <div style="font-size: 0.8rem; color: #10b981; font-weight: bold; margin-top: 4px;">¡Ahorra S/ 100!</div>
           </div>
           <a href="/cursos/python" class="btn btn-primary course-cta"
             >Ver Detalles <i class="fas fa-arrow-right"></i></a
           >
         </div>
+        
+        <div class="course-card">
+          <div class="course-logo">
+            <picture
+              ><img
+                src="/img/formation/databrick2.png"
+                alt="Databricks Workshop"
+                class="course-tool-logo"
+                loading="lazy"
+                style="padding: 4px; background: white; border-radius: 8px;"
+              /></picture
+            >
+          </div>
+          <div class="course-tag">Curso en Vivo</div>
+          <h3>Workshop: Tu Primer Proyecto DA</h3>
+          <p class="course-desc">
+            Proyecto end-to-end con Python, Databricks, Power BI y Power Automate.
+          </p>
+          <ul class="course-features">
+            <li><i class="fas fa-check"></i> 15 horas académicas en vivo</li>
+            <li><i class="fas fa-check"></i> Proyecto real 100% práctico</li>
+            <li><i class="fas fa-check"></i> Creación de Portafolio</li>
+          </ul>
+          <div class="course-price-teaser preventa-teaser">
+            <span class="preventa-teaser-badge"
+              ><i class="fas fa-fire"></i> Primeros 10 cupos</span
+            >
+            <span class="teaser-price-row">
+              <span class="price-old">S/ 299</span>
+              <span class="price-amount">S/ 199</span>
+              <span class="price-currency">PEN</span>
+            </span>
+            <div style="font-size: 0.8rem; color: #10b981; font-weight: bold; margin-top: 4px;">¡Ahorra S/ 100!</div>
+          </div>
+          <a href="/cursos/workshop-data-analyst" class="btn btn-primary course-cta"
+            >Ver Detalles <i class="fas fa-arrow-right"></i></a
+          >
+        </div>
+
         <!-- Especialización 2: Data Analyst Avanzado -->
         <div
           class="course-card"
@@ -828,4 +872,5 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </div>
     </div>
   </div>
+  <PromoModal />
 </BaseLayout>
