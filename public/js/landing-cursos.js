@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
         '5': 'course-excel',       // EXCEL FOR DATA ANALYST (Purple)
         '3': 'course-pbi',         // POWER BI FOR DATA ANALYST (Yellow)
         '1': 'course-sql-basic',   // SQL FOR DATA ANALYST (Green)
-        '6': 'course-python'       // PYTHON FOR DATA ANALYST (Blue)
+        '6': 'course-python',      // PYTHON FOR DATA ANALYST (Blue)
+        '7': 'course-sql-adv',
+        '8': 'course-excel'
     };
 
     // Configuración de Logos de Tecnologías
@@ -14,13 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
         '5': '/img/formation/3Excel.png',
         '3': '/img/formation/4Powerbi.png',
         '1': '/img/formation/2sqlserver.png',
-        '6': '/img/formation/5Python.png'
+        '6': '/img/formation/5Python.png',
+        '7': '/img/formation/databrick2.png',
+        '8': '/img/formation/8Autiamte.png'
     };
 
-    // Meses navegables del calendario: solo septiembre (8) y octubre (9) de 2026
+    // Meses navegables del calendario
     const VIEW_YEAR = 2026;
-    const MIN_MONTH = 8;
-    const MAX_MONTH = 9;
+    const MIN_MONTH = 9;
+    const MAX_MONTH = 11;
     let viewYear = VIEW_YEAR;
     let viewMonth = MIN_MONTH;
 
@@ -50,13 +54,15 @@ document.addEventListener('DOMContentLoaded', () => {
             computedCourses = coursesData.map(course => {
                 const startDate = parseDateStr(course['INICIO']);
                 const targetDays = getTargetDaysOfWeek(course['DIAS']);
-                const classDates = calculateClassDates(startDate, targetDays, 8);
+                const numClasses = (course['N°'] === '7' || course['N°'] === '8') ? 4 : 8;
+                const classDates = calculateClassDates(startDate, targetDays, numClasses);
                 const colorClass = COURSE_COLORS[course['N°']] || 'course-default';
                 
                 return {
                     course,
                     dates: classDates,
-                    colorClass
+                    colorClass,
+                    numClasses
                 };
             });
 
@@ -654,6 +660,16 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('info-horario').textContent = cc.course['HORARIO'];
         document.getElementById('info-dias').textContent = cc.course['DIAS'];
         document.getElementById('info-inicio').textContent = cc.course['INICIO'];
+        
+        const infoSesiones = document.getElementById('info-sesiones');
+        if (infoSesiones) {
+            infoSesiones.textContent = `${cc.numClasses} Clases en Vivo`;
+        }
+        
+        const syllabusTitle = document.getElementById('syllabus-title');
+        if (syllabusTitle) {
+            syllabusTitle.textContent = `Syllabus Detallado (${cc.numClasses} Clases)`;
+        }
         
         const ctaBtn = document.getElementById('info-whatsapp-cta');
         if (ctaBtn) {

@@ -1,15 +1,23 @@
-N°,CURSO,DIAS,HORARIO,INICIO,Copy flyer,EDICION,Validacion Inicio,NOMBRE CLASSROOM
-3,Power BI for Data Analyst,LUNES- MIERCOLES,8:00 A 11:00 PM,07/09/2026,"Inicio: 07 de septiembre
-* Días: Lunes- Miercoles
-* Hora: 8:00 A 11:00 PM",5,Correcto,5-POWER BI BASICO-INTERMEDIO
-6,Python for Data Analyst,JUEVES-SABADO,"JUE: 8:00 A 11:00 PM
- SAB: 6:00 A 9:00 PM",10/09/2026,"Inicio: 10 de septiembre
-* Días: Jueves-Sabado
+N°,CURSO,DIAS,HORARIO,INICIO,Copy flyer,EDICION,Validacion Inicio,NOMBRE CLASSROOM,INSTRUCTOR
+3,Power BI for Data Analyst,MARTES-JUEVES,"JUE: 8:00 A 11:00 PM
+ SAB: 6:00 A 9:00 PM",09/11/2026,"Inicio: 09 de noviembre
+* Días: Martes-Jueves
 * Hora: JUE: 8:00 A 11:00 PM
- SAB: 6:00 A 9:00 PM",5,Correcto,5-PYTHON FOR DATA ANALYST
-5,Excel for Data Analyst,LUNES- MIERCOLES,8:00 A 11:00 PM,05/10/2026,"Inicio: 05 de octubre
+ SAB: 6:00 A 9:00 PM",5,Correcto,5-POWER BI FOR DATA ANALYST,JORDAN D ELA CRUZ
+6,Python for Data Analyst,LUNES - MIERCOLES,8:00 A 11:00 PM,10/11/2026,"Inicio: 10 de noviembre
+* Días: Lunes - Miercoles
+* Hora: 8:00 A 11:00 PM",5,Correcto,5-PYTHON FOR DATA ANALYST,DANIEL SURICHAQUE
+5,Excel for Data Analyst,LUNES - MIERCOLES,8:00 A 11:00 PM,05/10/2026,"Inicio: 05 de octubre
+* Días: Lunes - Miercoles
+* Hora: 8:00 A 11:00 PM",5,Correcto,5-EXCEL FOR DATA ANALYST,DANIEL SURICHAQUE
+1,SQL for Data Analyst,MARTES-JUEVES,"JUE: 8:00 A 11:00 PM
+ SAB: 6:00 A 9:00 PM",06/10/2026,"Inicio: 06 de octubre
+* Días: Martes-Jueves
+* Hora: JUE: 8:00 A 11:00 PM
+ SAB: 6:00 A 9:00 PM",5,Correcto,5-SQL FOR DATA ANALYST,JORDAN D ELA CRUZ
+7,Proyecto Data Analyst End-to-End,LUNES- MIERCOLES,8:00 A 11:00 PM,19/10/2026,"Inicio: 19 de octubre
 * Días: Lunes- Miercoles
-* Hora: 8:00 A 11:00 PM",5,Correcto,5-EXCEL FOR DATA ANALYST
-1,SQL for Data Analyst,MARTES-VIERNES,8:00 A 11:00 PM,08/09/2026,"Inicio: 08 de septiembre
-* Días: Martes-Viernes
-* Hora: 8:00 A 11:00 PM",5,Correcto,5-SQL BASICO-INTERMEDIO
+* Hora: 8:00 A 11:00 PM",4,Correcto,4-Proyecto Data Analyst End-to-End,JHON VELASQUE
+8,Power Automate for Data Analyst,LUNES- MIERCOLES,8:00 A 11:00 PM,02/11/2026,"Inicio: 02 de noviembre
+* Días: Lunes- Miercoles
+* Hora: 8:00 A 11:00 PM",4,Correcto,4-Power Automate for Data Analyst,JHON VELASQUE
