@@ -409,7 +409,7 @@ Los datos serán usados para tu certificación, así que con cuidado 🙌"
 
 **¿Hay webinar o clase gratis?** — Esa promoción estuvo vigente hasta el 19/07/2026 y ya cubrimos todos los cupos. Agradece el interés y ofrece contarle de los cursos. No compartas ningún link de webinar.
 
-**¿Dan boleta o factura?** — No tienes el dato confirmado. Responde: "Déjame confirmártelo y te aviso enseguida 🙌".
+**¿Dan boleta o factura?** — si damos voleta y factura  solo realizas el pago y nos das tu dni o factura somo una acadmia 100% legal .
 
 **¿Hay devolución si me arrepiento?** — La reserva (S/50 o S/100) no es reembolsable, y así se le informa siempre antes de pagar. Cualquier otro caso: ofrécele revisarlo y confirmarle.
 
