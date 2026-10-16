@@ -1,9 +1,9 @@
 N°,CURSO,DIAS,HORARIO,INICIO,Copy flyer,EDICION,Validacion Inicio,NOMBRE CLASSROOM,INSTRUCTOR
-3,Power BI for Data Analyst,MARTES-JUEVES,8:00 A 11:00 PM,10/11/2026,"Inicio: 10 de noviembre
-* Días: Martes-Jueves
-* Hora: 8:00 A 11:00 PM",5,Correcto,5-POWER BI FOR DATA ANALYST,JORDAN D ELA CRUZ
-6,Python for Data Analyst,LUNES - MIERCOLES,8:00 A 11:00 PM,09/11/2026,"Inicio: 09 de noviembre
+3,Power BI for Data Analyst,LUNES - MIERCOLES,8:00 A 11:00 PM,10/11/2026,"Inicio: 10 de noviembre
 * Días: Lunes - Miercoles
+* Hora: 8:00 A 11:00 PM",5,Correcto,5-POWER BI FOR DATA ANALYST,JORDAN D ELA CRUZ
+6,Python for Data Analyst,MARTES-JUEVES,8:00 A 11:00 PM,09/11/2026,"Inicio: 09 de noviembre
+* Días: Martes-Jueves
 * Hora: 8:00 A 11:00 PM",5,Correcto,5-PYTHON FOR DATA ANALYST,DANIEL SURICHAQUE
 5,Excel for Data Analyst,VIERNES - SABADO,"VIE: 8:00 A 11:00 PM
  SAB: 6:00 A 9:00 PM",06/11/2026,"Inicio: 06 de noviembre

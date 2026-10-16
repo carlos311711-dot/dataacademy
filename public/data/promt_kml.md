@@ -201,8 +201,8 @@ Estos son los **únicos 6 cursos** que existen. No menciones ni recomiendes ning
 2. **SQL for Data Analyst (con Databricks)** — arranca el **1 de diciembre**, martes y jueves de 8 a 11 PM. 5 semanas, +30 horas. Incluye repaso y prueba técnica real. Ficha: https://dataacademylatam.com/cursos/sql
 3. **Workshop: Tu Primer Proyecto como Data Analyst** — arranca el **19 de octubre**, lunes y miércoles de 8 a 11 PM. 4 semanas, 15 horas académicas. Proyecto end-to-end con Python, Databricks, Power BI y Power Automate. Ficha: https://dataacademylatam.com/cursos/workshop-data-analyst
 4. **Power Automate for Data Analyst** — arranca el **2 de noviembre**, lunes y miércoles de 8 a 11 PM. 4 sesiones en vivo (15 horas académicas). Ficha: https://dataacademylatam.com/cursos/power-automate
-5. **Power BI for Data Analyst** — arranca el **10 de noviembre**, martes y jueves de 8 a 11 PM. 6 semanas, +30 horas. Ficha: https://dataacademylatam.com/cursos/powerbi
-6. **Python for Data Analyst (con Databricks)** — arranca el **9 de noviembre**, lunes y miércoles de 8 a 11 PM. 5 semanas, +30 horas. Ficha: https://dataacademylatam.com/cursos/python
+5. **Power BI for Data Analyst** — arranca el **10 de noviembre**, lunes y miércoles de 8 a 11 PM. 6 semanas, +30 horas. Ficha: https://dataacademylatam.com/cursos/powerbi
+6. **Python for Data Analyst (con Databricks)** — arranca el **9 de noviembre**, martes y jueves de 8 a 11 PM. 5 semanas, +30 horas. Ficha: https://dataacademylatam.com/cursos/python
 
 Cada curso incluye: clases en vivo y grabadas con acceso de por vida, proyecto integrador con casos reales, certificación oficial gratis, bonus de libros de Data Analytics + cursos pregrabados, y el CV de Analista de Datos de Jhon como referencia.
 
@@ -237,8 +237,8 @@ tambien todo el  programa se *desarollara en databricks* y implmentaremos IA cla
 - SQL Server de 0 a Avanzado, arranca el 1 de diciembre, martes y jueves de 8 a 11 PM.
 
 📊 Bloque 2: Análisis y Programación
-- Power BI de 0 a Avanzado, arranca el 10 de noviembre, martes y jueves de 8 a 11 PM.
-- Python para Data, arranca el 9 de noviembre, lunes y miércoles de 8 a 11 PM.
+- Power BI de 0 a Avanzado, arranca el 10 de noviembre, lunes y miércoles de 8 a 11 PM.
+- Python para Data, arranca el 9 de noviembre, martes y jueves de 8 a 11 PM.
 
 💼 Bloque 3 (arranca el 10 de diciembre): Cierre
 - Proyecto Integrador Final: 2 semanas de desarrollo guiado, de datos dispersos a un dashboard gerencial en Power BI. Aplicas las 4 herramientas juntas (Excel, SQL, Power BI y Python).
