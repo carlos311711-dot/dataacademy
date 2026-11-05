@@ -1112,7 +1112,7 @@
             }
 
             /* =========================================================
-               12. MODAL / LIGHTBOX
+               12. MODAL / LIGHTBOX Y MODAL DE POSTULANTES (LEADS)
                ========================================================= */
             #project-modal {
                 backdrop-filter: blur(8px);
@@ -1132,50 +1132,753 @@
                 color: var(--ink);
                 font-size: 18px;
                 cursor: pointer;
-                transition: background-color 0.2s ease;
+                transition:
+                    background-color 0.2s ease,
+                    border-color 0.2s ease,
+                    color 0.2s ease;
             }
             .icon-btn:hover {
                 background: var(--grid);
+                border-color: var(--accent-cyan);
+                color: var(--accent-cyan);
+            }
+
+            /* Modal de Postulantes (Leads) */
+            @keyframes leadModalFadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            @keyframes leadCardSlideUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(22px) scale(0.97);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+            }
+            .lead-modal-backdrop {
+                display: none;
+                position: fixed;
+                inset: 0;
+                z-index: 1100;
+                background: rgba(6, 13, 23, 0.75);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                align-items: center;
+                justify-content: center;
+                padding: clamp(12px, 3vw, 32px);
+                animation: leadModalFadeIn 0.25s ease forwards;
+            }
+            .lead-modal-backdrop.is-open {
+                display: flex;
+            }
+            .lead-modal {
+                position: relative;
+                width: 100%;
+                max-width: 560px;
+                max-height: 92vh;
+                overflow-y: auto;
+                background: var(--paper);
+                color: var(--ink);
+                border: 1px solid var(--rule);
+                border-radius: 24px;
+                box-shadow: var(--shadow-lg);
+                padding: clamp(22px, 4vw, 36px);
+                animation: leadCardSlideUp 0.32s cubic-bezier(0.16, 1, 0.3, 1)
+                    forwards;
+            }
+            .lead-modal__close {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                display: grid;
+                place-items: center;
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                border: 1px solid var(--rule);
+                background: var(--bg);
+                color: var(--ink);
+                font-size: 16px;
+                line-height: 1;
+                cursor: pointer;
+                transition:
+                    background-color 0.2s ease,
+                    border-color 0.2s ease,
+                    color 0.2s ease,
+                    transform 0.2s ease;
+            }
+            .lead-modal__close:hover {
+                background: var(--grid);
+                border-color: var(--accent-cyan);
+                color: var(--accent-cyan);
+                transform: rotate(90deg);
+            }
+            .lead-form {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                margin-top: 20px;
+            }
+            .lead-form__row {
+                display: grid;
+                grid-template-columns: repeat(
+                    auto-fit,
+                    minmax(min(100%, 210px), 1fr)
+                );
+                gap: 14px;
+            }
+            .lead-field {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+            }
+            .lead-label {
+                font-family: "IBM Plex Mono", monospace;
+                font-size: 12px;
+                font-weight: 600;
+                color: var(--ink-2);
+            }
+            .lead-label span {
+                color: var(--accent-cyan);
+            }
+            .lead-input,
+            .lead-select {
+                width: 100%;
+                padding: 12px 14px;
+                border-radius: 12px;
+                border: 1px solid var(--rule);
+                background: var(--bg);
+                color: var(--ink);
+                font-family: "Archivo", system-ui, sans-serif;
+                font-size: 15px;
+                outline: none;
+                transition:
+                    border-color 0.2s ease,
+                    box-shadow 0.2s ease,
+                    background-color 0.2s ease;
+            }
+            .lead-input::placeholder {
+                color: var(--ink-3);
+            }
+            .lead-input:focus,
+            .lead-select:focus {
+                border-color: var(--accent-cyan);
+                box-shadow: 0 0 0 3px
+                    color-mix(in srgb, var(--accent-cyan) 22%, transparent);
+            }
+            .lead-phone-group {
+                display: flex;
+                align-items: stretch;
+                border-radius: 12px;
+                border: 1px solid var(--rule);
+                background: var(--bg);
+                overflow: hidden;
+                transition:
+                    border-color 0.2s ease,
+                    box-shadow 0.2s ease;
+            }
+            .lead-phone-group:focus-within {
+                border-color: var(--accent-cyan);
+                box-shadow: 0 0 0 3px
+                    color-mix(in srgb, var(--accent-cyan) 22%, transparent);
+            }
+            .lead-phone-prefix {
+                display: inline-flex;
+                align-items: center;
+                padding: 0 12px;
+                background: var(--grid);
+                border-right: 1px solid var(--rule);
+                font-family: "IBM Plex Mono", monospace;
+                font-size: 13.5px;
+                font-weight: 600;
+                color: var(--ink-2);
+                user-select: none;
+            }
+            .lead-phone-group .lead-input {
+                border: 0;
+                border-radius: 0;
+                box-shadow: none !important;
+            }
+            .lead-pref-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .lead-pref-option {
+                position: relative;
+                cursor: pointer;
+            }
+            .lead-pref-option input {
+                position: absolute;
+                opacity: 0;
+                pointer-events: none;
+            }
+            .lead-pref-card {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                padding: 13px 12px;
+                border-radius: 14px;
+                border: 1px solid var(--rule);
+                background: var(--bg);
+                color: var(--ink);
+                font-weight: 700;
+                font-size: 14px;
+                text-align: center;
+                transition:
+                    border-color 0.2s ease,
+                    background-color 0.2s ease,
+                    box-shadow 0.2s ease,
+                    transform 0.2s ease;
+            }
+            .lead-pref-option:hover .lead-pref-card {
+                border-color: var(--accent-cyan);
+                transform: translateY(-1px);
+            }
+            .lead-pref-option input:checked + .lead-pref-card {
+                border-color: var(--accent-cyan);
+                background: color-mix(
+                    in srgb,
+                    var(--accent-cyan) 14%,
+                    var(--bg)
+                );
+                color: var(--ink);
+                box-shadow: 0 0 0 2px var(--accent-cyan);
+            }
+            .lead-submit {
+                width: 100%;
+                margin-top: 6px;
+                padding: 16px 28px;
+                border: 0;
+                border-radius: 50px;
+                background: var(--brand-gradient);
+                color: #ffffff;
+                font-family: "Archivo", sans-serif;
+                font-weight: 800;
+                font-size: 16px;
+                letter-spacing: 0.01em;
+                cursor: pointer;
+                box-shadow: 0 12px 28px -8px rgba(0, 168, 204, 0.48);
+                transition:
+                    transform 0.25s ease,
+                    box-shadow 0.25s ease,
+                    filter 0.25s ease;
+            }
+            .lead-submit:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 18px 36px -10px rgba(0, 168, 204, 0.65);
+                filter: brightness(1.06);
+            }
+            .lead-submit:active {
+                transform: translateY(0);
+            }
+            .lead-success {
+                display: none;
+                padding: 22px 20px;
+                border-radius: 18px;
+                border: 1px solid var(--accent-cyan);
+                background: color-mix(
+                    in srgb,
+                    var(--accent-cyan) 12%,
+                    var(--bg)
+                );
+                color: var(--ink);
+                text-align: center;
+                margin-top: 16px;
+            }
+            .lead-success.is-visible {
+                display: block;
+                animation: leadCardSlideUp 0.3s ease forwards;
+            }
+            .lead-admin-bar {
+                margin-top: 18px;
+                padding-top: 14px;
+                border-top: 1px dashed var(--rule);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 8px;
+                font-family: "IBM Plex Mono", monospace;
+                font-size: 11.5px;
+                color: var(--ink-3);
+            }
+            .lead-csv-link {
+                background: none;
+                border: 0;
+                padding: 0;
+                color: var(--ink-2);
+                font-family: "IBM Plex Mono", monospace;
+                font-size: 11.5px;
+                text-decoration: underline;
+                text-decoration-color: var(--rule-2);
+                cursor: pointer;
+                transition: color 0.2s ease;
+            }
+            .lead-csv-link:hover {
+                color: var(--accent-cyan);
             }
 
             /* =========================================================
-               13. BOTÓN FLOTANTE DE WHATSAPP
+               13. WIDGET DE CHATBOT ASISTENTE VIRTUAL ("DataBot")
                ========================================================= */
-            .wa-float {
+            @keyframes botFloatWave {
+                0%,
+                100% {
+                    transform: translateY(0) rotate(0deg);
+                }
+                50% {
+                    transform: translateY(-2px) rotate(-5deg);
+                }
+            }
+            @keyframes botTypingBounce {
+                0%,
+                80%,
+                100% {
+                    transform: translateY(0);
+                    opacity: 0.45;
+                }
+                40% {
+                    transform: translateY(-5px);
+                    opacity: 1;
+                }
+            }
+            @keyframes botPopIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(14px) scale(0.95);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+            }
+
+            .databot-trigger {
                 position: fixed;
                 bottom: 24px;
                 right: 24px;
-                z-index: 999;
-                display: flex;
+                z-index: 9999;
+                display: inline-flex;
                 align-items: center;
-                gap: 10px;
-                height: 60px;
-                padding: 0 24px 0 20px;
+                gap: 11px;
+                height: 58px;
+                padding: 0 24px 0 18px;
+                border: 0;
                 border-radius: 50px;
-                background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+                background: var(--brand-gradient);
                 color: #ffffff;
+                font-family: "Archivo", system-ui, sans-serif;
                 font-weight: 700;
-                font-size: 15px;
-                text-decoration: none;
-                box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+                font-size: 14.5px;
+                cursor: pointer;
+                box-shadow: 0 10px 25px rgba(0, 168, 204, 0.35);
                 transition:
                     transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                    box-shadow 0.25s ease;
+                    box-shadow 0.25s ease,
+                    filter 0.25s ease;
             }
-            .wa-float:hover {
-                color: #ffffff;
-                transform: translateY(-3px) scale(1.04);
-                box-shadow: 0 14px 32px rgba(37, 211, 102, 0.55);
+            .databot-trigger:hover {
+                transform: translateY(-3px) scale(1.02);
+                box-shadow: 0 16px 34px rgba(0, 168, 204, 0.52);
+                filter: brightness(1.06);
             }
-            .wa-float svg {
-                width: 26px;
-                height: 26px;
-                fill: currentColor;
+            .databot-trigger__icon {
+                position: relative;
+                display: grid;
+                place-items: center;
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.16);
+                font-size: 19px;
+                animation: botFloatWave 2.8s ease-in-out infinite;
             }
-            .wa-float .wa-pulse {
+            .databot-trigger__online {
                 position: absolute;
-                top: 8px;
-                right: 10px;
+                bottom: 0;
+                right: 0;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: #25d366;
+                border: 2px solid #0b2239;
+                animation: pulse-green 2s infinite;
+            }
+
+            /* Burbuja flotante de invitación encima del botón */
+            .databot-teaser {
+                position: fixed;
+                bottom: 94px;
+                right: 24px;
+                z-index: 9998;
+                display: none;
+                max-width: 300px;
+                padding: 13px 34px 13px 16px;
+                border-radius: 18px 18px 4px 18px;
+                background: var(--paper);
+                color: var(--ink);
+                border: 1px solid var(--accent-cyan);
+                box-shadow: var(--shadow-lg);
+                font-size: 13.5px;
+                line-height: 1.4;
+                cursor: pointer;
+                animation: botPopIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+            .databot-teaser.is-visible {
+                display: block;
+            }
+            .databot-teaser__close {
+                position: absolute;
+                top: 6px;
+                right: 8px;
+                width: 22px;
+                height: 22px;
+                border: 0;
+                border-radius: 50%;
+                background: transparent;
+                color: var(--ink-3);
+                font-size: 13px;
+                cursor: pointer;
+                display: grid;
+                place-items: center;
+            }
+            .databot-teaser__close:hover {
+                background: var(--grid);
+                color: var(--ink);
+            }
+
+            /* Ventana principal del Chatbot */
+            .databot-window {
+                position: fixed;
+                bottom: 94px;
+                right: 24px;
+                z-index: 9999;
+                display: none;
+                flex-direction: column;
+                width: 380px;
+                max-width: calc(100vw - 32px);
+                height: 540px;
+                max-height: calc(100vh - 120px);
+                border-radius: 24px;
+                background: var(--paper);
+                color: var(--ink);
+                border: 1px solid var(--rule);
+                box-shadow: var(--shadow-lg);
+                overflow: hidden;
+                animation: botPopIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+            .databot-window.is-open {
+                display: flex;
+            }
+
+            .databot-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                padding: 15px 18px;
+                background: var(--brand-gradient);
+                color: #ffffff;
+                flex-shrink: 0;
+            }
+            .databot-header__info {
+                display: flex;
+                align-items: center;
+                gap: 11px;
+                min-width: 0;
+            }
+            .databot-avatar {
+                position: relative;
+                display: grid;
+                place-items: center;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.18);
+                border: 1px solid rgba(255, 255, 255, 0.32);
+                font-size: 20px;
+                flex-shrink: 0;
+            }
+            .databot-avatar__dot {
+                position: absolute;
+                bottom: 1px;
+                right: 1px;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: #25d366;
+                border: 2px solid #0b2239;
+            }
+            .databot-header__title {
+                display: block;
+                font-weight: 800;
+                font-size: 15px;
+                line-height: 1.2;
+                color: #ffffff;
+            }
+            .databot-header__sub {
+                display: block;
+                font-family: "IBM Plex Mono", monospace;
+                font-size: 11px;
+                color: rgba(255, 255, 255, 0.88);
+                margin-top: 2px;
+            }
+            .databot-header__close {
+                display: grid;
+                place-items: center;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                background: rgba(255, 255, 255, 0.12);
+                color: #ffffff;
+                font-size: 15px;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+            }
+            .databot-header__close:hover {
+                background: rgba(255, 255, 255, 0.26);
+            }
+
+            /* Cuerpo de mensajes */
+            .databot-messages {
+                flex: 1;
+                overflow-y: auto;
+                padding: 16px;
+                background: var(--bg);
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                scroll-behavior: smooth;
+            }
+            .databot-msg {
+                max-width: 88%;
+                padding: 12px 15px;
+                border-radius: 18px;
+                font-size: 13.8px;
+                line-height: 1.48;
+                word-wrap: break-word;
+                animation: botPopIn 0.22s ease forwards;
+            }
+            .databot-msg--bot {
+                align-self: flex-start;
+                background: var(--paper);
+                color: var(--ink);
+                border: 1px solid var(--rule);
+                border-bottom-left-radius: 5px;
+                box-shadow: 0 4px 12px rgba(10, 25, 47, 0.05);
+            }
+            .databot-msg--user {
+                align-self: flex-end;
+                background: var(--accent-cyan);
+                color: #ffffff;
+                font-weight: 600;
+                border-bottom-right-radius: 5px;
+                box-shadow: 0 4px 14px rgba(0, 168, 204, 0.25);
+            }
+            [data-theme="dark"] .databot-msg--user {
+                background: #0096b8;
+                color: #ffffff;
+            }
+
+            /* Indicador de "Escribiendo..." */
+            .databot-typing {
+                align-self: flex-start;
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                padding: 11px 15px;
+                border-radius: 18px;
+                border-bottom-left-radius: 5px;
+                background: var(--paper);
+                border: 1px solid var(--rule);
+                font-family: "IBM Plex Mono", monospace;
+                font-size: 11.5px;
+                color: var(--ink-2);
+            }
+            .databot-typing__dots {
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+            }
+            .databot-typing__dots span {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: var(--accent-cyan);
+                animation: botTypingBounce 1s infinite ease-in-out;
+            }
+            .databot-typing__dots span:nth-child(2) {
+                animation-delay: 0.15s;
+            }
+            .databot-typing__dots span:nth-child(3) {
+                animation-delay: 0.3s;
+            }
+            .databot-input:disabled,
+            .databot-send:disabled {
+                opacity: 0.55;
+                cursor: not-allowed;
+            }
+
+            /* Quick Replies & Botones de Acción dentro del chat */
+            .databot-replies {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 7px;
+                margin-top: 2px;
+                animation: botPopIn 0.25s ease forwards;
+            }
+            .databot-chip {
+                padding: 8px 13px;
+                border-radius: 50px;
+                border: 1px solid var(--rule-2);
+                background: var(--paper);
+                color: var(--ink);
+                font-family: "Archivo", system-ui, sans-serif;
+                font-size: 12.8px;
+                font-weight: 600;
+                text-align: left;
+                cursor: pointer;
+                transition:
+                    border-color 0.2s ease,
+                    background-color 0.2s ease,
+                    color 0.2s ease,
+                    transform 0.15s ease;
+            }
+            .databot-chip:hover {
+                border-color: var(--accent-cyan);
+                background: color-mix(
+                    in srgb,
+                    var(--accent-cyan) 12%,
+                    var(--paper)
+                );
+                color: var(--accent-cyan);
+                transform: translateY(-1px);
+            }
+            .databot-actions {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                margin-top: 6px;
+                padding-top: 8px;
+                border-top: 1px dashed var(--rule);
+            }
+            .databot-cta-lead {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                width: 100%;
+                padding: 11px 14px;
+                border: 0;
+                border-radius: 50px;
+                background: var(--brand-gradient);
+                color: #ffffff;
+                font-family: "Archivo", system-ui, sans-serif;
+                font-weight: 700;
+                font-size: 13px;
+                cursor: pointer;
+                text-decoration: none;
+                box-shadow: 0 6px 16px rgba(0, 168, 204, 0.32);
+                transition:
+                    transform 0.2s ease,
+                    filter 0.2s ease;
+            }
+            .databot-cta-lead:hover {
+                color: #ffffff;
+                transform: translateY(-1px);
+                filter: brightness(1.07);
+            }
+            .databot-cta-wa {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                width: 100%;
+                padding: 10px 14px;
+                border-radius: 50px;
+                border: 1px solid #25d366;
+                background: color-mix(in srgb, #25d366 12%, var(--paper));
+                color: var(--ink);
+                font-family: "Archivo", system-ui, sans-serif;
+                font-weight: 700;
+                font-size: 13px;
+                text-decoration: none;
+                transition:
+                    background-color 0.2s ease,
+                    transform 0.2s ease;
+            }
+            .databot-cta-wa:hover {
+                background: #25d366;
+                color: #ffffff;
+                text-decoration: none;
+                transform: translateY(-1px);
+            }
+
+            /* Barra inferior de escritura */
+            .databot-inputbar {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 12px 14px;
+                background: var(--paper);
+                border-top: 1px solid var(--rule);
+                flex-shrink: 0;
+            }
+            .databot-input {
+                flex: 1;
+                padding: 10px 14px;
+                border-radius: 50px;
+                border: 1px solid var(--rule);
+                background: var(--bg);
+                color: var(--ink);
+                font-family: "Archivo", system-ui, sans-serif;
+                font-size: 13.5px;
+                outline: none;
+                transition:
+                    border-color 0.2s ease,
+                    box-shadow 0.2s ease;
+            }
+            .databot-input::placeholder {
+                color: var(--ink-3);
+            }
+            .databot-input:focus {
+                border-color: var(--accent-cyan);
+                box-shadow: 0 0 0 3px
+                    color-mix(in srgb, var(--accent-cyan) 20%, transparent);
+            }
+            .databot-send {
+                display: grid;
+                place-items: center;
+                width: 40px;
+                height: 40px;
+                border: 0;
+                border-radius: 50%;
+                background: var(--brand-gradient);
+                color: #ffffff;
+                cursor: pointer;
+                flex-shrink: 0;
+                transition:
+                    transform 0.2s ease,
+                    filter 0.2s ease;
+            }
+            .databot-send:hover {
+                transform: scale(1.06);
+                filter: brightness(1.08);
+            }
+            .databot-send svg {
+                width: 18px;
+                height: 18px;
+                fill: currentColor;
             }
 
             /* =========================================================
@@ -1217,13 +1920,26 @@
                 }
             }
             @media (max-width: 560px) {
-                .wa-float {
-                    width: 60px;
-                    padding: 0;
-                    justify-content: center;
+                .databot-trigger {
+                    right: 16px;
+                    bottom: 16px;
+                    height: 52px;
+                    padding: 0 18px 0 14px;
+                    font-size: 13px;
                 }
-                .wa-float__label {
-                    display: none;
+                .databot-teaser {
+                    right: 16px;
+                    bottom: 80px;
+                    max-width: calc(100vw - 32px);
+                }
+                .databot-window {
+                    right: 16px;
+                    bottom: 80px;
+                    width: calc(100vw - 32px);
+                    height: calc(100vh - 110px);
+                }
+                .lead-pref-grid {
+                    grid-template-columns: 1fr;
                 }
             }
             @media (prefers-reduced-motion: reduce) {
@@ -1298,12 +2014,12 @@
                         style="border:1px solid var(--rule-2);background:var(--paper);color:var(--ink);font:500 12px 'IBM Plex Mono',monospace"
                         >● oscuro</button
                     >
-                    <a
-                        href="https://api.whatsapp.com/send/?phone=51986575257&text=Hola%2C%20quiero%20separar%20mi%20cupo%20con%20S%2F%20100"
-                        target="_blank"
+                    <button
+                        type="button"
+                        onclick="openLeadModal()"
                         class="pill-btn desktop-only"
-                        style="background:var(--brand-gradient);color:#FFFFFF;font-weight:700;box-shadow:0 6px 18px rgba(0, 168, 204, 0.3)"
-                        >Separar cupo</a
+                        style="border:0;background:var(--brand-gradient);color:#FFFFFF;font-family:'Archivo',sans-serif;font-weight:700;box-shadow:0 6px 18px rgba(0, 168, 204, 0.3)"
+                        >Separar cupo</button
                     >
                 </div>
             </div>
@@ -1492,6 +2208,17 @@
                                 Una herramienta<br /><em>a la vez</em>
                             </h2>
                         </div>
+                        <div style="justify-self:end">
+                            <button
+                                type="button"
+                                onclick="openLeadModal()"
+                                class="btn-primary"
+                                style="border:0;cursor:pointer;font-family:'Archivo',sans-serif"
+                            >
+                                <span>Déjanos tus datos · Asesoría Gratis</span>
+                                <span class="mono">→</span>
+                            </button>
+                        </div>
                     </div>
                     <div class="promo-bar">
                         <strong style="font-size:15px;font-weight:700"
@@ -1631,7 +2358,233 @@
             </div>
         </div>
 
-        <script>
+        <!-- MODAL DE CAPTACIÓN DE POSTULANTES (LEADS) -->
+        <div
+            id="lead-modal"
+            class="lead-modal-backdrop"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="lead-modal-title"
+        >
+            <div class="lead-modal">
+                <button
+                    type="button"
+                    class="lead-modal__close"
+                    onclick="closeLeadModal()"
+                    aria-label="Cerrar ventana"
+                >
+                    ✕
+                </button>
+
+                <div style="padding-right:36px">
+                    <span class="eyebrow" style="margin-bottom:10px"
+                        >Asesoría &amp; Inscripción</span
+                    >
+                    <h3
+                        id="lead-modal-title"
+                        style="margin:0;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:110%;font-size:clamp(24px,3.5vw,30px);line-height:1.08;letter-spacing:-0.02em;color:var(--ink)"
+                    >
+                        Déjanos tus datos y asegura tu cupo
+                    </h3>
+                    <p
+                        style="margin:6px 0 0;font-size:14.5px;color:var(--ink-2)"
+                    >
+                        Un asesor académico te guiará con el temario, horarios y
+                        descuento de preventa.
+                    </p>
+                </div>
+
+                <form id="lead-form" class="lead-form">
+                    <div class="lead-field">
+                        <label class="lead-label" for="lead-nombre"
+                            >Nombre Completo <span>*</span></label
+                        >
+                        <input
+                            id="lead-nombre"
+                            name="nombre"
+                            type="text"
+                            class="lead-input"
+                            placeholder="Ej.Patrolo uispe Huamani"
+                            required
+                        />
+                    </div>
+
+                    <div class="lead-form__row">
+                        <div class="lead-field">
+                            <label class="lead-label" for="lead-telefono"
+                                >Número de Celular / WhatsApp <span>*</span
+                                ></label
+                            >
+                            <div class="lead-phone-group">
+                                <span class="lead-phone-prefix">+51</span>
+                                <input
+                                    id="lead-telefono"
+                                    name="telefono"
+                                    type="tel"
+                                    class="lead-input"
+                                    placeholder="900 000 000"
+                                    required
+                                />
+                            </div>
+                        </div>
+
+                        <div class="lead-field">
+                            <label class="lead-label" for="lead-correo"
+                                >Correo Electrónico <span>*</span></label
+                            >
+                            <input
+                                id="lead-correo"
+                                name="correo"
+                                type="email"
+                                class="lead-input"
+                                placeholder="tu@correo.com"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="lead-form__row">
+                        <div class="lead-field">
+                            <label class="lead-label" for="lead-curso"
+                                >Curso de Interés <span>*</span></label
+                            >
+                            <select
+                                id="lead-curso"
+                                name="curso"
+                                class="lead-select"
+                                required
+                            >
+                                <option value="Especialización Data Analyst"
+                                    >Especialización Data Analyst</option
+                                >
+                                <option value="SQL for Data Analyst"
+                                    >SQL for Data Analyst</option
+                                >
+                                <option value="Power BI for Data Analyst"
+                                    >Power BI for Data Analyst</option
+                                >
+                                <option value="Excel for Data Analyst"
+                                    >Excel for Data Analyst</option
+                                >
+                                <option value="Python for Data Analyst"
+                                    >Python for Data Analyst</option
+                                >
+                                <option value="Workshop: Tu Primer Proyecto DA"
+                                    >Workshop: Tu Primer Proyecto DA</option
+                                >
+                                <option value="Power Automate for Data Analyst"
+                                    >Power Automate for Data Analyst</option
+                                >
+                            </select>
+                        </div>
+
+                        <div class="lead-field">
+                            <label class="lead-label" for="lead-horario"
+                                >Horario preferido de contacto <span>*</span
+                                ></label
+                            >
+                            <select
+                                id="lead-horario"
+                                name="horario"
+                                class="lead-select"
+                                required
+                            >
+                                <option value="Mañana 9am-12pm"
+                                    >Mañana 9am-12pm</option
+                                >
+                                <option value="Tarde 2pm-6pm"
+                                    >Tarde 2pm-6pm</option
+                                >
+                                <option value="Noche 7pm-10pm"
+                                    >Noche 7pm-10pm</option
+                                >
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="lead-field">
+                        <span class="lead-label"
+                            >¿Cómo prefieres que te contactemos? <span>*</span
+                            ></span
+                        >
+                        <div class="lead-pref-grid">
+                            <label class="lead-pref-option">
+                                <input
+                                    type="radio"
+                                    name="lead-pref"
+                                    value="Mensaje de WhatsApp"
+                                    checked
+                                />
+                                <span class="lead-pref-card"
+                                    >💬 Mensaje de WhatsApp</span
+                                >
+                            </label>
+                            <label class="lead-pref-option">
+                                <input
+                                    type="radio"
+                                    name="lead-pref"
+                                    value="Llamada Telefónica"
+                                />
+                                <span class="lead-pref-card"
+                                    >📞 Llamada Telefónica</span
+                                >
+                            </label>
+                        </div>
+                    </div>
+
+                    <button
+                        type="submit"
+                        id="lead-submit-btn"
+                        class="lead-submit"
+                    >
+                        Enviar mis datos
+                    </button>
+                </form>
+
+                <div id="lead-success" class="lead-success" role="status">
+                    <div
+                        style="font-size:26px;line-height:1;margin-bottom:8px"
+                        aria-hidden="true"
+                    >
+                        ✓
+                    </div>
+                    <strong
+                        id="lead-success-text"
+                        style="display:block;font-size:16.5px;color:var(--ink)"
+                    >
+                        ¡Listo! Recibimos tus datos. Te contactaremos por
+                        Mensaje de WhatsApp muy pronto.
+                    </strong>
+                    <p
+                        style="margin:8px 0 16px;font-size:13.5px;color:var(--ink-2)"
+                    >
+                        Tus datos se registraron correctamente. Nos
+                        comunicaremos contigo en el horario indicado.
+                    </p>
+                    <button
+                        type="button"
+                        onclick="closeLeadModal()"
+                        class="lead-submit"
+                        style="display:inline-block;width:auto;padding:10px 24px;font-size:14px;margin-top:4px"
+                    >
+                        Aceptar y cerrar
+                    </button>
+                </div>
+
+                <div class="lead-admin-bar">
+                    <span id="lead-count-label">0 registros guardados</span>
+                    <button
+                        type="button"
+                        onclick="downloadLeadsCSV()"
+                        class="lead-csv-link"
+                    >
+                        📥 Descargar registros en CSV/Excel
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script is:inline>
             const IMG = "https://dataacademylatam.com/img/";
             const SITE = "https://dataacademylatam.com/";
             const DEADLINE = new Date("2026-11-08T23:59:00-05:00").getTime();
@@ -2037,23 +2990,838 @@
             }
             updateCountdown();
             setInterval(updateCountdown, 30000);
+
+            // =========================================================
+            // SISTEMA DE CAPTACIÓN DE POSTULANTES (LEADS) + GOOGLE SHEETS / CSV
+            // =========================================================
+            const GOOGLE_SCRIPT_URL =
+                "https://script.google.com/macros/s/AKfycbxs8yj05UtNKgcpLJ2rqPCNKFnCXMN7umvYLepQm-UrRteDTyO00D7fE71E9v9ZecAI/exec";
+            const LEADS_STORAGE_KEY = "postulantes_data_academy";
+
+            function getStoredLeads() {
+                try {
+                    const raw = localStorage.getItem(LEADS_STORAGE_KEY);
+                    return raw ? JSON.parse(raw) : [];
+                } catch {
+                    return [];
+                }
+            }
+
+            function updateLeadCountLabel() {
+                const countEl = document.getElementById("lead-count-label");
+                if (!countEl) return;
+                const leads = getStoredLeads();
+                countEl.textContent = `${leads.length} ${leads.length === 1 ? "registro guardado" : "registros guardados"}`;
+            }
+
+            window.openLeadModal = (preselectedCourse) => {
+                if (window._leadCloseTimeout) {
+                    clearTimeout(window._leadCloseTimeout);
+                    window._leadCloseTimeout = null;
+                }
+                const modal = document.getElementById("lead-modal");
+                const form = document.getElementById("lead-form");
+                const successBox = document.getElementById("lead-success");
+                if (form) {
+                    form.reset();
+                    form.style.display = "flex";
+                }
+                if (preselectedCourse) {
+                    const select = document.getElementById("lead-curso");
+                    if (select) {
+                        for (let opt of select.options) {
+                            if (
+                                opt.value
+                                    .toLowerCase()
+                                    .includes(
+                                        preselectedCourse.toLowerCase(),
+                                    ) ||
+                                preselectedCourse
+                                    .toLowerCase()
+                                    .includes(opt.value.toLowerCase())
+                            ) {
+                                select.value = opt.value;
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (successBox) successBox.classList.remove("is-visible");
+                updateLeadCountLabel();
+                if (modal) {
+                    modal.classList.add("is-open");
+                    const firstInput = document.getElementById("lead-nombre");
+                    if (firstInput) setTimeout(() => firstInput.focus(), 80);
+                }
+            };
+
+            window.closeLeadModal = () => {
+                if (window._leadCloseTimeout) {
+                    clearTimeout(window._leadCloseTimeout);
+                    window._leadCloseTimeout = null;
+                }
+                const modal = document.getElementById("lead-modal");
+                if (modal) modal.classList.remove("is-open");
+                const form = document.getElementById("lead-form");
+                const successBox = document.getElementById("lead-success");
+                if (form) {
+                    form.reset();
+                    form.style.display = "flex";
+                }
+                if (successBox) successBox.classList.remove("is-visible");
+            };
+
+            document
+                .getElementById("lead-modal")
+                .addEventListener("click", (e) => {
+                    if (e.target.id === "lead-modal") window.closeLeadModal();
+                });
+
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape") window.closeLeadModal();
+            });
+
+            document
+                .getElementById("lead-form")
+                .addEventListener("submit", async (e) => {
+                    e.preventDefault();
+                    const form = e.target;
+                    const submitBtn =
+                        document.getElementById("lead-submit-btn");
+
+                    const rawPhone =
+                        document
+                            .getElementById("lead-telefono")
+                            ?.value?.trim() || "";
+                    const telefonoFormateado = rawPhone
+                        ? rawPhone.startsWith("+51")
+                            ? rawPhone
+                            : `+51 ${rawPhone}`
+                        : "";
+
+                    const payload = {
+                        nombre:
+                            document
+                                .getElementById("lead-nombre")
+                                ?.value?.trim() || "",
+                        telefono: telefonoFormateado,
+                        correo:
+                            document
+                                .getElementById("lead-correo")
+                                ?.value?.trim() || "",
+                        curso:
+                            document.getElementById("lead-curso")?.value || "",
+                        preferencia:
+                            document.querySelector(
+                                'input[name="lead-pref"]:checked',
+                            )?.value ||
+                            document.querySelector(
+                                'input[name="preferencia"]:checked',
+                            )?.value ||
+                            "Mensaje de WhatsApp",
+                        horario:
+                            document.getElementById("lead-horario")?.value ||
+                            "",
+                    };
+
+                    const leads = getStoredLeads();
+                    const nextNum = String(leads.length + 1).padStart(4, "0");
+                    const now = new Date();
+                    const fechaHora = now.toLocaleString("es-PE", {
+                        year: "numeric",
+                        month: "2-digit",
+                        day: "2-digit",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        second: "2-digit",
+                    });
+
+                    const datos = {
+                        ...payload,
+                        idLead: `LEAD-${nextNum}`,
+                        fechaHora,
+                        nivel: "Por evaluar",
+                        estado: "Nuevo",
+                        notas: "",
+                    };
+
+                    if (submitBtn) {
+                        submitBtn.disabled = true;
+                        submitBtn.textContent = "Enviando...";
+                    }
+
+                    // Guardar respaldo en localStorage
+                    leads.push(datos);
+                    try {
+                        localStorage.setItem(
+                            LEADS_STORAGE_KEY,
+                            JSON.stringify(leads),
+                        );
+                    } catch (err) {
+                        console.error("Error guardando en localStorage:", err);
+                    }
+                    updateLeadCountLabel();
+
+                    // Enviar a Google Sheets vía POST con mode: 'no-cors' y compatibilidad dual (query params + body)
+                    try {
+                        const params = new URLSearchParams(datos);
+                        const targetUrl = `${GOOGLE_SCRIPT_URL}?${params.toString()}`;
+
+                        await fetch(targetUrl, {
+                            method: "POST",
+                            mode: "no-cors",
+                            headers: {
+                                "Content-Type": "text/plain;charset=utf-8",
+                            },
+                            body: JSON.stringify(payload),
+                        });
+                    } catch (err) {
+                        console.error("Error enviando a Google Sheets:", err);
+                    }
+
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = "Enviar mis datos";
+                    }
+
+                    // Mostrar mensaje de confirmación de éxito dentro del modal
+                    form.reset();
+                    form.style.display = "none";
+                    const successBox = document.getElementById("lead-success");
+                    const successText =
+                        document.getElementById("lead-success-text");
+                    if (successText) {
+                        successText.textContent = `¡Listo! Recibimos tus datos. Te contactaremos por ${payload.preferencia} muy pronto.`;
+                    }
+                    if (successBox) {
+                        successBox.classList.add("is-visible");
+                    }
+
+                    // Auto-cerrar el modal suavemente tras unos segundos o permitir cierre inmediato
+                    if (window._leadCloseTimeout)
+                        clearTimeout(window._leadCloseTimeout);
+                    window._leadCloseTimeout = setTimeout(() => {
+                        window.closeLeadModal();
+                    }, 4500);
+                });
+
+            window.downloadLeadsCSV = () => {
+                const leads = getStoredLeads();
+                const headers = [
+                    "ID Lead",
+                    "Fecha y Hora",
+                    "Nombre Completo",
+                    "Teléfono / WhatsApp",
+                    "Correo Electrónico",
+                    "Curso de Interés",
+                    "Preferencia de Contacto",
+                    "Horario Preferido",
+                    "Nivel Actual",
+                    "Estado de Seguimiento",
+                    "Notas del Asesor",
+                ];
+
+                const escapeCSV = (val) => {
+                    const str = String(val ?? "").replace(/"/g, '""');
+                    return `"${str}"`;
+                };
+
+                const rows = leads.map((item) =>
+                    [
+                        item.idLead,
+                        item.fechaHora,
+                        item.nombre,
+                        item.telefono,
+                        item.correo,
+                        item.curso,
+                        item.preferencia,
+                        item.horario,
+                        item.nivel || "Por evaluar",
+                        item.estado || "Nuevo",
+                        item.notas || "",
+                    ]
+                        .map(escapeCSV)
+                        .join(","),
+                );
+
+                const csvContent =
+                    "\uFEFF" +
+                    [headers.map(escapeCSV).join(","), ...rows].join("\r\n");
+                const blob = new Blob([csvContent], {
+                    type: "text/csv;charset=utf-8;",
+                });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement("a");
+                link.href = url;
+                link.download = `postulantes_data_academy_${new Date().toISOString().slice(0, 10)}.csv`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+            };
+
+            updateLeadCountLabel();
         </script>
 
-        <a
-            href="https://api.whatsapp.com/send/?phone=51986575257&text=Hola%2C%20estoy%20interesado%20en%20capacitarme"
-            target="_blank"
-            rel="noopener"
-            id="whatsapp-float"
-            class="wa-float"
-            aria-label="Escríbenos por WhatsApp"
+        <!-- =========================================================
+             WIDGET DE CHATBOT ASISTENTE VIRTUAL ("DataBot · Asesor Virtual")
+             ========================================================= -->
+        <div
+            id="databot-teaser"
+            class="databot-teaser"
+            onclick="openDataBot()"
+            role="status"
         >
-            <span class="wa-pulse"></span>
-            <svg viewBox="0 0 32 32" aria-hidden="true">
-                <path
-                    d="M16.04 3C8.86 3 3.02 8.83 3.02 16c0 2.29.6 4.53 1.74 6.5L3 29l6.66-1.74A13 13 0 0 0 16.04 29C23.2 29 29 23.17 29 16S23.2 3 16.04 3Zm0 23.8c-1.95 0-3.86-.52-5.53-1.51l-.4-.24-3.95 1.03 1.05-3.85-.26-.4A10.76 10.76 0 0 1 5.24 16c0-5.95 4.85-10.79 10.8-10.79 5.94 0 10.77 4.84 10.77 10.79 0 5.96-4.83 10.8-10.77 10.8Zm5.92-8.08c-.32-.16-1.92-.95-2.22-1.06-.3-.11-.51-.16-.73.16-.21.32-.84 1.06-1.03 1.27-.19.22-.38.24-.7.08-.32-.16-1.37-.5-2.6-1.6-.96-.86-1.61-1.92-1.8-2.24-.19-.32-.02-.5.14-.66.15-.14.32-.38.48-.56.16-.19.21-.32.32-.54.1-.21.05-.4-.03-.56-.08-.16-.73-1.75-1-2.4-.26-.63-.53-.54-.73-.55h-.62c-.21 0-.56.08-.86.4-.3.32-1.13 1.1-1.13 2.69 0 1.58 1.16 3.12 1.32 3.33.16.21 2.28 3.48 5.52 4.88.77.33 1.37.53 1.84.68.77.25 1.48.21 2.03.13.62-.09 1.92-.78 2.19-1.54.27-.76.27-1.4.19-1.54-.08-.13-.29-.21-.61-.37Z"
-                ></path>
-            </svg>
-            <span class="wa-float__label">¿Dudas? Escríbenos</span>
-        </a>
+            <button
+                type="button"
+                class="databot-teaser__close"
+                onclick="closeDataBotTeaser(event)"
+                aria-label="Cerrar aviso"
+            >
+                ✕
+            </button>
+            ¡Hola! 👋 ¿Buscas <strong>precios, fechas de inicio</strong> o
+            <strong>certificados</strong>? Te respondo al instante
+        </div>
+
+        <button
+            type="button"
+            id="databot-trigger"
+            class="databot-trigger"
+            onclick="toggleDataBot()"
+            aria-label="Abrir Asistente Virtual DataBot"
+        >
+            <span class="databot-trigger__icon">
+                🤖
+                <span class="databot-trigger__online"></span>
+            </span>
+            <span>💬 ¿Dudas? Consulta precios y horarios aquí</span>
+        </button>
+
+        <section
+            id="databot-window"
+            class="databot-window"
+            aria-label="Asistente Data Academy"
+        >
+            <header class="databot-header">
+                <div class="databot-header__info">
+                    <div class="databot-avatar">
+                        🤖
+                        <span class="databot-avatar__dot"></span>
+                    </div>
+                    <div>
+                        <strong class="databot-header__title"
+                            >Asistente Data Academy</strong
+                        >
+                        <span class="databot-header__sub"
+                            >⚡ Responde al instante · En línea</span
+                        >
+                    </div>
+                </div>
+                <button
+                    type="button"
+                    class="databot-header__close"
+                    onclick="toggleDataBot(false)"
+                    aria-label="Minimizar chat"
+                >
+                    ✕
+                </button>
+            </header>
+
+            <div id="databot-messages" class="databot-messages"></div>
+
+            <form
+                id="databot-form"
+                class="databot-inputbar"
+                onsubmit="handleDataBotSubmit(event)"
+            >
+                <input
+                    id="databot-input"
+                    type="text"
+                    class="databot-input"
+                    placeholder="Escribe tu duda aquí (ej. precio, certificado)..."
+                    autocomplete="off"
+                />
+                <button
+                    type="submit"
+                    class="databot-send"
+                    aria-label="Enviar mensaje"
+                >
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                    </svg>
+                </button>
+            </form>
+        </section>
+
+        <script is:inline>
+            (function () {
+                const WA_PHONE = "51986575257";
+                let botInitialized = false;
+                let isBotTyping = false;
+                let cursoInteres = "Especialización Data Analyst";
+                let teaserDismissed = false;
+
+                const MAIN_OPTIONS = [
+                    "📚 ¿Qué cursos tienen?",
+                    "💰 Precios y Promociones",
+                    "📅 Fechas de inicio y Duración",
+                    "🎓 ¿Entregan Certificado?",
+                    "💻 Modalidad y Requisitos",
+                ];
+
+                const FOLLOWUP_OPTIONS = [
+                    "🔍 Tengo otra duda",
+                    "📚 Ver temario / Horarios",
+                    "💬 Quiero hablar con un asesor humano",
+                ];
+
+                const COURSE_DETAILS = {
+                    "SQL for Data Analyst": {
+                        title: "SQL for Data Analyst",
+                        desc: "📊 <strong>SQL for Data Analyst (+30h en vivo):</strong> Dominarás consultas en SQL Server, Transact-SQL, JOINs avanzados, subconsultas, CTEs, funciones de ventana y resolverás pruebas técnicas reales de procesos de selección.\n\n¿Te quedó clara esta parte o te gustaría revisar el precio de preventa y los horarios de este curso?",
+                    },
+                    "Power BI for Data Analyst": {
+                        title: "Power BI for Data Analyst",
+                        desc: "📈 <strong>Power BI for Data Analyst (+30h en vivo):</strong> Aprenderás limpieza ETL con Power Query, modelamiento dimensional en Estrella, DAX desde cero hasta avanzado y diseño de dashboards ejecutivos con storytelling.\n\n¿Te quedó clara esta parte o te gustaría revisar el precio de preventa y los horarios de este curso?",
+                    },
+                    "Excel for Data Analyst": {
+                        title: "Excel for Data Analyst",
+                        desc: "📗 <strong>Excel for Data Analyst (+30h en vivo):</strong> Dominarás funciones avanzadas (BUSCARX, FILTRAR), Power Query para automatizar reportes, Tablas Dinámicas y construcción de dashboards interactivos.\n\n¿Te quedó clara esta parte o te gustaría revisar el precio de preventa y los horarios de este curso?",
+                    },
+                    "Python for Data Analyst": {
+                        title: "Python for Data Analyst",
+                        desc: "🐍 <strong>Python for Data Analyst (+30h en vivo):</strong> Aprenderás automatización y análisis de datos con Pandas, visualización con Matplotlib & Seaborn, introducción a PySpark y control de versiones con Git/GitHub.\n\n¿Te quedó clara esta parte o te gustaría revisar el precio de preventa y los horarios de este curso?",
+                    },
+                    "Power Automate": {
+                        title: "Power Automate for Data Analyst",
+                        desc: "⚡ <strong>Power Automate (15h intensivo):</strong> Automatiza el envío de reportes por correo, consolida archivos de Excel automáticamente y conecta alertas inteligentes sin escribir código complejo.\n\n¿Te quedó clara esta parte o te gustaría revisar el precio de preventa y los horarios de este curso?",
+                    },
+                    "Workshop Data Analyst & IA": {
+                        title: "Workshop: Tu Primer Proyecto DA",
+                        desc: "🚀 <strong>Workshop Data Analyst & IA (15h intensivo):</strong> Construye un proyecto integral end-to-end combinando Python, arquitectura Medallón en Databricks, Power BI, Power Automate y herramientas de IA.\n\n¿Te quedó clara esta parte o te gustaría revisar el precio de preventa y los horarios de este curso?",
+                    },
+                };
+
+                // Mostrar burbuja teaser a los 3 segundos
+                setTimeout(() => {
+                    const win = document.getElementById("databot-window");
+                    const teaser = document.getElementById("databot-teaser");
+                    if (
+                        teaser &&
+                        !teaserDismissed &&
+                        (!win || !win.classList.contains("is-open"))
+                    ) {
+                        teaser.classList.add("is-visible");
+                    }
+                }, 3000);
+
+                window.closeDataBotTeaser = (e) => {
+                    if (e) e.stopPropagation();
+                    teaserDismissed = true;
+                    const teaser = document.getElementById("databot-teaser");
+                    if (teaser) teaser.classList.remove("is-visible");
+                };
+
+                window.openDataBot = () => {
+                    window.toggleDataBot(true);
+                };
+
+                window.toggleDataBot = (forceState) => {
+                    const win = document.getElementById("databot-window");
+                    const teaser = document.getElementById("databot-teaser");
+                    if (!win) return;
+
+                    const shouldOpen =
+                        typeof forceState === "boolean"
+                            ? forceState
+                            : !win.classList.contains("is-open");
+
+                    if (shouldOpen) {
+                        win.classList.add("is-open");
+                        if (teaser) teaser.classList.remove("is-visible");
+                        teaserDismissed = true;
+
+                        if (!botInitialized) {
+                            botInitialized = true;
+                            sendBotResponse(
+                                "¡Hola! 👋 Soy el asistente virtual de <strong>Data Academy</strong>. Estoy aquí para resolver tus dudas en segundos sin que tengas que esperar.\n\n¿Qué te gustaría conocer hoy?",
+                                MAIN_OPTIONS,
+                                false,
+                            );
+                        } else {
+                            setTimeout(() => {
+                                const input =
+                                    document.getElementById("databot-input");
+                                if (input && !input.disabled) input.focus();
+                            }, 120);
+                        }
+                    } else {
+                        win.classList.remove("is-open");
+                    }
+                };
+
+                function normalizeText(str) {
+                    return String(str || "")
+                        .toLowerCase()
+                        .normalize("NFD")
+                        .replace(/[\u0300-\u036f]/g, "")
+                        .trim();
+                }
+
+                function scrollToBottom() {
+                    const container =
+                        document.getElementById("databot-messages");
+                    if (container) {
+                        container.scrollTop = container.scrollHeight;
+                    }
+                }
+
+                function setControlsDisabled(disabled) {
+                    isBotTyping = disabled;
+                    const input = document.getElementById("databot-input");
+                    const sendBtn = document.querySelector(".databot-send");
+                    if (input) input.disabled = disabled;
+                    if (sendBtn) sendBtn.disabled = disabled;
+                    if (!disabled && input) {
+                        input.focus();
+                    }
+                }
+
+                function appendUserBubble(text) {
+                    const container =
+                        document.getElementById("databot-messages");
+                    if (!container) return;
+                    const div = document.createElement("div");
+                    div.className = "databot-msg databot-msg--user";
+                    div.textContent = text;
+                    container.appendChild(div);
+                    scrollToBottom();
+                }
+
+                function buildWhatsAppUrl() {
+                    const curso = cursoInteres || "Especialización Data Analyst";
+                    const msg = `Hola Data Academy, ya revisé la información de precios y horarios en el asistente web. Estoy interesado en inscribirme al curso de ${curso} y tengo una consulta final.`;
+                    return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`;
+                }
+
+                window.openLeadFromBot = () => {
+                    window.toggleDataBot(false);
+                    if (typeof window.openLeadModal === "function") {
+                        window.openLeadModal(cursoInteres);
+                    }
+                };
+
+                // Rutina de tipeo letra por letra (Typewriter Effect)
+                function typeBotMessage(container, fullText, callback) {
+                    const messageDiv = document.createElement("div");
+                    messageDiv.className =
+                        "databot-msg databot-msg--bot bot-message-bubble";
+                    container.appendChild(messageDiv);
+
+                    let index = 0;
+                    const speed = 18; // milisegundos por caracter
+
+                    function typeChar() {
+                        if (index < fullText.length) {
+                            // Si encuentra una etiqueta HTML, avanza hasta el cierre '>' para no mostrar código roto
+                            if (fullText[index] === "<") {
+                                const closeIdx = fullText.indexOf(">", index);
+                                if (closeIdx !== -1) {
+                                    index = closeIdx + 1;
+                                } else {
+                                    index++;
+                                }
+                            } else {
+                                index++;
+                            }
+                            messageDiv.innerHTML = fullText
+                                .slice(0, index)
+                                .replace(/\n/g, "<br>");
+                            container.scrollTop = container.scrollHeight;
+                            setTimeout(typeChar, speed);
+                        } else {
+                            if (callback) callback(messageDiv);
+                        }
+                    }
+                    typeChar();
+                }
+
+                function sendBotResponse(
+                    fullText,
+                    quickReplies = [],
+                    showAdvisorHandoffButtons = false,
+                ) {
+                    const container =
+                        document.getElementById("databot-messages");
+                    if (!container) return;
+
+                    // Bloquear temporalmente el input y remover botones previos mientras el bot piensa y escribe
+                    setControlsDisabled(true);
+                    container
+                        .querySelectorAll(".databot-replies")
+                        .forEach((el) => el.remove());
+
+                    // 1. Mostrar burbuja animada de 3 puntitos ("DataBot está escribiendo...") durante 550ms
+                    const typing = document.createElement("div");
+                    typing.className = "databot-typing";
+                    typing.innerHTML = `
+                        <span>DataBot está escribiendo</span>
+                        <span class="databot-typing__dots"><span></span><span></span><span></span></span>
+                    `;
+                    container.appendChild(typing);
+                    scrollToBottom();
+
+                    setTimeout(() => {
+                        typing.remove();
+
+                        // 2. Escribir el mensaje letra por letra
+                        typeBotMessage(container, fullText, (messageDiv) => {
+                            // 3. Si es el paso explícito de derivación a asesor, mostrar los dos botones finales
+                            if (showAdvisorHandoffButtons) {
+                                const actionsDiv =
+                                    document.createElement("div");
+                                actionsDiv.className = "databot-actions";
+                                actionsDiv.innerHTML = `
+                                    <button type="button" class="databot-cta-lead" onclick="openLeadFromBot()">
+                                        📝 Dejar mis datos (Me contactan)
+                                    </button>
+                                    <a href="${buildWhatsAppUrl()}" target="_blank" rel="noopener" class="databot-cta-wa">
+                                        📲 Abrir WhatsApp yo mismo
+                                    </a>
+                                `;
+                                messageDiv.appendChild(actionsDiv);
+                            }
+
+                            // 4. Mostrar recién las opciones rápidas (Quick Replies) con fade-in
+                            if (quickReplies && quickReplies.length > 0) {
+                                const repliesDiv =
+                                    document.createElement("div");
+                                repliesDiv.className = "databot-replies";
+                                quickReplies.forEach((label) => {
+                                    const btn =
+                                        document.createElement("button");
+                                    btn.type = "button";
+                                    btn.className = "databot-chip";
+                                    btn.textContent = label;
+                                    btn.onclick = () => {
+                                        if (!isBotTyping) {
+                                            window.handleDataBotInput(label);
+                                        }
+                                    };
+                                    repliesDiv.appendChild(btn);
+                                });
+                                container.appendChild(repliesDiv);
+                            }
+
+                            setControlsDisabled(false);
+                            scrollToBottom();
+                        });
+                    }, 550);
+                }
+
+                window.handleDataBotSubmit = (e) => {
+                    e.preventDefault();
+                    if (isBotTyping) return;
+                    const input = document.getElementById("databot-input");
+                    if (!input) return;
+                    const text = input.value.trim();
+                    if (!text) return;
+                    input.value = "";
+                    window.handleDataBotInput(text);
+                };
+
+                window.handleDataBotInput = (rawText) => {
+                    if (isBotTyping) return;
+                    appendUserBubble(rawText);
+                    const q = normalizeText(rawText);
+
+                    // 1. Flujo explícito para derivar a Asesor Humano / WhatsApp (SOLO bajo petición explícita)
+                    if (
+                        q.includes("asesor") ||
+                        q.includes("humano") ||
+                        q.includes("pasame a whatsapp") ||
+                        q.includes("whatsapp") ||
+                        q.includes("hablar con alguien") ||
+                        q.includes("persona") ||
+                        q.includes("inscribirme") ||
+                        q.includes("matricularme") ||
+                        q.includes("separar")
+                    ) {
+                        sendBotResponse(
+                            "¡Por supuesto! Con gusto te comunico con un asesor de admisiones para que te atienda de forma personalizada. Antes de pasarte, ¿prefieres que te escribamos nosotros a tu WhatsApp dejando tus datos aquí o prefieres abrir el chat tú mismo ahora?",
+                            ["🔍 Tengo otra duda"],
+                            true,
+                        );
+                        return;
+                    }
+
+                    // 2. Si el usuario hace clic en "🔍 Tengo otra duda"
+                    if (
+                        q.includes("tengo otra duda") ||
+                        q.includes("otra consulta") ||
+                        q.includes("menu") ||
+                        q.includes("opciones")
+                    ) {
+                        sendBotResponse(
+                            "¡Claro que sí! 😊 Dime qué tema te gustaría revisar o selecciónalo aquí abajo:",
+                            MAIN_OPTIONS,
+                            false,
+                        );
+                        return;
+                    }
+
+                    // 3. Si el usuario hace clic en "📚 Ver temario / Horarios"
+                    if (q.includes("ver temario / horarios")) {
+                        sendBotResponse(
+                            "Puedes explorar el detalle de cada curso o conocer nuestros bloques de horarios flexibles. ¿Qué prefieres revisar primero?",
+                            [
+                                "📚 ¿Qué cursos tienen?",
+                                "📅 Fechas de inicio y Duración",
+                                "💰 Precios y Promociones",
+                                "💬 Quiero hablar con un asesor humano",
+                            ],
+                            false,
+                        );
+                        return;
+                    }
+
+                    // 4. Verificar si eligió un curso específico de la lista
+                    for (const [key, info] of Object.entries(COURSE_DETAILS)) {
+                        const normKey = normalizeText(key);
+                        if (
+                            q === normKey ||
+                            (q.includes("sql") && key.includes("SQL")) ||
+                            (q.includes("power bi") &&
+                                key.includes("Power BI")) ||
+                            (q.includes("excel") && key.includes("Excel")) ||
+                            (q.includes("python") && key.includes("Python")) ||
+                            (q.includes("automate") &&
+                                key.includes("Automate")) ||
+                            (q.includes("workshop") && key.includes("Workshop"))
+                        ) {
+                            cursoInteres = info.title;
+                            sendBotResponse(
+                                info.desc,
+                                [
+                                    "💰 Ver precio de este curso",
+                                    "📅 Ver horarios",
+                                    "🔍 Tengo otra duda",
+                                    "💬 Quiero hablar con un asesor humano",
+                                ],
+                                false,
+                            );
+                            return;
+                        }
+                    }
+
+                    // 5. Respuesta a ¿Qué cursos tienen?
+                    if (
+                        q.includes("que cursos") ||
+                        q.includes("cursos") ||
+                        q.includes("temario") ||
+                        q.includes("ensenan") ||
+                        q.includes("aprender") ||
+                        q.includes("herramientas")
+                    ) {
+                        sendBotResponse(
+                            "Contamos con programas 100% prácticos con enfoque laboral en vivo:\n• <strong>SQL for Data Analyst</strong> (+30h)\n• <strong>Power BI for Data Analyst</strong> (+30h)\n• <strong>Excel for Data Analyst</strong> (+30h)\n• <strong>Python for Data Analyst</strong> (+30h)\n• <strong>Power Automate</strong> (15h intensivo)\n• <strong>Workshop Data Analyst &amp; IA</strong>\n\n¿Cuál de estos cursos te interesa más para contarte qué proyectos desarrollarás?",
+                            [
+                                "SQL for Data Analyst",
+                                "Power BI for Data Analyst",
+                                "Excel for Data Analyst",
+                                "Python for Data Analyst",
+                                "Power Automate",
+                                "Workshop Data Analyst & IA",
+                            ],
+                            false,
+                        );
+                        return;
+                    }
+
+                    // 6. Respuesta a Precios y Promociones
+                    if (
+                        q.includes("precio") ||
+                        q.includes("costo") ||
+                        q.includes("cuanto cuesta") ||
+                        q.includes("valor") ||
+                        q.includes("pago") ||
+                        q.includes("descuento") ||
+                        q.includes("preventa") ||
+                        q.includes("cuotas") ||
+                        q.includes("promocion")
+                    ) {
+                        sendBotResponse(
+                            "🔥 <strong>¡Estamos en Precio de Preventa!</strong> (Solo para los primeros 10 cupos de cada curso):\n• <strong>Cursos de Especialización (+30h):</strong> <strong>S/ 199</strong> (Precio regular: S/ 299).\n• <strong>Cursos Intensivos (15h):</strong> Consultar descuento especial por paquete.\n💳 <strong>Métodos de pago:</strong> Aceptamos Yape, Plin, transferencia bancaria (BCP, Interbank, BBVA) y tarjetas de crédito/débito.\n\n¿Te quedó clara esta parte o te gustaría que te detalle los horarios o el temario antes de continuar?",
+                            FOLLOWUP_OPTIONS,
+                            false,
+                        );
+                        return;
+                    }
+
+                    // 7. Respuesta a Fechas de inicio y Duración
+                    if (
+                        q.includes("cuando empieza") ||
+                        q.includes("inicio") ||
+                        q.includes("fechas") ||
+                        q.includes("horario") ||
+                        q.includes("duracion") ||
+                        q.includes("cuanto dura") ||
+                        q.includes("dias") ||
+                        q.includes("clases")
+                    ) {
+                        sendBotResponse(
+                            "⏳ <strong>Duración y Horarios:</strong>\n• Los cursos principales duran <strong>+30 horas cronológicas</strong> en vivo (aprox. 5 a 6 semanas).\n• Los talleres intensivos duran <strong>15 horas</strong>.\n• <strong>Horarios pensados para quienes trabajan o estudian:</strong> Noches (7:00 pm a 10:00 pm) y Fines de Semana.\n• <strong>Importante:</strong> Todas las clases en vivo quedan <strong>100% grabadas</strong> en tu aula virtual con acceso ilimitado para que repases cuando quieras.\n\n¿Te quedó clara esta parte o te gustaría revisar algún otro detalle del programa?",
+                            FOLLOWUP_OPTIONS,
+                            false,
+                        );
+                        return;
+                    }
+
+                    // 8. Respuesta a ¿Entregan Certificado?
+                    if (
+                        q.includes("certificado") ||
+                        q.includes("certificacion") ||
+                        q.includes("diploma") ||
+                        q.includes("validez") ||
+                        q.includes("linkedin") ||
+                        q.includes("cv")
+                    ) {
+                        sendBotResponse(
+                            "🎓 <strong>¡Sí, incluye Certificación Oficial!</strong>\nAl culminar y aprobar tu proyecto práctico real, recibes un <strong>Certificado a nombre de Data Academy</strong> con código único de validación QR, listo para agregar directamente a tu <strong>LinkedIn</strong> y potenciar tu CV.\n\n¿Te quedó clara esta parte o te gustaría que te detalle los horarios o el temario antes de continuar?",
+                            FOLLOWUP_OPTIONS,
+                            false,
+                        );
+                        return;
+                    }
+
+                    // 9. Respuesta a Modalidad y Requisitos
+                    if (
+                        q.includes("modalidad") ||
+                        q.includes("virtual") ||
+                        q.includes("presencial") ||
+                        q.includes("requisitos") ||
+                        q.includes("nivel") ||
+                        q.includes("desde cero") ||
+                        q.includes("grabaciones") ||
+                        q.includes("experiencia")
+                    ) {
+                        sendBotResponse(
+                            "💻 <strong>Modalidad 100% en Vivo + Mentoría:</strong>\n• Clases en vivo por Zoom donde armas un portafolio con casos reales de empresas.\n• <strong>¿Necesito experiencia previa?</strong> ¡No! Empezamos desde nivel cero hasta nivel avanzado aplicado al trabajo.\n\n¿Te quedó clara esta parte o te gustaría que te detalle los horarios o el temario antes de continuar?",
+                            FOLLOWUP_OPTIONS,
+                            false,
+                        );
+                        return;
+                    }
+
+                    // Fallback conversacional sin soltar enlace de WhatsApp de golpe
+                    sendBotResponse(
+                        "¡Qué buena pregunta! 😊 Puedo ayudarte al instante con información sobre nuestros <strong>cursos, precios de preventa, horarios o certificados</strong>.\n\n¿Cuál de estos puntos te gustaría revisar primero o prefieres que te comunique con un asesor?",
+                        FOLLOWUP_OPTIONS,
+                        false,
+                    );
+                };
+            })();
+        </script>
     </body>
 </html>
