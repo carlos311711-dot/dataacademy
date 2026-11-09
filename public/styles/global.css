@@ -625,13 +625,17 @@ footer h4 { font-size: 1.125rem; margin-bottom: 20px; color: white; }
     background: radial-gradient(circle at top right, rgba(76, 154, 255, 0.08), transparent 30%), var(--bg-light);
     border-bottom: 1px solid var(--border-color);
 }
-.detail-container { max-width: 900px; margin: 0 auto; }
+.detail-container { max-width: 1180px; margin: 0 auto; }
 .btn-back { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; font-weight: 600; color: var(--text-muted); transition: var(--transition); }
 .btn-back:hover { color: var(--primary-color); }
 .detail-header { margin-bottom: 40px; }
 .detail-header h1 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); margin-bottom: 16px; font-weight: 800; color: var(--text-main); letter-spacing: -0.02em; }
 .detail-content { padding: 60px 0; }
-.detail-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; margin-bottom: 60px; }
+.detail-grid { display: grid; grid-template-columns: 1.8fr 1fr; gap: 48px; margin-bottom: 60px; align-items: start; }
+/* temario en 2 columnas y lateral fijo: evita el hueco bajo la columna corta */
+.detail-grid .visual-side { position: sticky; top: 96px; }
+.syllabus-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.syllabus-list .syllabus-module { margin-bottom: 0; }
 .detail-section-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 20px; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
 .detail-section-title i { color: var(--primary-color); }
 
@@ -858,6 +862,7 @@ html.dark-theme .sticky-cta-bar .sticky-price { color: var(--accent-color); }
     .footer-content { grid-template-columns: 1fr 1fr; }
     .course-grid-catalog { grid-template-columns: 1fr; }
     .detail-grid { grid-template-columns: 1fr; gap: 32px; }
+    .detail-grid .visual-side { position: static; }
 }
 @media (max-width: 768px) {
     .hamburger { display: block; }
