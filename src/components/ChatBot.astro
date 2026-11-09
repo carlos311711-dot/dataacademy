@@ -1,0 +1,155 @@
+---
+import { WA, PRICE, courses, spec } from "../data/academy";
+// ponytail: respuestas fijas para los botones y de respaldo si /api/chat falla. Orden importa: gana la primera coincidencia.
+const faqs = [
+  { q: '¿Cuánto cuestan los cursos?', k: ['precio', 'cuesta', 'costo', 'cuanto', 'preventa', 'pagar', 'soles', 'descuento'],
+    a: `Los cursos están desde <b>S/ ${PRICE.course}</b> en preventa (antes S/ ${PRICE.courseRegular}), solo para los primeros 10 cupos. La ${spec.name} está en <b>S/ ${PRICE.spec}</b> (antes S/ ${PRICE.specRegular}).` },
+  { q: '¿Cómo separo mi cupo?', k: ['separ', 'cupo', 'reserv', 'inscrib', 'matricul'],
+    a: `Separas tu cupo con <b>S/ ${PRICE.deposit}</b> escribiéndonos por WhatsApp. El saldo lo cancelas hasta una semana antes de iniciar.` },
+  { q: '¿Las clases son en vivo?', k: ['vivo', 'grabad', 'virtual', 'online', 'presencial', 'zoom', 'modalidad'],
+    a: 'Sí, todas las clases son <b>en vivo</b>: el docente resuelve tus dudas en tiempo real mientras construyes tu proyecto.' },
+  { q: '¿Recibo certificado?', k: ['certific', 'diploma', 'constancia'],
+    a: 'Sí. Al completar el curso y su proyecto recibes el <b>certificado oficial</b> de Data Academy.' },
+  { q: '¿Cuándo empiezan las clases?', k: ['cuando', 'inicio', 'empiez', 'fecha', 'horario', 'calendario', 'hora'],
+    a: 'Las fechas y horarios de cada curso están en el <a href="/calendario">calendario</a>.' },
+  { q: '¿Qué incluye la especialización?', k: ['especializ', 'ruta', 'analyst', 'analista', 'incluye'],
+    a: '<b>150 horas</b> en vivo, 4 proyectos + 1 integrador, certificado oficial y bonos (CV de analista + plan financiero). <a href="/ruta-analista">Ver la ruta completa</a>.' },
+  { q: '¿Qué cursos tienen?', k: ['curso', 'sql', 'power', 'excel', 'python', 'automate', 'workshop', 'aprend', 'herramienta', 'temario'],
+    a: `Tenemos ${courses.map((c) => `<a href="${c.href}">${c.name}</a>`).join(', ')}. <a href="/cursos">Ver catálogo</a>.` },
+  { q: '¿Quiénes son los docentes?', k: ['docente', 'profe', 'quien', 'ensena', 'instructor'],
+    a: 'Profesionales que trabajan en datos cada día, en empresas como RIMAC, Jockey Plaza y bluetab (IBM). <a href="/profesores">Conoce a los docentes</a>.' },
+];
+---
+<div class="chat">
+  <div class="chat-panel" id="chat-panel" role="dialog" aria-label="Asistente Data Academy" hidden>
+    <div class="chat-head">
+      <span class="da-logo-mark" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><path d="M28 85 53 20 78 85"/><path d="M64 50c12 0 20 8 20 20s-10 15-22 15"/></svg></span>
+      <div class="grow"><b>Asistente Data Academy</b><span class="da-mono status">● responde al instante</span></div>
+      <button type="button" class="chat-x" aria-label="Cerrar chat">×</button>
+    </div>
+    <div class="chat-log" aria-live="polite"></div>
+    <div class="chat-chips">
+      {faqs.slice(0, 3).map((f, i) => <button type="button" data-i={i}>{f.q} <span aria-hidden="true">→</span></button>)}
+    </div>
+    <form class="chat-form">
+      <input name="q" aria-label="Escribe tu pregunta" placeholder="Escribe tu pregunta…" autocomplete="off" maxlength="200" />
+      <button type="submit" aria-label="Enviar">→</button>
+    </form>
+    <a href={WA} target="_blank" rel="noopener" class="chat-wa da-mono">Hablar con un asesor por WhatsApp →</a>
+  </div>
+  <button type="button" class="chat-fab" aria-expanded="false" aria-controls="chat-panel">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg><span>¿Dudas? Pregúntame</span>
+  </button>
+  <script type="application/json" id="chat-data" set:html={JSON.stringify({ faqs, WA })}></script>
+</div>
+
+<script>
+  const { faqs, WA } = JSON.parse(document.getElementById("chat-data")!.textContent!);
+  const panel = document.getElementById("chat-panel")!;
+  const fab = document.querySelector<HTMLButtonElement>(".chat-fab")!;
+  const log = panel.querySelector<HTMLElement>(".chat-log")!;
+  const form = panel.querySelector<HTMLFormElement>(".chat-form")!;
+  const norm = (s: string) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+
+  const say = (who: "bot" | "me", content: string) => {
+    const m = document.createElement("div");
+    m.className = `msg ${who}`;
+    if (who === "bot") m.innerHTML = content; // contenido propio (faqs), nunca texto del usuario
+    else m.textContent = content;
+    log.append(m);
+    log.scrollTop = log.scrollHeight;
+    return m;
+  };
+  const typing = () => say("bot", "<span class='dots'><i></i><i></i><i></i></span>");
+  const done = (el: HTMLElement) => { log.scrollTop = log.scrollHeight; return el; };
+  const local = (text: string) => {
+    const n = norm(text);
+    const hit = faqs.find((f: { k: string[] }) => f.k.some((k) => n.includes(k)));
+    return hit ? hit.a : `No tengo esa respuesta todavía. Un asesor te ayuda al instante: <a href="${WA}" target="_blank" rel="noopener">escribir por WhatsApp</a>.`;
+  };
+
+  // Historial para Gemini (solo texto plano)
+  const history: { role: "user" | "assistant"; content: string }[] = [];
+
+  // Preguntas sugeridas: respuesta local, instantánea y gratis
+  const askLocal = (text: string) => {
+    say("me", text);
+    const t = typing();
+    setTimeout(() => done(Object.assign(t, { innerHTML: local(text) })), 500);
+  };
+
+  // Texto libre: /api/chat (Gemini). Si falla o no está configurado, cae a palabras clave.
+  const askAI = async (text: string) => {
+    say("me", text);
+    history.push({ role: "user", content: text });
+    const t = typing();
+    try {
+      const res = await fetch("/api/chat", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ messages: history }) });
+      if (!res.ok) throw new Error(String(res.status));
+      const { reply } = await res.json();
+      t.textContent = reply; // texto del modelo: nunca como HTML
+      history.push({ role: "assistant", content: reply });
+    } catch {
+      history.pop();
+      t.innerHTML = local(text);
+    }
+    done(t);
+  };
+
+  const toggle = (open: boolean) => {
+    panel.hidden = !open;
+    fab.setAttribute("aria-expanded", String(open));
+    if (open && !log.childElementCount) say("bot", "¡Hola! 👋 Soy el asistente de Data Academy. Elige una pregunta o escríbeme la tuya.");
+    if (open) form.q.focus(); else fab.focus();
+  };
+  fab.addEventListener("click", () => toggle(panel.hidden));
+  panel.querySelector(".chat-x")!.addEventListener("click", () => toggle(false));
+  panel.addEventListener("keydown", (e) => e.key === "Escape" && toggle(false));
+  panel.querySelectorAll<HTMLButtonElement>(".chat-chips button").forEach((b) =>
+    b.addEventListener("click", () => askLocal(faqs[+b.dataset.i!].q)),
+  );
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const text = form.q.value.trim();
+    if (text) { askAI(text); form.q.value = ""; }
+  });
+</script>
+
+<style>
+  .chat { position: fixed; right: 32px; bottom: 32px; z-index: 50; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+  .chat-fab { display: inline-flex; align-items: center; gap: 8px; padding: 14px 20px; border: 0; border-radius: 999px; background: var(--brand); color: #fff; font: 700 14px 'Inter', system-ui, sans-serif; cursor: pointer; box-shadow: 0 14px 30px -10px rgba(0, 163, 200, .65); transition: transform .2s; }
+  .chat-fab:hover { transform: translateY(-2px); }
+  .chat-panel { width: min(360px, calc(100vw - 32px)); max-height: min(560px, calc(100vh - 120px)); display: flex; flex-direction: column; border-radius: 24px; border: 1px solid var(--border-color); background: #fff; box-shadow: 0 26px 60px -20px rgba(11, 31, 58, .35); overflow: hidden; }
+  .chat-panel[hidden] { display: none; }
+  .chat-head { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--brand); color: #fff; }
+  .chat-head .da-logo-mark { background: rgba(255, 255, 255, .15); }
+  .grow { flex: 1; min-width: 0; }
+  .chat-head b { display: block; font-size: 14px; }
+  .status { font-size: 11px; opacity: .85; }
+  .chat-x { border: 0; background: transparent; color: #fff; font-size: 24px; line-height: 1; cursor: pointer; padding: 4px; }
+  .chat-log { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 8px; background: var(--bg-main); min-height: 160px; }
+  .chat-log :global(.msg) { max-width: 85%; padding: 10px 14px; border-radius: 16px; font-size: 14px; line-height: 1.5; }
+  .chat-log :global(.msg.bot) { white-space: pre-line; align-self: flex-start; background: #fff; border: 1px solid var(--border-color); color: var(--text-main); border-bottom-left-radius: 4px; }
+  .chat-log :global(.msg.me) { align-self: flex-end; background: var(--brand); color: #fff; border-bottom-right-radius: 4px; }
+  .chat-log :global(.msg a) { color: var(--accent-color); font-weight: 700; text-decoration: underline; }
+  .chat-log :global(.dots) { display: inline-flex; gap: 4px; }
+  .chat-log :global(.dots i) { width: 6px; height: 6px; border-radius: 50%; background: var(--text-muted); animation: chatdot 1s infinite; }
+  .chat-log :global(.dots i:nth-child(2)) { animation-delay: .15s; }
+  .chat-log :global(.dots i:nth-child(3)) { animation-delay: .3s; }
+  @keyframes chatdot { 50% { opacity: .3; transform: translateY(-2px); } }
+  .chat-chips { display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; border-top: 1px solid var(--border-color); }
+  .chat-chips button { display: flex; justify-content: space-between; align-items: center; gap: 8px; width: 100%; text-align: left; border: 1px solid var(--border-color); background: #fff; color: var(--text-main); border-radius: 12px; padding: 10px 14px; font: 600 13px 'Inter', system-ui, sans-serif; cursor: pointer; transition: border-color .2s, color .2s; }
+  .chat-chips button span { color: var(--accent-color); }
+  .chat-chips button:hover { border-color: var(--accent-color); color: var(--accent-color); }
+  .chat-form { display: flex; gap: 8px; padding: 0 12px 10px; }
+  .chat-form input { flex: 1; min-width: 0; border: 1px solid var(--border-color); border-radius: 999px; padding: 10px 14px; font: 14px 'Inter', system-ui, sans-serif; color: var(--text-main); }
+  .chat-form input:focus { outline: 2px solid var(--accent-color); outline-offset: 1px; }
+  .chat-form button { width: 40px; border: 0; border-radius: 50%; background: var(--brand); color: #fff; font-size: 16px; cursor: pointer; }
+  .chat-wa { display: block; padding: 10px; text-align: center; font-size: 11px; color: #1DA851; border-top: 1px solid var(--border-color); }
+  .chat-wa:hover { background: #f0fbf4; color: #1DA851; }
+  @media (max-width: 640px) {
+    .chat { right: 16px; bottom: 16px; }
+    .chat-fab { padding: 14px; }
+    .chat-fab span { display: none; }
+  }
+</style>

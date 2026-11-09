@@ -1,4 +1,5 @@
 ---
+import ChatBot from '../components/ChatBot.astro';
 export interface Props {
   title: string;
   description?: string;
@@ -73,6 +74,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     </div>
   </footer>
 
+  <ChatBot />
 
   <script is:inline src="/js/script.js"></script>
   <script is:inline>
