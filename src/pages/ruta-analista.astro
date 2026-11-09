@@ -5,7 +5,7 @@ import CtaBand from "../components/CtaBand.astro";
 import { WA, wa, PRICE, PREVENTA_FIN, spec, specCourses, teachers, companies, ecosystem, faq, pad } from "../data/academy";
 
 const off = Math.round((1 - PRICE.spec / PRICE.specRegular) * 100);
-const save = PRICE.course * 4 - PRICE.spec;
+const save = PRICE.courseRegular * 4 - PRICE.spec;
 const steps = [
   ["Inicio", "En vivo · hora Perú"],
   ...specCourses.map((c) => [c.name.replace(" for Data Analyst", ""), `${c.classes} clases · ${c.hours}`]),
@@ -41,7 +41,7 @@ const steps = [
         <div class="offer-body">
           <div class="offer-row"><span>Ruta completa · 4 cursos + proyecto</span><em>−{off}%</em></div>
           <div class="big">S/ {PRICE.spec} <s>S/ {PRICE.specRegular}</s></div>
-          <p>Preventa · ahorras S/ {save} frente a llevar los 4 cursos por separado.</p>
+          <p>Preventa · ahorras S/ {save} frente al precio regular de los 4 cursos.</p>
           <a href={wa(`Hola, quiero separar mi cupo en la ${spec.name}`)} target="_blank" rel="noopener" class="da-btn wide">Separar mi cupo →</a>
           <span class="limited"><span class="live-dot"></span>Cupos limitados</span>
         </div>

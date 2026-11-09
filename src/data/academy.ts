@@ -9,7 +9,7 @@ export const WA = wa();
 // ponytail: fecha de cierre de preventa fija; actualizar a mano en cada edición
 export const PREVENTA_FIN = "2026-11-11T23:59:00-05:00";
 
-export const PRICE = { course: 199, courseRegular: 299, spec: 897, specRegular: 1499, deposit: 100 };
+export const PRICE = { course: 199, courseRegular: 299, spec: 897, specRegular: 1499, deposit: 50 };
 
 export type Teacher = { id: string; name: string; tool: string; role: string; company: string; photo: string; bio: string; courses: string[]; zoom?: number; focus?: string };
 export const teachers: Teacher[] = [
@@ -89,7 +89,7 @@ export const ecosystem = [
 export const faq = [
   ["¿Cómo separo mi cupo?", `Escríbenos por WhatsApp y separas tu cupo con S/ ${PRICE.deposit}. El saldo lo cancelas hasta una semana antes de iniciar.`],
   ["¿Qué significa “preventa”?", `Es el precio especial desde S/ ${PRICE.course} por curso (en lugar de S/ ${PRICE.courseRegular}) para los primeros 10 cupos, y S/ ${PRICE.spec} por la especialización completa (antes S/ ${PRICE.specRegular}).`],
-  ["¿Las clases son grabadas o en vivo?", "Las clases son en vivo, con el docente resolviendo tus dudas en tiempo real mientras construyes tu proyecto."],
+  ["¿Las clases son grabadas o en vivo?", "Las clases son online y en vivo, con el docente resolviendo tus dudas en tiempo real mientras construyes tu proyecto."],
   ["¿Recibo certificado?", "Sí. Al completar el curso y su proyecto recibes el certificado oficial de Data Academy."],
   ["¿Necesito experiencia previa?", "No. La especialización empieza desde cero con Excel y avanza hasta Python. Cada curso también se puede llevar por separado."],
   ["¿Puedo llevar solo un curso?", `Sí. Cada curso se vende por separado desde S/ ${PRICE.course} en preventa. Si luego quieres la ruta completa, escríbenos.`],
