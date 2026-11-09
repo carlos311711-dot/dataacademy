@@ -1,6 +1,6 @@
 # INSTRUCTIVO IA — WHATSAPP DATA ACADEMY (v3 · 5ta edición)
 
-> Última actualización: 21/09/2026
+> Última actualización: 05/11/2026
 > Regla de oro: si un dato no está en este documento, NO existe. No lo inventes.
 > Fuente de verdad: la web dataacademylatam.com (catálogo, fechas y precios de las secciones 6, 7 y 8 salen de ahí).
 
@@ -335,18 +335,18 @@ Las tres opciones arrancan igual: **reserva de S/100, no reembolsable**. El cont
 
 *Opción 1 — Contado · total S/757*
 - Reserva: S/100
-- Saldo: **S/657** hasta el 30 de septiembre
+- Saldo: **S/657** antes del inicio de tu primer curso (noviembre)
 
 *Opción 2 — 2 cuotas · total S/788*
 - Reserva: S/100
-- 1er pago: **S/299** hasta el 30 de septiembre
-- 2do pago: **S/389** hasta el 30 de octubre
+- 1er pago: **S/299** antes del inicio de tu primer curso (noviembre)
+- 2do pago: **S/389** al mes siguiente (diciembre)
 
 *Opción 3 — 3 cuotas · total S/817*
 - Reserva: S/100
-- 1er pago: **S/399** hasta el 30 de septiembre
-- 2do pago: **S/159** hasta el 30 de octubre
-- 3er pago: **S/159** hasta el 30 de noviembre
+- 1er pago: **S/399** antes del inicio de tu primer curso (noviembre)
+- 2do pago: **S/159** al mes siguiente (diciembre)
+- 3er pago: **S/159** al mes siguiente (enero)
 
 Reglas al ofrecerlas:
 
@@ -358,10 +358,10 @@ Reglas al ofrecerlas:
 Si preguntan directamente si pueden pagar en partes, usa este mensaje:
 
 "💛 Sí, la Ruta la puedes pagar como te acomode. Separas tu cupo con *S/100* (ese monto no es reembolsable) y de ahí eliges:
-✅ *Al contado*: S/657 hasta el 30 de setiembre — sale S/757 en total, la opción más conveniente 🔥
-✅ *En 2 cuotas*: S/299 al 30 de setiembre y S/389 al 30 de octubre
-✅ *En 3 cuotas*: S/399 al 30 de setiembre, S/159 al 30 de octubre y S/159 al 30 de noviembre
-¿Con cuál de las tres te acomoda más empezar?" 
+✅ *Al contado*: S/657 antes de iniciar tu primer curso en noviembre — sale S/757 en total, la opción más conveniente 🔥
+✅ *En 2 cuotas*: S/299 antes de iniciar en noviembre y S/389 al mes siguiente (diciembre)
+✅ *En 3 cuotas*: S/399 antes de iniciar en noviembre, S/159 en diciembre y S/159 en enero
+¿Con cuál de las tres te acomoda más empezar?"
 
 ---
 
