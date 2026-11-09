@@ -1,943 +1,402 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SpecCard from "../components/SpecCard.astro";
+import CourseCard from "../components/CourseCard.astro";
+import TeacherCard from "../components/TeacherCard.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { WA, PRICE, spec, courses, teachers, stats, ecosystem, pad } from "../data/academy";
+
+const tools = [
+  ["Excel", "/img/formation/3Excel.png"],
+  ["SQL Server", "/img/formation/2sqlserver.png"],
+  ["Power BI", "/img/formation/4Powerbi.png"],
+  ["Python", "/img/formation/5Python.png"],
+  ["Power Automate", "/img/formation/8Autiamte.png"],
+  ["Databricks", "/img/formation/databrick2.png"],
+  ["Azure", "/img/formation/10AZURE.png"],
+  ["Google Cloud", "/img/formation/9GCP.png"],
+];
+
+const sqlStats = [
+  ["alumnos_formados", "+500", "93%"],
+  ["proyectos_desarrollados", "+15", "95%"],
+  ["filas_procesadas", "+50M", "90%"],
+  ["satisfaccion", "4.9/5", "98%"],
+];
+
+const projects = [
+  ["Dashboard básico Power BI", "Power BI", ["Power BI", "Power Query", "Excel"], "Dashboard introductorio para control y visualización de indicadores comerciales y de ventas.", "/img/projects/proyecto_powerbi_dashboard.png", "Power BI", "/cursos/powerbi"],
+  ["Análisis de RR.HH. – Rotación y desempeño", "SQL", ["SQL Server", "CTEs", "KPIs"], "Análisis de rotación y desempeño de personal con consultas SQL, CTEs y KPIs de RR.HH.", "/img/projects/sql_project.webp", "SQL for Data Analyst", "/cursos/sql"],
+  ["Automatización CRM + WhatsApp", "n8n", ["n8n", "HubSpot", "WhatsApp"], "Flujo n8n que conecta formularios web con HubSpot, WhatsApp y emails personalizados.", "/img/projects/proyecto_n8n_flow.webp", spec.name, spec.href],
+  ["Arquitectura Medallón Lakehouse", "Integrales", ["Data Lake", "SQL Server", "ETL"], "Capas bronze, silver y gold para calidad y consistencia del pipeline de datos.", "/img/projects/proyecto_medallon.png", spec.name, spec.href],
+  ["Proyecto Business Intelligence", "Power BI", ["Power BI", "DAX", "Modelo estrella"], "Tablero de control para análisis estratégico de ventas, control financiero y proyección de KPIs.", "/img/projects/proyecto_powerbi_bi.png", "Power BI", "/cursos/powerbi"],
+  ["Dashboard gerencial", "Integrales", ["Power BI", "SQL Server", "Storytelling"], "Panel ejecutivo con storytelling avanzado y análisis de rendimiento integral.", "/img/projects/proyecto_powerbi_hero.png", spec.name, spec.href],
+].map(([title, cat, tags, desc, img, course, href], i) => ({ id: `P-${pad(i + 1)}`, n: pad(i + 1), title, cat, tags: tags as string[], desc, img, course, href }));
+const tabs = ["Todos", "Power BI", "SQL", "n8n", "Integrales"];
+const SEL = 2;
+
+const process = [
+  ["Clase en vivo", "Aprendes con el docente en tiempo real."],
+  ["Práctica guiada", "Resuelves ejercicios con datos reales."],
+  ["Proyecto", "Construyes un entregable por curso."],
+  ["Presentación", "Expones tu análisis como en una empresa."],
+  ["Portafolio", "Sumas el proyecto a tu perfil."],
+  ["Certificado", "Te certificas con Data Academy."],
+];
+const d = (i: number, step = 0.07) => `--d:${(i * step).toFixed(2)}s`;
 ---
 
 <BaseLayout
   title="Data Academy | Power BI, SQL, Python y más"
-  description="Portafolio de proyectos y cursos en vivo de Data Academy. Aprende Power BI, SQL, Python, n8n y más."
+  description="Formación en vivo para Data Analysts en Perú y Latam: proyectos reales, certificación oficial y una ruta de 150 horas con Excel, SQL Server, Power BI y Python."
 >
   <!-- Hero -->
-  <header class="hero" id="inicio">
-    <div class="container hero-content">
-      <div class="hero-text fade-in">
-        <h1>
-          Domina tus datos con <span class="highlight">Data Academy</span>
+  <section class="hero-sec">
+    <div class="da-wrap hero-grid">
+      <div>
+        <a href={spec.href} class="hero-badge rv"><span class="live-dot"></span>{spec.name} · preventa abierta <span aria-hidden="true">→</span></a>
+        <div class="hero-eyebrow rv" style={d(1)}>Excel · SQL Server · Power BI · Python</div>
+        <h1 class="hero-h1 type rv" style={d(2)} aria-label="Domina Excel, SQL, Power BI y Python.">
+          <span class="ghost" aria-hidden="true">Domina<br /><span class="accent">Power BI.</span></span>
+          <span class="typed" aria-hidden="true" data-words="Excel.|SQL.|Power BI.|Python."><span>Domina</span><br /><span class="accent">Excel.</span><span class="h1-cursor"></span></span>
         </h1>
-        <p>
-          Clases en vivo, proyectos reales y certificación oficial. Dashboards,
-          pipelines y automatización para llevar tu carrera al siguiente nivel.
-        </p>
-        <div class="hero-buttons">
-          <a href="#proyectos" class="btn btn-primary"
-            >Ver Proyectos <i class="fas fa-arrow-right"></i></a
-          >
-          <a
-            href="https://api.whatsapp.com/send/?phone=51986575257&text=Hola%2C%20estoy%20interesado%20en%20capacitarme&type=phone_number&app_absent=0"
-            target="_blank"
-            class="btn btn-secondary btn-whatsapp"
-          >
-            <i class="fab fa-whatsapp"></i> Consultar
-          </a>
+        <p class="hero-p rv" style={d(3)}>Aprende las habilidades que más piden las empresas hoy, en clases en vivo y con proyectos reales.</p>
+        <div class="da-row rv" style={d(4)}>
+          <a href={WA} target="_blank" rel="noopener" class="da-btn">Hablar con Data Academy <span aria-hidden="true">→</span></a>
+          <a href="/cursos" class="da-btn da-btn-line">Ver cursos</a>
         </div>
-        <!-- Trust strip: social proof visible without scrolling -->
-        <div class="trust-strip">
-          <span class="trust-item"
-            ><i class="fas fa-users"></i> +500 alumnos</span
-          >
-          <span class="trust-item"
-            ><i class="fas fa-video"></i> Clases en vivo</span
-          >
-          <span class="trust-item"
-            ><i class="fas fa-certificate"></i> Certificación oficial</span
-          >
-          <span class="trust-item"><i class="fas fa-star"></i> 4.9 / 5</span>
+        <div class="explore rv" style={d(5)}>
+          <span>Explora:</span>
+          <a href={spec.href}>Data Analyst <em>Abierto</em></a>
+          {courses.slice(0, 4).map((c) => <a href={c.href}>{c.short}</a>)}
         </div>
       </div>
-      <div class="hero-carousel fade-in-up">
-        <div class="carousel-track-container">
-          <ul class="carousel-track">
-            <li class="carousel-slide active">
-              <picture>
-                <source
-                  srcset="/img/projects/sql_project.webp"
-                  type="image/webp"
-                />
-                <img
-                  src="/img/projects/sql_project.png"
-                  alt="SQL Database Analysis"
-                  fetchpriority="high"
-                />
-              </picture>
-              <div class="carousel-caption">
-                Proyectos SQL Server &amp; Modelado
+
+      <div class="hero-visual rv" style={d(2)}>
+        <div class="float-badge fb-top"><span class="fb-ico">✓</span><div><b>Certificado oficial</b><span>Data Academy · con proyecto</span></div></div>
+        <div class="sqlcard">
+          <div class="sql-bar">
+            <div class="row-tight"><span class="d"></span><span class="d"></span><span class="d on"></span><b>resultados.sql</b></div>
+            <span class="muted">5ta edición</span>
+          </div>
+          <pre class="sql"><span class="muted">-- lo que ya construimos juntos</span>
+<b>SELECT</b> métrica, valor
+<b>FROM</b> data_academy.alumnos;<span class="cursor"></span></pre>
+          {sqlStats.map(([key, value, w], i) => (
+            <div class="stat">
+              <span class="num">{pad(i + 1)}</span>
+              <div class="grow">
+                <div class="key">{key}</div>
+                <div class="bar"><div style={`width:${w};animation-delay:${0.6 + i * 0.12}s`}></div></div>
               </div>
-            </li>
-            <li class="carousel-slide">
-              <picture>
-                <img
-                  src="/img/projects/proyecto_powerbi_dashboard.png"
-                  alt="Dashboard Básico Power BI"
-                  loading="lazy"
-                />
-              </picture>
-              <div class="carousel-caption">Dashboard Básico Power BI</div>
-            </li>
-            <li class="carousel-slide">
-              <picture>
-                <img
-                  src="/img/projects/proyecto_powerbi_bi.png"
-                  alt="Proyecto Business Intelligence"
-                  loading="lazy"
-                />
-              </picture>
-              <div class="carousel-caption">Proyecto BI</div>
-            </li>
-            <li class="carousel-slide">
-              <picture>
-                <img
-                  src="/img/projects/proyecto_medallon.png"
-                  alt="Proyecto Medallón"
-                  loading="lazy"
-                />
-              </picture>
-              <div class="carousel-caption">Proyecto Medallón</div>
-            </li>
-            <li class="carousel-slide">
-              <picture>
-                <img
-                  src="/img/projects/proyecto_n8n_flow.webp"
-                  alt="Automatizaciones n8n"
-                  loading="lazy"
-                />
-              </picture>
-              <div class="carousel-caption">Proyecto n8n</div>
-            </li>
-            <li class="carousel-slide">
-              <picture>
-                <img
-                  src="/img/projects/proyecto_powerbi_hero.png"
-                  alt="Dashboard Power BI Avanzado"
-                  loading="lazy"
-                />
-              </picture>
-              <div class="carousel-caption">Power BI Avanzado</div>
-            </li>
-          </ul>
+              <span class="val">{value}</span>
+            </div>
+          ))}
+          <div class="sql-foot"><span>4 filas · 0.02 s</span></div>
         </div>
-        <button class="carousel-btn btn-prev" aria-label="Anterior slide"
-          ><i class="fas fa-chevron-left"></i></button
-        >
-        <button class="carousel-btn btn-next" aria-label="Siguiente slide"
-          ><i class="fas fa-chevron-right"></i></button
-        >
-        <div class="carousel-nav">
-          <button class="carousel-indicator active" aria-label="Ir a slide 1"
-          ></button>
-          <button class="carousel-indicator" aria-label="Ir a slide 2"></button>
-          <button class="carousel-indicator" aria-label="Ir a slide 3"></button>
-          <button class="carousel-indicator" aria-label="Ir a slide 4"></button>
-          <button class="carousel-indicator" aria-label="Ir a slide 5"></button>
-          <button class="carousel-indicator" aria-label="Ir a slide 6"></button>
-        </div>
+        <div class="float-badge fb-bottom"><span class="da-avatars">{teachers.map((t) => <img src={t.photo} alt="" />)}</span><div><b>Docentes en ejercicio</b><span>{teachers.slice(0, 3).map((t) => t.company).join(" · ")}</span></div></div>
       </div>
     </div>
-  </header>
-
-  <!-- Projects -->
-  <section class="projects section" id="proyectos">
-    <div class="container">
-      <div class="section-header text-center">
-        <h2>Proyectos Destacados</h2>
-        <p>
-          Dashboards interactivos, automatización de procesos y analítica de
-          bases de datos.
-        </p>
-      </div>
-      <div class="project-filters text-center fade-in">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="powerbi">Power BI</button>
-        <button class="filter-btn" data-filter="n8n">n8n / Automate</button>
-        <button class="filter-btn" data-filter="sql">SQL</button>
-        <button class="filter-btn" data-filter="integral">Integrales</button>
-      </div>
-      <div class="grid" id="projects-grid">
-        <article class="card fade-in-up" data-category="powerbi">
-          <div class="card-img-wrapper">
-            <picture
-              ><img
-                src="/img/projects/proyecto_powerbi_dashboard.png"
-                alt="Dashboard Básico Power BI"
-                loading="lazy"
-              /></picture
-            >
-            <div class="badge">Power BI</div>
-          </div>
-          <div class="card-content">
-            <h3>Dashboard Básico Power BI</h3>
-            <p>
-              Dashboard introductorio para control y visualización de
-              indicadores comerciales y de ventas.
-            </p>
-            <a
-              href="javascript:void(0)"
-              class="btn-link view-detail-btn"
-              data-project-id="p1"
-              >Ver Detalle <i class="fas fa-chevron-right"></i></a
-            >
-          </div>
-        </article>
-        <article
-          class="card fade-in-up"
-          data-category="sql"
-          style="transition-delay: 0.1s;"
-        >
-          <div class="card-img-wrapper">
-            <picture>
-              <source
-                srcset="/img/projects/sql_project.webp"
-                type="image/webp"
-              />
-              <img
-                src="/img/projects/sql_project.png"
-                alt="Análisis de RR.HH. SQL"
-                loading="lazy"
-              />
-            </picture>
-            <div class="badge">SQL</div>
-          </div>
-          <div class="card-content">
-            <h3>Análisis de RR.HH. - Rotación y Desempeño</h3>
-            <p>
-              Análisis en SQL Server para optimizar la retención y satisfacción
-              laboral en GreatPlaceToWork.
-            </p>
-            <a
-              href="javascript:void(0)"
-              class="btn-link view-detail-btn"
-              data-project-id="p2"
-              >Ver Detalle <i class="fas fa-chevron-right"></i></a
-            >
-          </div>
-        </article>
-        <article
-          class="card fade-in-up"
-          data-category="n8n"
-          style="transition-delay: 0.2s;"
-        >
-          <div class="card-img-wrapper">
-            <picture
-              ><img
-                src="/img/projects/proyecto_n8n_flow.webp"
-                alt="Automatización n8n"
-                loading="lazy"
-              /></picture
-            >
-            <div class="badge">n8n</div>
-          </div>
-          <div class="card-content">
-            <h3>Automatización CRM & WhatsApp</h3>
-            <p>
-              Flujo n8n que conecta formularios web con HubSpot, WhatsApp e
-              emails personalizados.
-            </p>
-            <a
-              href="javascript:void(0)"
-              class="btn-link view-detail-btn"
-              data-project-id="p3"
-              >Ver Detalle <i class="fas fa-chevron-right"></i></a
-            >
-          </div>
-        </article>
-        <article
-          class="card fade-in-up"
-          data-category="integral"
-          style="transition-delay: 0.3s;"
-        >
-          <div class="card-img-wrapper">
-            <picture
-              ><img
-                src="/img/projects/proyecto_medallon.png"
-                alt="Arquitectura de Medallón"
-                loading="lazy"
-              /></picture
-            >
-            <div class="badge">Integral</div>
-          </div>
-          <div class="card-content">
-            <h3>Arquitectura de Medallón Lakehouse</h3>
-            <p>
-              Capas Bronze, Silver y Oro para calidad y consistencia del
-              pipeline de datos.
-            </p>
-            <a
-              href="javascript:void(0)"
-              class="btn-link view-detail-btn"
-              data-project-id="p4"
-              >Ver Detalle <i class="fas fa-chevron-right"></i></a
-            >
-          </div>
-        </article>
-        <article
-          class="card fade-in-up"
-          data-category="powerbi"
-          style="transition-delay: 0.4s;"
-        >
-          <div class="card-img-wrapper">
-            <picture
-              ><img
-                src="/img/projects/proyecto_powerbi_bi.png"
-                alt="Proyecto BI"
-                loading="lazy"
-              /></picture
-            >
-            <div class="badge">Power BI</div>
-          </div>
-          <div class="card-content">
-            <h3>Proyecto Business Intelligence</h3>
-            <p>
-              Tablero de control para análisis estratégico de ventas, control
-              financiero y proyección de KPIs.
-            </p>
-            <a
-              href="javascript:void(0)"
-              class="btn-link view-detail-btn"
-              data-project-id="p5"
-              >Ver Detalle <i class="fas fa-chevron-right"></i></a
-            >
-          </div>
-        </article>
-        <article
-          class="card fade-in-up"
-          data-category="integral"
-          style="transition-delay: 0.5s;"
-        >
-          <div class="card-img-wrapper">
-            <picture
-              ><img
-                src="/img/projects/proyecto_powerbi_hero.png"
-                alt="Dashboard Gerencial Power BI"
-                loading="lazy"
-              /></picture
-            >
-            <div class="badge">Integral</div>
-          </div>
-          <div class="card-content">
-            <h3>Dashboard Gerencial Power BI</h3>
-            <p>
-              Panel ejecutivo con storytelling avanzado y análisis de
-              rendimiento integral.
-            </p>
-            <a
-              href="javascript:void(0)"
-              class="btn-link view-detail-btn"
-              data-project-id="p6"
-              >Ver Detalle <i class="fas fa-chevron-right"></i></a
-            >
-          </div>
-        </article>
+    <div class="da-wrap">
+      <div class="hero-stats">
+        {stats.map(([big, small], i) => <div class="rv" style={d(i)}><b>{big}</b><span>{small}</span></div>)}
       </div>
     </div>
   </section>
 
-  <!-- Formation -->
-  <section class="formation section" id="formacion">
-    <div class="container">
-      <div class="section-header text-center">
-        <h2>Cursos y Especializaciones</h2>
-        <p>Programas en vivo diseñados para acelerar tu carrera en datos.</p>
-      </div>
-      <div class="grid formation-grid">
-        <!-- Especialización 1: Data Analyst Junior -->
-        <div
-          class="course-card"
-          style="border: 1px solid var(--border-color); background: var(--card-bg); padding: 28px 24px;"
-        >
-          <div
-            class="course-tag"
-            style="background: rgba(0, 188, 212, 0.1); color: var(--accent-color); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; align-self: flex-start; border-radius: 20px; padding: 4px 12px;"
-          >
-            ESPECIALIZACIÓN COMPLETA
-          </div>
-          <h3
-            style="font-size: 1.4rem; font-weight: 800; color: var(--text-main); margin: 0 0 16px 0; text-align: left;"
-          >
-            Data Analyst
-          </h3>
-
-          <!-- Logos Row with white background pill -->
-          <div
-            class="sidebar-logos-row"
-            style="margin-bottom: 20px; display: flex; align-items: center; gap: 8px; background: var(--bg-light); padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border-color); justify-content: center;"
-          >
-            <img
-              src="/img/formation/3Excel.png"
-              alt="Excel"
-              style="width: 22px; height: 22px; object-fit: contain;"
-            />
-            <i
-              class="fas fa-chevron-right"
-              style="font-size: 0.6rem; color: var(--text-muted);"></i>
-            <img
-              src="/img/formation/2sqlserver.png"
-              alt="SQL Server"
-              style="width: 22px; height: 22px; object-fit: contain;"
-            />
-            <i
-              class="fas fa-chevron-right"
-              style="font-size: 0.6rem; color: var(--text-muted);"></i>
-            <img
-              src="/img/formation/4Powerbi.png"
-              alt="Power BI"
-              style="width: 22px; height: 22px; object-fit: contain;"
-            />
-            <i
-              class="fas fa-chevron-right"
-              style="font-size: 0.6rem; color: var(--text-muted);"></i>
-            <img
-              src="/img/formation/5Python.png"
-              alt="Python"
-              style="width: 22px; height: 22px; object-fit: contain;"
-            />
-          </div>
-
-          <!-- Metrics list -->
-          <ul
-            class="sidebar-metrics"
-            style="list-style: none !important; padding: 0 !important; margin: 0 0 20px 0 !important; display: flex; flex-direction: column; gap: 10px; text-align: left;"
-          >
-            <li
-              style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"
-            >
-              <i
-                class="fas fa-clock"
-                style="color: var(--accent-color); width: 14px; text-align: center;"
-              ></i>
-              <span><strong>150 Horas Académicas</strong></span>
-            </li>
-            <li
-              style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"
-            >
-              <i
-                class="fas fa-project-diagram"
-                style="color: var(--accent-color); width: 14px; text-align: center;"
-              ></i>
-              <span><strong>4 Proyectos + 1 Integrador</strong></span>
-            </li>
-            <li
-              style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"
-            >
-              <i
-                class="fas fa-certificate"
-                style="color: var(--accent-color); width: 14px; text-align: center;"
-              ></i>
-              <span><strong>Certificado Oficial</strong></span>
-            </li>
-            <li
-              style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"
-            >
-              <i
-                class="fas fa-gift"
-                style="color: var(--accent-color); width: 14px; text-align: center;"
-              ></i>
-              <span><strong>Bonos</strong>: CV Analista + Plan Financiero</span>
-            </li>
-          </ul>
-
-          <!-- Promo Box -->
-          <div
-            class="sidebar-promo-box"
-            style="background: linear-gradient(135deg, rgba(0, 188, 212, 0.04) 0%, rgba(37, 211, 102, 0.04) 100%); border: 1px solid rgba(0, 188, 212, 0.15); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 4px; margin-bottom: 20px; text-align: left; margin-top: auto;"
-          >
-            <span
-              class="promo-label"
-              style="font-size: 0.6rem; font-weight: 800; color: var(--accent-color); letter-spacing: 0.05em; text-transform: uppercase;"
-              >PREVENTA ESPECIAL</span
-            >
-            <p
-              class="promo-price"
-              style="font-size: 1.4rem; font-weight: 900; color: var(--text-main); margin: 0; display: flex; align-items: baseline; gap: 8px;"
-            >
-              S/ 897 <span
-                class="promo-old"
-                style="font-size: 0.85rem; font-weight: 500; color: var(--text-muted); text-decoration: line-through;"
-                >Antes: S/ 1499</span
-              >
-            </p>
-            <span
-              class="promo-note"
-              style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.3;"
-              >Separa con S/ 100 y cancela el saldo hasta una semana antes de
-              iniciar.</span
-            >
-          </div>
-
-          <a href="/ruta-analista?tab=junior" class="btn btn-primary course-cta"
-            >Ver Ruta Completa <i class="fas fa-arrow-right"></i></a
-          >
-        </div>
-
-        <div class="course-card">
-          <div class="course-logo">
-            <picture
-              ><img
-                src="/img/formation/2sqlserver.png"
-                alt="SQL Server"
-                class="course-tool-logo"
-                loading="lazy"
-              /></picture
-            >
-          </div>
-          <div class="course-tag">Curso en Vivo</div>
-          <h3>SQL for Data Analyst</h3>
-          <p class="course-desc">
-            Bases de datos relacionales, Transact SQL, joins y CTEs. Repaso y
-            prueba técnica real.
-          </p>
-          <ul class="course-features">
-            <li><i class="fas fa-check"></i> +30 horas de clases en vivo</li>
-            <li><i class="fas fa-check"></i> Repaso y prueba técnica real</li>
-            <li><i class="fas fa-check"></i> Certificación Oficial Gratis</li>
-          </ul>
-          <div class="course-price-teaser preventa-teaser">
-            <span class="preventa-teaser-badge"
-              ><i class="fas fa-fire"></i> Primeros 10 cupos</span
-            >
-            <span class="teaser-price-row">
-              <span class="price-old">S/ 299</span>
-              <span class="price-amount">S/ 199</span>
-              <span class="price-currency">PEN</span>
-            </span>
-            <div
-              style="font-size: 0.8rem; color: #10b981; font-weight: bold; margin-top: 4px;"
-            >
-              ¡Ahorra S/ 100!
-            </div>
-          </div>
-          <a href="/cursos/sql" class="btn btn-primary course-cta"
-            >Ver Detalles <i class="fas fa-arrow-right"></i></a
-          >
-        </div>
-
-        <div class="course-card">
-          <div class="course-logo">
-            <picture
-              ><img
-                src="/img/formation/4Powerbi.png"
-                alt="Power BI"
-                class="course-tool-logo"
-                loading="lazy"
-              /></picture
-            >
-          </div>
-          <div class="course-tag">Curso en Vivo</div>
-          <h3>Power BI for Data Analyst</h3>
-          <p class="course-desc">
-            Power Query, modelado en estrella, DAX y storytelling. Acceso de por
-            vida a grabaciones.
-          </p>
-          <ul class="course-features">
-            <li><i class="fas fa-check"></i> +30 horas de clases en vivo</li>
-            <li><i class="fas fa-check"></i> Storytelling y UX en tableros</li>
-            <li>
-              <i class="fas fa-check"></i> Acceso de por vida a grabaciones
-            </li>
-          </ul>
-          <div class="course-price-teaser preventa-teaser">
-            <span class="preventa-teaser-badge"
-              ><i class="fas fa-fire"></i> Primeros 10 cupos</span
-            >
-            <span class="teaser-price-row">
-              <span class="price-old">S/ 299</span>
-              <span class="price-amount">S/ 199</span>
-              <span class="price-currency">PEN</span>
-            </span>
-            <div
-              style="font-size: 0.8rem; color: #10b981; font-weight: bold; margin-top: 4px;"
-            >
-              ¡Ahorra S/ 100!
-            </div>
-          </div>
-          <a href="/cursos/powerbi" class="btn btn-primary course-cta"
-            >Ver Detalles <i class="fas fa-arrow-right"></i></a
-          >
-        </div>
-
-        <div class="course-card">
-          <div class="course-logo">
-            <picture
-              ><img
-                src="/img/formation/3Excel.png"
-                alt="Excel"
-                class="course-tool-logo"
-                loading="lazy"
-              /></picture
-            >
-          </div>
-          <div class="course-tag">Curso en Vivo</div>
-          <h3>Excel for Data Analyst</h3>
-          <p class="course-desc">
-            Power Query ETL, BUSCARX, tablas dinámicas con modelos de datos y
-            dashboards financieros.
-          </p>
-          <ul class="course-features">
-            <li><i class="fas fa-check"></i> +30 horas de clases en vivo</li>
-            <li>
-              <i class="fas fa-check"></i> Dashboard de finanzas personales
-            </li>
-            <li><i class="fas fa-check"></i> Certificación Oficial Gratis</li>
-          </ul>
-          <div class="course-price-teaser preventa-teaser">
-            <span class="preventa-teaser-badge"
-              ><i class="fas fa-fire"></i> Primeros 10 cupos</span
-            >
-            <span class="teaser-price-row">
-              <span class="price-old">S/ 299</span>
-              <span class="price-amount">S/ 199</span>
-              <span class="price-currency">PEN</span>
-            </span>
-            <div
-              style="font-size: 0.8rem; color: #10b981; font-weight: bold; margin-top: 4px;"
-            >
-              ¡Ahorra S/ 100!
-            </div>
-          </div>
-          <a href="/cursos/excel" class="btn btn-primary course-cta"
-            >Ver Detalles <i class="fas fa-arrow-right"></i></a
-          >
-        </div>
-
-        <div class="course-card">
-          <div class="course-logo">
-            <picture
-              ><img
-                src="/img/formation/5Python.png"
-                alt="Python"
-                class="course-tool-logo"
-                loading="lazy"
-              /></picture
-            >
-          </div>
-          <div class="course-tag">Curso en Vivo</div>
-          <h3>Python for Data Analyst</h3>
-          <p class="course-desc">
-            Pandas, Matplotlib, Seaborn y PySpark. Entornos profesionales con
-            Git/GitHub.
-          </p>
-          <ul class="course-features">
-            <li><i class="fas fa-check"></i> +30 horas de clases en vivo</li>
-            <li>
-              <i class="fas fa-check"></i> Entornos profesionales Git/GitHub
-            </li>
-            <li><i class="fas fa-check"></i> Certificación Oficial Gratis</li>
-          </ul>
-          <div class="course-price-teaser preventa-teaser">
-            <span class="preventa-teaser-badge"
-              ><i class="fas fa-fire"></i> Primeros 10 cupos</span
-            >
-            <span class="teaser-price-row">
-              <span class="price-old">S/ 299</span>
-              <span class="price-amount">S/ 199</span>
-              <span class="price-currency">PEN</span>
-            </span>
-            <div
-              style="font-size: 0.8rem; color: #10b981; font-weight: bold; margin-top: 4px;"
-            >
-              ¡Ahorra S/ 100!
-            </div>
-          </div>
-          <a href="/cursos/python" class="btn btn-primary course-cta"
-            >Ver Detalles <i class="fas fa-arrow-right"></i></a
-          >
-        </div>
-
-        <div class="course-card">
-          <div class="course-logo">
-            <picture
-              ><img
-                src="/img/formation/databrick2.png"
-                alt="Databricks Workshop"
-                class="course-tool-logo"
-                loading="lazy"
-                style="padding: 4px; background: white; border-radius: 8px;"
-              /></picture
-            >
-          </div>
-          <div class="course-tag">Curso en Vivo</div>
-          <h3>Workshop: Tu Primer Proyecto DA</h3>
-          <p class="course-desc">
-            Proyecto end-to-end con Python, Databricks, Power BI y Power
-            Automate.
-          </p>
-          <ul class="course-features">
-            <li><i class="fas fa-check"></i> 15 horas académicas en vivo</li>
-            <li><i class="fas fa-check"></i> Proyecto real 100% práctico</li>
-            <li><i class="fas fa-check"></i> Creación de Portafolio</li>
-          </ul>
-          <div class="course-price-teaser preventa-teaser">
-            <span class="preventa-teaser-badge"
-              ><i class="fas fa-fire"></i> Primeros 10 cupos</span
-            >
-            <span class="teaser-price-row">
-              <span class="price-old">S/ 299</span>
-              <span class="price-amount">S/ 149</span>
-              <span class="price-currency">PEN</span>
-            </span>
-            <div
-              style="font-size: 0.8rem; color: #10b981; font-weight: bold; margin-top: 4px;"
-            >
-              ¡Ahorra S/ 150!
-            </div>
-          </div>
-          <a
-            href="/cursos/workshop-data-analyst"
-            class="btn btn-primary course-cta"
-            >Ver Detalles <i class="fas fa-arrow-right"></i></a
-          >
-        </div>
-
-        <div class="course-card">
-          <div class="course-logo">
-            <picture
-              ><img
-                src="/img/formation/8Autiamte.png"
-                alt="Power Automate"
-                class="course-tool-logo"
-                loading="lazy"
-              /></picture
-            >
-          </div>
-          <div class="course-tag">Curso en Vivo</div>
-          <h3>Power Automate for Data Analyst</h3>
-          <p class="course-desc">
-            Automatiza el refresco de tus reportes, la consolidación de Excel
-            desde correos y las alertas de negocio.
-          </p>
-          <ul class="course-features">
-            <li><i class="fas fa-check"></i> 4 sesiones en vivo (12 horas)</li>
-            <li>
-              <i class="fas fa-check"></i> Integración con Power BI, Excel y SQL
-            </li>
-            <li>
-              <i class="fas fa-check"></i> Flujo end-to-end para tu portafolio
-            </li>
-          </ul>
-          <div class="course-price-teaser preventa-teaser">
-            <span class="preventa-teaser-badge"
-              ><i class="fas fa-fire"></i> Primeros 10 cupos</span
-            >
-            <span class="teaser-price-row">
-              <span class="price-old">S/ 299</span>
-              <span class="price-amount">S/ 129</span>
-              <span class="price-currency">PEN</span>
-            </span>
-            <div
-              style="font-size: 0.8rem; color: #10b981; font-weight: bold; margin-top: 4px;"
-            >
-              ¡Ahorra S/ 170!
-            </div>
-          </div>
-          <a href="/cursos/power-automate" class="btn btn-primary course-cta"
-            >Ver Detalles <i class="fas fa-arrow-right"></i></a
-          >
-        </div>
-
-        <!-- Especialización 2: Data Analyst Avanzado -->
-        <div
-          class="course-card"
-          style="border: 1px dashed var(--border-color); background: var(--card-bg); padding: 28px 24px; opacity: 0.75; position: relative;"
-        >
-          <div
-            style="display: flex; gap: 8px; margin-bottom: 12px; align-self: flex-start; flex-wrap: wrap;"
-          >
-            <div
-              class="course-tag"
-              style="background: rgba(0, 188, 212, 0.1); color: var(--accent-color); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 20px; padding: 4px 12px;"
-            >
-              ESPECIALIZACIÓN COMPLETA
-            </div>
-            <div
-              class="course-tag"
-              style="background: rgba(255, 152, 0, 0.15); color: #ff9800; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 20px; padding: 4px 12px;"
-            >
-              PRÓXIMAMENTE
-            </div>
-          </div>
-          <h3
-            style="font-size: 1.4rem; font-weight: 800; color: var(--text-main); margin: 0 0 16px 0; text-align: left;"
-          >
-            Data Analyst Avanzado
-          </h3>
-
-          <!-- Logos Row with white background pill -->
-          <div
-            class="sidebar-logos-row"
-            style="margin-bottom: 20px; display: flex; align-items: center; gap: 6px; background: var(--bg-light); padding: 8px 6px; border-radius: 8px; border: 1px solid var(--border-color); justify-content: center; flex-wrap: wrap;"
-          >
-            <img
-              src="/img/formation/2sqlserver.png"
-              alt="SQL Server"
-              style="width: 18px; height: 18px; object-fit: contain;"
-            />
-            <i
-              class="fas fa-chevron-right"
-              style="font-size: 0.5rem; color: var(--text-muted);"></i>
-            <img
-              src="/img/formation/5Python.png"
-              alt="Python"
-              style="width: 18px; height: 18px; object-fit: contain;"
-            />
-            <i
-              class="fas fa-chevron-right"
-              style="font-size: 0.5rem; color: var(--text-muted);"></i>
-            <img
-              src="/img/formation/4Powerbi.png"
-              alt="Power BI"
-              style="width: 18px; height: 18px; object-fit: contain;"
-            />
-            <i
-              class="fas fa-chevron-right"
-              style="font-size: 0.5rem; color: var(--text-muted);"></i>
-            <img
-              src="/img/formation/9GCP.png"
-              alt="GCP"
-              style="width: 18px; height: 18px; object-fit: contain;"
-            />
-            <i
-              class="fas fa-chevron-right"
-              style="font-size: 0.5rem; color: var(--text-muted);"></i>
-            <img
-              src="/img/formation/10AZURE.png"
-              alt="Azure"
-              style="width: 18px; height: 18px; object-fit: contain;"
-            />
-            <i
-              class="fas fa-chevron-right"
-              style="font-size: 0.5rem; color: var(--text-muted);"></i>
-            <img
-              src="/img/formation/6n8n.png"
-              alt="n8n"
-              style="width: 18px; height: 18px; object-fit: contain;"
-            />
-          </div>
-
-          <!-- Metrics list -->
-          <ul
-            class="sidebar-metrics"
-            style="list-style: none !important; padding: 0 !important; margin: 0 0 20px 0 !important; display: flex; flex-direction: column; gap: 10px; text-align: left;"
-          >
-            <li
-              style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"
-            >
-              <i
-                class="fas fa-clock"
-                style="color: var(--accent-color); width: 14px; text-align: center;"
-              ></i>
-              <span><strong>150 Horas Académicas</strong></span>
-            </li>
-            <li
-              style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"
-            >
-              <i
-                class="fas fa-project-diagram"
-                style="color: var(--accent-color); width: 14px; text-align: center;"
-              ></i>
-              <span><strong>4 Proyectos + 1 Integrador</strong></span>
-            </li>
-            <li
-              style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"
-            >
-              <i
-                class="fas fa-certificate"
-                style="color: var(--accent-color); width: 14px; text-align: center;"
-              ></i>
-              <span><strong>Certificado Oficial</strong> (A4)</span>
-            </li>
-            <li
-              style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted);"
-            >
-              <i
-                class="fas fa-gift"
-                style="color: var(--accent-color); width: 14px; text-align: center;"
-              ></i>
-              <span><strong>Bonos</strong>: CV Senior + Guía Cloud</span>
-            </li>
-          </ul>
-
-          <!-- Promo Box: Próximamente -->
-          <div
-            class="sidebar-promo-box"
-            style="background: rgba(120, 120, 120, 0.05); border: 1px dashed var(--border-color); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 4px; margin-bottom: 20px; text-align: center; margin-top: auto; justify-content: center; min-height: 104px;"
-          >
-            <span
-              style="font-size: 0.85rem; font-weight: 800; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase;"
-              >Próximamente</span
-            >
-            <span
-              style="font-size: 0.7rem; color: var(--text-muted); line-height: 1.3;"
-              >Estamos preparando los últimos detalles de este programa.</span
-            >
-          </div>
-
-          <button
-            class="btn btn-secondary course-cta"
-            style="width: 100%; cursor: not-allowed; opacity: 0.6; pointer-events: none;"
-            disabled
-            >Ver Ruta Completa <i class="fas fa-lock" style="margin-left: 6px;"
-            ></i></button
-          >
-        </div>
+  <!-- Herramientas -->
+  <section class="tools-band" aria-label="Herramientas que dominarás">
+    <div class="tools-title">Herramientas que dominarás</div>
+    <div class="marquee">
+      <div class="marquee-track">
+        {[...tools, ...tools].map(([name, logo], i) => (
+          <span class="tool-item" aria-hidden={i >= tools.length ? "true" : undefined}><img src={logo} alt="" />{name}</span>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Stats — standalone section (was incorrectly nested in formation) -->
-  <section class="stats-section bg-light">
-    <div class="container">
-      <div class="grid stats-grid">
-        <div class="stat-item fade-in">
-          <i class="fas fa-users"></i>
-          <h3>+500</h3>
-          <p>Alumnos Formados</p>
-        </div>
-        <div class="stat-item fade-in" style="transition-delay: 0.1s;">
-          <i class="fas fa-project-diagram"></i>
-          <h3>+15</h3>
-          <p>Proyectos Desarrollados</p>
-        </div>
-        <div class="stat-item fade-in" style="transition-delay: 0.2s;">
-          <i class="fas fa-database"></i>
-          <h3>+50M</h3>
-          <p>Filas Procesadas</p>
-        </div>
-        <div class="stat-item fade-in" style="transition-delay: 0.3s;">
-          <i class="fas fa-star"></i>
-          <h3>4.9/5</h3>
-          <p>Satisfacción</p>
-        </div>
+  <!-- Dos caminos -->
+  <section class="paths da-wrap">
+    <a href="/cursos" class="path rv">
+      <span class="path-tag">Para empezar</span>
+      <h3>Cursos individuales</h3>
+      <p>Una herramienta a la vez: Excel, SQL, Power BI, Python o Power Automate. Desde S/ {PRICE.course} en preventa.</p>
+      <span class="da-link">Ver cursos <span aria-hidden="true">→</span></span>
+      <svg class="path-art" viewBox="0 0 80 80" aria-hidden="true"><circle cx="46" cy="40" r="32" fill="#E6F0FB" /><path d="M10 66 32 46l12 8 26-30" fill="none" stroke="#1E52C0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /><circle cx="70" cy="24" r="4" fill="#00A3C8" /></svg>
+    </a>
+    <a href={spec.href} class="path dark rv" style={d(1)}>
+      <span class="path-tag">Ruta completa</span>
+      <h3>{spec.name}</h3>
+      <p>4 cursos + proyecto integrador. {spec.hours} en vivo por S/ {PRICE.spec} en preventa.</p>
+      <span class="da-link">Ver la especialización <span aria-hidden="true">→</span></span>
+      <svg class="path-art" viewBox="0 0 80 80" aria-hidden="true"><circle cx="46" cy="40" r="32" fill="rgba(255,255,255,.08)" /><rect x="22" y="44" width="9" height="22" rx="2" fill="#5DD8E8" opacity=".6" /><rect x="36" y="32" width="9" height="34" rx="2" fill="#5DD8E8" opacity=".8" /><rect x="50" y="18" width="9" height="48" rx="2" fill="#5DD8E8" /></svg>
+    </a>
+  </section>
+
+  <!-- 01 Formación -->
+  <section id="formacion" class="da-sec">
+    <div class="da-wrap">
+      <span class="da-kicker rv">01 · Formación especializada</span>
+      <h2 class="da-h2 rv" style={d(1)}>Domina los datos. <span class="da-pill">Elige tu ruta.</span></h2>
+      <p class="da-lead rv" style={d(2)}>Cursos 100% en vivo, con proyectos sobre datos reales de negocio.</p>
+      <div class="mt"><SpecCard /></div>
+      <div class="course-grid">
+        {courses.slice(1, 4).map((c, i) => <CourseCard course={c} index={i} />)}
       </div>
+      <div class="center rv"><a href="/cursos" class="da-link">Ver los {courses.length} cursos <span aria-hidden="true">→</span></a></div>
     </div>
   </section>
 
-  <!-- Project Modal -->
-  <div id="project-modal" class="modal">
-    <div class="modal-content">
-      <span class="modal-close">&times;</span>
-      <div class="modal-grid">
-        <div class="modal-image-side">
-          <picture>
-            <source id="modal-project-img-webp" srcset="" type="image/webp" />
-            <img
-              id="modal-project-img"
-              src=""
-              alt="Vista previa del proyecto"
-            />
-          </picture>
+  <!-- 02 Portafolio -->
+  <section id="portafolio" class="da-sec soft">
+    <div class="da-wrap">
+      <div class="da-head">
+        <div>
+          <span class="da-kicker rv">02 · Portafolio real</span>
+          <h2 class="da-h2 rv" style={d(1)}>No solo aprendes. <span class="da-pill">Construyes.</span></h2>
+          <p class="da-lead rv" style={d(2)}>Proyectos que muestras en tu próxima entrevista.</p>
         </div>
-        <div class="modal-info-side">
-          <span id="modal-project-badge" class="badge-modal"></span>
-          <h2 id="modal-project-title"></h2>
-          <p id="modal-project-desc"></p>
-          <div class="modal-meta">
-            <h4>Herramientas utilizadas:</h4>
-            <div id="modal-project-tools" class="tools-tags"></div>
-          </div>
-          <div class="modal-cta-container">
-            <button id="modal-course-link-btn" class="btn btn-primary">
-              Ver Curso Relacionado <i class="fas fa-graduation-cap"></i>
+        <div class="tabs rv" style={d(2)} role="tablist">
+          {tabs.map((t, i) => <button type="button" class:list={["tab", { on: i === 0 }]} data-tab={t}>{t}</button>)}
+        </div>
+      </div>
+      <div class="port-grid">
+        <div class="port-list rv">
+          {projects.map((p, i) => (
+            <button type="button" class:list={["proj", { on: i === SEL }]} data-id={p.id} data-cat={p.cat}>
+              <span class="proj-n">{p.n}</span>
+              <span class="grow"><b>{p.title}</b><span class="meta">{p.tags.join(" · ")}</span></span>
+              <span class="arrow" aria-hidden="true">→</span>
             </button>
-          </div>
+          ))}
+        </div>
+        <div class="port-detail rv" style={d(1)}>
+          {projects.map((p, i) => (
+            <article data-id={p.id} hidden={i !== SEL}>
+              <div class="shot"><img src={p.img} alt={p.title} loading="lazy" /></div>
+              <div class="detail-top"><b>{p.id}</b><span>{p.cat}</span></div>
+              <h3>{p.title}</h3>
+              <p>{p.desc}</p>
+              <a href={p.href} class="da-link">Lo haces en {p.course} <span aria-hidden="true">→</span></a>
+            </article>
+          ))}
         </div>
       </div>
+
+      <div class="process-head rv">
+        <h3>De la clase a tu portafolio.</h3>
+        <span>Así trabajamos en cada curso</span>
+      </div>
+      <ol class="process">
+        {process.map(([t, s], i) => <li class:list={["rv", { last: i === process.length - 1 }]} style={d(i, 0.1)}><span class="pn">{pad(i + 1)}</span><b>{t}</b><span>{s}</span></li>)}
+      </ol>
+
+      <div class="eco rv">
+        <div><h3>Las herramientas cambian.<br />El criterio permanece.</h3><span>Ecosistema que usarás</span></div>
+        {ecosystem.map(([cat, items]) => <div><h4>{cat}</h4><div class="eco-chips">{items.map((x) => <span>{x}</span>)}</div></div>)}
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- 03 Docentes -->
+  <section id="docentes" class="da-sec">
+    <div class="da-wrap">
+      <span class="da-kicker rv">03 · Nuestro equipo</span>
+      <h2 class="da-h2 rv" style={d(1)}>Aprende de quienes <span class="da-pill">trabajan con datos.</span></h2>
+      <p class="da-lead rv" style={d(2)}>Cada curso lo dictan profesionales en ejercicio en empresas peruanas.</p>
+      <a href="/profesores" class="da-link rv" style={`margin-top:16px;${d(3)}`}>Conoce a todo el equipo <span aria-hidden="true">→</span></a>
+      <div class="teach-grid">
+        {teachers.map((t, i) => <TeacherCard teacher={t} index={i} />)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
 </BaseLayout>
+
+<script>
+  // Titular con efecto de escritura (sin JS o con reduced-motion se ve completo)
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const typed = document.querySelector<HTMLElement>(".typed")!;
+    const [head, tail] = typed.querySelectorAll<HTMLElement>("span:not(.h1-cursor)");
+    const prefix = head.textContent ?? "";
+    const words = typed.dataset.words!.split("|");
+    head.textContent = tail.textContent = "";
+    const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
+    (async () => {
+      await wait(500);
+      for (let c = 1; c <= prefix.length; c++) { head.textContent = prefix.slice(0, c); await wait(55); }
+      for (let w = 0; ; w = (w + 1) % words.length) {
+        const word = words[w];
+        for (let c = 1; c <= word.length; c++) { tail.textContent = word.slice(0, c); await wait(70); }
+        await wait(1800);
+        for (let c = word.length; c >= 0; c--) { tail.textContent = word.slice(0, c); await wait(90); }
+        await wait(250);
+      }
+    })();
+  }
+
+  // Portafolio: pestañas + selección
+  const projs = [...document.querySelectorAll<HTMLButtonElement>(".proj")];
+  const details = [...document.querySelectorAll<HTMLElement>(".port-detail article")];
+  const select = (id: string) => {
+    projs.forEach((b) => b.classList.toggle("on", b.dataset.id === id));
+    details.forEach((d) => (d.hidden = d.dataset.id !== id));
+  };
+  projs.forEach((b) => b.addEventListener("click", () => select(b.dataset.id!)));
+  document.querySelectorAll<HTMLButtonElement>(".tab").forEach((t, _, all) =>
+    t.addEventListener("click", () => {
+      all.forEach((x) => x.classList.toggle("on", x === t));
+      const vis = projs.filter((b) => (b.hidden = !(t.dataset.tab === "Todos" || b.dataset.cat === t.dataset.tab), !b.hidden));
+      if (!vis.some((b) => b.classList.contains("on"))) select(vis[0].dataset.id!);
+    }),
+  );
+</script>
+
+<style>
+  .grow { flex: 1; min-width: 0; }
+  .row-tight { display: flex; align-items: center; gap: 8px; }
+  .muted { color: var(--text-muted); }
+  .mt { margin-top: 44px; }
+  .center { margin-top: 28px; text-align: center; }
+
+  /* Hero */
+  .hero-sec { position: relative; overflow: hidden; color: #fff; background:
+      radial-gradient(900px 620px at 85% 10%, rgba(30, 82, 192, .5), transparent 62%),
+      radial-gradient(700px 520px at 60% 110%, rgba(0, 163, 200, .25), transparent 62%),
+      var(--navy); }
+  .hero-sec::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .04) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse at 70% 30%, #000 20%, transparent 75%); pointer-events: none; }
+  .hero-grid { position: relative; padding-top: 64px; padding-bottom: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 56px; align-items: center; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .14); background: rgba(255, 255, 255, .05); font-size: 13px; font-weight: 600; color: #fff; }
+  .hero-badge:hover { border-color: rgba(255, 255, 255, .35); color: #fff; }
+  .hero-eyebrow { margin-top: 26px; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: rgba(255, 255, 255, .55); }
+  .hero-h1 { margin: 14px 0 0; font-family: var(--font-display); font-weight: 800; font-size: clamp(3rem, 6.2vw, 5rem); line-height: 1.02; letter-spacing: -.035em; color: #fff; }
+  .type { display: grid; }
+  .type > span { grid-area: 1 / 1; }
+  .ghost { visibility: hidden; }
+  .accent { color: #5DD8E8; }
+  .h1-cursor { display: inline-block; width: .07em; height: .8em; margin-left: .06em; background: #5DD8E8; vertical-align: -.05em; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .hero-p { margin: 22px 0 0; max-width: 480px; font-size: 17px; line-height: 1.6; color: rgba(255, 255, 255, .72); }
+  .explore { margin-top: 26px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 12px; color: rgba(255, 255, 255, .55); }
+  .explore a { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .14); color: #fff; font-weight: 600; transition: border-color .25s, background .25s; }
+  .explore a:hover { border-color: rgba(255, 255, 255, .4); background: rgba(255, 255, 255, .05); color: #fff; }
+  .explore em { font-style: normal; font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 1px 6px; border-radius: 999px; background: #5DD8E8; color: var(--navy); }
+
+  .hero-visual { position: relative; padding: 46px 0 22px; }
+  .sqlcard { border-radius: 20px; background: #fff; color: var(--text-main); overflow: hidden; box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .6); }
+  .sql-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 18px; border-bottom: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 12px; }
+  .sql-bar b { margin-left: 8px; }
+  .d { width: 10px; height: 10px; border-radius: 50%; background: var(--border-color); }
+  .d.on { background: var(--accent-color); }
+  .sql { margin: 0; padding: 18px; border-bottom: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 13px; line-height: 24px; white-space: pre-wrap; background: var(--bg-light); }
+  .sql b { color: var(--accent-color); }
+  .cursor { display: inline-block; width: 8px; height: 16px; margin-left: 2px; transform: translateY(3px); background: var(--accent-color); animation: blink 1s steps(1) infinite; }
+  .stat { display: flex; align-items: center; gap: 16px; padding: 14px 18px; border-bottom: 1px solid var(--border-color); }
+  .sql-foot { display: flex; justify-content: flex-end; padding: 0 18px; height: 50px; align-items: center; background: var(--bg-light); font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
+  .num { font-family: var(--font-mono); font-size: 12px; color: var(--accent-color); }
+  .key { font-family: var(--font-mono); font-size: 12px; }
+  .bar { margin-top: 8px; height: 6px; border-radius: 999px; background: var(--bg-light); overflow: hidden; }
+  .bar div { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #1E52C0, var(--accent-color)); transform-origin: left; animation: grow 1.2s var(--ease) both; }
+  .val { font-family: var(--font-display); font-weight: 800; font-size: 22px; letter-spacing: -.02em; }
+  .float-badge { position: absolute; z-index: 2; display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 14px; background: #fff; color: var(--text-main); box-shadow: 0 18px 40px -16px rgba(0, 0, 0, .45); animation: flo 5s ease-in-out infinite; }
+  .float-badge b { display: block; font-size: 13px; }
+  .float-badge > div > span { display: block; font-size: 11px; color: var(--text-muted); }
+  .fb-top { top: -4px; right: -12px; }
+  .fb-bottom { bottom: 0; left: -16px; animation-delay: -2.5s; }
+  .fb-ico { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 8px; background: var(--navy); color: #5DD8E8; font-weight: 800; }
+  .hero-stats { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); padding: 28px 0 40px; border-top: 1px solid rgba(255, 255, 255, .1); }
+  .hero-stats div { padding: 0 24px; border-left: 1px solid rgba(255, 255, 255, .12); }
+  .hero-stats div:first-child { padding-left: 0; border-left: 0; }
+  .hero-stats b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 30px; letter-spacing: -.02em; }
+  .hero-stats span { font-size: 13px; color: rgba(255, 255, 255, .6); }
+
+  /* Marquee */
+  .tools-band { padding: 28px 0 32px; border-bottom: 1px solid var(--border-color); text-align: center; }
+  .tools-title { font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--text-muted); }
+  .marquee { margin-top: 20px; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+  .marquee-track { display: flex; gap: 56px; width: max-content; animation: mq 32s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .tool-item { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
+  .tool-item img { width: 30px; height: 30px; object-fit: contain; }
+
+  /* Dos caminos */
+  .paths { margin-top: 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 20px; }
+  .path { position: relative; overflow: hidden; padding: 30px 32px; border-radius: 22px; border: 1px solid var(--border-color); background: linear-gradient(135deg, #F7FAFE, #fff); color: var(--text-main); transition: transform .35s var(--ease), box-shadow .35s var(--ease), opacity .8s var(--ease) var(--d, 0s), translate .8s var(--ease) var(--d, 0s); }
+  .path:hover { transform: translateY(-4px); box-shadow: 0 30px 60px -30px rgba(6, 14, 42, .3); color: var(--text-main); }
+  .path.dark { border-color: transparent; color: #fff; background: radial-gradient(400px 300px at 100% 0%, rgba(30, 82, 192, .6), transparent 60%), linear-gradient(135deg, #0F1E52, var(--navy)); }
+  .path.dark:hover { color: #fff; }
+  .path-tag { display: inline-block; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border-color); font-size: 10.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--primary-color); background: #fff; }
+  .path.dark .path-tag { border-color: rgba(93, 216, 232, .3); background: rgba(93, 216, 232, .1); color: #5DD8E8; }
+  .path h3 { margin: 18px 0 0; max-width: 70%; font-family: var(--font-display); font-weight: 800; font-size: 26px; letter-spacing: -.02em; }
+  .path p { margin: 8px 0 0; max-width: 72%; font-size: 15px; line-height: 1.55; color: var(--text-muted); }
+  .path.dark p { color: rgba(255, 255, 255, .7); }
+  .path .da-link { margin-top: 16px; }
+  .path.dark .da-link { color: #5DD8E8; }
+  .path-art { position: absolute; right: 20px; top: 50%; width: 84px; height: 84px; margin-top: -42px; transition: transform .5s var(--ease); }
+  .path:hover .path-art { transform: scale(1.08) rotate(-4deg); }
+
+  .course-grid { margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 20px; }
+
+  /* Portafolio */
+  .tabs { display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px; background: #fff; border: 1px solid var(--border-color); }
+  .tab { border: 0; cursor: pointer; border-radius: 999px; padding: 8px 16px; background: transparent; color: var(--text-muted); font: 600 13px 'Inter', system-ui, sans-serif; transition: background .25s, color .25s; }
+  .tab.on { background: var(--navy); color: #fff; }
+  .port-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: 32px; align-items: start; }
+  .proj { width: 100%; display: flex; align-items: center; gap: 16px; padding: 18px 8px; border: 0; border-bottom: 1px solid var(--border-color); background: transparent; cursor: pointer; text-align: left; font: inherit; color: var(--text-main); }
+  .proj > span:not(.arrow) { transition: translate .3s var(--ease); }
+  .proj:hover > span:not(.arrow) { translate: 6px 0; }
+  .proj[hidden] { display: none; }
+  .proj-n { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); }
+  .proj b { display: block; font-size: 16px; }
+  .meta { display: block; margin-top: 2px; font-size: 13px; color: var(--text-muted); }
+  .arrow { flex-shrink: 0; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--border-color); color: var(--text-muted); transition: background .3s, color .3s, border-color .3s; }
+  .proj.on .proj-n { color: var(--accent-color); }
+  .proj.on .arrow { background: var(--navy); border-color: var(--navy); color: #fff; }
+  .port-detail article { animation: fadeUp .5s var(--ease); }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } }
+  .shot { aspect-ratio: 16 / 10; border-radius: 20px; background: var(--navy); overflow: hidden; box-shadow: 0 30px 60px -30px rgba(6, 14, 42, .4); }
+  .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .detail-top { margin-top: 20px; display: flex; gap: 12px; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); }
+  .detail-top b { color: var(--accent-color); }
+  .port-detail h3 { margin: 8px 0 0; font-family: var(--font-display); font-weight: 800; font-size: 26px; letter-spacing: -.02em; }
+  .port-detail p { margin: 8px 0 16px; font-size: 16px; line-height: 1.6; }
+
+  .process-head { margin-top: 80px; display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; justify-content: space-between; }
+  .process-head h3 { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: 26px; letter-spacing: -.02em; }
+  .process-head span { font-size: 14px; color: var(--text-muted); }
+  .process { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+  .process li { position: relative; display: flex; flex-direction: column; gap: 4px; padding-top: 52px; }
+  .process li::before { content: ""; position: absolute; left: 36px; right: -12px; top: 17px; height: 2px; background: linear-gradient(90deg, #1E52C0, var(--accent-color)); transform-origin: left; transform: scaleX(0); transition: transform .9s var(--ease) calc(var(--d, 0s) + .2s); }
+  .process li.in::before { transform: scaleX(1); }
+  .process li.last::before { display: none; }
+  .pn { position: absolute; top: 0; left: 0; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; border: 2px solid #1E52C0; background: #fff; font-size: 12px; font-weight: 800; color: #1E52C0; }
+  .process li.last .pn { background: var(--accent-color); border-color: var(--accent-color); color: #fff; box-shadow: 0 0 0 6px rgba(0, 163, 200, .15); }
+  .process b { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+  .process li > span:last-child { font-size: 13px; line-height: 1.45; color: var(--text-muted); }
+  .eco { margin-top: 48px; display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 24px; padding: 28px; border-radius: 22px; border: 1px solid var(--border-color); background: #fff; }
+  .eco h3 { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: 20px; line-height: 1.2; }
+  .eco > div:first-child > span { display: block; margin-top: 6px; font-size: 13px; color: var(--text-muted); }
+  .eco h4 { margin: 0 0 10px; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); }
+  .eco-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .eco-chips span { padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border-color); font-size: 12.5px; font-weight: 600; transition: border-color .25s, color .25s; }
+  .eco-chips span:hover { border-color: var(--accent-color); color: var(--accent-color); }
+
+  .teach-grid { margin-top: 36px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 18px; }
+
+  @media (max-width: 900px) {
+    .process { grid-template-columns: repeat(3, 1fr); row-gap: 28px; }
+    .process li:nth-child(3)::before { display: none; }
+    .eco { grid-template-columns: 1fr 1fr; }
+    .eco > div:first-child { grid-column: 1 / -1; }
+  }
+  @media (max-width: 640px) {
+    .fb-top { right: 0; }
+    .fb-bottom { left: 0; }
+    .hero-stats { grid-template-columns: 1fr 1fr; row-gap: 20px; }
+    .hero-stats div:nth-child(3) { padding-left: 0; border-left: 0; }
+    .path h3, .path p { max-width: 100%; }
+    .path-art { display: none; }
+  }
+</style>

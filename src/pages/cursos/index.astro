@@ -1,0 +1,137 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SpecCard from "../../components/SpecCard.astro";
+import CourseCard from "../../components/CourseCard.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { wa, spec, specCourses, courses, areas, pad } from "../../data/academy";
+
+const count = (a: string) => courses.filter((c) => c.area === a).length;
+---
+
+<BaseLayout title="Cursos y especializaciones | Data Academy" description="Catálogo de cursos en vivo de Excel, SQL, Power BI, Python, Power Automate y un workshop de proyecto, y la Especialización Data Analyst.">
+  <section class="da-hero-light">
+    <div class="da-wrap pg-hero">
+      <div>
+        <span class="da-kicker rv">Catálogo de formación</span>
+        <h1 class="da-h1 rv" style="--d:.07s">Cursos y <span class="da-pill">especializaciones.</span></h1>
+        <p class="da-lead rv" style="--d:.14s">Lleva un curso, varios o la especialización completa. En vivo y con docentes que trabajan con datos cada día.</p>
+        <div class="da-pills kind rv" style="--d:.21s">
+          <button type="button" class="on" data-kind="all">Todo</button>
+          <button type="button" data-kind="spec">Especializaciones <small>1</small></button>
+          <button type="button" data-kind="course">Cursos <small>{courses.length}</small></button>
+        </div>
+      </div>
+      <div class="mini rv" style="--d:.14s">
+        <div class="mini-mods">
+          {specCourses.map((c, i) => <div style={`--d:${(0.3 + i * 0.1).toFixed(2)}s`}><span>{pad(i + 1)}</span><b>{c.short}</b></div>)}
+        </div>
+        <div class="mini-line"><span></span></div>
+        <div class="mini-spec"><small>Especialización</small><b>{spec.name.replace("Especialización ", "")}</b><em>4 cursos · {spec.hours}</em></div>
+        <p>Elige cursos sueltos o la ruta completa.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="da-filterbar">
+    <div class="da-wrap">
+      <span class="lbl">Área</span>
+      <div class="da-pills area">
+        <button type="button" class="on" data-area="all">Todas</button>
+        {areas.map((a) => <button type="button" data-area={a}>{a} <small>{count(a)}</small></button>)}
+      </div>
+      <span class="count"><b class="n">{courses.length}</b> cursos</span>
+    </div>
+  </div>
+
+  <section class="da-sec block" data-block="spec">
+    <div class="da-wrap">
+      <div class="da-head"><h2 class="sec-title rv">Especializaciones</h2><span class="sec-note rv">Un programa completo, curso a curso.</span></div>
+      <div class="mt"><SpecCard timeline /></div>
+    </div>
+  </section>
+
+  <section class="da-sec soft block" data-block="course">
+    <div class="da-wrap">
+      <div class="da-head"><h2 class="sec-title rv">Cursos</h2><span class="sec-note rv">Lleva solo lo que necesitas. Puedes sumar más después.</span></div>
+      <div class="grid">
+        {courses.map((c, i) => <CourseCard course={c} index={i % 3} detailed />)}
+      </div>
+      <p class="empty" hidden>No hay cursos en esta área todavía.</p>
+      <p class="note">Clases en vivo por la noche (hora Perú). Escríbenos para conocer la próxima fecha de inicio de cada curso.</p>
+
+      <div class="dates rv">
+        <h3>Horarios por curso</h3>
+        <p>Cada curso tiene su propio horario. Si llevas varios, te recomendamos el orden de la especialización (Excel primero).</p>
+        {courses.filter((c) => c.schedule).map((c) => (
+          <div class="date-row" data-area={c.area}>
+            <div><b>{c.name}</b><span>{c.schedule} · {c.classes} clases · {c.hours}</span></div>
+            <a href={wa(`Hola, quiero conocer la próxima fecha del curso ${c.name}`)} target="_blank" rel="noopener" class="date-btn">Consultar próxima fecha</a>
+          </div>
+        ))}
+        <a href="/calendario" class="da-link">Ver calendario completo <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand title="¿No sabes por dónde" accent="empezar?" text="Cuéntanos tu objetivo y un asesor te recomienda el curso o la ruta ideal." />
+</BaseLayout>
+
+<script>
+  const cards = [...document.querySelectorAll<HTMLElement>(".grid .course")];
+  const rows = [...document.querySelectorAll<HTMLElement>(".date-row")];
+  const n = document.querySelector(".count .n")!;
+  const empty = document.querySelector<HTMLElement>(".empty")!;
+  const blocks = [...document.querySelectorAll<HTMLElement>(".block")];
+  const pick = (group: string, attr: string, fn: (v: string) => void) =>
+    document.querySelectorAll<HTMLButtonElement>(`.${group} button`).forEach((b, _, all) =>
+      b.addEventListener("click", () => { all.forEach((x) => x.classList.toggle("on", x === b)); fn(b.dataset[attr]!); }));
+  pick("area", "area", (a) => {
+    let shown = 0;
+    cards.forEach((c) => { c.hidden = !(a === "all" || c.dataset.area === a); if (!c.hidden) shown++; });
+    rows.forEach((r) => (r.hidden = !(a === "all" || r.dataset.area === a)));
+    n.textContent = String(shown);
+    empty.hidden = shown > 0;
+  });
+  pick("kind", "kind", (k) => blocks.forEach((b) => (b.hidden = !(k === "all" || b.dataset.block === k))));
+</script>
+
+<style>
+  .pg-hero { padding-top: 56px; padding-bottom: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 48px; align-items: center; }
+  .kind { margin-top: 26px; padding: 4px; border-radius: 999px; border: 1px solid var(--border-color); background: #fff; width: fit-content; }
+  .kind button { border-color: transparent; }
+  .mini { padding: 22px; border-radius: 22px; background: #fff; border: 1px solid var(--border-color); box-shadow: 0 40px 80px -40px rgba(6, 14, 42, .35); }
+  .mini-mods { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .mini-mods div { padding: 12px; border-radius: 12px; color: #fff; animation: flo 6s ease-in-out infinite; animation-delay: var(--d); }
+  .mini-mods div:nth-child(1) { background: #1D9BD6; }
+  .mini-mods div:nth-child(2) { background: #1E52C0; }
+  .mini-mods div:nth-child(3) { background: #0B8FA8; }
+  .mini-mods div:nth-child(4) { background: #142F7A; }
+  .mini-mods span { display: block; font-size: 11px; font-weight: 800; opacity: .8; }
+  .mini-mods b { font-size: 13px; }
+  .mini-line { position: relative; height: 22px; margin: 4px 0; }
+  .mini-line span { position: absolute; left: 50%; top: 50%; width: 8px; height: 8px; margin: -4px; border-radius: 50%; background: var(--accent-color); animation: ping 1.8s var(--ease) infinite; }
+  .mini-spec { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; padding: 16px 18px; border-radius: 14px; color: #fff; background: linear-gradient(115deg, #1E52C0, var(--accent-color)); }
+  .mini-spec small { width: 100%; font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
+  .mini-spec b { font-family: var(--font-display); font-weight: 800; font-size: 22px; }
+  .mini-spec em { font-style: normal; font-size: 12px; opacity: .85; }
+  .mini p { margin: 12px 0 0; font-size: 12px; color: var(--text-muted); }
+
+  .block[hidden] { display: none; }
+  .sec-title { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 3.4vw, 2.4rem); letter-spacing: -.025em; color: var(--text-main); }
+  .sec-note { font-size: 14px; color: var(--text-muted); }
+  .mt { margin-top: 28px; }
+  .grid { margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 20px; }
+  .empty, .note { margin: 18px 0 0; font-size: 13px; color: var(--text-muted); }
+
+  .dates { margin-top: 40px; padding: 24px; border-radius: 20px; border: 1px solid var(--border-color); background: #fff; }
+  .dates h3 { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: 22px; }
+  .dates > p { margin: 6px 0 16px; font-size: 14px; color: var(--text-muted); }
+  .date-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; margin-bottom: 10px; border-radius: 14px; border: 1px solid var(--border-color); background: var(--bg-light); transition: border-color .25s; }
+  .date-row:hover { border-color: var(--accent-color); }
+  .date-row[hidden] { display: none; }
+  .date-row b { display: block; font-size: 15px; }
+  .date-row span { font-size: 13px; color: var(--text-muted); }
+  .date-btn { padding: 9px 16px; border-radius: 999px; background: #1E52C0; color: #fff; font-size: 13px; font-weight: 700; transition: background .25s; }
+  .date-btn:hover { background: var(--navy); color: #fff; }
+  .dates .da-link { margin-top: 8px; }
+</style>

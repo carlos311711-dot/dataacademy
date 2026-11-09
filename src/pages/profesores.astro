@@ -1,132 +1,71 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TeacherCard from "../components/TeacherCard.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { teachers, companies } from "../data/academy";
+
+const tools = [...new Set(teachers.flatMap((t) => t.tool.split(" & ")))];
+const count = (tool: string) => teachers.filter((t) => t.tool.includes(tool)).length;
 ---
-<BaseLayout title="Equipo Docente | Data Academy" description="Conoce a los profesores y al fundador de Data Academy. Especialistas certificados en Business Intelligence, SQL e Ingeniería de Datos.">
 
-  <header class="detail-hero" style="padding: 130px 0 60px;">
-    <div class="container detail-container">
-      <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> Volver al Inicio</a>
-      <div class="detail-header">
-        <span class="course-tag" style="background-color: var(--primary-color); color: white; margin-bottom: 12px; display: inline-block;">Nuestro Equipo</span>
-        <h1>Conoce a tus Instructores</h1>
-        <p style="margin-bottom: 0; font-size: 1.15rem; color: var(--text-muted);">Profesionales de la industria comprometidos en acelerar tu aprendizaje técnico y de negocio.</p>
-      </div>
-    </div>
-  </header>
-
-  <section class="detail-content" style="background-color: var(--bg-main);">
-    <div class="container detail-container" style="max-width: 900px;">
-
-      <!-- Jhon Velasque -->
-      <div class="detail-grid" style="grid-template-columns: 1fr 1.8fr; gap: 40px; margin-bottom: 80px; align-items: flex-start;">
-        <div>
-          <div style="border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-md); background: #0c1a30; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center;">
-            <img src="/img/profes/1.png" style="width: 100%; height: 100%; object-fit: cover; object-position: top;" alt="Jhon Velasque">
-          </div>
-          <div style="margin-top: 20px; text-align: center;">
-            <span class="badge" style="position: static; display: inline-block; margin-bottom: 8px;">Instructor Excel & SQL</span>
-            <h3 style="margin-bottom: 4px; font-weight: 700; color: var(--text-main);">Jhon Velasque</h3>
-            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0;">Data Analytics Engineer en RIMAC Seguros</p>
-          </div>
+<BaseLayout title="Equipo docente | Data Academy" description="Conoce a los docentes de Data Academy: profesionales de datos en ejercicio en RIMAC, Jockey Plaza, vooxell y bluetab (IBM).">
+  <section class="da-hero-light">
+    <div class="da-wrap">
+      <div class="topline rv"><span class="da-kicker">Equipo docente</span><span>{teachers.length} docentes · {companies.length} empresas</span></div>
+      <div class="pg-hero">
+        <h1 class="da-h1 rv" style="--d:.07s">Docentes que <span class="da-pill">trabajan con datos</span> cada día.</h1>
+        <div class="rv" style="--d:.14s">
+          <p class="da-lead">Profesionales en ejercicio en <b>{companies.join(", ")}</b> que enseñan con los casos reales de su trabajo.</p>
+          <span class="now">Trabajan hoy en</span>
+          <div class="orgs">{companies.map((c) => <span>{c}</span>)}</div>
         </div>
-        <div>
-          <h3 class="detail-section-title" style="font-size: 1.5rem; margin-bottom: 16px;"><i class="fas fa-id-card"></i> Trayectoria Profesional</h3>
-          <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px;">
-            Jhon es un experto en Data Analytics, especializado en transformar procesos de negocio con herramientas como Excel y SQL. Su experiencia en RIMAC Seguros le permite enseñar con casos de uso reales y enfocados en el mercado laboral.
-          </p>
-          <h4 style="font-size: 1.05rem; margin-bottom: 12px; color: var(--text-main); font-weight: 700;">Cursos Impartidos:</h4>
-          <div class="tech-tags" style="margin-bottom: 28px;">
-            <span>Excel En Vivo</span>
-            <span>SQL para Data Analyst</span>
-          </div>
-        </div>
-      </div>
-
-      <hr style="border: 0; border-top: 1px solid var(--border-color); margin-bottom: 60px;">
-
-      <!-- Richard Ñahui -->
-      <div class="detail-grid" style="grid-template-columns: 1fr 1.8fr; gap: 40px; margin-bottom: 80px; align-items: flex-start;">
-        <div>
-          <div style="border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-md); background: #0c1a30; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center;">
-            <img src="/img/profes/2.png" style="width: 100%; height: 100%; object-fit: cover; object-position: top;" alt="Richard Ñahui">
-          </div>
-          <div style="margin-top: 20px; text-align: center;">
-            <span class="badge" style="position: static; display: inline-block; margin-bottom: 8px;">Instructor SQL Engineer</span>
-            <h3 style="margin-bottom: 4px; font-weight: 700; color: var(--text-main);">Richard Ñahui</h3>
-            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0;">Data Engineer en vooxell</p>
-          </div>
-        </div>
-        <div>
-          <h3 class="detail-section-title" style="font-size: 1.5rem; margin-bottom: 16px;"><i class="fas fa-database"></i> Trayectoria Profesional</h3>
-          <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px;">
-            Richard es un profesional destacado en la Ingeniería de Datos. Cuenta con sólida experiencia arquitectando bases de datos y desarrollando pipelines de datos eficientes en entornos empresariales.
-          </p>
-          <h4 style="font-size: 1.05rem; margin-bottom: 12px; color: var(--text-main); font-weight: 700;">Cursos Impartidos:</h4>
-          <div class="tech-tags" style="margin-bottom: 28px;">
-            <span>SQL para Data Engineer</span>
-          </div>
-        </div>
-      </div>
-
-      <hr style="border: 0; border-top: 1px solid var(--border-color); margin-bottom: 60px;">
-
-      <!-- Junior Candela -->
-      <div class="detail-grid" style="grid-template-columns: 1fr 1.8fr; gap: 40px; margin-bottom: 80px; align-items: flex-start;">
-        <div>
-          <div style="border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-md); background: #0c1a30; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center;">
-            <img src="/img/profes/3.png" style="width: 100%; height: 100%; object-fit: cover; object-position: top;" alt="Junior Candela">
-          </div>
-          <div style="margin-top: 20px; text-align: center;">
-            <span class="badge" style="position: static; display: inline-block; margin-bottom: 8px;">Instructor Power BI</span>
-            <h3 style="margin-bottom: 4px; font-weight: 700; color: var(--text-main);">Junior Candela</h3>
-            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0;">Data Analytics Engineer en JOCKEYPLAZA</p>
-          </div>
-        </div>
-        <div>
-          <h3 class="detail-section-title" style="font-size: 1.5rem; margin-bottom: 16px;"><i class="fas fa-chart-bar"></i> Trayectoria Profesional</h3>
-          <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px;">
-            Junior se especializa en la visualización e inteligencia de negocios (BI). A través de su experiencia en JOCKEYPLAZA, desarrolla dashboards interactivos que empoderan la toma de decisiones estratégicas basadas en datos.
-          </p>
-          <h4 style="font-size: 1.05rem; margin-bottom: 12px; color: var(--text-main); font-weight: 700;">Cursos Impartidos:</h4>
-          <div class="tech-tags" style="margin-bottom: 28px;">
-            <span>Power BI for Data Analyst</span>
-          </div>
-        </div>
-      </div>
-
-      <hr style="border: 0; border-top: 1px solid var(--border-color); margin-bottom: 60px;">
-
-      <!-- Christian Condori -->
-      <div class="detail-grid" style="grid-template-columns: 1fr 1.8fr; gap: 40px; margin-bottom: 40px; align-items: flex-start;">
-        <div>
-          <div style="border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-md); background: #0c1a30; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center;">
-            <img src="/img/profes/4.png" style="width: 100%; height: 100%; object-fit: cover; object-position: top;" alt="Christian Condori">
-          </div>
-          <div style="margin-top: 20px; text-align: center;">
-            <span class="badge" style="position: static; display: inline-block; margin-bottom: 8px;">Instructor Python</span>
-            <h3 style="margin-bottom: 4px; font-weight: 700; color: var(--text-main);">Christian Condori</h3>
-            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0;">Data Engineer en bluetab (an IBM Company)</p>
-          </div>
-        </div>
-        <div>
-          <h3 class="detail-section-title" style="font-size: 1.5rem; margin-bottom: 16px;"><i class="fab fa-python"></i> Trayectoria Profesional</h3>
-          <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px;">
-            Christian es un Ingeniero de Datos en una de las empresas de tecnología más reconocidas del mundo. Posee un amplio dominio de Python y PySpark para el análisis avanzado, limpieza masiva de datos y automatización de procesos.
-          </p>
-          <h4 style="font-size: 1.05rem; margin-bottom: 12px; color: var(--text-main); font-weight: 700;">Cursos Impartidos:</h4>
-          <div class="tech-tags" style="margin-bottom: 28px;">
-            <span>Python for Data Analyst</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="syllabus-module" style="text-align: center; padding: 40px; margin-top: 60px; background: linear-gradient(135deg, rgba(0, 82, 204, 0.05) 0%, rgba(76, 154, 255, 0.05) 100%); border: 1px dashed var(--primary-color);">
-        <i class="fas fa-graduation-cap" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 16px;"></i>
-        <h3 style="margin-bottom: 8px;">Aprende de la mano de expertos activos en la industria</h3>
-        <p style="margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto;">Accede a metodologías prácticas y eleva tu cotización laboral de inmediato. ¡Cupos limitados por curso!</p>
-        <a href="/precios" class="btn btn-primary">Ver Ofertas y Precios de Cursos</a>
       </div>
     </div>
   </section>
 
+  <div class="da-filterbar">
+    <div class="da-wrap">
+      <span class="lbl">Filtrar por herramienta</span>
+      <div class="da-pills filter">
+        <button type="button" class="on" data-tool="all">Todos <small>{teachers.length}</small></button>
+        {tools.map((t) => <button type="button" data-tool={t}>{t} <small>{count(t)}</small></button>)}
+      </div>
+      <span class="count"><b class="n">{teachers.length}</b> docentes</span>
+    </div>
+  </div>
+
+  <section class="da-sec soft">
+    <div class="da-wrap">
+      <div class="grid">
+        {teachers.map((t, i) => <TeacherCard teacher={t} index={i} full />)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand kicker="Aprende con este equipo" title="Aprende de quienes" accent="hacen el trabajo." text="Elige tu curso o la especialización completa y empieza a construir tu portafolio con ellos." />
 </BaseLayout>
+
+<script>
+  const cards = [...document.querySelectorAll<HTMLElement>(".grid .teacher")];
+  const n = document.querySelector(".count .n")!;
+  document.querySelectorAll<HTMLButtonElement>(".filter button").forEach((b, _, all) =>
+    b.addEventListener("click", () => {
+      all.forEach((x) => x.classList.toggle("on", x === b));
+      const t = b.dataset.tool!;
+      let shown = 0;
+      cards.forEach((c) => { c.hidden = !(t === "all" || c.dataset.tool!.includes(t)); if (!c.hidden) shown++; });
+      n.textContent = String(shown);
+    }),
+  );
+</script>
+
+<style>
+  .topline { padding-top: 36px; padding-bottom: 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; border-bottom: 1px solid var(--border-color); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); }
+  .pg-hero { padding: 48px 0 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 40px; align-items: center; }
+  .pg-hero .da-lead b { color: var(--text-main); }
+  .now { display: block; margin-top: 20px; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); }
+  .orgs { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .orgs span { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border-color); background: #fff; font-size: 13px; font-weight: 700; transition: border-color .25s, transform .25s var(--ease); }
+  .orgs span:hover { border-color: var(--accent-color); transform: translateY(-2px); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 20px; }
+</style>
