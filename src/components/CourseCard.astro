@@ -1,0 +1,72 @@
+---
+import { PRICE, spec, teachers, pad, type Course } from "../data/academy";
+interface Props { course: Course; index?: number; detailed?: boolean }
+const { course: c, index = 0, detailed = false } = Astro.props;
+const teacher = teachers.find((t) => t.courses.includes(c.id));
+const total = 4;
+---
+<a href={c.href} class="course rv" style={`--d:${(index * 0.07).toFixed(2)}s`} data-area={c.area}>
+  <div class:list={["art", `art-${c.art.kind}`]} aria-hidden="true">
+    {c.art.kind === "code" && <pre><span class="dots"><i></i><i></i><i></i></span>{c.art.lines!.join("\n")}</pre>}
+    {c.art.kind === "bars" && <div class="bars">{[40, 62, 50, 80, 68, 92].map((h, i) => <span style={`height:${h}%;animation-delay:${i * 0.08}s`}></span>)}</div>}
+    {c.art.kind === "grid" && <div class="cells">{Array.from({ length: 24 }, (_, i) => <span class:list={{ on: [3, 8, 9, 14, 15, 16, 21].includes(i) }}></span>)}</div>}
+    {c.art.kind === "nodes" && <div class="nodes"><span></span><i></i><span class="mid"></span><i></i><span></span></div>}
+    <img src={c.logo} alt="" loading="lazy" />
+  </div>
+  <div class="body">
+    <span class="eyebrow">{c.inSpec ? `Curso ${pad(c.n)} de ${pad(total)}` : "Curso independiente"}</span>
+    <h3>{c.name}</h3>
+    <p>{c.desc}</p>
+    {detailed && (
+      <>
+        <div class="chips">{c.classes > 0 && <span>{c.classes} clases</span>}<span>{c.hours}</span></div>
+        {c.schedule && <div class="meta">{c.schedule}</div>}
+        {teacher && <div class="meta">Docente: {teacher.name} · {teacher.company}</div>}
+        {c.inSpec && <span class="part">Parte de la {spec.name} →</span>}
+      </>
+    )}
+    <div class="foot">
+      <span class="price"><s>S/ {PRICE.courseRegular}</s><b>S/ {c.price ?? PRICE.course}</b></span>
+      <span class="see">Ver curso <span aria-hidden="true">→</span></span>
+    </div>
+  </div>
+</a>
+
+<style>
+  .course { display: flex; flex-direction: column; border-radius: 20px; border: 1px solid var(--border-color); background: #fff; overflow: hidden; color: var(--text-main); box-shadow: 0 1px 2px rgba(6, 14, 42, .04); transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s, opacity .8s var(--ease) var(--d, 0s), translate .8s var(--ease) var(--d, 0s); }
+  .course:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -30px rgba(6, 14, 42, .35); border-color: transparent; color: var(--text-main); }
+  .course[hidden] { display: none; }
+  .art { position: relative; height: 128px; display: grid; place-items: center; overflow: hidden; background: linear-gradient(135deg, #E6F7FB, #EEF2FB); }
+  .art img { position: absolute; right: 12px; bottom: 12px; width: 30px; height: 30px; object-fit: contain; padding: 4px; border-radius: 8px; background: #fff; box-shadow: 0 4px 12px -4px rgba(6, 14, 42, .2); }
+  .art-code { background: linear-gradient(135deg, #E6F7FB, #DDEBFA); }
+  .art pre { margin: 0; width: calc(100% - 32px); padding: 12px 14px; border-radius: 10px; background: var(--navy); color: #cfe9ff; font: 11.5px/1.6 var(--font-mono); white-space: pre; overflow: hidden; transition: transform .4s var(--ease); }
+  .art .dots { display: flex; gap: 4px; margin-bottom: 6px; }
+  .art .dots i { width: 6px; height: 6px; border-radius: 50%; background: #ff6b6b; }
+  .art .dots i:nth-child(2) { background: #ffd166; }
+  .art .dots i:nth-child(3) { background: #06d6a0; }
+  .bars { display: flex; align-items: flex-end; gap: 8px; height: 76px; }
+  .bars span { width: 16px; border-radius: 4px 4px 0 0; background: linear-gradient(#5DD8E8, var(--accent-color)); transform-origin: bottom; transition: transform .4s var(--ease); }
+  .course:hover .bars span { transform: scaleY(1.08); }
+  .cells { display: grid; grid-template-columns: repeat(6, 22px); gap: 3px; }
+  .cells span { height: 14px; border-radius: 2px; background: #fff; border: 1px solid #d5e6ef; }
+  .cells span.on { background: #1D6F42; border-color: #1D6F42; opacity: .75; }
+  .nodes { display: flex; align-items: center; }
+  .nodes span { width: 26px; height: 26px; border-radius: 8px; border: 2px solid var(--accent-color); background: #fff; }
+  .nodes span.mid { width: 34px; height: 34px; background: var(--accent-color); }
+  .nodes i { width: 28px; border-top: 2px dashed var(--accent-color); }
+  .course:hover .art pre { transform: translateY(-3px); }
+  .body { flex: 1; display: flex; flex-direction: column; padding: 18px 20px 20px; }
+  .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-color); }
+  h3 { margin: 6px 0 0; font-family: var(--font-display); font-weight: 800; font-size: 19px; letter-spacing: -.01em; line-height: 1.2; }
+  p { margin: 6px 0 0; font-size: 14px; line-height: 1.55; color: var(--text-muted); }
+  .chips { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .chips span { padding: 3px 10px; border-radius: 999px; background: var(--bg-light); font-size: 12px; font-weight: 600; }
+  .meta { margin-top: 8px; font-size: 13px; color: var(--text-muted); }
+  .part { margin-top: 8px; font-size: 13px; font-weight: 700; color: var(--primary-color); }
+  .foot { margin-top: auto; padding-top: 16px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border-color); margin-top: 16px; }
+  .price { display: flex; flex-direction: column; line-height: 1.1; }
+  .price s { font-size: 12px; color: var(--text-muted); }
+  .price b { font-family: var(--font-display); font-weight: 800; font-size: 20px; }
+  .see { padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border-color); font-size: 13px; font-weight: 700; transition: background .25s, color .25s, border-color .25s; }
+  .course:hover .see { background: var(--navy); border-color: var(--navy); color: #fff; }
+</style>

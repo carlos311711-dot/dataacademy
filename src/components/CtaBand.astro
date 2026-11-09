@@ -1,0 +1,33 @@
+---
+import { WA } from "../data/academy";
+interface Props { kicker?: string; title?: string; accent?: string; text?: string }
+const {
+  kicker = "Donde los datos se vuelven carrera",
+  title = "Da el siguiente paso",
+  accent = "en tu carrera de datos.",
+  text = "Un asesor te orienta por WhatsApp y te ayuda a elegir el curso o la ruta ideal para ti.",
+} = Astro.props;
+---
+<section class="cta">
+  <div class="da-wrap inner">
+    <span class="da-kicker rv">{kicker}</span>
+    <h2 class="rv" style="--d:.07s">{title}<br /><span>{accent}</span></h2>
+    <p class="rv" style="--d:.14s">{text}</p>
+    <div class="da-row rv" style="--d:.21s">
+      <a href={WA} target="_blank" rel="noopener" class="da-btn">Hablar con un asesor</a>
+      <a href="/cursos" class="da-btn da-btn-line">Ver cursos</a>
+    </div>
+    <small class="rv" style="--d:.28s">Respuesta rápida por WhatsApp · +51 986 575 257</small>
+  </div>
+</section>
+
+<style>
+  .cta { position: relative; overflow: hidden; padding: 110px 0; text-align: center; color: #fff; background: radial-gradient(800px 420px at 85% 0%, rgba(30, 82, 192, .45), transparent 60%), radial-gradient(600px 400px at 10% 110%, rgba(0, 163, 200, .2), transparent 60%), #0A1640; }
+  .inner { display: flex; flex-direction: column; align-items: center; }
+  .da-kicker { color: #5DD8E8; }
+  h2 { margin: 16px 0 0; font-family: var(--font-display); font-weight: 800; font-size: clamp(2.1rem, 4.5vw, 3.2rem); line-height: 1.08; letter-spacing: -.025em; color: #fff; }
+  h2 span { color: #5DD8E8; }
+  p { margin: 16px 0 0; max-width: 520px; font-size: 16px; line-height: 1.6; color: rgba(255, 255, 255, .7); }
+  .da-row { margin-top: 28px; justify-content: center; }
+  small { margin-top: 18px; font-size: 12px; color: rgba(255, 255, 255, .5); }
+</style>
