@@ -3,7 +3,10 @@ import { PRICE, WA_NUMBER, courses, faq, spec, teachers } from "../../data/acade
 
 export const prerender = false;
 
-const MODEL = import.meta.env.GEMINI_MODEL || process.env.GEMINI_MODEL || "gemini-flash-lite-latest"; // ponytail: lite = rápido y con menos 503; probar gemini-flash-latest si hace falta más calidad
+// Lista de modelos en orden de preferencia; se puede cambiar con GEMINI_MODEL="a,b,c" en .env.
+// ponytail: nombres fijos; si Google retira uno, solo da error y pasa al siguiente.
+const MODELS = (import.meta.env.GEMINI_MODEL || process.env.GEMINI_MODEL || "gemini-flash-lite-latest,gemini-3.5-flash-lite,gemini-flash-latest")
+  .split(",").map((m: string) => m.trim()).filter(Boolean);
 const MAX_TURNS = 10;
 const MAX_CHARS = 500;
 
@@ -69,22 +72,26 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   }
   if (!messages.length || messages.at(-1)!.role !== "user") return json({ error: "bad_request" }, 400);
 
-  try {
-    const res = await fetch("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", { // endpoint de Gemini compatible con OpenAI
-      method: "POST",
-      headers: { "content-type": "application/json", authorization: `Bearer ${key}` },
-      body: JSON.stringify({ model: MODEL, messages: [{ role: "system", content: SYSTEM }, ...messages], max_tokens: 800, temperature: 0.2, reasoning_effort: "low" }),
-      signal: AbortSignal.timeout(30_000),
-    });
-    if (!res.ok) {
-      console.error("Gemini error", res.status, await res.text());
-      return json({ error: "upstream" }, 502);
+  // Gemini satura modelos al azar (503/429): si uno falla, probamos el siguiente de MODELS.
+  for (const model of MODELS) {
+    try {
+      const res = await fetch("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", { // endpoint de Gemini compatible con OpenAI
+        method: "POST",
+        headers: { "content-type": "application/json", authorization: `Bearer ${key}` },
+        body: JSON.stringify({ model, messages: [{ role: "system", content: SYSTEM }, ...messages], max_tokens: 800, temperature: 0.2, reasoning_effort: "low" }),
+        signal: AbortSignal.timeout(12_000),
+      });
+      if (!res.ok) {
+        console.error("Gemini error", model, res.status, (await res.text()).slice(0, 300));
+        continue;
+      }
+      const data = await res.json();
+      const reply = data?.choices?.[0]?.message?.content?.trim();
+      if (reply) return json({ reply });
+      console.error("Gemini empty reply", model);
+    } catch (e) {
+      console.error("Gemini fetch failed", model, e);
     }
-    const data = await res.json();
-    const reply = data?.choices?.[0]?.message?.content?.trim();
-    return reply ? json({ reply }) : json({ error: "empty" }, 502);
-  } catch (e) {
-    console.error("Gemini fetch failed", e);
-    return json({ error: "upstream" }, 502);
   }
+  return json({ error: "upstream" }, 502);
 };

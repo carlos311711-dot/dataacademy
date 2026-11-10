@@ -8,6 +8,8 @@ const faqs = [
     a: `Separas tu cupo con <b>S/ ${PRICE.deposit}</b> escribiéndonos por WhatsApp. El saldo lo cancelas hasta una semana antes de iniciar.` },
   { q: '¿Las clases son en vivo?', k: ['vivo', 'grabad', 'virtual', 'online', 'presencial', 'zoom', 'modalidad'],
     a: 'Sí, todas las clases son <b>en vivo</b>: el docente resuelve tus dudas en tiempo real mientras construyes tu proyecto.' },
+  { q: '¿Por dónde empiezo si soy nuevo?', k: ['cero', 'recomiend', 'empezar', 'nuevo', 'principiante', 'nunca', 'experiencia', 'basico', 'novato'],
+    a: `¡No necesitas experiencia previa! 😊 La <a href="${spec.href}">${spec.name}</a> empieza desde cero con Excel y avanza hasta Python. Si prefieres ir paso a paso, cada curso se lleva por separado: un buen inicio es <a href="/cursos/excel">Excel for Data Analyst</a>.` },
   { q: '¿Recibo certificado?', k: ['certific', 'diploma', 'constancia'],
     a: 'Sí. Al completar el curso y su proyecto recibes el <b>certificado oficial</b> de Data Academy.' },
   { q: '¿Cuándo empiezan las clases?', k: ['cuando', 'inicio', 'empiez', 'fecha', 'horario', 'calendario', 'hora'],
@@ -65,7 +67,7 @@ const faqs = [
   const local = (text: string) => {
     const n = norm(text);
     const hit = faqs.find((f: { k: string[] }) => f.k.some((k) => n.includes(k)));
-    return hit ? hit.a : `No tengo esa respuesta todavía. Un asesor te ayuda al instante: <a href="${WA}" target="_blank" rel="noopener">escribir por WhatsApp</a>.`;
+    return hit ? hit.a : `¡Buena pregunta! Ahora mismo no puedo responderla, pero un asesor te ayuda al instante por <a href="${WA}" target="_blank" rel="noopener">WhatsApp</a>. 😊`;
   };
 
   // Historial para Gemini (solo texto plano)
