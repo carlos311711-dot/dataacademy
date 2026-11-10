@@ -70,6 +70,12 @@ const faqs = [
     return hit ? hit.a : `¡Buena pregunta! Ahora mismo no puedo responderla, pero un asesor te ayuda al instante por <a href="${WA}" target="_blank" rel="noopener">WhatsApp</a>. 😊`;
   };
 
+  // Respuesta del modelo → HTML seguro: escapa todo y luego enlaza rutas internas (/cursos/excel) y números +51 9xx xxx xxx (wa.me).
+  const linkify = (s: string) =>
+    s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`)
+      .replace(/(^|[\s(])(\/[a-z][a-z0-9\-\/]*[a-z0-9])/g, '$1<a href="$2">$2</a>')
+      .replace(/\+?51[\s-]?9\d{2}[\s-]?\d{3}[\s-]?\d{3}/g, (n) => `<a href="https://wa.me/${n.replace(/\D/g, "")}" target="_blank" rel="noopener">${n}</a>`);
+
   // Historial para Gemini (solo texto plano)
   const history: { role: "user" | "assistant"; content: string }[] = [];
 
@@ -89,7 +95,7 @@ const faqs = [
       const res = await fetch("/api/chat", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ messages: history }) });
       if (!res.ok) throw new Error(String(res.status));
       const { reply } = await res.json();
-      t.textContent = reply; // texto del modelo: nunca como HTML
+      t.innerHTML = linkify(reply); // texto del modelo: se escapa todo y solo se enlazan rutas internas y el WhatsApp
       history.push({ role: "assistant", content: reply });
     } catch {
       history.pop();
