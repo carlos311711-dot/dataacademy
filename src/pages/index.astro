@@ -24,14 +24,38 @@ const sqlStats = [
   ["satisfaccion", "4.9/5", "98%"],
 ];
 
-const projects = [
+type ProjectItem = {
+  id: string;
+  n: string;
+  title: string;
+  cat: string;
+  tags: string[];
+  desc: string;
+  img: string;
+  course: string;
+  href: string;
+};
+
+const rawProjects: [string, string, string[], string, string, string, string][] = [
   ["Dashboard básico Power BI", "Power BI", ["Power BI", "Power Query", "Excel"], "Dashboard introductorio para control y visualización de indicadores comerciales y de ventas.", "/img/projects/proyecto_powerbi_dashboard.png", "Power BI", "/cursos/powerbi"],
   ["Análisis de RR.HH. – Rotación y desempeño", "SQL", ["SQL Server", "CTEs", "KPIs"], "Análisis de rotación y desempeño de personal con consultas SQL, CTEs y KPIs de RR.HH.", "/img/projects/sql_project.webp", "SQL for Data Analyst", "/cursos/sql"],
   ["Automatización CRM + WhatsApp", "n8n", ["n8n", "HubSpot", "WhatsApp"], "Flujo n8n que conecta formularios web con HubSpot, WhatsApp y emails personalizados.", "/img/projects/proyecto_n8n_flow.webp", spec.name, spec.href],
   ["Arquitectura Medallón Lakehouse", "Integrales", ["Data Lake", "SQL Server", "ETL"], "Capas bronze, silver y gold para calidad y consistencia del pipeline de datos.", "/img/projects/proyecto_medallon.png", spec.name, spec.href],
   ["Proyecto Business Intelligence", "Power BI", ["Power BI", "DAX", "Modelo estrella"], "Tablero de control para análisis estratégico de ventas, control financiero y proyección de KPIs.", "/img/projects/proyecto_powerbi_bi.png", "Power BI", "/cursos/powerbi"],
   ["Dashboard gerencial", "Integrales", ["Power BI", "SQL Server", "Storytelling"], "Panel ejecutivo con storytelling avanzado y análisis de rendimiento integral.", "/img/projects/proyecto_powerbi_hero.png", spec.name, spec.href],
-].map(([title, cat, tags, desc, img, course, href], i) => ({ id: `P-${pad(i + 1)}`, n: pad(i + 1), title, cat, tags: tags as string[], desc, img, course, href }));
+];
+
+const projects: ProjectItem[] = rawProjects.map(([title, cat, tags, desc, img, course, href], i) => ({
+  id: `P-${pad(i + 1)}`,
+  n: pad(i + 1),
+  title,
+  cat,
+  tags,
+  desc,
+  img,
+  course,
+  href,
+}));
 const tabs = ["Todos", "Power BI", "SQL", "n8n", "Integrales"];
 const SEL = 2;
 
