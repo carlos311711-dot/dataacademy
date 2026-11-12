@@ -2,13 +2,13 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import TeacherCard from "../components/TeacherCard.astro";
 import CtaBand from "../components/CtaBand.astro";
-import { teachers, companies } from "../data/academy";
+import { teachers, companies, companyLogos, toolIconMap } from "../data/academy";
 
 const tools = [...new Set(teachers.flatMap((t) => t.tool.split(" & ")))];
 const count = (tool: string) => teachers.filter((t) => t.tool.includes(tool)).length;
 ---
 
-<BaseLayout title="Equipo docente | Data Academy" description="Conoce a los docentes de Data Academy: profesionales de datos en ejercicio en RIMAC, Jockey Plaza, vooxell y bluetab (IBM).">
+<BaseLayout title="Equipo docente | Data Academy" description="Conoce a los docentes de Data Academy: profesionales de datos en ejercicio en RIMAC Seguros, Credicorp Capital, Interbank, Jockey Plaza, vooxell y bluetab (IBM).">
   <section class="da-hero-light">
     <div class="da-wrap">
       <div class="topline rv"><span class="da-kicker">Equipo docente</span><span>{teachers.length} docentes · {companies.length} empresas</span></div>
@@ -17,7 +17,14 @@ const count = (tool: string) => teachers.filter((t) => t.tool.includes(tool)).le
         <div class="rv" style="--d:.14s">
           <p class="da-lead">Profesionales en ejercicio en <b>{companies.join(", ")}</b> que enseñan con los casos reales de su trabajo.</p>
           <span class="now">Trabajan hoy en</span>
-          <div class="orgs">{companies.map((c) => <span>{c}</span>)}</div>
+          <div class="orgs">
+            {companies.map((c) => (
+              <span>
+                {companyLogos[c] && <img src={companyLogos[c]} alt="" loading="lazy" />}
+                {c}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -28,7 +35,7 @@ const count = (tool: string) => teachers.filter((t) => t.tool.includes(tool)).le
       <span class="lbl">Filtrar por herramienta</span>
       <div class="da-pills filter">
         <button type="button" class="on" data-tool="all">Todos <small>{teachers.length}</small></button>
-        {tools.map((t) => <button type="button" data-tool={t}>{t} <small>{count(t)}</small></button>)}
+        {tools.map((t) => <button type="button" data-tool={t}>{toolIconMap[t] && <img class="pill-ico" src={toolIconMap[t]} alt="" />}{t} <small>{count(t)}</small></button>)}
       </div>
       <span class="count"><b class="n">{teachers.length}</b> docentes</span>
     </div>
@@ -65,7 +72,9 @@ const count = (tool: string) => teachers.filter((t) => t.tool.includes(tool)).le
   .pg-hero .da-lead b { color: var(--text-main); }
   .now { display: block; margin-top: 20px; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); }
   .orgs { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; }
-  .orgs span { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border-color); background: #fff; font-size: 13px; font-weight: 700; transition: border-color .25s, transform .25s var(--ease); }
+  .orgs span { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border-color); background: #fff; font-size: 13px; font-weight: 700; transition: border-color .25s, transform .25s var(--ease); }
+  .orgs span img { height: 18px; width: auto; max-width: 68px; object-fit: contain; border-radius: 3px; }
   .orgs span:hover { border-color: var(--accent-color); transform: translateY(-2px); }
+  .pill-ico { width: 15px; height: 15px; object-fit: contain; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 20px; }
 </style>
