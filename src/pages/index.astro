@@ -4,7 +4,7 @@ import SpecCard from "../components/SpecCard.astro";
 import CourseCard from "../components/CourseCard.astro";
 import TeacherCard from "../components/TeacherCard.astro";
 import CtaBand from "../components/CtaBand.astro";
-import { WA, PRICE, spec, courses, teachers, stats, ecosystem, pad } from "../data/academy";
+import { WA, PRICE, spec, specCourses, courses, teachers, stats, ecosystem, toolIconMap, pad } from "../data/academy";
 
 const tools = [
   ["Excel", "/img/formation/3Excel.png"],
@@ -24,14 +24,38 @@ const sqlStats = [
   ["satisfaccion", "4.9/5", "98%"],
 ];
 
-const projects = [
+type ProjectItem = {
+  id: string;
+  n: string;
+  title: string;
+  cat: string;
+  tags: string[];
+  desc: string;
+  img: string;
+  course: string;
+  href: string;
+};
+
+const rawProjects: [string, string, string[], string, string, string, string][] = [
   ["Dashboard básico Power BI", "Power BI", ["Power BI", "Power Query", "Excel"], "Dashboard introductorio para control y visualización de indicadores comerciales y de ventas.", "/img/projects/proyecto_powerbi_dashboard.png", "Power BI", "/cursos/powerbi"],
   ["Análisis de RR.HH. – Rotación y desempeño", "SQL", ["SQL Server", "CTEs", "KPIs"], "Análisis de rotación y desempeño de personal con consultas SQL, CTEs y KPIs de RR.HH.", "/img/projects/sql_project.webp", "SQL for Data Analyst", "/cursos/sql"],
   ["Automatización CRM + WhatsApp", "n8n", ["n8n", "HubSpot", "WhatsApp"], "Flujo n8n que conecta formularios web con HubSpot, WhatsApp y emails personalizados.", "/img/projects/proyecto_n8n_flow.webp", spec.name, spec.href],
   ["Arquitectura Medallón Lakehouse", "Integrales", ["Data Lake", "SQL Server", "ETL"], "Capas bronze, silver y gold para calidad y consistencia del pipeline de datos.", "/img/projects/proyecto_medallon.png", spec.name, spec.href],
   ["Proyecto Business Intelligence", "Power BI", ["Power BI", "DAX", "Modelo estrella"], "Tablero de control para análisis estratégico de ventas, control financiero y proyección de KPIs.", "/img/projects/proyecto_powerbi_bi.png", "Power BI", "/cursos/powerbi"],
   ["Dashboard gerencial", "Integrales", ["Power BI", "SQL Server", "Storytelling"], "Panel ejecutivo con storytelling avanzado y análisis de rendimiento integral.", "/img/projects/proyecto_powerbi_hero.png", spec.name, spec.href],
-].map(([title, cat, tags, desc, img, course, href], i) => ({ id: `P-${pad(i + 1)}`, n: pad(i + 1), title, cat, tags: tags as string[], desc, img, course, href }));
+];
+
+const projects: ProjectItem[] = rawProjects.map(([title, cat, tags, desc, img, course, href], i) => ({
+  id: `P-${pad(i + 1)}`,
+  n: pad(i + 1),
+  title,
+  cat,
+  tags,
+  desc,
+  img,
+  course,
+  href,
+}));
 const tabs = ["Todos", "Power BI", "SQL", "n8n", "Integrales"];
 const SEL = 2;
 
@@ -55,10 +79,10 @@ const d = (i: number, step = 0.07) => `--d:${(i * step).toFixed(2)}s`;
     <div class="da-wrap hero-grid">
       <div>
         <a href={spec.href} class="hero-badge rv"><span class="live-dot"></span>{spec.name} · preventa abierta <span aria-hidden="true">→</span></a>
-        <div class="hero-eyebrow rv" style={d(1)}>Excel · SQL Server · Power BI · Python</div>
-        <h1 class="hero-h1 type rv" style={d(2)} aria-label="Domina Excel, SQL, Power BI y Python.">
+        <div class="hero-eyebrow rv" style={d(1)}>Excel · SQL Server · Power BI · Python · Power Automate</div>
+        <h1 class="hero-h1 type rv" style={d(2)} aria-label="Domina Excel, SQL, Power BI, Python y Power Automate.">
           <span class="ghost" aria-hidden="true">Domina<br /><span class="accent">Power BI.</span></span>
-          <span class="typed" aria-hidden="true" data-words="Excel.|SQL.|Power BI.|Python."><span>Domina</span><br /><span class="accent">Excel.</span><span class="h1-cursor"></span></span>
+          <span class="typed" aria-hidden="true" data-words="Excel.|SQL.|Power BI.|Python.|Power Automate."><span>Domina</span><br /><span class="accent">Excel.</span><span class="h1-cursor"></span></span>
         </h1>
         <p class="hero-p rv" style={d(3)}>Aprende las habilidades que más piden las empresas hoy, en clases en vivo y con proyectos reales.</p>
         <div class="da-row rv" style={d(4)}>
@@ -68,12 +92,12 @@ const d = (i: number, step = 0.07) => `--d:${(i * step).toFixed(2)}s`;
         <div class="explore rv" style={d(5)}>
           <span>Explora:</span>
           <a href={spec.href}>Data Analyst <em>Abierto</em></a>
-          {courses.slice(0, 4).map((c) => <a href={c.href}>{c.short}</a>)}
+          {specCourses.map((c) => <a href={c.href}><img src={c.logo} alt="" />{c.short}</a>)}
         </div>
       </div>
 
       <div class="hero-visual rv" style={d(2)}>
-        <div class="float-badge fb-top"><span class="fb-ico">✓</span><div><b>Certificado oficial</b><span>Data Academy · con proyecto</span></div></div>
+        <div class="float-badge fb-top"><span class="fb-ico"><img src="/img/logo/logo_pestana.png" alt="" /></span><div><b>Certificado oficial</b><span>Data Academy · con proyecto</span></div></div>
         <div class="sqlcard">
           <div class="sql-bar">
             <div class="row-tight"><span class="d"></span><span class="d"></span><span class="d on"></span><b>resultados.sql</b></div>
@@ -94,7 +118,7 @@ const d = (i: number, step = 0.07) => `--d:${(i * step).toFixed(2)}s`;
           ))}
           <div class="sql-foot"><span>4 filas · 0.02 s</span></div>
         </div>
-        <div class="float-badge fb-bottom"><span class="da-avatars">{teachers.map((t) => <img src={t.photo} alt="" />)}</span><div><b>Docentes en ejercicio</b><span>{teachers.slice(0, 3).map((t) => t.company).join(" · ")}</span></div></div>
+        <div class="float-badge fb-bottom"><span class="da-avatars">{teachers.map((t) => <img src={t.photo} alt={t.name} />)}</span><div><b>Docentes en ejercicio</b><span>{teachers.slice(0, 4).map((t) => t.company).join(" · ")}</span></div></div>
       </div>
     </div>
     <div class="da-wrap">
@@ -128,7 +152,7 @@ const d = (i: number, step = 0.07) => `--d:${(i * step).toFixed(2)}s`;
     <a href={spec.href} class="path dark rv" style={d(1)}>
       <span class="path-tag">Ruta completa</span>
       <h3>{spec.name}</h3>
-      <p>4 cursos + proyecto integrador. {spec.hours} en vivo por S/ {PRICE.spec} en preventa.</p>
+      <p>{specCourses.length} cursos + proyecto integrador. {spec.hours} en vivo por S/ {PRICE.spec} en preventa.</p>
       <span class="da-link">Ver la especialización <span aria-hidden="true">→</span></span>
       <svg class="path-art" viewBox="0 0 80 80" aria-hidden="true"><circle cx="46" cy="40" r="32" fill="rgba(255,255,255,.08)" /><rect x="22" y="44" width="9" height="22" rx="2" fill="#5DD8E8" opacity=".6" /><rect x="36" y="32" width="9" height="34" rx="2" fill="#5DD8E8" opacity=".8" /><rect x="50" y="18" width="9" height="48" rx="2" fill="#5DD8E8" /></svg>
     </a>
@@ -194,7 +218,7 @@ const d = (i: number, step = 0.07) => `--d:${(i * step).toFixed(2)}s`;
 
       <div class="eco rv">
         <div><h3>Las herramientas cambian.<br />El criterio permanece.</h3><span>Ecosistema que usarás</span></div>
-        {ecosystem.map(([cat, items]) => <div><h4>{cat}</h4><div class="eco-chips">{items.map((x) => <span>{x}</span>)}</div></div>)}
+        {ecosystem.map(([cat, items]) => <div><h4>{cat}</h4><div class="eco-chips">{items.map((x) => <span>{toolIconMap[x] && <img src={toolIconMap[x]} alt="" loading="lazy" />}{x}</span>)}</div></div>)}
       </div>
     </div>
   </section>
@@ -281,6 +305,7 @@ const d = (i: number, step = 0.07) => `--d:${(i * step).toFixed(2)}s`;
   .hero-p { margin: 22px 0 0; max-width: 480px; font-size: 17px; line-height: 1.6; color: rgba(255, 255, 255, .72); }
   .explore { margin-top: 26px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 12px; color: rgba(255, 255, 255, .55); }
   .explore a { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .14); color: #fff; font-weight: 600; transition: border-color .25s, background .25s; }
+  .explore a img { width: 15px; height: 15px; object-fit: contain; }
   .explore a:hover { border-color: rgba(255, 255, 255, .4); background: rgba(255, 255, 255, .05); color: #fff; }
   .explore em { font-style: normal; font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 1px 6px; border-radius: 999px; background: #5DD8E8; color: var(--navy); }
 
@@ -305,7 +330,8 @@ const d = (i: number, step = 0.07) => `--d:${(i * step).toFixed(2)}s`;
   .float-badge > div > span { display: block; font-size: 11px; color: var(--text-muted); }
   .fb-top { top: -4px; right: -12px; }
   .fb-bottom { bottom: 0; left: -16px; animation-delay: -2.5s; }
-  .fb-ico { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 8px; background: var(--navy); color: #5DD8E8; font-weight: 800; }
+  .fb-ico { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 8px; background: var(--navy); color: #5DD8E8; font-weight: 800; padding: 4px; }
+  .fb-ico img { width: 100%; height: 100%; object-fit: contain; }
   .hero-stats { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); padding: 28px 0 40px; border-top: 1px solid rgba(255, 255, 255, .1); }
   .hero-stats div { padding: 0 24px; border-left: 1px solid rgba(255, 255, 255, .12); }
   .hero-stats div:first-child { padding-left: 0; border-left: 0; }
@@ -380,7 +406,8 @@ const d = (i: number, step = 0.07) => `--d:${(i * step).toFixed(2)}s`;
   .eco > div:first-child > span { display: block; margin-top: 6px; font-size: 13px; color: var(--text-muted); }
   .eco h4 { margin: 0 0 10px; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); }
   .eco-chips { display: flex; flex-wrap: wrap; gap: 6px; }
-  .eco-chips span { padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border-color); font-size: 12.5px; font-weight: 600; transition: border-color .25s, color .25s; }
+  .eco-chips span { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border-color); font-size: 12.5px; font-weight: 600; transition: border-color .25s, color .25s; }
+  .eco-chips span img { width: 15px; height: 15px; object-fit: contain; }
   .eco-chips span:hover { border-color: var(--accent-color); color: var(--accent-color); }
 
   .teach-grid { margin-top: 36px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 18px; }

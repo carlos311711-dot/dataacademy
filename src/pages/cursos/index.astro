@@ -23,10 +23,15 @@ const count = (a: string) => courses.filter((c) => c.area === a).length;
       </div>
       <div class="mini rv" style="--d:.14s">
         <div class="mini-mods">
-          {specCourses.map((c, i) => <div style={`--d:${(0.3 + i * 0.1).toFixed(2)}s`}><span>{pad(i + 1)}</span><b>{c.short}</b></div>)}
+          {specCourses.map((c, i) => (
+            <div style={`--d:${(0.3 + i * 0.08).toFixed(2)}s`}>
+              <div class="mini-top"><span>{pad(i + 1)}</span><img src={c.logo} alt="" loading="lazy" /></div>
+              <b>{c.short}</b>
+            </div>
+          ))}
         </div>
         <div class="mini-line"><span></span></div>
-        <div class="mini-spec"><small>Especialización</small><b>{spec.name.replace("Especialización ", "")}</b><em>4 cursos · {spec.hours}</em></div>
+        <div class="mini-spec"><img class="spec-logo" src="/img/logo/logo_pestana.png" alt="" /><div><small>Especialización</small><b>{spec.name.replace("Especialización ", "")}</b></div><em>{specCourses.length} cursos · {spec.hours}</em></div>
         <p>Elige cursos sueltos o la ruta completa.</p>
       </div>
     </div>
@@ -64,7 +69,7 @@ const count = (a: string) => courses.filter((c) => c.area === a).length;
         <p>Cada curso tiene su propio horario. Si llevas varios, te recomendamos el orden de la especialización (Excel primero).</p>
         {courses.filter((c) => c.schedule).map((c) => (
           <div class="date-row" data-area={c.area}>
-            <div><b>{c.name}</b><span>{c.schedule} · {c.classes} clases · {c.hours}</span></div>
+            <div class="date-info"><img class="date-logo" src={c.logo} alt="" loading="lazy" /><div><b>{c.name}</b><span>{c.schedule} · {c.classes} clases · {c.hours}</span></div></div>
             <a href={wa(`Hola, quiero conocer la próxima fecha del curso ${c.name}`)} target="_blank" rel="noopener" class="date-btn">Consultar próxima fecha</a>
           </div>
         ))}
@@ -100,20 +105,24 @@ const count = (a: string) => courses.filter((c) => c.area === a).length;
   .kind { margin-top: 26px; padding: 4px; border-radius: 999px; border: 1px solid var(--border-color); background: #fff; width: fit-content; }
   .kind button { border-color: transparent; }
   .mini { padding: 22px; border-radius: 22px; background: #fff; border: 1px solid var(--border-color); box-shadow: 0 40px 80px -40px rgba(6, 14, 42, .35); }
-  .mini-mods { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-  .mini-mods div { padding: 12px; border-radius: 12px; color: #fff; animation: flo 6s ease-in-out infinite; animation-delay: var(--d); }
-  .mini-mods div:nth-child(1) { background: #1D9BD6; }
-  .mini-mods div:nth-child(2) { background: #1E52C0; }
-  .mini-mods div:nth-child(3) { background: #0B8FA8; }
-  .mini-mods div:nth-child(4) { background: #142F7A; }
-  .mini-mods span { display: block; font-size: 11px; font-weight: 800; opacity: .8; }
-  .mini-mods b { font-size: 13px; }
+  .mini-mods { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .mini-mods > div { padding: 10px; border-radius: 12px; color: #fff; animation: flo 6s ease-in-out infinite; animation-delay: var(--d); display: flex; flex-direction: column; justify-content: space-between; gap: 6px; }
+  .mini-mods > div:nth-child(1) { background: #1D9BD6; }
+  .mini-mods > div:nth-child(2) { background: #1E52C0; }
+  .mini-mods > div:nth-child(3) { background: #0B8FA8; }
+  .mini-mods > div:nth-child(4) { background: #142F7A; }
+  .mini-mods > div:nth-child(5) { background: #0E5CAD; }
+  .mini-top { display: flex; align-items: center; justify-content: space-between; gap: 4px; }
+  .mini-top img { width: 20px; height: 20px; object-fit: contain; padding: 2px; border-radius: 5px; background: rgba(255, 255, 255, .92); }
+  .mini-mods span { display: block; font-size: 11px; font-weight: 800; opacity: .85; }
+  .mini-mods b { font-size: 12px; line-height: 1.15; }
   .mini-line { position: relative; height: 22px; margin: 4px 0; }
   .mini-line span { position: absolute; left: 50%; top: 50%; width: 8px; height: 8px; margin: -4px; border-radius: 50%; background: var(--accent-color); animation: ping 1.8s var(--ease) infinite; }
-  .mini-spec { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; padding: 16px 18px; border-radius: 14px; color: #fff; background: linear-gradient(115deg, #1E52C0, var(--accent-color)); }
-  .mini-spec small { width: 100%; font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
+  .mini-spec { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 16px 18px; border-radius: 14px; color: #fff; background: linear-gradient(115deg, #1E52C0, var(--accent-color)); }
+  .spec-logo { width: 34px; height: 34px; object-fit: contain; padding: 4px; border-radius: 8px; background: rgba(6, 14, 42, .35); }
+  .mini-spec small { display: block; font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
   .mini-spec b { font-family: var(--font-display); font-weight: 800; font-size: 22px; }
-  .mini-spec em { font-style: normal; font-size: 12px; opacity: .85; }
+  .mini-spec em { margin-left: auto; font-style: normal; font-size: 12px; opacity: .85; }
   .mini p { margin: 12px 0 0; font-size: 12px; color: var(--text-muted); }
 
   .block[hidden] { display: none; }
@@ -129,6 +138,8 @@ const count = (a: string) => courses.filter((c) => c.area === a).length;
   .date-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; margin-bottom: 10px; border-radius: 14px; border: 1px solid var(--border-color); background: var(--bg-light); transition: border-color .25s; }
   .date-row:hover { border-color: var(--accent-color); }
   .date-row[hidden] { display: none; }
+  .date-info { display: flex; align-items: center; gap: 12px; }
+  .date-logo { width: 32px; height: 32px; object-fit: contain; padding: 4px; border-radius: 8px; background: #fff; border: 1px solid var(--border-color); }
   .date-row b { display: block; font-size: 15px; }
   .date-row span { font-size: 13px; color: var(--text-muted); }
   .date-btn { padding: 9px 16px; border-radius: 999px; background: #1E52C0; color: #fff; font-size: 13px; font-weight: 700; transition: background .25s; }

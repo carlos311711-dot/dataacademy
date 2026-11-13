@@ -33,7 +33,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 <body>
   <header id="navbar" class="da-header">
     <div class="da-wrap da-header-in">
-      <a href="/" class="da-logo"><span class="da-logo-mark" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><path d="M28 85 53 20 78 85"/><path d="M64 50c12 0 20 8 20 20s-10 15-22 15"/></svg></span>Data Academy</a>
+      <a href="/" class="da-logo"><span class="da-logo-mark" aria-hidden="true"><img src="/img/logo/logo_pestana.png" alt="" /></span>Data Academy</a>
       <nav class="da-nav" aria-label="Principal">
         {nav.map(([href, label]) => <a href={href} class:list={{ on: path === href }}>{label}</a>)}
       </nav>
@@ -50,7 +50,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     <div class="da-wrap">
       <div class="da-footer-grid">
         <div>
-          <a href="/" class="da-logo"><span class="da-logo-mark" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><path d="M28 85 53 20 78 85"/><path d="M64 50c12 0 20 8 20 20s-10 15-22 15"/></svg></span>Data Academy</a>
+          <a href="/" class="da-logo"><span class="da-logo-mark" aria-hidden="true"><img src="/img/logo/logo_pestana.png" alt="" /></span>Data Academy</a>
           <p class="da-footer-text">Clases en vivo, proyectos reales y certificación oficial para analistas de datos en Perú y Latam.</p>
           <div class="da-footer-social">
             <a href="https://www.linkedin.com/company/data-academy-latam/" target="_blank" rel="noopener" class="da-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -70,7 +70,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
           <ul><li><a href="https://wa.me/51986575257">WhatsApp +51 986 575 257</a></li><li><a href="https://wa.me/51904882577">WhatsApp +51 904 882 577</a></li><li><a href="https://www.linkedin.com/company/data-academy-latam/" target="_blank" rel="noopener">LinkedIn</a></li></ul>
         </div>
       </div>
-      <div class="da-footer-bottom"><span>© 2026 Data Academy. Todos los derechos reservados.</span><span>Excel · SQL · Power BI · Python</span></div>
+      <div class="da-footer-bottom"><span>© 2026 Data Academy. Todos los derechos reservados.</span><span>Excel · SQL · Power BI · Python · Power Automate</span></div>
     </div>
   </footer>
 
