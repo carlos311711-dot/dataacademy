@@ -26,10 +26,13 @@ export function parseCsv(text: string): Record<string, string>[] {
 
 // Una línea por fila con CURSO y todas sus columnas: una columna nueva en el sheet llega sola al prompt.
 // Qué columnas son públicas lo decide la fórmula QUERY del sheet, no este código.
+// Ordenado por INICIO (dd/mm/yyyy → yyyymmdd) para que el modelo tome bien "la más próxima".
+const ymd = (d = "") => d.split("/").reverse().map((p) => p.padStart(2, "0")).join("");
 export const cursosTexto = (rows: Record<string, string>[]) =>
   rows
     .filter((r) => r.curso)
-    .map((r) => "- " + Object.entries(r).filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join(" | "))
+    .sort((a, b) => ymd(a.inicio).localeCompare(ymd(b.inicio)))
+    .map((r) => "- " + Object.entries(r).filter(([, v]) => v).map(([k, v]) => `${k}: ${v.replace(/\s+/g, " ")}`).join(" | "))
     .join("\n");
 
 const SHEET_ID = import.meta.env?.GOOGLE_SHEET_ID || process.env.GOOGLE_SHEET_ID;
