@@ -2,15 +2,15 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import TeacherCard from "../components/TeacherCard.astro";
 import CtaBand from "../components/CtaBand.astro";
-import { WA, wa, PRICE, PREVENTA_FIN, spec, specCourses, teachers, companies, ecosystem, faq, pad } from "../data/academy";
+import { WA, wa, PRICE, PREVENTA_FIN, spec, specCourses, teachers, companies, companyLogos, toolIconMap, ecosystem, faq, pad } from "../data/academy";
 
 const off = Math.round((1 - PRICE.spec / PRICE.specRegular) * 100);
-const save = PRICE.courseRegular * 4 - PRICE.spec;
+const save = PRICE.courseRegular * specCourses.length - PRICE.spec;
 const steps = [
-  ["Inicio", "En vivo · hora Perú"],
-  ...specCourses.map((c) => [c.name.replace(" for Data Analyst", ""), `${c.classes} clases · ${c.hours}`]),
-  [spec.final.name.replace(" final", ""), spec.final.time],
-  ["Certificado", `${spec.hours} · oficial`],
+  { title: "Inicio", sub: "En vivo · hora Perú", logo: "" },
+  ...specCourses.map((c) => ({ title: c.name.replace(" for Data Analyst", ""), sub: `${c.classes} clases · ${c.hours}`, logo: c.logo })),
+  { title: spec.final.name.replace(" final", ""), sub: spec.final.time, logo: "/img/formation/databrick2.png" },
+  { title: "Certificado", sub: `${spec.hours} · oficial`, logo: "/img/logo/logo claro_cuadrado.png" },
 ];
 ---
 
@@ -22,7 +22,7 @@ const steps = [
         <span class="da-pillnote rv"><span class="live-dot"></span>Próxima edición · preventa abierta</span>
         <div class="da-kicker rv" style="--d:.07s;margin-top:22px">Programa insignia · Data Analyst</div>
         <h1 class="da-h1 rv" style="--d:.14s">Especialización en <span class="da-pill">Data Analyst</span></h1>
-        <p class="da-lead rv" style="--d:.21s">Del Excel a Python, pasando por SQL Server y Power BI. En vivo, con docentes que trabajan en <b>{companies.slice(0, 3).join(", ")}</b> y más.</p>
+        <p class="da-lead rv" style="--d:.21s">De Excel a Python y Power Automate, pasando por SQL Server y Power BI. En vivo, con docentes que trabajan en <b>{companies.slice(0, 4).join(", ")}</b> y más.</p>
         <div class="da-row rv" style="--d:.28s">
           <a href={wa(`Hola, quiero información de la ${spec.name}`)} target="_blank" rel="noopener" class="da-btn"><i class="fab fa-whatsapp"></i> Hablar por WhatsApp</a>
           <a href="#inversion" class="da-btn da-btn-ghost">Ver inversión y cupos →</a>
@@ -39,9 +39,9 @@ const steps = [
           <p>Clases en vivo por la noche · hora Perú</p>
         </div>
         <div class="offer-body">
-          <div class="offer-row"><span>Ruta completa · 4 cursos + proyecto</span><em>−{off}%</em></div>
+          <div class="offer-row"><span>Ruta completa · {specCourses.length} cursos + proyecto</span><em>−{off}%</em></div>
           <div class="big">S/ {PRICE.spec} <s>S/ {PRICE.specRegular}</s></div>
-          <p>Preventa · ahorras S/ {save} frente al precio regular de los 4 cursos.</p>
+          <p>Preventa · ahorras S/ {save} frente al precio regular de los {specCourses.length} cursos.</p>
           <a href={wa(`Hola, quiero separar mi cupo en la ${spec.name}`)} target="_blank" rel="noopener" class="da-btn wide">Separar mi cupo →</a>
           <span class="limited"><span class="live-dot"></span>Cupos limitados</span>
         </div>
@@ -65,13 +65,20 @@ const steps = [
       <div class="route rv">
         <div class="route-head">
           <div>
-            <span class="da-kicker">La ruta · 4 cursos</span>
-            <h2 class="da-h2">Cuatro cursos, <span class="da-pill">un proyecto final.</span></h2>
+            <span class="da-kicker">La ruta · {specCourses.length} cursos</span>
+            <h2 class="da-h2">Cinco cursos, <span class="da-pill">un proyecto final.</span></h2>
           </div>
-          <div class="route-stats"><div><b>{spec.hours}</b><span>en vivo</span></div><div><b>4</b><span>cursos</span></div><div><b>4 + 1</b><span>proyectos</span></div></div>
+          <div class="route-stats"><div><b>{spec.hours}</b><span>en vivo</span></div><div><b>{specCourses.length}</b><span>cursos</span></div><div><b>{specCourses.length} + 1</b><span>proyectos</span></div></div>
         </div>
         <ol class="track">
-          {steps.map(([t, s], i) => <li class:list={["rv", { first: i === 0, end: i === steps.length - 1 }]} style={`--d:${(i * 0.12).toFixed(2)}s`}><span class="dot">{i === 0 ? "▶" : i === steps.length - 1 ? "✓" : pad(i)}</span><b>{t}</b><small>{s}</small></li>)}
+          {steps.map((s, i) => (
+            <li class:list={["rv", { first: i === 0, end: i === steps.length - 1 }]} style={`--d:${(i * 0.1).toFixed(2)}s`}>
+              <span class="dot">{i === 0 ? "▶" : i === steps.length - 1 ? "✓" : pad(i)}</span>
+              {s.logo && <img class="track-logo" src={s.logo} alt="" loading="lazy" />}
+              <b>{s.title}</b>
+              <small>{s.sub}</small>
+            </li>
+          ))}
         </ol>
       </div>
     </div>
@@ -80,7 +87,14 @@ const steps = [
   <section class="companies">
     <div class="da-wrap">
       <span>Nuestros docentes trabajan en</span>
-      <div>{companies.map((c) => <b>{c}</b>)}</div>
+      <div>
+        {companies.map((c) => (
+          <b>
+            {companyLogos[c] && <img src={companyLogos[c]} alt="" loading="lazy" />}
+            {c}
+          </b>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -109,7 +123,7 @@ const steps = [
     <div class="da-wrap plan">
       <aside>
         <div class="sticky">
-          <span class="da-kicker rv">Plan de estudios · 4 cursos</span>
+          <span class="da-kicker rv">Plan de estudios · {specCourses.length} cursos</span>
           <h2 class="da-h2 rv" style="--d:.07s">Arma tu ruta, <span class="da-pill">curso a curso.</span></h2>
           <p class="da-lead rv" style="--d:.14s">Elige la especialización completa o solo los cursos que quieras, y envía tu selección por WhatsApp.</p>
           <div class="pick rv" style="--d:.21s">
@@ -123,17 +137,19 @@ const steps = [
       </aside>
       <div class="mods">
         {specCourses.map((c, i) => {
-          const t = teachers.find((x) => x.courses.includes(c.id));
+          const t = teachers.filter((x) => x.courses.includes(c.id)).map((x) => x.name).join(" / ");
+          const price = c.price ?? PRICE.course;
           return (
-            <article class="mod rv" data-name={c.name}>
+            <article class="mod rv" data-name={c.name} data-price={price}>
               <div class="mod-head">
                 <span class="mod-n">{pad(i + 1)}</span>
+                <img class="mod-logo" src={c.logo} alt={c.short} loading="lazy" />
                 <div class="grow">
                   <span class="mod-meta">Curso {pad(i + 1)} · {c.schedule}</span>
                   <h3>{c.name}</h3>
-                  <span class="mod-sub">{c.classes} clases · {c.hours} en vivo{t && ` · ${t.name}`}</span>
+                  <span class="mod-sub">{c.classes} clases · {c.hours} en vivo{t && ` · ${t}`}</span>
                 </div>
-                <div class="mod-price"><s>S/ {PRICE.courseRegular}</s><b>S/ {PRICE.course}</b><span>preventa</span></div>
+                <div class="mod-price"><s>S/ {PRICE.courseRegular}</s><b>S/ {price}</b><span>preventa</span></div>
               </div>
               <ul class="checks">{c.syllabus.map((s) => <li>{s}</li>)}</ul>
               <p class="result"><b>Proyecto:</b> {c.project}.</p>
@@ -146,7 +162,8 @@ const steps = [
         })}
         <article class="mod final rv">
           <div class="mod-head">
-            <span class="mod-n">05</span>
+            <span class="mod-n">{pad(specCourses.length + 1)}</span>
+            <img class="mod-logo" src="/img/formation/databrick2.png" alt="Proyecto final" loading="lazy" />
             <div class="grow"><span class="mod-meta">Proyecto final · {spec.final.time}</span><h3>{spec.final.name}</h3><span class="mod-sub">{spec.final.desc}</span></div>
             <div class="mod-price"><b>Incluido</b><span>en la especialización</span></div>
           </div>
@@ -155,6 +172,7 @@ const steps = [
         <article class="mod bonus rv">
           <div class="mod-head">
             <span class="mod-n">+</span>
+            <img class="mod-logo" src="/img/logo/logo claro_cuadrado.png" alt="Bono" loading="lazy" />
             <div class="grow"><span class="mod-meta">Bono</span><h3>{spec.bonus.name}</h3><span class="mod-sub">{spec.bonus.desc}</span></div>
             <div class="mod-price"><b>Gratis</b><span>incluido</span></div>
           </div>
@@ -169,7 +187,14 @@ const steps = [
       <span class="da-kicker rv">Ecosistema</span>
       <h2 class="da-h2 rv" style="--d:.07s">Las herramientas de los <span class="da-pill">equipos de datos.</span></h2>
       <div class="eco">
-        {ecosystem.map(([cat, items], i) => <div class="rv" style={`--d:${(i * 0.07).toFixed(2)}s`}><h4>{cat}</h4><div class="chips">{items.map((x) => <span>{x}</span>)}</div></div>)}
+        {ecosystem.map(([cat, items], i) => (
+          <div class="rv" style={`--d:${(i * 0.07).toFixed(2)}s`}>
+            <h4>{cat}</h4>
+            <div class="chips">
+              {items.map((x) => <span>{toolIconMap[x] && <img src={toolIconMap[x]} alt="" loading="lazy" />}{x}</span>)}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -199,7 +224,7 @@ const steps = [
         <span class="cert-k">Certificado</span>
         <b>{spec.name}</b>
         <span class="cert-line"></span><span class="cert-line short"></span>
-        <div class="cert-foot"><span>{spec.hours} académicas</span><span class="seal">DA</span></div>
+        <div class="cert-foot"><span>{spec.hours} académicas</span><span class="seal"><img src="/img/logo/logo_pestana.png" alt="DA" /></span></div>
       </div>
     </div>
   </section>
@@ -281,9 +306,10 @@ const steps = [
   const total = document.querySelector<HTMLElement>(".pick-total")!;
   const send = document.querySelector<HTMLAnchorElement>(".pick-send")!;
   const render = () => {
-    const sel = mods.filter((m) => m.classList.contains("sel")).map((m) => m.dataset.name!);
+    const picked = mods.filter((m) => m.classList.contains("sel"));
+    const sel = picked.map((m) => m.dataset.name!);
     const all = sel.length === mods.length;
-    const sum = all ? PRICE.spec : sel.length * PRICE.course;
+    const sum = all ? PRICE.spec : picked.reduce((acc, m) => acc + Number(m.dataset.price || PRICE.course), 0);
     list.innerHTML = "";
     if (!sel.length) list.innerHTML = '<li class="muted">Aún no eliges cursos</li>';
     sel.forEach((n) => { const li = document.createElement("li"); li.textContent = n; list.append(li); });
@@ -340,7 +366,7 @@ const steps = [
   .route-stats { display: flex; gap: 28px; }
   .route-stats b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 30px; }
   .route-stats span { font-size: 12px; color: var(--text-muted); }
-  .track { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; text-align: center; }
+  .track { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; text-align: center; }
   .track li { position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; }
   .track li::after { content: ""; position: absolute; top: 17px; left: calc(50% + 20px); width: calc(100% - 32px); height: 3px; border-radius: 2px; background: linear-gradient(90deg, var(--accent-color), #1E52C0); transform-origin: left; transform: scaleX(0); transition: transform .8s var(--ease) calc(var(--d, 0s) + .3s); }
   .track li.in::after { transform: scaleX(1); }
@@ -348,14 +374,16 @@ const steps = [
   .dot { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; border: 3px solid var(--accent-color); background: #fff; font-size: 11px; font-weight: 800; color: #1E52C0; }
   .first .dot { background: var(--accent-color); color: #fff; }
   .end .dot { background: var(--navy); border-color: var(--navy); color: #5DD8E8; }
-  .track b { margin-top: 6px; font-size: 14px; line-height: 1.25; }
-  .track small { font-size: 12px; color: var(--text-muted); }
+  .track-logo { width: 24px; height: 24px; object-fit: contain; margin-top: 4px; }
+  .track b { margin-top: 4px; font-size: 13.5px; line-height: 1.25; }
+  .track small { font-size: 11.5px; color: var(--text-muted); }
 
   .companies { border-bottom: 1px solid var(--border-color); }
-  .companies .da-wrap { min-height: 88px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+  .companies .da-wrap { min-height: 88px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-top: 16px; padding-bottom: 16px; }
   .companies span { max-width: 240px; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); }
   .companies div { display: flex; flex-wrap: wrap; gap: 8px; }
-  .companies b { padding: 8px 14px; border-radius: 12px; border: 1px solid var(--border-color); font-size: 13px; transition: border-color .25s, transform .25s var(--ease); }
+  .companies b { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 12px; border: 1px solid var(--border-color); background: #fff; font-size: 13px; transition: border-color .25s, transform .25s var(--ease); }
+  .companies b img { height: 20px; width: auto; max-width: 72px; object-fit: contain; border-radius: 3px; }
   .companies b:hover { border-color: var(--accent-color); transform: translateY(-2px); }
 
   .goals { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: 48px; align-items: center; }
@@ -394,8 +422,9 @@ const steps = [
   .mod:hover { box-shadow: 0 30px 60px -40px rgba(6, 14, 42, .35); }
   .mod.sel { border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(0, 163, 200, .12); }
   .mod.sel::before { background: var(--accent-color); border-color: var(--accent-color); }
-  .mod-head { display: flex; gap: 16px; align-items: flex-start; }
-  .mod-n { font-family: var(--font-display); font-weight: 800; font-size: 40px; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px var(--accent-color); }
+  .mod-head { display: flex; gap: 14px; align-items: flex-start; }
+  .mod-n { font-family: var(--font-display); font-weight: 800; font-size: 38px; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px var(--accent-color); flex-shrink: 0; }
+  .mod-logo { width: 42px; height: 42px; object-fit: contain; padding: 6px; border-radius: 12px; border: 1px solid var(--border-color); background: #F7FAFE; flex-shrink: 0; }
   .mod-meta { font-family: var(--font-mono); font-size: 11px; color: var(--accent-color); }
   .mod h3 { margin: 4px 0 0; font-family: var(--font-display); font-weight: 800; font-size: 22px; letter-spacing: -.015em; }
   .mod-sub { display: block; margin-top: 4px; font-size: 13px; line-height: 1.5; color: var(--text-muted); }
@@ -419,7 +448,8 @@ const steps = [
   .eco > div:hover { border-color: var(--accent-color); transform: translateY(-3px); }
   .eco h4 { margin: 0 0 12px; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); }
   .chips { display: flex; flex-wrap: wrap; gap: 6px; }
-  .chips span { padding: 5px 12px; border-radius: 999px; background: var(--bg-light); font-size: 13px; font-weight: 600; }
+  .chips span { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; background: var(--bg-light); font-size: 13px; font-weight: 600; }
+  .chips span img { width: 16px; height: 16px; object-fit: contain; }
 
   .teach { margin-top: 36px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 18px; }
 
@@ -433,7 +463,8 @@ const steps = [
   .cert-line { height: 8px; width: 70%; border-radius: 4px; background: var(--bg-light); }
   .cert-line.short { width: 45%; }
   .cert-foot { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; font-size: 12px; color: var(--text-muted); }
-  .seal { width: 56px; height: 56px; display: grid; place-items: center; border-radius: 50%; background: var(--navy); color: #5DD8E8; font-family: var(--font-display); font-weight: 800; box-shadow: 0 0 0 4px #fff, 0 0 0 6px var(--accent-color); }
+  .seal { width: 56px; height: 56px; display: grid; place-items: center; border-radius: 50%; background: var(--navy); color: #5DD8E8; font-family: var(--font-display); font-weight: 800; box-shadow: 0 0 0 4px #fff, 0 0 0 6px var(--accent-color); padding: 10px; }
+  .seal img { width: 100%; height: 100%; object-fit: contain; }
 
   .prices { margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; }
   .price-card { padding: 28px; border-radius: 22px; border: 1px solid rgba(255, 255, 255, .12); background: rgba(255, 255, 255, .04); display: flex; flex-direction: column; transition: transform .35s var(--ease), border-color .35s, opacity .8s var(--ease) var(--d, 0s), translate .8s var(--ease) var(--d, 0s); }

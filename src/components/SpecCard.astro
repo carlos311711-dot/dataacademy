@@ -14,8 +14,8 @@ const off = Math.round((1 - PRICE.spec / PRICE.specRegular) * 100);
     <p class="lead">{spec.lead}</p>
     <div class="facts">
       <div><span>Duración</span><b>{spec.hours}</b></div>
-      <div><span>Cursos</span><b>4</b></div>
-      <div><span>Proyectos</span><b>4 + 1</b></div>
+      <div><span>Cursos</span><b>{specCourses.length}</b></div>
+      <div><span>Proyectos</span><b>{specCourses.length} + 1</b></div>
       <div><span>Modalidad</span><b>En vivo</b></div>
     </div>
     <div class="price"><span class="small">Preventa · separa con S/ {PRICE.deposit}</span><div><b>S/ {PRICE.spec}</b> <s>S/ {PRICE.specRegular}</s> <em>−{off}%</em></div></div>
@@ -26,17 +26,34 @@ const off = Math.round((1 - PRICE.spec / PRICE.specRegular) * 100);
   </div>
   {timeline ? (
     <ol class="steps">
-      {specCourses.map((c, i) => <li style={`--d:${(0.2 + i * 0.1).toFixed(2)}s`}><b>{c.name}</b><span>Curso {pad(i + 1)} · {c.hours}{c.classes ? ` · ${c.classes} clases` : ""}</span></li>)}
-      <li style="--d:.6s"><b>{spec.final.name}</b><span>{spec.final.time} · para tu portafolio</span></li>
-      <li class="done" style="--d:.7s"><b>Certificado oficial</b><span>Data Academy · {spec.hours}</span></li>
+      {specCourses.map((c, i) => (
+        <li style={`--d:${(0.15 + i * 0.08).toFixed(2)}s`}>
+          <div class="step-row">
+            <img class="step-logo" src={c.logo} alt="" loading="lazy" />
+            <div><b>{c.name}</b><span>Curso {pad(i + 1)} · {c.hours}{c.classes ? ` · ${c.classes} clases` : ""}</span></div>
+          </div>
+        </li>
+      ))}
+      <li style="--d:.6s">
+        <div class="step-row">
+          <img class="step-logo" src="/img/formation/databrick2.png" alt="" loading="lazy" />
+          <div><b>{spec.final.name}</b><span>{spec.final.time} · para tu portafolio</span></div>
+        </div>
+      </li>
+      <li class="done" style="--d:.7s">
+        <div class="step-row">
+          <img class="step-logo" src="/img/logo/logo_pestana.png" alt="" loading="lazy" />
+          <div><b>Certificado oficial</b><span>Data Academy · {spec.hours}</span></div>
+        </div>
+      </li>
     </ol>
   ) : (
     <div class="tiles">
       <div class="tile"><b>{spec.hours}</b><span>de formación en vivo</span></div>
-      <div class="tile"><b>4 + 1</b><span>proyectos e integrador</span></div>
+      <div class="tile"><b>{specCourses.length} + 1</b><span>proyectos e integrador</span></div>
       <div class="tile hl"><b>S/ {PRICE.spec}</b><span>preventa · antes S/ {PRICE.specRegular}</span></div>
       <div class="tile"><b>Oficial</b><span>certificado Data Academy</span></div>
-      <div class="tile wide"><span class="da-avatars">{teachers.map((t) => <img src={t.photo} alt="" />)}</span><span>Docentes de {teachers.map((t) => t.company).join(", ")}</span></div>
+      <div class="tile wide"><span class="da-avatars">{teachers.map((t) => <img src={t.photo} alt={t.name} />)}</span><span>Docentes de {teachers.map((t) => t.company).join(", ")}</span></div>
     </div>
   )}
 </div>
@@ -69,6 +86,9 @@ const off = Math.round((1 - PRICE.spec / PRICE.specRegular) * 100);
   .steps li.done::before { content: "✓"; display: grid; place-items: center; font-size: 10px; color: var(--navy); background: #5DD8E8; }
   .steps b { display: block; font-size: 15px; }
   .steps span { font-size: 12px; color: rgba(255, 255, 255, .6); }
+  .step-row { display: flex; align-items: center; gap: 12px; }
+  .step-logo { width: 28px; height: 28px; object-fit: contain; padding: 4px; border-radius: 8px; background: rgba(255, 255, 255, .92); flex-shrink: 0; }
+  .steps li.done .step-logo { background: rgba(255, 255, 255, .12); }
   .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-content: center; }
   .tile { padding: 18px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, .1); background: rgba(255, 255, 255, .04); transition: border-color .3s, background .3s; }
   .tile:hover { border-color: rgba(93, 216, 232, .45); background: rgba(255, 255, 255, .07); }

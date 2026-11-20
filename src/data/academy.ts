@@ -11,18 +11,35 @@ export const PREVENTA_FIN = "2026-11-11T23:59:00-05:00";
 
 export const PRICE = { course: 199, courseRegular: 299, spec: 897, specRegular: 1499, deposit: 50 };
 
-export type Teacher = { id: string; name: string; tool: string; role: string; company: string; photo: string; bio: string; courses: string[]; zoom?: number; focus?: string };
+export type Teacher = { id: string; name: string; tool: string; toolLogos: string[]; role: string; company: string; companyLogo: string; photo: string; bio: string; courses: string[] };
 export const teachers: Teacher[] = [
-  { id: "jhon", name: "Jhon Velasque", tool: "Excel & SQL", role: "Data Analytics Engineer", company: "RIMAC Seguros", photo: "/img/profes/1.png", zoom: 2.2, focus: "82% 0%",
-    bio: "Transforma procesos de negocio con Excel y SQL. Enseña con casos reales de su día a día en RIMAC Seguros.", courses: ["excel", "sql"] },
-  { id: "richard", name: "Richard Ñahui", tool: "SQL", role: "Data Engineer", company: "vooxell", photo: "/img/profes/2.png",
-    bio: "Arquitecta bases de datos y desarrolla pipelines de datos eficientes en entornos empresariales.", courses: [] },
-  { id: "junior", name: "Junior Candela", tool: "Power BI", role: "Data Analytics Engineer", company: "Jockey Plaza", photo: "/img/profes/3.png",
+  { id: "jhon", name: "Jhon Velasque", tool: "Excel & SQL", toolLogos: ["/img/formation/3Excel.png", "/img/formation/sql.png"], role: "Data Analytics Engineer", company: "RIMAC Seguros", companyLogo: "/img/empresas/rimac.png", photo: "/img/profes/jhon.png",
+    bio: "Transforma procesos de negocio con Excel, SQL y automatización. Enseña con casos reales de su día a día en RIMAC Seguros.", courses: ["excel", "power-automate", "workshop"] },
+  { id: "jordan", name: "Jordan de la Cruz", tool: "SQL", toolLogos: ["/img/formation/sql.png"], role: "Data Analytics", company: "Credicorp Capital", companyLogo: "/img/empresas/credicorp.png", photo: "/img/profes/jordan.png",
+    bio: "Especialista en analítica de datos y consultas avanzadas en SQL Server aplicadas al sector financiero en Credicorp Capital.", courses: ["sql"] },
+  { id: "daniel", name: "Daniel Surichaque", tool: "Power BI", toolLogos: ["/img/formation/4Powerbi.png"], role: "Data Analytics", company: "Interbank", companyLogo: "/img/empresas/interbank.png", photo: "/img/profes/daniel.png",
+    bio: "Especialista en Business Intelligence y visualización ejecutiva de datos con Power BI en el sector bancario en Interbank.", courses: ["powerbi"] },
+  { id: "junior", name: "Junior Candela", tool: "Power BI", toolLogos: ["/img/formation/4Powerbi.png"], role: "Data Analytics Engineer", company: "Jockey Plaza", companyLogo: "/img/empresas/jockey.png", photo: "/img/profes/junior.png",
     bio: "Especialista en BI: construye dashboards interactivos que guían decisiones estratégicas en Jockey Plaza.", courses: ["powerbi"] },
-  { id: "christian", name: "Christian Condori", tool: "Python", role: "Data Engineer", company: "bluetab (IBM)", photo: "/img/profes/4.png",
+  { id: "christian", name: "Christian Condori", tool: "Python", toolLogos: ["/img/formation/5Python.png"], role: "Data Engineer", company: "bluetab (IBM)", companyLogo: "/img/empresas/bluetab.png", photo: "/img/profes/christian.png",
     bio: "Domina Python y PySpark para análisis avanzado, limpieza masiva de datos y automatización.", courses: ["python"] },
+  { id: "richard", name: "Richard Ñahui", tool: "SQL", toolLogos: ["/img/formation/sql.png"], role: "Data Engineer", company: "vooxell", companyLogo: "/img/empresas/vooxell.png", photo: "/img/profes/richard.png",
+    bio: "Arquitecta bases de datos y desarrolla pipelines de datos eficientes en entornos empresariales.", courses: ["sql"] },
 ];
 export const companies = [...new Set(teachers.map((t) => t.company))];
+export const companyLogos: Record<string, string> = Object.fromEntries(teachers.map((t) => [t.company, t.companyLogo]));
+export const toolIconMap: Record<string, string> = {
+  "Excel": "/img/formation/3Excel.png",
+  "SQL": "/img/formation/sql.png",
+  "SQL Server": "/img/formation/2sqlserver.png",
+  "Power BI": "/img/formation/4Powerbi.png",
+  "Python": "/img/formation/5Python.png",
+  "Power Automate": "/img/formation/8Autiamte.png",
+  "n8n": "/img/formation/6n8n.png",
+  "Azure": "/img/formation/10AZURE.png",
+  "GCP": "/img/formation/9GCP.png",
+  "Databricks": "/img/formation/databrick2.png",
+};
 
 export type Course = {
   id: string; n: number; name: string; short: string; area: string; hours: string; classes: number; logo: string; href: string;
@@ -48,26 +65,26 @@ export const courses: Course[] = [
     art: { kind: "code", lines: ["import pandas as pd", "df = pd.read_csv('ventas.csv')", "df.groupby('mes').sum()"] },
     project: "Análisis exploratorio (EDA) en Jupyter",
     syllabus: ["Python desde cero: variables, bucles y funciones", "Pandas: lectura, limpieza y combinación", "NumPy para operaciones numéricas", "Visualización con Matplotlib y Seaborn", "Series temporales y automatización de archivos"] },
-  { id: "workshop", n: 5, name: "Workshop: Tu Primer Proyecto DA", short: "Workshop", area: "Proyectos", hours: "15 h", classes: 0, logo: "/img/formation/databrick2.png", href: "/cursos/workshop-data-analyst",
+  { id: "power-automate", n: 5, name: "Power Automate for Data Analyst", short: "Power Automate", area: "Automatización", hours: "12 h", classes: 4, logo: "/img/formation/8Autiamte.png", href: "/cursos/power-automate",
+    desc: "Automatiza el refresco de reportes, consolida Excel desde correos y crea alertas de negocio.", schedule: "Lun y mié · 8:00–11:00 p. m.", price: 129, inSpec: true, art: { kind: "nodes" },
+    project: "Flujo end-to-end para tu portafolio",
+    syllabus: ["Refresco automático de reportes", "Consolidación de Excel desde correos", "Alertas de negocio", "Integración con Power BI, Excel y SQL"] },
+  { id: "workshop", n: 6, name: "Workshop: Tu Primer Proyecto DA", short: "Workshop", area: "Proyectos", hours: "15 h", classes: 0, logo: "/img/formation/databrick2.png", href: "/cursos/workshop-data-analyst",
     desc: "Proyecto end-to-end con Python, Databricks, Power BI y Power Automate. Incluye creación de portafolio.", schedule: "Lun y mié · 8:00–11:00 p. m.", price: 149, inSpec: false, art: { kind: "nodes" },
     project: "Proyecto end-to-end para tu portafolio",
     syllabus: ["Ingesta y limpieza con Python", "Procesamiento en Databricks", "Dashboard en Power BI", "Automatización con Power Automate", "Publicación en tu portafolio"] },
-  { id: "power-automate", n: 6, name: "Power Automate for Data Analyst", short: "Power Automate", area: "Automatización", hours: "12 h", classes: 4, logo: "/img/formation/8Autiamte.png", href: "/cursos/power-automate",
-    desc: "Automatiza el refresco de reportes, consolida Excel desde correos y crea alertas de negocio.", schedule: "Lun y mié · 8:00–11:00 p. m.", price: 129, inSpec: false, art: { kind: "nodes" },
-    project: "Flujo end-to-end para tu portafolio",
-    syllabus: ["Refresco automático de reportes", "Consolidación de Excel desde correos", "Alertas de negocio", "Integración con Power BI, Excel y SQL"] },
 ];
-export const areas = ["Excel", "SQL", "Power BI", "Python", "Proyectos", "Automatización"];
+export const areas = ["Excel", "SQL", "Power BI", "Python", "Automatización", "Proyectos"];
 
 export const spec = {
   name: "Especialización Data Analyst",
   href: "/ruta-analista",
   hours: "150 h",
-  lead: "De Excel a Python, pasando por SQL Server y Power BI: 4 cursos en vivo y un proyecto integrador para tu portafolio.",
-  final: { name: "Proyecto integrador final", time: "2 semanas", desc: "De datos dispersos a insights gerenciales: cargas los datos en SQL Server, modelas el negocio y presentas en Power BI.",
+  lead: "De Excel a Python y Power Automate, pasando por SQL Server y Power BI: 5 cursos en vivo y un proyecto integrador para tu portafolio.",
+  final: { name: "Proyecto integrador final", time: "2 semanas", desc: "De datos dispersos a insights gerenciales: cargas los datos en SQL Server, modelas el negocio, automatizas flujos y presentas en Power BI.",
     syllabus: ["Definición del problema de negocio e indicadores", "Scripts y carga en SQL Server", "Modelado dimensional en Power BI", "Presentación final ante directivos (simulación)"] },
-  bonus: { name: "Workshop de automatización", desc: "Taller en vivo incluido: automatiza el refresco de reportes y flujos de datos con Power Automate." },
-  includes: ["4 cursos en vivo (Excel, SQL, Power BI, Python)", "Proyecto integrador para tu portafolio", "Workshop de automatización incluido", "Certificado oficial Data Academy", "Bonos: CV de analista + plan financiero"],
+  bonus: { name: "Workshop de proyecto End-to-End", desc: "Taller en vivo incluido: integra Python, Databricks, Power BI y Power Automate en un caso integral." },
+  includes: ["5 cursos en vivo (Excel, SQL, Power BI, Python, Power Automate)", "Proyecto integrador para tu portafolio", "Workshop práctico incluido", "Certificado oficial Data Academy", "Bonos: CV de analista + plan financiero"],
   roles: ["Data Analyst", "BI Analyst", "Analista de reportes", "Analista comercial", "Analista financiero"],
 };
 export const specCourses = courses.filter((c) => c.inSpec);

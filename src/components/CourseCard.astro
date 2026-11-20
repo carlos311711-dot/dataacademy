@@ -1,9 +1,9 @@
 ---
-import { PRICE, spec, teachers, pad, type Course } from "../data/academy";
+import { PRICE, spec, specCourses, teachers, pad, type Course } from "../data/academy";
 interface Props { course: Course; index?: number; detailed?: boolean }
 const { course: c, index = 0, detailed = false } = Astro.props;
 const teacher = teachers.find((t) => t.courses.includes(c.id));
-const total = 4;
+const total = specCourses.length;
 ---
 <a href={c.href} class="course rv" style={`--d:${(index * 0.07).toFixed(2)}s`} data-area={c.area}>
   <div class:list={["art", `art-${c.art.kind}`]} aria-hidden="true">
