@@ -1,0 +1,53 @@
+<mxfile host="app.diagrams.net" modified="2026-11-14T00:10:00.000Z" agent="Antigravity" version="24.0.0">
+  <diagram id="diagram_sample" name="Arquitectura General">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Usuario -->
+        <mxCell id="node_user" value="Usuario / Navegador" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="210" width="50" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- Capa Frontend -->
+        <mxCell id="node_fe" value="&lt;b&gt;Astro Frontend&lt;/b&gt;&lt;br&gt;Data Academy UI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="230" y="220" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Capa Backend / API -->
+        <mxCell id="node_api" value="&lt;b&gt;Servicios &amp; APIs&lt;/b&gt;&lt;br&gt;Controladores y Orquestación" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="500" y="220" width="190" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Capa Base de Datos -->
+        <mxCell id="node_db" value="&lt;b&gt;Datalake / BigQuery&lt;/b&gt;&lt;br&gt;Tablas Golden &amp; Delivery" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="780" y="200" width="180" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Almacenamiento / Cache -->
+        <mxCell id="node_storage" value="&lt;b&gt;Cloud Storage&lt;/b&gt;&lt;br&gt;Archivos &amp; Recursos" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="515" y="60" width="160" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- Conexiones -->
+        <mxCell id="edge_1" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#4a86e8;fontSize=12;" edge="1" parent="1" source="node_user" target="node_fe">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge_2" value="REST / GraphQL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#4a86e8;fontSize=12;" edge="1" parent="1" source="node_fe" target="node_api">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge_3" value="SQL Queries" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#4a86e8;fontSize=12;" edge="1" parent="1" source="node_api" target="node_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge_4" value="Lectura / Escritura" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;dashed=1;strokeColor=#777777;fontSize=12;" edge="1" parent="1" source="node_api" target="node_storage">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
