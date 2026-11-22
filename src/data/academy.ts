@@ -8,6 +8,8 @@ export const WA = wa();
 
 // ponytail: fecha de cierre de preventa fija; actualizar a mano en cada edición
 export const PREVENTA_FIN = "2026-11-11T23:59:00-05:00";
+// Inicio de la Especialización: la cuenta regresiva de /ruta-analista apunta aquí
+export const INICIO_ESPECIALIZACION = "2026-12-11T20:00:00-05:00";
 
 export const PRICE = { course: 199, courseRegular: 299, spec: 897, specRegular: 1499, deposit: 50 };
 

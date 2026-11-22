@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import TeacherCard from "../components/TeacherCard.astro";
 import CtaBand from "../components/CtaBand.astro";
-import { WA, wa, PRICE, PREVENTA_FIN, spec, specCourses, teachers, companies, companyLogos, toolIconMap, ecosystem, faq, pad } from "../data/academy";
+import { WA, wa, PRICE, INICIO_ESPECIALIZACION, spec, specCourses, teachers, companies, companyLogos, toolIconMap, ecosystem, faq, pad } from "../data/academy";
 
 const off = Math.round((1 - PRICE.spec / PRICE.specRegular) * 100);
 const save = PRICE.courseRegular * specCourses.length - PRICE.spec;
@@ -32,8 +32,8 @@ const steps = [
 
       <div class="offer rv" style="--d:.14s">
         <div class="offer-top">
-          <div class="offer-row"><span>Preventa · cierra en</span><span class="tag-live">En vivo</span></div>
-          <div class="cd" data-deadline={PREVENTA_FIN}>
+          <div class="offer-row"><span>Inicio · 11 de diciembre</span><span class="tag-live">Cuenta regresiva</span></div>
+          <div class="cd" data-deadline={INICIO_ESPECIALIZACION}>
             <div><b data-u="d">--</b><span>días</span></div><div><b data-u="h">--</b><span>hrs</span></div><div><b data-u="m">--</b><span>min</span></div><div><b data-u="s">--</b><span>seg</span></div>
           </div>
           <p>Clases en vivo por la noche · hora Perú</p>
