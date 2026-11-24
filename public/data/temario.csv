@@ -21,7 +21,7 @@ SQL for Data Analyst,3,Agrupación de Datos y Funciones Agregadas,Resumen de inf
 SQL for Data Analyst,4,Relación de Tablas y Uniones de Datos,Uso de INNER JOIN, LEFT JOIN, RIGHT JOIN y FULL JOIN para conectar datos de distintas tablas.
 SQL for Data Analyst,5,Subconsultas y Expresiones de Tabla Comunes (CTEs),Escritura de subconsultas lógicas y estructuración limpia del código SQL utilizando WITH (CTEs).
 SQL for Data Analyst,6,Manipulación de Fechas, Textos y Control de Nulos,Funciones integradas para formateo de strings, operaciones de tiempo y control de valores nulos (COALESCE, ISNULL).
-SQL for Data Analyst,7,Vistas y Procedimientos Almacenados Básicos,Creación de objetos reutilizables como Views y Store Procedures sencillos para automatizar consultas frecuentes.
+SQL for Data Analyst,7,Vistas y Procedimientos Almacenados Básicos,Creación de objetos reutilizables como Views y Stored Procedures sencillos para automatizar consultas frecuentes.
 SQL for Data Analyst,8,Proyecto Integrador: KPIs de Negocio en SQL,Análisis de rentabilidad y segmentación básica de clientes usando bases de datos transaccionales.
 SQL INTERMEDIO-AVANZADO,1,Repaso de Joins Avanzados y Buenas Prácticas,Uniones complejas, optimización de queries y análisis de planes de ejecución básicos.
 SQL INTERMEDIO-AVANZADO,2,Funciones de Ventana (Window Functions) - Nivel 1,Uso de OVER con funciones de clasificación como ROW_NUMBER, RANK y DENSE_RANK.
