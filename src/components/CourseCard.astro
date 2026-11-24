@@ -5,7 +5,7 @@ const { course: c, index = 0, detailed = false } = Astro.props;
 const teacher = teachers.find((t) => t.courses.includes(c.id));
 const total = specCourses.length;
 ---
-<a href={c.href} class="course rv" style={`--d:${(index * 0.07).toFixed(2)}s`} data-area={c.area}>
+<a href={c.href} class="course rv" style={`--d:${(index * 0.07).toFixed(2)}s`} data-area={c.area} data-spec={c.inSpec ? "1" : "0"}>
   <div class:list={["art", `art-${c.art.kind}`]} aria-hidden="true">
     {c.art.kind === "code" && <pre><span class="dots"><i></i><i></i><i></i></span>{c.art.lines!.join("\n")}</pre>}
     {c.art.kind === "bars" && <div class="bars">{[40, 62, 50, 80, 68, 92].map((h, i) => <span style={`height:${h}%;animation-delay:${i * 0.08}s`}></span>)}</div>}

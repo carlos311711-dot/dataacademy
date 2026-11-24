@@ -8,8 +8,96 @@ export const WA = wa();
 
 // ponytail: fecha de cierre de preventa fija; actualizar a mano en cada edición
 export const PREVENTA_FIN = "2026-11-11T23:59:00-05:00";
+// Inicio de la Especialización: la cuenta regresiva de /ruta-analista apunta aquí
+export const INICIO_ESPECIALIZACION = "2026-12-11T20:00:00-05:00";
 
 export const PRICE = { course: 199, courseRegular: 299, spec: 897, specRegular: 1499, deposit: 50 };
+
+export const BROCHURE_SPEC = "https://drive.google.com/file/d/1tCAB9UkQQWHES419bxn8kHX-0hXLAbbR/view?usp=sharing";
+
+// =========================================================================
+// CAMPAÑA DE PROMOCIONES (edita aquí cada mes para actualizar toda la web)
+// =========================================================================
+export const PROMO_CAMPAIGN = {
+  month: "Noviembre",
+  title: "Promos de Noviembre",
+  kicker: "Promos de Noviembre · Clases en vivo",
+  heroBadge: `Promos de Noviembre · separa con S/ ${PRICE.deposit}`,
+  heroTitle: "Promos de",
+  heroAccent: "Noviembre.",
+  subtitle: "Clases 100% en vivo con docentes en ejercicio. Elige un curso, arma tu combo o lleva la especialización completa.",
+  featuredLabel: "Más elegido",
+  footerNote: "Cupos limitados",
+};
+
+export const SPEC_PROMO_BENEFITS = [
+  "Seguimiento laboral 3 meses*",
+  "Acceso a la Comunidad por 3 meses",
+  "Alertas de trabajo",
+  "Pruebas técnicas",
+  "Apoyo en tus pruebas reales",
+  "+50 proyectos de Data Analyst",
+  "Plantilla de finanzas personales",
+];
+
+export const PROMOS = [
+  {
+    name: "Especialización",
+    price: PRICE.spec,
+    regular: 2400,
+    note: "5 cursos + proyecto integrador + seguimiento",
+    hl: true,
+    logos: [
+      "/img/formation/3Excel.png",
+      "/img/formation/2sqlserver.png",
+      "/img/formation/4Powerbi.png",
+      "/img/formation/5Python.png",
+      "/img/formation/8Autiamte.png",
+      "/img/formation/CLAUDE.png",
+    ],
+    benefits: SPEC_PROMO_BENEFITS,
+    footnote: "*Solo para graduados",
+  },
+  {
+    name: "1 Curso",
+    price: 199,
+    regular: 400,
+    note: "Elige cualquier herramienta",
+    hl: false,
+    logos: [
+      "/img/formation/3Excel.png",
+      "/img/formation/2sqlserver.png",
+      "/img/formation/4Powerbi.png",
+      "/img/formation/5Python.png",
+    ],
+  },
+  {
+    name: "Dúo · 2 Cursos",
+    price: 389,
+    regular: 800,
+    note: "Combina dos herramientas a elección",
+    hl: false,
+    logos: [
+      "/img/formation/3Excel.png",
+      "/img/formation/4Powerbi.png",
+      "/img/formation/2sqlserver.png",
+      "/img/formation/5Python.png",
+    ],
+  },
+  {
+    name: "3 Cursos",
+    price: 567,
+    regular: 1200,
+    note: "Arma tu propio combo de 3 cursos",
+    hl: false,
+    logos: [
+      "/img/formation/3Excel.png",
+      "/img/formation/2sqlserver.png",
+      "/img/formation/4Powerbi.png",
+      "/img/formation/5Python.png",
+    ],
+  },
+];
 
 export type Teacher = { id: string; name: string; tool: string; toolLogos: string[]; role: string; company: string; companyLogo: string; photo: string; bio: string; courses: string[] };
 export const teachers: Teacher[] = [

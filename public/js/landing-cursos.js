@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function getTargetDaysOfWeek(daysStr) {
-        const normalized = daysStr.toUpperCase();
+        const normalized = daysStr.toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         const targetDays = [];
         if (normalized.includes("LUNES")) targetDays.push(1);
         if (normalized.includes("MARTES")) targetDays.push(2);
@@ -556,7 +556,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 dayCell.classList.add('has-class');
 
                 if (isConflictDay) {
-                    // CÃ‰LULA EN AMARILLO DE CRUCE DE HORARIOS
+                    // CÉLULA EN AMARILLO DE CRUCE DE HORARIOS
                     dayCell.classList.add('cruce-conflict');
 
                     const badge = document.createElement('span');
@@ -569,7 +569,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     classesToday.forEach(c => {
                         tooltipContent += `
                             <div class="multi-tooltip-row">
-                                <span class="bullet-${c.colorClass}">â—</span>
+                                <span class="bullet-${c.colorClass}">● </span>
                                 <strong>${c.course['CURSO']}:</strong> Clase ${c.classNum}<br>
                                 <span class="tooltip-desc">${c.topic.TEMA}</span>
                             </div>
@@ -622,7 +622,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         tooltipContent += `
                             <div class="multi-tooltip-row">
-                                <span class="bullet-${c.colorClass}">â—</span>
+                                <span class="bullet-${c.colorClass}">● </span>
                                 <strong>${c.course['CURSO']} (Sesión ${c.classNum}):</strong><br>
                                 ${c.topic.TEMA}
                             </div>
@@ -779,7 +779,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
 
             tr.querySelector('.btn-view-course').addEventListener('click', () => {
-                // Al hacer clic, seleccionamos ÃšNICAMENTE este curso para ver su syllabus individual
+                // Al hacer clic, seleccionamos ÚNICAMENTE este curso para ver su syllabus individual
                 activeCourseIds = [cc.course['N°']];
                 renderSelectors();
                 updateDashboard();

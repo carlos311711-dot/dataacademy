@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { PRICE, WA_NUMBER, courses, faq, spec, teachers } from "../../data/academy";
+import { PRICE, PROMOS, PROMO_CAMPAIGN, WA_NUMBER, courses, faq, spec, teachers } from "../../data/academy";
 import { cursosDelSheet } from "../../lib/sheet";
 
 export const prerender = false;
@@ -30,6 +30,8 @@ Cuando ayude, menciona la página correspondiente: /cursos, ${spec.href}, /profe
 DATOS:
 
 PRECIOS: cursos desde S/ ${PRICE.course} en preventa; el precio exacto de cada uno está en CURSOS. Todos tienen precio regular S/ ${PRICE.courseRegular}. Solo primeros 10 cupos. ${spec.name}: S/ ${PRICE.spec} (antes S/ ${PRICE.specRegular}). Se separa el cupo con S/ ${PRICE.deposit}; el saldo se paga hasta una semana antes de iniciar.
+
+${PROMO_CAMPAIGN.title.toUpperCase()} (en /promociones): ${PROMOS.map((p) => `${p.name} S/ ${p.price} (antes S/ ${p.regular})`).join("; ")}.
 
 ESPECIALIZACIÓN (${spec.href}): ${spec.lead} Duración ${spec.hours}. Incluye: ${spec.includes.join("; ")}. Puestos a los que apunta: ${spec.roles.join(", ")}.
 
