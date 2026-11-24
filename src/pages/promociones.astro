@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Promos from "../components/Promos.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { WA, BROCHURE_SPEC, PROMO_CAMPAIGN } from "../data/academy";
+---
+
+<BaseLayout
+  title={`${PROMO_CAMPAIGN.title} | Data Academy`}
+  description={`${PROMO_CAMPAIGN.title} en clases en vivo de Data Academy: Especialización Data Analyst S/ 897, 1 curso S/ 199, Dúo S/ 389 y 3 cursos S/ 567.`}
+>
+  <section class="da-hero-light">
+    <div class="da-wrap pg-hero">
+      <span class="da-pillnote rv"><span class="live-dot"></span>{PROMO_CAMPAIGN.heroBadge}</span>
+      <h1 class="da-h1 rv" style="--d:.07s">{PROMO_CAMPAIGN.heroTitle} <span class="da-pill">{PROMO_CAMPAIGN.heroAccent}</span></h1>
+      <p class="da-lead rv" style="--d:.14s">{PROMO_CAMPAIGN.subtitle}</p>
+      <div class="da-row rv" style="--d:.21s">
+        <a href={WA} target="_blank" rel="noopener" class="da-btn"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</a>
+        <a href={BROCHURE_SPEC} target="_blank" rel="noopener" class="da-btn da-btn-ghost"><i class="fas fa-file-pdf"></i> Descargar brochure</a>
+      </div>
+    </div>
+  </section>
+
+  <Promos compactHead />
+
+  <CtaBand title="¿Dudas sobre qué combo" accent="te conviene?" text="Escríbenos y te ayudamos a armar la ruta ideal según tu nivel y horario." />
+</BaseLayout>
+
+<style>
+  .pg-hero { padding-top: 52px; padding-bottom: 44px; max-width: 760px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .pg-hero .da-lead { margin-left: auto; margin-right: auto; }
+  .pg-hero .da-row { justify-content: center; }
+</style>

@@ -2,7 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import TeacherCard from "../components/TeacherCard.astro";
 import CtaBand from "../components/CtaBand.astro";
-import { WA, wa, PRICE, INICIO_ESPECIALIZACION, spec, specCourses, teachers, companies, companyLogos, toolIconMap, ecosystem, faq, pad } from "../data/academy";
+import Promos from "../components/Promos.astro";
+import { WA, wa, PRICE, INICIO_ESPECIALIZACION, BROCHURE_SPEC, spec, specCourses, teachers, companies, companyLogos, toolIconMap, ecosystem, faq, pad } from "../data/academy";
 
 const off = Math.round((1 - PRICE.spec / PRICE.specRegular) * 100);
 const save = PRICE.courseRegular * specCourses.length - PRICE.spec;
@@ -26,6 +27,7 @@ const steps = [
         <div class="da-row rv" style="--d:.28s">
           <a href={wa(`Hola, quiero información de la ${spec.name}`)} target="_blank" rel="noopener" class="da-btn"><i class="fab fa-whatsapp"></i> Hablar por WhatsApp</a>
           <a href="#inversion" class="da-btn da-btn-ghost">Ver inversión y cupos →</a>
+          <a href={BROCHURE_SPEC} target="_blank" rel="noopener" class="da-btn da-btn-ghost"><i class="fas fa-file-pdf"></i> Descargar brochure</a>
         </div>
         <div class="trust rv" style="--d:.35s"><span>★ 4.9/5 satisfacción</span><span>Empiezas desde cero</span><span>Separa con S/ {PRICE.deposit}</span></div>
       </div>
@@ -53,7 +55,7 @@ const steps = [
   <nav class="subnav" aria-label="Secciones del programa">
     <div class="da-wrap">
       <b>Data Analyst</b>
-      <div class="links"><a href="#programa">El programa</a><a href="#modulos">Cursos</a><a href="#docentes">Docentes</a><a href="#inversion">Inversión</a><a href="#faq">FAQ</a></div>
+      <div class="links"><a href="#programa">El programa</a><a href="#modulos">Cursos</a><a href="#docentes">Docentes</a><a href="#promos">Promos</a><a href="#inversion">Inversión</a><a href="#faq">FAQ</a></div>
       <span class="sub-price"><b>S/ {PRICE.spec}</b> · preventa · cupos limitados</span>
       <a href={WA} target="_blank" rel="noopener" class="sub-cta">Inscribirme</a>
     </div>
@@ -228,6 +230,8 @@ const steps = [
       </div>
     </div>
   </section>
+
+  <Promos />
 
   <!-- Inversión -->
   <section id="inversion" class="da-sec dark">

@@ -1,0 +1,124 @@
+---
+import { wa, BROCHURE_SPEC, PROMOS, PROMO_CAMPAIGN } from "../data/academy";
+interface Props { soft?: boolean; compactHead?: boolean }
+const { soft = false, compactHead = false } = Astro.props;
+const [featured, ...packs] = PROMOS;
+---
+<section id="promos" class:list={["da-sec", { soft, compact: compactHead }]}>
+  <div class="da-wrap">
+    {!compactHead && (
+      <div class="promo-head">
+        <div>
+          <span class="da-kicker rv">{PROMO_CAMPAIGN.kicker}</span>
+          <h2 class="da-h2 rv" style="--d:.07s">{PROMO_CAMPAIGN.heroTitle} <span class="da-pill">{PROMO_CAMPAIGN.heroAccent}</span></h2>
+        </div>
+        <a href={BROCHURE_SPEC} target="_blank" rel="noopener" class="da-link rv" style="--d:.12s">Descargar brochure de la especialización <span aria-hidden="true">→</span></a>
+      </div>
+    )}
+
+    <div class="promo-grid">
+      <!-- Especialización (Más elegido) -->
+      <div class="promo-feat rv">
+        <div class="feat-top">
+          <span class="promo-k">{featured.name}</span>
+          <em>{PROMO_CAMPAIGN.featuredLabel}</em>
+        </div>
+        <div class="feat-price">
+          <b>S/ {featured.price}</b>
+          <s>Antes S/ {featured.regular.toLocaleString("en-US")}</s>
+        </div>
+        <p class="feat-sub">{featured.note}</p>
+        <div class="promo-logos">
+          {featured.logos.map((src) => <img src={src} alt="" loading="lazy" />)}
+        </div>
+        <div class="feat-inc">
+          <span>Incluye además</span>
+          <ol>
+            {featured.benefits!.map((b) => <li>{b}</li>)}
+          </ol>
+          {featured.footnote && <small>{featured.footnote}</small>}
+        </div>
+        <a href={wa(`Hola, quiero la promo ${featured.name} (S/ ${featured.price})`)} target="_blank" rel="noopener" class="da-btn wide">
+          <i class="fab fa-whatsapp"></i> Quiero la Especialización
+        </a>
+      </div>
+
+      <!-- Packs individuales y combos -->
+      <div class="promo-packs">
+        {packs.map((p, i) => (
+          <a href={wa(`Hola, quiero la promo ${p.name} (S/ ${p.price})`)} target="_blank" rel="noopener" class="pack rv" style={`--d:${((i + 1) * 0.07).toFixed(2)}s`}>
+            <div class="pack-main">
+              <span class="promo-k">{p.name}</span>
+              <div class="pack-price">
+                <b>S/ {p.price}</b>
+                <s>Antes S/ {p.regular.toLocaleString("en-US")}</s>
+              </div>
+              <small>{p.note}</small>
+            </div>
+            <div class="pack-side">
+              <div class="promo-logos light">
+                {p.logos.map((src) => <img src={src} alt="" loading="lazy" />)}
+              </div>
+              <span class="pack-cta">Elegir <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="promo-foot rv">
+      <span><i class="fab fa-whatsapp"></i> Consultas directas al <b>+51 986 575 257</b> · {PROMO_CAMPAIGN.footerNote}</span>
+      <a href={BROCHURE_SPEC} target="_blank" rel="noopener" class="da-link">Ver brochure PDF <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .compact { padding-top: 32px; }
+  .promo-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; }
+  .promo-grid { margin-top: 36px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 20px; align-items: stretch; }
+  .compact .promo-grid { margin-top: 0; }
+
+  .promo-feat { display: flex; flex-direction: column; padding: 30px 28px; border-radius: 24px; color: #fff; background: radial-gradient(420px 320px at 100% 0%, rgba(30, 82, 192, .55), transparent 65%), linear-gradient(155deg, #0E1D4D, var(--navy)); border: 1px solid rgba(93, 216, 232, .28); box-shadow: 0 32px 64px -36px rgba(6, 14, 42, .6); }
+  .feat-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .promo-k { font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-color); }
+  .promo-feat .promo-k { color: #5DD8E8; }
+  .feat-top em { padding: 4px 11px; border-radius: 999px; background: #5DD8E8; color: var(--navy); font-style: normal; font-size: 10.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+  .feat-price { margin-top: 10px; display: flex; align-items: baseline; gap: 12px; }
+  .feat-price b { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.4rem, 4.5vw, 3.1rem); line-height: 1; letter-spacing: -.03em; }
+  .feat-price s { font-size: 14px; color: rgba(255, 255, 255, .52); }
+  .feat-sub { margin: 8px 0 0; font-size: 14px; color: rgba(255, 255, 255, .76); }
+
+  .promo-logos { margin-top: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .promo-logos img { width: 28px; height: 28px; object-fit: contain; padding: 4px; border-radius: 8px; background: rgba(255, 255, 255, .94); }
+  .promo-logos.light { margin-top: 0; justify-content: flex-end; }
+  .promo-logos.light img { width: 26px; height: 26px; background: var(--bg-light); border: 1px solid var(--border-color); }
+
+  .feat-inc { margin: 20px 0 24px; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, .12); }
+  .feat-inc span { display: block; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #5DD8E8; }
+  .feat-inc ol { margin: 12px 0 0; padding-left: 18px; display: grid; gap: 6px; font-size: 13.5px; line-height: 1.45; color: rgba(255, 255, 255, .86); }
+  .feat-inc small { display: block; margin-top: 10px; font-size: 11.5px; color: rgba(255, 255, 255, .52); }
+  .wide { width: 100%; margin-top: auto; }
+
+  .promo-packs { display: flex; flex-direction: column; gap: 14px; }
+  .pack { flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 24px; border-radius: 20px; border: 1px solid var(--border-color); background: #fff; color: var(--text-main); transition: transform .3s var(--ease), border-color .3s, box-shadow .3s, opacity .8s var(--ease) var(--d, 0s), translate .8s var(--ease) var(--d, 0s); }
+  .pack:hover { transform: translateY(-3px); border-color: var(--accent-color); box-shadow: 0 24px 50px -30px rgba(6, 14, 42, .3); color: var(--text-main); }
+  .pack-price { margin-top: 4px; display: flex; align-items: baseline; gap: 10px; }
+  .pack-price b { font-family: var(--font-display); font-weight: 800; font-size: 32px; line-height: 1.05; letter-spacing: -.025em; }
+  .pack-price s { font-size: 13px; color: var(--text-muted); }
+  .pack small { display: block; margin-top: 4px; font-size: 13px; color: var(--text-muted); }
+  .pack-side { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; flex-shrink: 0; }
+  .pack-cta { font-size: 13px; font-weight: 700; color: var(--primary-color); }
+  .pack:hover .pack-cta { color: var(--accent-color); }
+
+  .promo-foot { margin-top: 22px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px; font-size: 13px; color: var(--text-muted); }
+  .promo-foot i { color: #25D366; margin-right: 4px; }
+  .promo-foot b { color: var(--text-main); }
+
+  @media (max-width: 860px) {
+    .promo-grid { grid-template-columns: 1fr; }
+    .pack { flex-direction: column; align-items: flex-start; }
+    .pack-side { align-items: flex-start; }
+    .promo-logos.light { justify-content: flex-start; }
+  }
+</style>

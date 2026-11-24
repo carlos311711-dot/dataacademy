@@ -9,6 +9,7 @@ import { WA, courses, spec } from '../data/academy';
 const nav = [
   ['/ruta-analista', 'Especialización'],
   ['/cursos', 'Cursos'],
+  ['/promociones', 'Promociones'],
   ['/#portafolio', 'Portafolio'],
   ['/profesores', 'Docentes'],
   ['/calendario', 'Calendario'],
@@ -59,7 +60,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
         </div>
         <div>
           <h4>Formación</h4>
-          <ul><li><a href="/cursos">Catálogo de cursos</a></li><li><a href={spec.href}>{spec.name}</a></li><li><a href="/calendario">Calendario</a></li><li><a href="/profesores">Equipo docente</a></li></ul>
+          <ul><li><a href="/cursos">Catálogo de cursos</a></li><li><a href={spec.href}>{spec.name}</a></li><li><a href="/promociones">Promociones</a></li><li><a href="/calendario">Calendario</a></li><li><a href="/profesores">Equipo docente</a></li></ul>
         </div>
         <div>
           <h4>Cursos</h4>
