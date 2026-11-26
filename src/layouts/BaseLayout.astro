@@ -21,6 +21,14 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 <head>
   <link rel="icon" type="image/png" href="/img/logo/logo_pestana.png">
   <meta charset="UTF-8">
+  <!-- Consent Mode v2: todo denegado hasta que el usuario acepte en el aviso de cookies (debe ir ANTES de GTM) -->
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var c = localStorage.getItem('cookies');
+    var v = c === 'si' ? 'granted' : 'denied';
+    gtag('consent', 'default', { ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: v });
+  </script>
   <!-- Google Tag Manager -->
   <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -82,11 +90,40 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
           <ul><li><a href="https://wa.me/51986575257">WhatsApp +51 986 575 257</a></li><li><a href="https://wa.me/51904882577">WhatsApp +51 904 882 577</a></li><li><a href="https://www.linkedin.com/company/data-academy-latam/" target="_blank" rel="noopener">LinkedIn</a></li></ul>
         </div>
       </div>
-      <div class="da-footer-bottom"><span>© 2026 Data Academy. Todos los derechos reservados.</span><span>Excel · SQL · Power BI · Python · Power Automate</span></div>
+      <div class="da-footer-bottom"><span>© 2026 Data Academy. Todos los derechos reservados. · <a href="/privacidad">Privacidad y cookies</a></span><span>Excel · SQL · Power BI · Python · Power Automate</span></div>
     </div>
   </footer>
 
   <ChatBot />
+
+  <!-- ponytail: aviso simple aceptar/rechazar; panel por categorías si se suman más servicios de terceros -->
+  <div id="cookie-bar" class="cookie-bar" role="region" aria-label="Aviso de cookies" hidden>
+    <p>Usamos cookies para medir visitas y mejorar el sitio. ¿Las aceptas? <a href="/privacidad">Más información</a></p>
+    <div class="cookie-actions">
+      <button type="button" class="da-btn da-btn-sm" data-cookies="no">Rechazar</button>
+      <button type="button" class="da-btn da-btn-sm" data-cookies="si">Aceptar</button>
+    </div>
+  </div>
+  <script is:inline>
+    (() => {
+      const bar = document.getElementById('cookie-bar');
+      if (localStorage.getItem('cookies')) return;
+      bar.hidden = false;
+      bar.addEventListener('click', (e) => {
+        const r = e.target.closest('[data-cookies]')?.dataset.cookies;
+        if (!r) return;
+        localStorage.setItem('cookies', r);
+        if (r === 'si') { const g = 'granted'; gtag('consent', 'update', { ad_storage: g, ad_user_data: g, ad_personalization: g, analytics_storage: g }); }
+        bar.hidden = true;
+      });
+    })();
+  </script>
+  <style is:global>
+    .cookie-bar { position: fixed; left: 16px; bottom: 16px; z-index: 60; max-width: min(420px, calc(100% - 112px)); /* deja libre el botón del chat (abajo-derecha) */ padding: 14px 16px; border-radius: 12px; background: var(--card-bg, #fff); color: inherit; border: 1px solid var(--border-color, #e2e8f0); box-shadow: 0 8px 24px rgb(0 0 0 / .15); font-size: 14px; }
+    .cookie-bar[hidden] { display: none; }
+    .cookie-bar p { margin: 0 0 10px; }
+    .cookie-actions { display: flex; gap: 8px; justify-content: flex-end; }
+  </style>
 
   <script is:inline src="/js/script.js"></script>
   <script is:inline>

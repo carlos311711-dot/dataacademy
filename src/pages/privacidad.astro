@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { WA } from "../data/academy";
+---
+
+<BaseLayout title="Política de privacidad y cookies | Data Academy" description="Cómo Data Academy trata tus datos personales y usa cookies, conforme a la Ley N.° 29733 de Protección de Datos Personales del Perú.">
+  <article class="da-wrap legal">
+    <h1 class="da-h1">Política de privacidad y cookies</h1>
+    <p class="upd">Última actualización: 25/11/2026</p>
+
+    <p>En Data Academy respetamos tu privacidad. Esta página explica qué datos recogemos en este sitio, para qué y qué puedes hacer al respecto, conforme a la Ley N.° 29733, Ley de Protección de Datos Personales, y su reglamento.</p>
+
+    <h2>Qué datos recogemos</h2>
+    <ul>
+      <li><strong>Datos de navegación</strong>, solo si aceptas las cookies: páginas visitadas, dispositivo, navegador y país aproximado, a través de Google Tag Manager y Google Analytics.</li>
+      <li><strong>Mensajes del asistente virtual</strong>: lo que escribes en el chat se envía a Google (Gemini) para generar la respuesta. No lo guardamos ni lo asociamos a tu identidad. Te pedimos no escribir datos personales en el chat.</li>
+      <li><strong>Contacto por WhatsApp</strong>: si nos escribes, recibimos tu número y tus mensajes, que usamos solo para responder tus consultas sobre cursos e inscripciones.</li>
+    </ul>
+
+    <h2>Cookies</h2>
+    <p>Al entrar por primera vez te preguntamos si aceptas las cookies de medición. Si las rechazas, no se activan y el sitio funciona igual. Guardamos tu elección, y tu preferencia de tema claro u oscuro, en el almacenamiento local de tu navegador; esos datos no salen de tu equipo.</p>
+    <p><button type="button" class="da-btn da-btn-sm da-btn-ghost" id="cookies-reset">Cambiar mi elección de cookies</button></p>
+
+    <h2>Con quién compartimos datos</h2>
+    <p>Solo con los proveedores que hacen funcionar el sitio: Google (analítica y asistente virtual) y WhatsApp (Meta) para la mensajería. No vendemos ni cedemos tus datos a terceros para publicidad.</p>
+
+    <h2>Tus derechos</h2>
+    <p>Puedes pedir acceso, rectificación, cancelación u oposición al uso de tus datos (derechos ARCO) escribiéndonos por <a href={WA} target="_blank" rel="noopener">WhatsApp</a>. Te responderemos dentro de los plazos de ley. Si no quedas conforme, puedes acudir a la Autoridad Nacional de Protección de Datos Personales del Ministerio de Justicia y Derechos Humanos.</p>
+  </article>
+
+  <script is:inline>
+    document.getElementById("cookies-reset").addEventListener("click", () => { localStorage.removeItem("cookies"); location.reload(); });
+  </script>
+</BaseLayout>
+
+<style>
+  .legal { max-width: 760px; padding-top: 52px; padding-bottom: 64px; line-height: 1.7; }
+  .legal h2 { margin: 32px 0 8px; font-size: 1.25rem; }
+  .legal ul { padding-left: 20px; }
+  .legal li { margin-bottom: 8px; }
+  .upd { color: var(--text-muted); font-size: 14px; }
+</style>
