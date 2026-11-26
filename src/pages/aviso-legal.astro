@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { WA } from "../data/academy";
+
+// Datos del titular: completar. Los campos vacíos no se muestran.
+const LEGAL = {
+  razonSocial: "",
+  ruc: "",
+  domicilio: "",
+  email: "",
+  libroReclamaciones: "", // URL del Libro de Reclamaciones virtual (obligatorio, Indecopi)
+};
+const titular = [
+  ["Razón social", LEGAL.razonSocial],
+  ["RUC", LEGAL.ruc],
+  ["Domicilio", LEGAL.domicilio],
+  ["Correo", LEGAL.email],
+].filter(([, v]) => v);
+---
+
+<BaseLayout title="Aviso legal | Data Academy" description="Aviso legal y condiciones de uso del sitio web de Data Academy.">
+  <article class="da-wrap legal">
+    <h1 class="da-h1">Aviso legal</h1>
+    <p class="upd">Última actualización: 25/11/2026</p>
+
+    <h2>Titular del sitio</h2>
+    <p>Este sitio web pertenece a Data Academy, academia de análisis de datos con clases en vivo en Perú y Latinoamérica.</p>
+    {titular.length > 0 && <ul>{titular.map(([k, v]) => <li><strong>{k}:</strong> {v}</li>)}</ul>}
+    <p>Contacto: <a href={WA} target="_blank" rel="noopener">WhatsApp +51 986 575 257</a>.</p>
+
+    <h2>Condiciones de uso</h2>
+    <p>Al navegar por este sitio aceptas estas condiciones. Te comprometes a usarlo de forma lícita y a no dañar su funcionamiento ni intentar acceder sin autorización a sus sistemas.</p>
+
+    <h2>Cursos, precios e inscripciones</h2>
+    <p>La información de cursos, horarios, docentes y precios es referencial y puede cambiar. Los precios se expresan en soles (S/), y las promociones tienen la vigencia que se indique en cada caso. La inscripción se confirma con un asesor, que te informará antes del pago las condiciones aplicables, incluidas las de reprogramación y devolución.</p>
+
+    <h2>Asistente virtual</h2>
+    <p>El asistente del sitio usa inteligencia artificial y responde de forma orientativa a partir de la información publicada. Puede equivocarse: ante cualquier duda, la información válida es la que confirme un asesor.</p>
+
+    <h2>Propiedad intelectual</h2>
+    <p>Los textos, diseños, logotipos, materiales de los cursos y demás contenidos de este sitio pertenecen a Data Academy o a sus respectivos titulares. No está permitido copiarlos, distribuirlos ni usarlos con fines comerciales sin autorización por escrito. Las marcas de terceros (Microsoft, Google y otras) pertenecen a sus dueños y se mencionan solo para describir los contenidos de los cursos.</p>
+
+    <h2>Responsabilidad</h2>
+    <p>Procuramos que el sitio funcione sin interrupciones y que su información sea correcta, pero no garantizamos que esté libre de errores. No respondemos por el contenido de los sitios de terceros a los que enlazamos.</p>
+
+    <h2>Datos personales y cookies</h2>
+    <p>El tratamiento de tus datos se explica en la <a href="/privacidad">Política de privacidad y cookies</a>.</p>
+
+    {LEGAL.libroReclamaciones && (
+      <>
+        <h2>Libro de Reclamaciones</h2>
+        <p>Puedes registrar un reclamo o queja en nuestro <a href={LEGAL.libroReclamaciones} target="_blank" rel="noopener">Libro de Reclamaciones virtual</a>.</p>
+      </>
+    )}
+
+    <h2>Ley aplicable</h2>
+    <p>Este aviso se rige por las leyes de la República del Perú.</p>
+  </article>
+</BaseLayout>
+
+<style>
+  .legal { max-width: 760px; padding-top: 52px; padding-bottom: 64px; line-height: 1.7; }
+  .legal h2 { margin: 32px 0 8px; font-size: 1.25rem; }
+  .legal ul { padding-left: 20px; }
+  .upd { color: var(--text-muted); font-size: 14px; }
+</style>
