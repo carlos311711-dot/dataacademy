@@ -25,9 +25,13 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    var c = localStorage.getItem('cookies');
-    var v = c === 'si' ? 'granted' : 'denied';
-    gtag('consent', 'default', { ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: v });
+    // Elección guardada como JSON {stats, ads}; sin elección o inválida = todo denegado
+    function cookieConsent(c) {
+      var a = c.stats ? 'granted' : 'denied', m = c.ads ? 'granted' : 'denied';
+      return { analytics_storage: a, ad_storage: m, ad_user_data: m, ad_personalization: m };
+    }
+    var c = {}; try { c = JSON.parse(localStorage.getItem('cookies')) || {}; } catch (e) {}
+    gtag('consent', 'default', cookieConsent(c));
   </script>
   <!-- Google Tag Manager -->
   <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -96,33 +100,75 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 
   <ChatBot />
 
-  <!-- ponytail: aviso simple aceptar/rechazar; panel por categorías si se suman más servicios de terceros -->
-  <div id="cookie-bar" class="cookie-bar" role="region" aria-label="Aviso de cookies" hidden>
-    <p>Usamos cookies para medir visitas y mejorar el sitio. ¿Las aceptas? <a href="/privacidad">Más información</a></p>
-    <div class="cookie-actions">
-      <button type="button" class="da-btn da-btn-sm" data-cookies="no">Rechazar</button>
-      <button type="button" class="da-btn da-btn-sm" data-cookies="si">Aceptar</button>
+  <div id="cookie-bar" class="cookie-bar" role="region" aria-labelledby="cookie-title" hidden>
+    <div class="cookie-head">
+      <h2 id="cookie-title">Gestionar el consentimiento de las cookies</h2>
+      <button type="button" class="cookie-x" data-cookies="deny" aria-label="Cerrar y denegar cookies"><i class="fas fa-xmark" aria-hidden="true"></i></button>
     </div>
+    <p>Para ofrecerte la mejor experiencia usamos tecnologías como las cookies, que almacenan o acceden a información de tu dispositivo. Aceptarlas nos permite medir de forma agregada cómo se navega el sitio para mejorarlo. Si no las aceptas o retiras tu consentimiento, el sitio sigue funcionando igual.</p>
+    <fieldset class="cookie-prefs" id="cookie-prefs" hidden>
+      <legend class="cookie-sr">Categorías de cookies</legend>
+      <label><input type="checkbox" checked disabled /><span><strong>Funcionales</strong> Necesarias para que el sitio funcione, como tu tema y esta elección. Siempre activas.</span></label>
+      <label><input type="checkbox" name="stats" /><span><strong>Estadísticas</strong> Google Analytics: páginas visitadas y dispositivo, de forma agregada.</span></label>
+      <label><input type="checkbox" name="ads" /><span><strong>Marketing</strong> Medir el resultado de anuncios de Google.</span></label>
+    </fieldset>
+    <div class="cookie-actions">
+      <button type="button" class="da-btn da-btn-sm" data-cookies="all">Aceptar</button>
+      <button type="button" class="da-btn da-btn-sm da-btn-ghost" data-cookies="deny">Denegar</button>
+      <button type="button" class="da-btn da-btn-sm da-btn-ghost" data-cookies="prefs" aria-controls="cookie-prefs" aria-expanded="false">Ver preferencias</button>
+    </div>
+    <nav class="cookie-links" aria-label="Políticas">
+      <a href="/privacidad#cookies">Política de cookies</a>
+      <a href="/privacidad">Política de privacidad</a>
+    </nav>
   </div>
   <script is:inline>
     (() => {
       const bar = document.getElementById('cookie-bar');
+      const prefs = document.getElementById('cookie-prefs');
+      const prefsBtn = bar.querySelector('[data-cookies="prefs"]');
       if (localStorage.getItem('cookies')) return;
       bar.hidden = false;
       bar.addEventListener('click', (e) => {
-        const r = e.target.closest('[data-cookies]')?.dataset.cookies;
-        if (!r) return;
-        localStorage.setItem('cookies', r);
-        if (r === 'si') { const g = 'granted'; gtag('consent', 'update', { ad_storage: g, ad_user_data: g, ad_personalization: g, analytics_storage: g }); }
+        const act = e.target.closest('[data-cookies]')?.dataset.cookies;
+        if (!act) return;
+        if (act === 'prefs' && prefs.hidden) { // 1.er clic abre preferencias, el 2.º las guarda
+          prefs.hidden = false;
+          prefsBtn.textContent = 'Guardar preferencias';
+          prefsBtn.setAttribute('aria-expanded', 'true');
+          return;
+        }
+        const c = act === 'all' ? { stats: true, ads: true }
+          : act === 'deny' ? {}
+          : { stats: prefs.elements.stats.checked, ads: prefs.elements.ads.checked };
+        localStorage.setItem('cookies', JSON.stringify(c));
+        gtag('consent', 'update', cookieConsent(c));
         bar.hidden = true;
       });
     })();
   </script>
   <style is:global>
-    .cookie-bar { position: fixed; left: 16px; bottom: 16px; z-index: 60; max-width: min(420px, calc(100% - 112px)); /* deja libre el botón del chat (abajo-derecha) */ padding: 14px 16px; border-radius: 12px; background: var(--card-bg, #fff); color: inherit; border: 1px solid var(--border-color, #e2e8f0); box-shadow: 0 8px 24px rgb(0 0 0 / .15); font-size: 14px; }
+    .cookie-bar { position: fixed; left: 24px; bottom: 24px; z-index: 60; width: min(560px, calc(100% - 128px)); /* deja libre el botón del chat (abajo-derecha) */ max-height: calc(100dvh - 48px); overflow-y: auto; padding: 22px 24px 16px; border-radius: 14px; background: var(--card-bg); color: var(--text-main); border: 1px solid var(--border-color); box-shadow: var(--shadow-md), 0 2px 6px rgba(11, 31, 58, .06); font-size: 13.5px; line-height: 1.6; animation: cookie-in .4s var(--ease) both; }
     .cookie-bar[hidden] { display: none; }
-    .cookie-bar p { margin: 0 0 10px; }
-    .cookie-actions { display: flex; gap: 8px; justify-content: flex-end; }
+    .cookie-head { position: relative; padding: 0 36px; margin-bottom: 12px; }
+    .cookie-bar h2 { margin: 0; font-family: var(--font-display); font-size: 16px; font-weight: 800; text-align: center; color: var(--text-main); }
+    .cookie-x { position: absolute; right: -8px; top: 50%; translate: 0 -50%; display: grid; place-items: center; width: 32px; height: 32px; border: 0; border-radius: 8px; background: none; color: var(--text-main); font-size: 18px; cursor: pointer; }
+    .cookie-x:hover { background: var(--bg-light); }
+    .cookie-bar p { margin: 0 0 16px; color: var(--text-muted); }
+    .cookie-prefs { border: 0; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+    .cookie-prefs[hidden] { display: none; }
+    .cookie-prefs label { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-muted); cursor: pointer; }
+    .cookie-prefs input { margin-top: 4px; accent-color: var(--accent-color); flex: none; }
+    .cookie-prefs strong { display: block; color: var(--text-main); }
+    .cookie-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+    .cookie-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+    .cookie-actions .da-btn { width: 100%; padding-inline: 12px; }
+    .cookie-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 18px; margin-top: 14px; font-size: 12.5px; }
+    .cookie-links a { color: var(--accent-color); text-decoration: underline; text-underline-offset: 2px; }
+    html.dark-theme .cookie-bar .da-btn-ghost { background: transparent; color: var(--text-main); }
+    @keyframes cookie-in { from { opacity: 0; transform: translateY(16px); } }
+    @media (prefers-reduced-motion: reduce) { .cookie-bar { animation: none; } }
+    @media (max-width: 640px) { .cookie-bar { left: 12px; right: 12px; bottom: 88px; width: auto; max-height: calc(100dvh - 100px); padding: 18px 16px 14px; } } /* encima del botón del chat */
   </style>
 
   <script is:inline src="/js/script.js"></script>
